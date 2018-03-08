@@ -1,0 +1,14 @@
+{
+    "type": "ESRI",
+    "note": "Zip Code Tabulation Areas from the Census TIGERWEB",
+    "website": "https://www.census.gov/geo/reference/zctas.html",
+    "data": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/PUMA_TAD_TAZ_UGA_ZCTA/MapServer/1",
+    "license": "Public Domain",
+    "name": "zip_codes",
+    "humanReadableName": "Zip Codes",
+    "conform": {
+        "type": "geojson"
+    },
+    "attribution": "US Census Bureau",
+    "ttl": 108000
+}

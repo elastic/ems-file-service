@@ -1,0 +1,17 @@
+{
+  "name": "elastic-map-service-data",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Data sources to use with Elasticsearch Map Service",
+  "main": "index.js",
+  "scripts": {
+    "test": "ajv validate -s schema/source_schema.json -d 'sources/**/*.json'"
+  },
+  "keywords": [],
+  "author": "Nick Peihl <nick.peihl@elastic.co>",
+  "license": "UNLICENSED",
+  "dependencies": {},
+  "devDependencies": {
+    "ajv-cli": "^3.0.0"
+  }
+}

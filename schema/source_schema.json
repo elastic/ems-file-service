@@ -1,0 +1,122 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Source",
+    "description": "Elastic Map Service data source",
+    "type": "object",
+    "required": [
+        "type",
+        "data",
+        "name",
+        "humanReadableName"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "type": {
+            "type": "string",
+            "enum": [
+                "http",
+                "ftp",
+                "ESRI"
+            ]
+        },
+        "data": {
+            "type": "string"
+        },
+        "query": {
+            "description": "Query string parameters to append to the data",
+            "type": "object"
+        },
+        "fields": {
+            "description": "An optional array of fields/properties to keep from the source dataset",
+            "type": "array"
+        },
+        "website": {
+            "type": "string"
+        },
+        "compression": {
+            "type": "string",
+            "enum": ["zip"]
+        },
+        "license": {
+            "oneOf": [
+                {"type": "string"},
+                {"$ref": "#/definitions/license"}
+            ]
+        },
+        "attribution": {
+            "type": "string"
+        },
+        "ttl": {
+            "description": "Time to live (seconds) until we recache the data from the source",
+            "type": "integer"
+        },
+        "name": {
+            "type": "string"
+        },
+        "humanReadableName": {
+            "type": "string"
+        },
+        "conform": {
+            "$ref": "#/definitions/conform"
+        },
+        "note": {
+            "oneOf": [
+                { "type": "string" },
+                { "type": "object" }
+            ]
+        }
+    },
+    "definitions": {
+        "license": {
+            "type": "object",
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "attribution": {
+                    "type": "boolean"
+                },
+                "attribution name": {
+                    "type": "string"
+                },
+                "share-alike": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "conform": {
+            "description": "top-level conform object definition",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "geojson",
+                        "shapefile",
+                        "shapefile-polygon",
+                        "gdb",
+                        "topojson"
+                    ]
+                },
+                "srs": {
+                    "type": "string",
+                    "pattern": "EPSG:[0-9]+"
+                },
+                "file": {
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "specifies a layer to use from the GDB",
+                    "oneOf": [
+                        { "type": "integer" },
+                        { "type": "string" }
+                    ]
+                }
+            }
+        }
+    }
+}
