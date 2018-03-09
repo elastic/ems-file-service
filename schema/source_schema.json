@@ -7,7 +7,8 @@
         "type",
         "data",
         "name",
-        "humanReadableName"
+        "humanReadableName",
+        "fieldMapping"
     ],
     "additionalProperties": false,
     "properties": {
@@ -26,9 +27,9 @@
             "description": "Query string parameters to append to the data",
             "type": "object"
         },
-        "fields": {
-            "description": "An optional array of fields/properties to keep from the source dataset",
-            "type": "array"
+        "fieldMapping": {
+            "description": "Specifies map source field names or properties to elastic map service properties",
+            "type": "object"
         },
         "website": {
             "type": "string"

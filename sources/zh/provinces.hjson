@@ -1,0 +1,50 @@
+{
+    type: http
+    note:  Administrative divisions of China
+    data: https://sophox.org/regions/topojson.json
+    fieldMapping: {
+        iso_3166_2: iso_3166_2
+        label_en: label_en
+        label_zh: label_zh
+    }
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            # version 8
+            SELECT
+            (if(bound(?id2),?id2,?id) as ?id)
+            ?iso_3166_2 ?label_en ?label_zh
+            WHERE {
+            # Using nested query to ensure there is only one ?id2 value
+            {SELECT
+            ?id
+            (SAMPLE(?id2) as ?id2)
+            (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+            (SAMPLE(?label_en) as ?label_en)
+            (SAMPLE(?label_zh) as ?label_zh)
+            WHERE {
+            # List of regions, whose sub-regions we want.
+            VALUES ?entity { wd:Q148 }
+
+            # P150 = "contains administrative territorial entity"
+            ?entity wdt:P150 ?id .
+
+
+
+            OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+            OPTIONAL { ?id rdfs:label ?label_zh . FILTER(LANG(?label_zh) = "zh") }
+            OPTIONAL { ?id wdt:P300 ?iso_3166_2 }
+            }
+            # remove possible ID duplicates
+            GROUP BY ?id}
+            }
+            '''
+    }
+    name: china_provinces
+    humanReadableName: China Provinces
+    conform: {
+        type: topojson
+    }
+    ttl: 108000
+}

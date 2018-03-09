@@ -5,13 +5,16 @@
   "description": "Data sources to use with Elasticsearch Map Service",
   "main": "index.js",
   "scripts": {
-    "test": "ajv validate -s schema/source_schema.json -d 'sources/**/*.json'"
+    "test": "node test.js"
   },
   "keywords": [],
   "author": "Nick Peihl <nick.peihl@elastic.co>",
   "license": "UNLICENSED",
   "dependencies": {},
   "devDependencies": {
-    "ajv-cli": "^3.0.0"
+    "ajv": "^5.5.0",
+    "glob": "^7.1.2",
+    "hjson": "^3.1.1",
+    "tape": "^4.9.0"
   }
 }
