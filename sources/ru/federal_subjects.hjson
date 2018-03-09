@@ -1,0 +1,50 @@
+{
+    type: http
+    note:  Federal subjects of Russia
+    data: https://sophox.org/regions/topojson.json
+    fieldMapping: {
+        iso_3166_2: iso_3166_2
+        label_en: label_en
+        label_ru: label_ru
+    }
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            # version 8
+            SELECT
+            (if(bound(?id2),?id2,?id) as ?id)
+            ?iso_3166_2 ?label_en ?label_ru
+            WHERE {
+            # Using nested query to ensure there is only one ?id2 value
+            {SELECT
+            ?id
+            (SAMPLE(?id2) as ?id2)
+            (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+            (SAMPLE(?label_en) as ?label_en)
+            (SAMPLE(?label_ru) as ?label_ru)
+            WHERE {
+            # List of regions, whose sub-regions we want.
+            VALUES ?entity { wd:Q159 }
+
+            # P150 = "contains administrative territorial entity"
+            ?entity wdt:P150 ?id .
+
+
+
+            OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+            OPTIONAL { ?id rdfs:label ?label_ru . FILTER(LANG(?label_ru) = "ru") }
+            OPTIONAL { ?id wdt:P300 ?iso_3166_2 }
+            }
+            # remove possible ID duplicates
+            GROUP BY ?id}
+            }
+            '''
+    }
+    name: russia_federal_subjects
+    humanReadableName: China Federal Subjects
+    conform: {
+        type: topojson
+    }
+    ttl: 108000
+}

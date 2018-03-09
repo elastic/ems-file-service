@@ -1,0 +1,50 @@
+{
+    type: http
+    note:  Autonomous communities of Spain
+    data: https://sophox.org/regions/topojson.json
+    fieldMapping: {
+        iso_3166_2: iso_3166_2
+        label_en: label_en
+        label_zh: label_zh
+    }
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            # version 8
+            SELECT
+            (if(bound(?id2),?id2,?id) as ?id)
+            ?iso_3166_2 ?label_en ?label_es
+            WHERE {
+            # Using nested query to ensure there is only one ?id2 value
+            {SELECT
+            ?id
+            (SAMPLE(?id2) as ?id2)
+            (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+            (SAMPLE(?label_en) as ?label_en)
+            (SAMPLE(?label_es) as ?label_es)
+            WHERE {
+            # List of regions, whose sub-regions we want.
+            VALUES ?entity { wd:Q29 }
+
+            # P150 = "contains administrative territorial entity"
+            ?entity wdt:P150 ?id .
+
+
+
+            OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+            OPTIONAL { ?id rdfs:label ?label_es . FILTER(LANG(?label_es) = "es") }
+            OPTIONAL { ?id wdt:P300 ?iso_3166_2 }
+            }
+            # remove possible ID duplicates
+            GROUP BY ?id}
+            }
+            '''
+    }
+    name: spain_autonomous_communities
+    humanReadableName: Spain Autonomous Communities
+    conform: {
+        type: topojson
+    }
+    ttl: 108000
+}
