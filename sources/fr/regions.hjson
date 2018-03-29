@@ -2,11 +2,26 @@
     type: http
     note: Administrative regions of France
     data: https://sophox.org/regions/topojson.json
-    fieldMapping: {
-        iso_3166_2: iso_3166_2
-        label_en: label_en
-        label_fr: label_fr
-    }
+    fieldMapping: [
+        {
+            name: iso_3166_2
+            source: iso_3166_2
+            dest: iso_3166_2
+            desc: ISO-3166-2 identifier
+        }
+        {
+            name: label_en
+            source: label_en
+            dest: iso_3166_2
+            desc: Region name (English)
+        }
+        {
+            name: label_fr
+            source: label_fr
+            dest: label_fr
+            desc: Region name (French)
+        }
+    ]
     query: {
         sparql:
             '''
@@ -14,7 +29,7 @@
             # version 8
             SELECT
             (if(bound(?id2),?id2,?id) as ?id)
-            ?iso_3166_2 ?label_en ?label_fr
+            ?iso_3166_2 ?label_en ?label_fr ?insee
             WHERE {
             # Using nested query to ensure there is only one ?id2 value
             {SELECT
@@ -23,6 +38,7 @@
             (SAMPLE(?iso_3166_2) as ?iso_3166_2)
             (SAMPLE(?label_en) as ?label_en)
             (SAMPLE(?label_fr) as ?label_fr)
+            (SAMPLE(?insee) as ?insee)
             WHERE {
             # List of regions, whose sub-regions we want.
             VALUES ?entity { wd:Q142 }
@@ -35,6 +51,7 @@
             OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
             OPTIONAL { ?id rdfs:label ?label_fr . FILTER(LANG(?label_fr) = "fr") }
             OPTIONAL { ?id wdt:P300 ?iso_3166_2 }
+            OPTIONAL { ?id wdt:P2585 ?insee }
             }
             # remove possible ID duplicates
             GROUP BY ?id}
