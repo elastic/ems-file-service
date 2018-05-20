@@ -1,6 +1,6 @@
 {
     type: http
-    note:  States of Germany
+    note: Administrative departments of France
     data: https://sophox.org/regions/geojson.json
     fieldMapping: [
         {
@@ -13,13 +13,19 @@
             name: label_en
             source: label_en
             dest: label_en
-            desc: State name (English)
+            desc: Department name (English)
         }
         {
-            name: label_de
-            source: label_de
-            dest: label_de
-            desc: State name (German)
+            name: label_fr
+            source: label_fr
+            dest: label_fr
+            desc: Department name (French)
+        }
+        {
+            name: insee
+            source: insee
+            dest: insee
+            desc: INSEE department identifier
         }
     ]
     query: {
@@ -29,7 +35,7 @@
             # version 8
             SELECT
             (if(bound(?id2),?id2,?id) as ?id)
-            ?iso_3166_2 ?label_en ?label_de
+            ?iso_3166_2 ?label_en ?label_fr ?insee
             WHERE {
             # Using nested query to ensure there is only one ?id2 value
             {SELECT
@@ -37,31 +43,34 @@
             (SAMPLE(?id2) as ?id2)
             (SAMPLE(?iso_3166_2) as ?iso_3166_2)
             (SAMPLE(?label_en) as ?label_en)
-            (SAMPLE(?label_de) as ?label_de)
+            (SAMPLE(?label_fr) as ?label_fr)
+            (SAMPLE(?insee) as ?insee)
             WHERE {
             # List of regions, whose sub-regions we want.
-            VALUES ?entity { wd:Q183 }
+            VALUES ?entity { wd:Q142 }
 
             # P150 = "contains administrative territorial entity"
-            ?entity wdt:P150 ?id .
+            ?entity wdt:P150/wdt:P150 ?id .
 
-
+            BIND( "NA"  as ?null)
 
             OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-            OPTIONAL { ?id rdfs:label ?label_de . FILTER(LANG(?label_de) = "de") }
+            OPTIONAL { ?id rdfs:label ?label_fr . FILTER(LANG(?label_fr) = "fr") }
             OPTIONAL { ?id wdt:P300 ?iso_3166_2 }
+            OPTIONAL { ?id wdt:P2586 ?insee }
+            BIND(COALESCE(?iso_3166_2, ?null) as ?iso_3166_2)
+            BIND(COALESCE(?insee, ?null) as ?insee)
             }
             # remove possible ID duplicates
             GROUP BY ?id}
             }
-
             '''
     }
-    name: germany_states
-    humanReadableName: Germany States
+    name: france_departments
+    humanReadableName: France Departments
     conform: {
         type: geojson
     }
     ttl: 108000
-    manifestId: 5634472569470976
+    manifestId: 5732568548769792
 }

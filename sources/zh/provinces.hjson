@@ -1,12 +1,33 @@
 {
     type: http
     note:  Administrative divisions of China
-    data: https://sophox.org/regions/topojson.json
-    fieldMapping: {
-        iso_3166_2: iso_3166_2
-        label_en: label_en
-        label_zh: label_zh
-    }
+    data: https://sophox.org/regions/geojson.json
+    fieldMapping: [
+        {
+            name: iso_3166_2
+            source: iso_3166_2
+            dest: iso_3166_2
+            desc: ISO-3166-2 identifier
+        }
+        {
+            name: label_en
+            source: label_en
+            dest: label_en
+            desc: Province name (English)
+        }
+        {
+            name: label_zh
+            source: label_zh
+            dest: label_zh
+            desc: Province name (Chinese)
+        }
+        {
+            name: division_code
+            source: division_code
+            dest: division_code
+            desc: China administrative division code
+        }
+    ]
     query: {
         sparql:
             '''
@@ -44,7 +65,8 @@
     name: china_provinces
     humanReadableName: China Provinces
     conform: {
-        type: topojson
+        type: geojson
     }
     ttl: 108000
+    manifestId: 5654313976201216
 }
