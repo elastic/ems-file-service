@@ -17,9 +17,9 @@ npm test
 The data pipeline uses [Apache Airflow](https://airflow.apache.org/) to orchestrate daily checking existing vector layers against new source data. The [`dags/ems_data_sources.py`](./dags/ems_data_sources.py) file contains the tasks to run for each data source. We can add tasks to this file as we find more requirements for data testing.
 
 1.  Start a development environment by cloning this repo and running `docker-compose up -d`.
-2.  Open the local Airflow webpage at (localhost:8080)[http://localhost:8080].
+2.  Open the local Airflow webpage at [localhost:8080](http://localhost:8080).
 3.  Turn on the desired workflows to automatically start the process.
-4.  Open the development mail inbox at (localhost:9000)[http://localhost:9000]. The development environment uses [Mailslurper](http://mailslurper.com/) to test email notifications.
+4.  Open the development mail inbox at [localhost:9000](http://localhost:9000). The development environment uses [Mailslurper](http://mailslurper.com/) to test email notifications.
 5.  As tasks finish you may see test emails come in to the Mailslurper inbox.
 
 ## Todo
