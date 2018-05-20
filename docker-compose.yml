@@ -1,0 +1,44 @@
+version: '2.1'
+services:
+    postgres:
+        image: postgres:9.6
+        environment:
+            - POSTGRES_USER=airflow
+            - POSTGRES_PASSWORD=airflow
+            - POSTGRES_DB=airflow
+
+    webserver:
+        build: .
+        restart: always
+        depends_on:
+            - postgres
+            - mailserver
+        environment:
+            - LOAD_EX=n
+            - EXECUTOR=Local
+            - AIRFLOW__SMTP__SMTP_HOST=mailserver
+            - AIRFLOW__SMTP__SMTP_STARTTLS=False
+            - AIRFLOW__SMTP__SMTP_SSL=False
+            - AIRFLOW__SMTP__SMTP_PORT=2500
+            - AIRFLOW__SMTP__SMTP_MAIL_FROM=airflow@elastic.co
+        volumes:
+            - ./dags:/usr/local/airflow/dags
+            - ./sources:/sources
+            # Uncomment to include custom plugins
+            # - ./plugins:/usr/local/airflow/plugins
+        ports:
+            - "8080:8080"
+        command: webserver
+        healthcheck:
+            test: ["CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]"]
+            interval: 30s
+            timeout: 30s
+            retries: 3
+    mailserver:
+        image: adampresley/mailslurper
+        ports:
+            - 2500:2500
+            - 9000:8080
+            - 8085:8085
+        volumes: 
+            - ./config/mailslurper.json:/home/go/src/github.com/mailslurper/mailslurper/cmd/mailslurper/config.json

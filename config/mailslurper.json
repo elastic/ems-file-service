@@ -1,0 +1,20 @@
+{
+  "wwwAddress": "mailserver",
+  "wwwPort": 8080,
+  "serviceAddress": "mailserver",
+  "servicePort": 8085,
+  "smtpAddress": "mailserver",
+  "smtpPort": 2500,
+  "dbEngine": "SQLite",
+  "dbHost": "",
+  "dbPort": 0,
+  "dbDatabase": "./mailslurper.db",
+  "dbUserName": "",
+  "dbPassword": "",
+  "maxWorkers": 1000,
+  "autoStartBrowser": false,
+  "keyFile": "",
+  "certFile": "",
+  "adminKeyFile": "",
+  "adminCertFile": ""
+}
