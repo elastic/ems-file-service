@@ -32,6 +32,10 @@ def fc_to_gdf(fc):
 
 
 def diff_gdf_props(gdf1, gdf2):
+    """
+    Analyze the symmetric difference of feature properties for each region
+    and return a dictionary of inserts, updates, and deletes for each region.
+    """
     df1 = pd.DataFrame(
         gdf1[[col for col in gdf1.columns if col != gdf1._geometry_column_name]])
     df2 = pd.DataFrame(
