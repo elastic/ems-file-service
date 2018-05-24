@@ -34,14 +34,15 @@
             #defaultView:MapRegions
             # version 8
             SELECT
-            (if(bound(?id2),?id2,?id) as ?id)
-            ?iso_3166_2 ?label_en ?label_zh
+            (if(bound(?id2),?id2,?id1) as ?id)
+            ?iso_3166_2 ?division_code ?label_en ?label_zh
             WHERE {
             # Using nested query to ensure there is only one ?id2 value
             {SELECT
-            ?id
+            ?id1
             (SAMPLE(?id2) as ?id2)
             (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+            (SAMPLE(?division_code) as ?division_code)
             (SAMPLE(?label_en) as ?label_en)
             (SAMPLE(?label_zh) as ?label_zh)
             WHERE {
@@ -49,16 +50,17 @@
             VALUES ?entity { wd:Q148 }
 
             # P150 = "contains administrative territorial entity"
-            ?entity wdt:P150 ?id .
+            ?entity wdt:P150 ?id1 .
 
+            BIND(if(?id1=wd:Q57251, wd:Q865, ?id1)  AS ?id2)
 
-
-            OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-            OPTIONAL { ?id rdfs:label ?label_zh . FILTER(LANG(?label_zh) = "zh") }
-            OPTIONAL { ?id wdt:P300 ?iso_3166_2 }
+            OPTIONAL { ?id1 rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+            OPTIONAL { ?id1 rdfs:label ?label_zh . FILTER(LANG(?label_zh) = "zh") }
+            OPTIONAL { ?id1 wdt:P300 ?iso_3166_2 }
+            OPTIONAL { ?id1 wdt:P442 ?division_code }
             }
             # remove possible ID duplicates
-            GROUP BY ?id}
+            GROUP BY ?id1}
             }
             '''
     }
