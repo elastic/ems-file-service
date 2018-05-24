@@ -1,6 +1,7 @@
 from airflow.operators.python_operator import PythonOperator, BranchPythonOperator
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.email_operator import EmailOperator
+from airflow.operators.http_operator import SimpleHttpOperator
 from airflow.models import DAG
 
 from datetime import datetime, timedelta
@@ -9,8 +10,6 @@ import tempfile
 import hjson
 import os
 from utils.helpers import fc_to_gdf, diff_gdf_geom, diff_gdf_props, retrieve_data
-
-EMS_URL = 'http://vector.maps.elastic.co'
 
 
 default_args = {
@@ -55,26 +54,31 @@ def create_dag(source_file):
         source = hjson.load(f, object_pairs_hook=dict)
         dag_id = 'dag_{}'.format(source['name'])
         qs = urlparse.urlencode(source['query'])
-        fullUrl = urlparse.urljoin(source['data'], '?{}'.format(qs))
+        source_endpoint = urlparse.urlparse(source['data']).path
+        existing_endpoint = '/blob/{}'.format(source['manifestId'])
         dag = DAG(
             dag_id,
             default_args=default_args,
             schedule_interval='@daily'
         )
-        extract = PythonOperator(
+        extract = SimpleHttpOperator(
             task_id='extract_source_data',
-            python_callable=retrieve_data,
-            op_kwargs={
-                'url': fullUrl
-            },
+            http_conn_id='sophox',
+            endpoint=source_endpoint,
+            method='GET',
+            data=qs,
+            headers={'Content-Type': 'application/json'},
+            xcom_push=True,
             dag=dag
         )
-        retrieve_existing_data = PythonOperator(
+        retrieve_existing_data = SimpleHttpOperator(
             task_id='retrieve_existing_data',
-            python_callable=retrieve_data,
-            op_kwargs={
-                'url': urlparse.urljoin(EMS_URL, '/blob/{}'.format(source['manifestId']))
-            },
+            http_conn_id='ems_vector',
+            endpoint=existing_endpoint,
+            method='GET',
+            data={},
+            headers={'Content-Type': 'application/json'},
+            xcom_push=True,
             dag=dag
         )
         compare_datasets = BranchPythonOperator(

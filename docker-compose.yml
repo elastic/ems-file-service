@@ -21,6 +21,8 @@ services:
             - AIRFLOW__SMTP__SMTP_SSL=False
             - AIRFLOW__SMTP__SMTP_PORT=2500
             - AIRFLOW__SMTP__SMTP_MAIL_FROM=airflow@elastic.co
+            - AIRFLOW_CONN_EMS_VECTOR=https://vector.maps.elastic.co/
+            - AIRFLOW_CONN_SOPHOX=https://sophox.org
         volumes:
             - ./dags:/usr/local/airflow/dags
             - ./sources:/sources
