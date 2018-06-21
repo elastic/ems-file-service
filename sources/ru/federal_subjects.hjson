@@ -2,11 +2,28 @@
     type: http
     note:  Federal subjects of Russia
     data: https://sophox.org/regions/topojson.json
-    fieldMapping: {
-        iso_3166_2: iso_3166_2
-        label_en: label_en
-        label_ru: label_ru
-    }
+    fieldMapping: [
+        {
+            name: iso_3166_2
+            source: iso_3166_2
+            dest: iso_3166_2
+            desc: ISO-3166-2 identifier
+        }
+        {
+            name: label_en
+            source: label_en
+            dest: label_en
+            desc: Federal subject name (English)
+
+        }
+        {
+            name: label_ru
+            source: label_ru
+            dest: label_ru
+            desc: Federal subject name (Russian)
+
+        }
+    ]
     query: {
         sparql:
             '''
@@ -42,9 +59,9 @@
             '''
     }
     name: russia_federal_subjects
-    humanReadableName: China Federal Subjects
+    humanReadableName: Russia Federal Subjects
     conform: {
-        type: topojson
+        type: geojson
     }
     ttl: 108000
 }

@@ -1,19 +1,24 @@
 {
-  type: ESRI
+  type: http
   note: Zip Code Tabulation Areas from the Census TIGERWEB
   website: https://www.census.gov/geo/reference/zctas.html
-  data: https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/PUMA_TAD_TAZ_UGA_ZCTA/MapServer/1
-  fieldMapping:
-  {
-    zcta5: zip
-  }
+  data: ftp://ftp2.census.gov/geo/tiger/TIGER2017/ZCTA5/tl_2017_us_zcta510.zip
+  fieldMapping: [
+    {
+      name: zip
+      source: zcta5
+      dest: zip
+      desc: 5-digit zip code
+    }
+  ]
   license: Public Domain
   name: zip_codes
-  humanReadableName: Zip Codes
+  humanReadableName: USA Zip Codes
   conform:
   {
-    type: geojson
+    type: topojson
   }
   attribution: US Census Bureau
   ttl: 108000
+  manifestId: 5676073085829120
 }
