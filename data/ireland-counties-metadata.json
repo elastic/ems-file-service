@@ -1,7 +1,7 @@
 {
   "attribution":
     "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)",
-  "name": "Japan Prefectures",
+  "name": "Ireland Counties and Provinces",
   "format": "geojson",
   "fields": [
     {
@@ -9,20 +9,19 @@
       "description": "ISO-3166-2 identifier"
     },
     {
-      "name": "dantai",
-      "description":
-        "Administrative division code assigned by the interior ministry of Japan"
+      "name": "logainm",
+      "description": "Placenames Database of Ireland (Logainm) identifier"
     },
     {
       "name": "label_en",
-      "description": "Prefecture name (English)"
+      "description": "County/Province name (English)"
     },
     {
-      "name": "label_ja",
-      "description": "Prefecture name (Japanese)"
+      "name": "label_ga",
+      "description": "County/Province name (Irish)"
     }
   ],
-  "created_at": "2018-06-22T15:40:54.230331",
+  "created_at": "2018-06-22T16:46:24.307027",
   "tags": [],
-  "id": 5648554290839552
+  "id": 5656846262075392
 }

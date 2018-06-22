@@ -1,6 +1,6 @@
 {
     type: http
-    note:  Prefectures of Japan
+    note:  Counties and Provinces of Ireland
     data: https://sophox.org/regions/geojson.json
     fieldMapping: [
         {
@@ -10,16 +10,22 @@
             desc: ISO-3166-2 identifier
         }
         {
+            name: logainm
+            source: logainm
+            dest: logainm
+            desc: Placenames Database of Ireland (Logainm) identifier
+        }
+        {
             name: label_en
             source: label_en
             dest: label_en
-            desc: Prefecture name (English)
+            desc: County/Province name (English)
         }
         {
-            name: label_ja
-            source: label_ja
-            dest: label_ja
-            desc: Prefecture name (Japanese)
+            name: label_ga
+            source: label_ga
+            dest: label_ga
+            desc: County/Province name (Irish)
         }
     ]
     query: {
@@ -29,7 +35,7 @@
             # version 8
             SELECT
             (if(bound(?id2),?id2,?id) as ?id)
-            ?iso_3166_2 ?label_en ?label_ja ?dantai
+            ?iso_3166_2 ?label_en ?label_ga ?logainm
             WHERE {
             # Using nested query to ensure there is only one ?id2 value
             {SELECT
@@ -37,11 +43,11 @@
             (SAMPLE(?id2) as ?id2)
             (SAMPLE(?iso_3166_2) as ?iso_3166_2)
             (SAMPLE(?label_en) as ?label_en)
-            (SAMPLE(?label_ja) as ?label_ja)
-            (SAMPLE(?dantai) as ?dantai)
+            (SAMPLE(?label_ga) as ?label_ga)
+            (SAMPLE(?logainm) as ?logainm)
             WHERE {
             # List of regions, whose sub-regions we want.
-            VALUES ?entity { wd:Q17 }
+            VALUES ?entity { wd:Q27 }
 
             # P150 = "contains administrative territorial entity"
             ?entity wdt:P150 ?id .
@@ -49,9 +55,9 @@
 
 
                 OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-                OPTIONAL { ?id rdfs:label ?label_ja . FILTER(LANG(?label_ja) = "ja") }
+                OPTIONAL { ?id rdfs:label ?label_ga . FILTER(LANG(?label_ga) = "ga") }
                 OPTIONAL { ?id wdt:P300 ?iso_3166_2 }
-                OPTIONAL { ?id wdt:P429 ?dantai }
+                OPTIONAL { ?id wdt:P5097 ?logainm }
 
             }
             # remove possible ID duplicates
@@ -59,11 +65,11 @@
             }
             '''
     }
-    name: japan_prefectures
-    humanReadableName: Japan Prefectures and Territories
+    name: ireland_counties
+    humanReadableName: Ireland counties and provinces
     conform: {
         type: geojson
     }
     ttl: 108000
-    id: 5648554290839552
+    id: 5656846262075392
 }
