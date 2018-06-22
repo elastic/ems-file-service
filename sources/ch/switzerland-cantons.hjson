@@ -1,0 +1,88 @@
+{
+    type: http
+    note:  Cantons of Switzerland
+    data: https://sophox.org/regions/geojson.json
+    fieldMapping: [
+        {
+            name: iso_3166_2
+            source: iso_3166_2
+            dest: iso_3166_2
+            desc: ISO-3166-2 identifier
+        }
+        {
+            name: label_en
+            source: label_en
+            dest: label_en
+            desc: Canton name (English)
+        }
+        {
+            name: label_de
+            source: label_de
+            dest: label_de
+            desc: Canton name (German)
+        }
+        {
+            name: label_fr
+            dest: label_fr
+            source: label_fr
+            desc: Canton name (French)
+        }
+        {
+            name: label_it
+            dest: label_it
+            source: label_it
+            desc: Canton name (Italian)
+        }
+        {
+            name: label_rm
+            dest: label_rm
+            source: label_rm
+            desc: Canton name (Romansh)
+        }
+    ]
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            # version 8
+            SELECT
+            (if(bound(?id2),?id2,?id) as ?id)
+            ?iso_3166_2 ?label_en ?label_de ?label_fr ?label_it ?label_rm
+            WHERE {
+            # Using nested query to ensure there is only one ?id2 value
+            {SELECT
+            ?id
+            (SAMPLE(?id2) as ?id2)
+            (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+            (SAMPLE(?label_en) as ?label_en)
+            (SAMPLE(?label_de) as ?label_de)
+            (SAMPLE(?label_fr) as ?label_fr)
+            (SAMPLE(?label_it) as ?label_it)
+            (SAMPLE(?label_rm) as ?label_rm)
+            WHERE {
+                # List of regions, whose sub-regions we want.
+                VALUES ?entity { wd:Q39 }
+
+                # P150 = "contains administrative territorial entity"
+                ?entity wdt:P150* ?id .
+                ?id wdt:P300 ?iso_3166_2
+
+                OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                OPTIONAL { ?id rdfs:label ?label_de . FILTER(LANG(?label_de) = "de") }
+                OPTIONAL { ?id rdfs:label ?label_fr . FILTER(LANG(?label_fr) = "fr") }
+                OPTIONAL { ?id rdfs:label ?label_it . FILTER(LANG(?label_it) = "it") }
+                OPTIONAL { ?id rdfs:label ?label_rm . FILTER(LANG(?label_rm) = "rm") }
+            }
+            # remove possible ID duplicates
+            GROUP BY ?id}
+            }
+            '''
+    }
+    name: switzerland_cantons
+    humanReadableName: Switzerland Cantons
+    conform: {
+        type: geojson
+    }
+    ttl: 108000
+    manifestId: 5730082031140864
+}
