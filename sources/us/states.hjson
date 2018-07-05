@@ -21,12 +21,6 @@
             dest: postal
             desc: Two letter abbreviation
         }
-        {
-            name: label_en
-            source: label_en
-            dest: label_en
-            desc: State name (English)
-        }
     ]
     query: {
         sparql:

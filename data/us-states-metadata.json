@@ -1,7 +1,7 @@
 {
   "attribution":
     "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)",
-  "name": "US States",
+  "name": "USA States",
   "format": "geojson",
   "fields": [
     {
@@ -11,10 +11,6 @@
     {
       "name": "name",
       "description": "State name"
-    },
-    {
-      "name": "label_en",
-      "description": "State name (English)"
     },
     {
       "name": "iso_3166_2",
