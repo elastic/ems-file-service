@@ -21,6 +21,12 @@
             dest: label_ja
             desc: Prefecture name (Japanese)
         }
+        {
+            name: dantai
+            source: dantai
+            dest: dantai
+            desc: Dantai administrative division code
+        }
     ]
     query: {
         sparql:

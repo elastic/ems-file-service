@@ -13,7 +13,7 @@
             name: logainm
             source: logainm
             dest: logainm
-            desc: Placenames Database of Ireland (Logainm) identifier
+            desc: Logainm identifier
         }
         {
             name: label_en
