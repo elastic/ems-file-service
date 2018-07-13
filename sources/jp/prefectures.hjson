@@ -1,13 +1,21 @@
 {
+    versions: '1 - 2'
     type: http
     note:  Prefectures of Japan
     data: https://sophox.org/regions/geojson.json
+    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
         {
             name: iso_3166_2
             source: iso_3166_2
             dest: iso_3166_2
             desc: ISO-3166-2 identifier
+        }
+        {
+            name: dantai
+            source: dantai
+            dest: dantai
+            desc: Dantai administrative division code
         }
         {
             name: label_en
@@ -20,12 +28,6 @@
             source: label_ja
             dest: label_ja
             desc: Prefecture name (Japanese)
-        }
-        {
-            name: dantai
-            source: dantai
-            dest: dantai
-            desc: Dantai administrative division code
         }
     ]
     query: {
@@ -66,10 +68,16 @@
             '''
     }
     name: japan_prefectures
-    humanReadableName: Japan Prefectures and Territories
+    humanReadableName: Japan Prefectures
     conform: {
         type: geojson
     }
     ttl: 108000
-    manifestId: 5648554290839552
+    weight: 0
+    createdAt: "2018-06-27T23:19:13.220033"
+    id: {
+        production: 5682617542246400
+        staging: 5648554290839552
+    }
+    filename: japan_prefectures.json
 }
