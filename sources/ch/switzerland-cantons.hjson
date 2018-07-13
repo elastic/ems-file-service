@@ -1,7 +1,9 @@
 {
+    versions: '1 - 2'
     type: http
     note:  Cantons of Switzerland
     data: https://sophox.org/regions/geojson.json
+    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
         {
             name: iso_3166_2
@@ -84,5 +86,11 @@
         type: geojson
     }
     ttl: 108000
-    manifestId: 5730082031140864
+    weight: 0
+    createdAt: "2018-06-27T23:50:34.591773"
+    id: {
+        production: 5641906755207168
+        staging: 5730082031140864
+    }
+    filename: switzerland_cantons.json
 }

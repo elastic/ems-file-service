@@ -5,16 +5,23 @@
   "description": "Data sources to use with Elasticsearch Map Service",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "build": "node index.js"
   },
   "keywords": [],
   "author": "Nick Peihl <nick.peihl@elastic.co>",
   "license": "UNLICENSED",
-  "dependencies": {},
+  "dependencies": {
+    "glob": "^7.1.2",
+    "array-sort": "^1.0.0",
+    "hjson": "^3.1.1",
+    "mkdirp": "^0.5.1",
+    "semver": "^5.5.0",
+    "sort-asc": "^0.2.0",
+    "sort-desc": "^0.2.0"
+  },
   "devDependencies": {
     "ajv": "^5.5.0",
-    "glob": "^7.1.2",
-    "hjson": "^3.1.1",
     "tape": "^4.9.0"
   }
 }
