@@ -49,12 +49,10 @@ function manifestLayerV1(data) {
     name: data.humanReadableName,
     url: `https://${MANIFESTHOSTNAME}/blob/${manifestId}?elastic_tile_service_tos=agree`,
     format: data.conform.type,
-    fields: data.fieldMapping.map(fieldMap => {
-      return {
-        name: fieldMap.dest,
-        description: fieldMap.desc,
-      };
-    }),
+    fields: data.fieldMapping.map(fieldMap => ({
+      name: fieldMap.dest,
+      description: fieldMap.desc,
+    })),
     created_at: data.createdAt,
     tags: [],
     id: manifestId,
