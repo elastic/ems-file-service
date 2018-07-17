@@ -12,7 +12,7 @@ To validate data sources against the schema run
 npm test
 ```
 
-To build manifest.json and vector data files for all versions run
+To build manifests and vector data files for all versions run
 
 ```node
 npm run build
