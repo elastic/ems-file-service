@@ -26,7 +26,6 @@ function generateVectorFile(source) {
   if (data.versions === "1 - 2") {
     generateLegacyGeojson(data);
   }
-  return;
 }
 
 function generateLegacyGeojson(data) {
@@ -43,5 +42,4 @@ function generateLegacyGeojson(data) {
   } catch (err) {
     return err;
   }
-  return;
 }
