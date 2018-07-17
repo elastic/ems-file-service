@@ -54,22 +54,10 @@ else
     gcloud auth activate-service-account --key-file <(echo "$GCE_ACCOUNT")
     unset GCE_ACCOUNT
 
-
-    # master branch goes into root, specific branches go into properly named dirs
-    # The trailing slash is critical with the branch.
-    # Otherwise, files from subdirs will go to the same destination dir.
-    if [[ "$GIT_BRANCH" == "origin/master" ]]; then
-        URL_PATH=""
-    else
-        # remove remote "origin/", leaving just the branch name plus a slash '/'
-        URL_PATH="${GIT_BRANCH#*/}/"
-    fi
-
-
     # Copy files
     EMS_PROJECT=file-service
     STAGING_BUCKET=${GPROJECT}-${EMS_PROJECT}-staging
-    echo "Copying $PWD/dist/* to gs://$STAGING_BUCKET/$URL_PATH"
-    gsutil -m cp -r -a public-read -Z -h "Content-Type:application/json" "$PWD/dist/*" "gs://$STAGING_BUCKET/$URL_PATH"
+    echo "Copying $PWD/dist/* to gs://$STAGING_BUCKET"
+    gsutil -m cp -r -a public-read -Z -h "Content-Type:application/json" "$PWD/dist/*" "gs://$STAGING_BUCKET"
 
 fi
