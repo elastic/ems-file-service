@@ -20,9 +20,9 @@ npm run build
 
 ## Continuous Integration and Deployment
 
-- The manifest.json and vector files for all versions will be built automatically by Jenkins on every pull request using the `build.sh` script.
+- The manifest and vector files for all versions will be built automatically by Jenkins on every pull request using the `build.sh` script.
 - Once merged, Jenkins will run `deployStaging.sh` script, which will place the contents of the `dist` directory into the staging bucket.
-- Deploying to production requires manually triggering the Jeknins job to run `deployProduction.sh` script, which builds the manifest.json and vector files for production and places them in the production bucket.
+- Deploying to production requires manually triggering the Jeknins job to run `deployProduction.sh` script, which builds the manifest and vector files for production and places them in the production bucket.
 
 ## Todo
 
