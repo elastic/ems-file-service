@@ -1,5 +1,5 @@
 {
-    versions: 1 - 2
+    versions: '1 - 2'
     type: http
     note:  Administrative divisions of China
     data: https://sophox.org/regions/geojson.json
