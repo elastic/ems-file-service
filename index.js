@@ -10,7 +10,7 @@ VERSIONS.forEach(version => {
   mkdirp.sync(path.join("./dist", version));
   const manifest = generateManifest(version);
   fs.writeFileSync(
-    path.join("./dist", version, "manifest.json"),
+    path.join("./dist", version, "manifest"),
     JSON.stringify(manifest, null, 2)
   );
 });

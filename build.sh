@@ -3,7 +3,7 @@ set -e
 
 NODE_IMG="node:8"
 
-echo "Generating manifest.json and vector data files for all versions using ${NODE_IMG} docker image"
+echo "Generating manifests and vector data files for all versions using ${NODE_IMG} docker image"
 docker pull $NODE_IMG
 docker run --rm -i \
     --env NODE_ENV \
