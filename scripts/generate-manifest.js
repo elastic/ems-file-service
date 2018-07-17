@@ -37,7 +37,7 @@ function generateManifest(version) {
     }
   });
   manifest = {
-    layers: arraySort(layers, compare("weight", "DESC"), compare("name"))
+    layers: arraySort(layers, compare("weight", "DESC"), compare("name")),
   };
   return manifest;
 }
@@ -70,12 +70,12 @@ function manifestLayerV1(data) {
     fields: data.fieldMapping.map(fieldMap => {
       return {
         name: fieldMap.dest,
-        description: fieldMap.desc
+        description: fieldMap.desc,
       };
     }),
     created_at: data.createdAt,
     tags: [],
-    id: manifestId
+    id: manifestId,
   };
   return layer;
 }
@@ -84,7 +84,7 @@ function manifestLayerV2(data) {
   layer = manifestLayerV1(data);
   if (layer.format === "topojson") {
     layer.meta = {
-      feature_collection_path: "data"
+      feature_collection_path: "data",
     };
   }
   return layer;
