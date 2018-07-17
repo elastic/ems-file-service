@@ -1,10 +1,8 @@
 const Hjson = require("hjson");
 const glob = require("glob");
 const fs = require("fs");
-const arraySort = require("array-sort");
-const sortDesc = require("sort-desc");
-const sortAsc = require("sort-asc");
 const semver = require("semver");
+const _ = require("lodash");
 
 module.exports = generateManifest;
 
@@ -37,25 +35,9 @@ function generateManifest(version) {
     }
   });
   manifest = {
-    layers: arraySort(layers, compare("weight", "DESC"), compare("name")),
+    layers: _.orderBy(layers, ["weight", "name"], ["desc", "asc"]),
   };
   return manifest;
-}
-
-function compare(prop, order) {
-  return (x, y) => {
-    const a = x[prop].toString();
-    const b = y[prop].toString();
-    switch (order) {
-      case "DESC":
-        return sortDesc(a, b);
-        break;
-      case "ASC":
-      default:
-        return sortAsc(a, b);
-        break;
-    }
-  };
 }
 
 function manifestLayerV1(data) {
