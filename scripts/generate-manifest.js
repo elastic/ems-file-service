@@ -6,13 +6,12 @@ const _ = require("lodash");
 
 module.exports = generateManifest;
 
-const ENVIRONMENT =
-  process.env.NODE_ENV === "production" ? "production" : "staging";
+const manifestHostname =
+  process.env.TARGET_HOST || "staging-dot-elastic-layer.appspot.com";
 
-const MANIFESTHOSTNAME =
-  ENVIRONMENT === "production"
-    ? "vector.maps.elastic.co"
-    : "staging-dot-elastic-layer.appspot.com";
+debugger;
+const environment =
+  manifestHostname === "vector.maps.elastic.co" ? "production" : "staging";
 
 function generateManifest(version) {
   if (!version || !semver.valid(semver.coerce(version))) {
@@ -42,12 +41,12 @@ function generateManifest(version) {
 
 function manifestLayerV1(data) {
   const manifestId =
-    typeof data.id === "object" ? data.id[ENVIRONMENT] : data.id;
+    typeof data.id === "object" ? data.id[environment] : data.id;
   const layer = {
     attribution: data.attribution,
     weight: data.weight,
     name: data.humanReadableName,
-    url: `https://${MANIFESTHOSTNAME}/blob/${manifestId}?elastic_tile_service_tos=agree`,
+    url: `https://${manifestHostname}/blob/${manifestId}?elastic_tile_service_tos=agree`,
     format: data.conform.type,
     fields: data.fieldMapping.map(fieldMap => ({
       name: fieldMap.dest,
