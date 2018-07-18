@@ -5,7 +5,7 @@
   "description": "Data sources to use with Elasticsearch Map Service",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js",
+    "test": "tape test.js",
     "build": "node index.js"
   },
   "keywords": [],
