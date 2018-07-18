@@ -1,0 +1,58 @@
+{
+    type: http
+    note:  States of United States
+    data: https://sophox.org/regions/geojson.json
+    fieldMapping: [
+        {
+            name: iso_3166_2
+            source: iso_3166_2
+            dest: iso_3166_2
+            desc: ISO-3166-2 identifier
+        }
+        {
+            name: name
+            source: name
+            dest: name
+            desc: State name
+        }
+        {
+            name: postal
+            source: postal
+            dest: postal
+            desc: Two letter abbreviation
+        }
+    ]
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            # version 8
+            SELECT  (if(bound(?id2),?id2,?id) as ?id)  ?iso_3166_2 ?postal ?name ?label_en
+            WHERE {# Using nested query to ensure there is only one ?id2 value
+            {
+                SELECT  ?id  
+                        (SAMPLE(?id2) as ?id2)  
+                        (SAMPLE(?iso_3166_2) as ?iso_3166_2)  
+                        (SAMPLE(?fips_5_2_alpha) as ?postal)  
+                        (SAMPLE(?label_en) as ?name)
+                        (SAMPLE(?label_en) as ?label_en)
+                        WHERE {  # List of regions, whose sub-regions we want.  
+                        VALUES ?entity { wd:Q30 }  # P150 = "contains administrative territorial entity"  
+                        ?entity wdt:P150 ?id .
+                        ?id wdt:P300 ?iso_3166_2 
+                        MINUS { ?id wdt:279* wd:Q61 . }
+                        OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }  
+                        OPTIONAL { ?id wdt:P5086 ?fips_5_2_alpha }}
+                # remove possible ID duplicates
+                GROUP BY ?id 
+            }}
+            '''
+    }
+    name: usa_states
+    humanReadableName: USA States
+    conform: {
+        type: geojson
+    }
+    ttl: 108000
+    manifestId: 5648554290839552
+}
