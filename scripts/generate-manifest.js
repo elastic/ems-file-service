@@ -9,7 +9,6 @@ module.exports = generateManifest;
 const manifestHostname =
   process.env.TARGET_HOST || "staging-dot-elastic-layer.appspot.com";
 
-debugger;
 const environment =
   manifestHostname === "vector.maps.elastic.co" ? "production" : "staging";
 
