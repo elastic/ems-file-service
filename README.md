@@ -1,5 +1,7 @@
 # Elastic Map Service Data Sources
 
+**TEST JENKINS**
+
 Machine readable and standardized data sources for use in Elastic Map Service.
 
 ## Usage
@@ -24,8 +26,8 @@ The data pipeline uses [Apache Airflow](https://airflow.apache.org/) to orchestr
 
 ## Todo
 
-* [x] Automation scripts for downloading from sources
-* [] More data sources
+- [x] Automation scripts for downloading from sources
+- [] More data sources
 
 Based on schema and scripts located at http://github.com/openaddresses/openaddresses
 
