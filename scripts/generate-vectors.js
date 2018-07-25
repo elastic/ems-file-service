@@ -1,43 +1,44 @@
-const Hjson = require("hjson");
-const glob = require("glob");
-const fs = require("fs");
-const path = require("path");
-const mkdirp = require("mkdirp");
+const Hjson = require('hjson');
+const glob = require('glob');
+const fs = require('fs');
+const path = require('path');
+const mkdirp = require('mkdirp');
 
 module.exports = generateVectors;
 
 function generateVectors() {
-  return glob.sync("sources/**/*.*json").forEach(generateVectorFile);
+  return glob.sync('sources/**/*.*json').forEach(generateVectorFile);
 }
 
 function generateVectorFile(source) {
-  const f = fs.readFileSync(source, "utf8");
+  const f = fs.readFileSync(source, 'utf8');
   const data = Hjson.parse(f);
-  mkdirp.sync("./dist/files");
-  const src = (dest = data.filename);
+  mkdirp.sync('./dist/files');
+  const src = data.filename;
+  const dest = data.filename;
   try {
     fs.copyFileSync(
-      path.join("./data", src),
-      path.join("./dist", "files", dest)
+      path.join('./data', src),
+      path.join('./dist', 'files', dest)
     );
   } catch (err) {
     return err;
   }
-  if (data.versions === "1 - 2") {
+  if (data.versions === '1 - 2') {
     generateLegacyGeojson(data);
   }
 }
 
 function generateLegacyGeojson(data) {
-  mkdirp.sync("./dist/blob");
+  mkdirp.sync('./dist/blob');
   const src = data.filename;
   const environment =
-    process.env.NODE_ENV === "production" ? "production" : "staging";
-  const dest = typeof data.id === "object" ? data.id[environment] : id;
+    process.env.NODE_ENV === 'production' ? 'production' : 'staging';
+  const dest = typeof data.id === 'object' ? data.id[environment] : data.id;
   try {
     fs.copyFileSync(
-      path.join("./data", src),
-      path.join("./dist", "blob", dest.toString())
+      path.join('./data', src),
+      path.join('./dist', 'blob', dest.toString())
     );
   } catch (err) {
     return err;
