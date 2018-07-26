@@ -6,3 +6,4 @@ airflow.db
 *.pyc
 dist/
 *_snapshot/
+*_file-service.tar.gz
