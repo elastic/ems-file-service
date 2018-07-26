@@ -67,9 +67,6 @@
     ttl: 108000
     weight: 0
     createdAt: "2018-01-23T13:06:05.998550"
-    id: {
-        production: 5634472569470976
-        staging: 5710239819104256
-    }
+    id: 5634472569470976
     filename: germany_states.json
 }

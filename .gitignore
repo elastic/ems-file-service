@@ -5,4 +5,4 @@ logs/
 airflow.db
 *.pyc
 dist/
-snapshots/
+*_snapshot/

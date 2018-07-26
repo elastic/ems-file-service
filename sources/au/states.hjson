@@ -39,11 +39,11 @@
 
             # P150 = "contains administrative territorial entity"
             ?entity wdt:P150 ?id .
-            ?id wdt:P300 ?iso_3166_2 
+            ?id wdt:P300 ?iso_3166_2
 
 
             OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-            
+
             }
             # remove possible ID duplicates
             GROUP BY ?id}
@@ -58,9 +58,6 @@
     ttl: 108000
     weight: 0
     createdAt: "2018-06-27T23:47:32.202380"
-    id: {
-        production: 5631986051842048
-        staging: 5656058538229760
-    }
+    id: 5631986051842048
     filename: australia_states.json
 }

@@ -60,14 +60,11 @@
     humanReadableName: Canada Provinces
     conform: {
         type: geojson
-    } 
+    }
     ttl: 108000
     weight: 0
     createdAt: "2018-01-23T13:07:00.346990"
-    id: {
-        production: 5715999101812736
-        staging: 5664248772427776
-    }
+    id: 5715999101812736
     filename: canada_provinces.json
-   
+
 }

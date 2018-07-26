@@ -55,25 +55,11 @@
     "id": {
       "description":
         "Manifest id number. These are different ids for staging and production in v1 and v2 so it can be an object with `production` and `staging` properties.",
-      "oneOf": [
-        { "type": "string" },
-        { "type": "number" },
-        {
-          "type": "object",
-          "properties": {
-            "production": {
-              "oneOf": [{ "type": "string" }, { "type": "number" }]
-            },
-            "staging": {
-              "oneOf": [{ "type": "string" }, { "type": "number" }]
-            }
-          }
-        }
-      ]
+      "oneOf": [{ "type": "string" }, { "type": "number" }]
     },
     "ttl": {
       "description":
-        "Time to live (seconds) until we recache the data from the source",
+        "Time to live (seconds) until we recache the data from the source (unused)",
       "type": "integer"
     },
     "weight": {

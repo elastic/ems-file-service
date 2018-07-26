@@ -1,24 +1,20 @@
-const Hjson = require('hjson');
-const glob = require('glob');
-const fs = require('fs');
-const semver = require('semver');
-const _ = require('lodash');
+const Hjson = require("hjson");
+const glob = require("glob");
+const fs = require("fs");
+const semver = require("semver");
+const _ = require("lodash");
 
 module.exports = generateManifest;
 
-const manifestHostname =
-  process.env.TARGET_HOST || 'staging-dot-elastic-layer.appspot.com';
-
-const environment =
-  manifestHostname === 'vector.maps.elastic.co' ? 'production' : 'staging';
+const manifestHostname = process.env.TARGET_HOST || "vector.maps.elastic.co";
 
 function generateManifest(version) {
   if (!version || !semver.valid(semver.coerce(version))) {
-    return new Error('A valid version parameter must be defined');
+    return new Error("A valid version parameter must be defined");
   }
   const layers = [];
-  glob.sync('sources/**/*.*json').forEach(source => {
-    const f = fs.readFileSync(source, 'utf8');
+  glob.sync("sources/**/*.*json").forEach(source => {
+    const f = fs.readFileSync(source, "utf8");
     const data = Hjson.parse(f);
     const manifestVersion = semver.coerce(version);
     if (semver.satisfies(manifestVersion, data.versions)) {
@@ -33,14 +29,14 @@ function generateManifest(version) {
     }
   });
   const manifest = {
-    layers: _.orderBy(layers, ['weight', 'name'], ['desc', 'asc']),
+    layers: _.orderBy(layers, ["weight", "name"], ["desc", "asc"]),
   };
   return manifest;
 }
 
 function manifestLayerV1(data) {
   const manifestId =
-    typeof data.id === 'object' ? data.id[environment] : data.id;
+    typeof data.id === "object" ? data.id[environment] : data.id;
   const layer = {
     attribution: data.attribution,
     weight: data.weight,
@@ -60,9 +56,9 @@ function manifestLayerV1(data) {
 
 function manifestLayerV2(data) {
   const layer = manifestLayerV1(data);
-  if (layer.format === 'topojson') {
+  if (layer.format === "topojson") {
     layer.meta = {
-      feature_collection_path: 'data',
+      feature_collection_path: "data",
     };
   }
   return layer;

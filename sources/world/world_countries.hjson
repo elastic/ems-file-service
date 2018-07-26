@@ -24,7 +24,7 @@
       desc: Three letter abbreviation
     }
   ]
-  
+
   website: http://naturalearthdata.comhttp://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-details/
   license:
   {
@@ -40,9 +40,6 @@
   ttl: 108000
   weight: 1
   createdAt: "2017-04-26T17:12:15.978370"
-  id: {
-    production: 5659313586569216
-    staging: 5715999101812736
-  }
+  id: 5659313586569216
   filename: world_countries.json
 }

@@ -22,7 +22,7 @@ npm run build
 
 - The manifest and vector files for all versions will be built automatically by Jenkins on every pull request using the `build.sh` script.
 - Once merged, Jenkins will run `deployStaging.sh` script, which will place the contents of the `dist` directory into the staging bucket.
-- Deploying to production requires manually triggering the Jeknins job to run `deployProduction.sh` script, which builds the manifest and vector files for production and places them in the production bucket.
+- Deploying to production requires manually triggering [this Jenkins job](https://kibana-ci.elastic.co/job/elastic+ems-file-service+deploy/) to run the `deployProduction.sh` script. This will rsync files from the staging bucket to the production bucket. To trigger, log in and click the "Build with Parameters" link. Leave the `branch_specifier` field as default (`refs/heads/master`).
 
 ## Todo
 

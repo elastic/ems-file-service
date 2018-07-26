@@ -74,9 +74,6 @@
     ttl: 108000
     weight: 0
     createdAt: "2018-04-04T21:16:38.930020"
-    id: {
-        production: 5654313976201216
-        staging: 5687539843203072
-    }
+    id: 5654313976201216
     filename: china_provinces.json
 }
