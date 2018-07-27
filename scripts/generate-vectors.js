@@ -3,6 +3,7 @@ const glob = require("glob");
 const fs = require("fs");
 const path = require("path");
 const mkdirp = require("mkdirp");
+const semver = require("semver");
 
 module.exports = generateVectors;
 
@@ -24,7 +25,7 @@ function generateVectorFile(source) {
   } catch (err) {
     return err;
   }
-  if (data.versions === "1 - 2") {
+  if (semver.intersects("1 - 2", data.versions)) {
     generateLegacyGeojson(data);
   }
 }

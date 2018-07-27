@@ -35,8 +35,7 @@ function generateManifest(version) {
 }
 
 function manifestLayerV1(data) {
-  const manifestId =
-    typeof data.id === "object" ? data.id[environment] : data.id;
+  const manifestId = data.id;
   const layer = {
     attribution: data.attribution,
     weight: data.weight,
