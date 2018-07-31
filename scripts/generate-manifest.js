@@ -6,7 +6,7 @@ const _ = require("lodash");
 
 module.exports = generateManifest;
 
-const manifestHostname = process.env.TARGET_HOST || "vector.maps.elastic.co";
+const manifestHostname = process.env.TARGET_HOST || "staging-dot-elastic-layer.appspot.com";
 
 function generateManifest(version) {
   if (!version || !semver.valid(semver.coerce(version))) {

@@ -16,10 +16,6 @@ set +x
 # * [ARCHIVE_BUCKET] - "elastic-ems-prod-file-service-archive"
 #                      If ARCHIVE_BUCKET is set, a timestamped snapshot of the files is uploaded to the bucket.
 
-if [[ -z "${GCE_ACCOUNT}" ]]; then
-    echo "GCE_ACCOUNT is not set. Expected google service account JSON blob."
-    exit 1
-fi
 if [[ -z "${TARGET_HOST}" ]]; then
     echo "TARGET_HOST is not set. Defaulting to 'staging-dot-elastic-layer.appspot.com'."
 fi
