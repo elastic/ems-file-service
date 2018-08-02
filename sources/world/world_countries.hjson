@@ -1,6 +1,7 @@
 {
   versions: '1 - 2'
-  type: http
+  production: true
+    type: http
   note: Administrative map units from Natural Earth Data. URLs listed at http://geojson.xyz
   data: https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_map_units.geojson
   attribution: "[Made with NaturalEarth](http://www.naturalearthdata.com/about/terms-of-use)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"

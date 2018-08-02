@@ -1,5 +1,6 @@
 {
     versions: '1 - 2'
+    production: true
     type: http
     note:  States of Germany
     data: https://sophox.org/regions/geojson.json

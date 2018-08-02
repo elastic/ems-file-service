@@ -7,6 +7,7 @@ const _ = require('lodash');
 module.exports = generateManifest;
 
 const manifestHostname = process.env.TARGET_HOST || 'staging-dot-elastic-layer.appspot.com';
+const production = manifestHostname === 'vector.maps.elastic.co';
 
 function generateManifest(version) {
   if (!version || !semver.valid(semver.coerce(version))) {
@@ -17,7 +18,7 @@ function generateManifest(version) {
     const f = fs.readFileSync(source, 'utf8');
     const data = Hjson.parse(f);
     const manifestVersion = semver.coerce(version);
-    if (semver.satisfies(manifestVersion, data.versions)) {
+    if (((production && data.production) || !production) && semver.satisfies(manifestVersion, data.versions)) {
       switch (semver.major(manifestVersion)) {
         case 1:
           layers.push(manifestLayerV1(data));

@@ -1,5 +1,6 @@
 {
   versions: '2'
+  production: true
   type: http
   note: Zip Code Tabulation Areas from the Census TIGERWEB
   website: https://www.census.gov/geo/reference/zctas.html

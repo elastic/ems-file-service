@@ -5,6 +5,7 @@
   "type": "object",
   "required": [
     "type",
+    "production",
     "data",
     "name",
     "humanReadableName",
@@ -17,6 +18,10 @@
       "type": "string",
       "description":
         "Must be a semver compatible string (ex. v1, 1, 1.0.0, 1.x) or range (ex 1 - 2, ^1.0.1). See more examples at https://www.npmjs.com/package/semver. "
+    },
+    "production": {
+      "type": "boolean",
+      "description": "Whether or not the layer should be published to production"
     },
     "type": {
       "type": "string",
