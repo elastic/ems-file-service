@@ -1,7 +1,7 @@
 const tape = require('tape');
 const Ajv = require('ajv');
 const Hjson = require('hjson');
-const schema = require('./schema/source_schema.json');
+const schema = require('../schema/source_schema.json');
 const glob = require('glob');
 const fs = require('fs');
 
@@ -11,7 +11,7 @@ testAllSources(ajv.compile(schema));
 
 function testAllSources(validate) {
   glob.sync('sources/**/*.*json').forEach((source) => {
-    tape(`tests for ${source}`, (t) => {
+    tape(`${source} schema must be valid`, (t) => {
       try {
         const data = Hjson.parse(fs.readFileSync(source, 'utf8'));
         const valid = validate(data);

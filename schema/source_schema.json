@@ -4,13 +4,17 @@
   "description": "Elastic Map Service data source",
   "type": "object",
   "required": [
-    "type",
+    "versions",
     "production",
+    "attribution",
+    "type",
     "data",
     "name",
     "humanReadableName",
     "fieldMapping",
-    "weight"
+    "weight",
+    "conform",
+    "createdAt"
   ],
   "additionalProperties": false,
   "properties": {
