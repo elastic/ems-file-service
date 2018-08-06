@@ -9,12 +9,13 @@ module.exports = generateManifest;
  * @param {Object} [opts]
  * @param {string} [opts.version='0'] - Only include layers the satisfy this semver version
  * @param {boolean} [opts.production=false] - If true, include only production layers
- * @param {string} [opts.hostname=staging-dot-elastic-layer.appspot.com] - Hostname for files in manifest
+ * @param {string} [opts.hostname='staging-dot-elastic-layer.appspot.com'] - Hostname for files in manifest
  */
-function generateManifest(sources, opts = { version: '0', production: false, hostname: 'staging-dot-elastic-layer.appspot.com' }) {
-  const version = opts.version;
-  const production = opts.production
-  const hostname = opts.hostname
+function generateManifest(sources, {
+  version = 'v0',
+  production = false,
+  hostname = 'staging-dot-elastic-layer.appspot.com'
+} = {}) {
   if (!semver.valid(semver.coerce(version))) {
     return new Error('A valid version parameter must be defined');
   }
