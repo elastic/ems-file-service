@@ -1,44 +1,36 @@
 const fs = require('fs');
 const path = require('path');
-const mkdirp = require('mkdirp');
 const semver = require('semver');
 
 module.exports = generateVectors;
 
 /**
- *
+ * Create an array of source and destination directories for each layer. These can be passed to fs.copyFile.
  * @param {Object[]} sources - An array of layer objects
  * @param {Object} [opts]
+ * @param {string} [opts.version='v0'] - Only include layers the satisfy this semver version
+ * @param {boolean} [opts.production=false] - If true, include only production layers
  * @param {string} [opts.srcdir='data'] - Relative directory of source vector data
- * @param {string} [opts.destdir='dist'] - Copy source vector data to this folder
+ * @param {string} [opts.destdir='dist'] - Relative directory of destination vector data
  */
-function generateVectors(sources, opts = {
-  production: false,
-  srcdir: 'data',
-  destdir: 'dist'
-}) {
+function generateVectors(sources, {
+  version = 'v0',
+  production = false,
+  srcdir = 'data',
+  destdir = 'dist'
+} = {}) {
+  const files = [];
+  const manifestVersion = semver.coerce(version);
   sources.filter(data => {
-    return (!opts.production || (opts.production && data.production));
+    return ((!production || (production && data.production)) && semver.satisfies(manifestVersion, data.versions));
   }).forEach(data => {
-    const src = path.join(opts.srcdir, data.filename);
-    const dest = path.join(opts.destdir, 'files', data.filename);
-    try {
-      copyVectorData(src, dest);
-    } catch (err) {
-      return err;
-    }
-    if (semver.intersects('1 - 2', data.versions)) {
-      const destLegacy = path.join(opts.destdir, 'blob', data.id);
-      try {
-        copyVectorData(src, destLegacy);
-      } catch (err) {
-        return err;
-      }
+    const src = path.join(srcdir, data.filename);
+    const dest = path.join(destdir, 'files', data.filename);
+    files.push({ src: src, dest: dest })
+    if (data.id) {
+      const destLegacy = path.join(destdir, 'blob', data.id.toString());
+      files.push({ src: src, dest: destLegacy })
     }
   });
-}
-
-function copyVectorData(src, dest) {
-  mkdirp.sync(dest);
-  return fs.copyFileSync(src, dest);
+  return files
 }
