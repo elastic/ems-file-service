@@ -1,6 +1,6 @@
 [
   {
-    "versions": "1",
+    "versions": "1.x",
     "production": true,
     "attribution": "Similarion",
     "type": "http",
@@ -20,7 +20,8 @@
     "conform": {
       "type": "geojson"
     },
-    "createdAt": "1000-01-02T17:12:15.978370"
+    "createdAt": "1000-01-02T17:12:15.978370",
+    "filename": "mordor_v1.json"
   },
   {
     "versions": "1 - 2",
@@ -43,10 +44,11 @@
     "conform": {
       "type": "geojson"
     },
-    "createdAt": "1200-02-28T17:13:39.288909"
+    "createdAt": "1200-02-28T17:13:39.288909",
+    "filename": "gondor_v2.json"
   },
   {
-    "versions": "3",
+    "versions": ">=3",
     "production": true,
     "attribution": "Similarion",
     "type": "http",
@@ -65,10 +67,11 @@
     "conform": {
       "type": "geojson"
     },
-    "createdAt": "1200-02-28T17:13:39.288909"
+    "createdAt": "1200-02-28T17:13:39.288909",
+    "filename": "gondor_v3.json"
   },
   {
-    "versions": "2 - 3",
+    "versions": ">=2",
     "production": false,
     "attribution": "Similarion",
     "type": "http",
@@ -94,6 +97,7 @@
     "conform": {
       "type": "geojson"
     },
-    "createdAt": "1532-12-25T18:45:32.389979"
+    "createdAt": "1532-12-25T18:45:32.389979",
+    "filename": "shire_v2.json"
   }
 ]
