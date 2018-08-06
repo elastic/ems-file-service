@@ -1,5 +1,5 @@
 {
-  versions: '2'
+  versions: '>=2'
   production: true
   type: http
   note: Zip Code Tabulation Areas from the Census TIGERWEB

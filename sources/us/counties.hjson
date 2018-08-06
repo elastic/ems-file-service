@@ -1,5 +1,5 @@
 {
-    versions: '2'
+    versions: '>=2'
     production: false
     type: http
     note:  Counties of United States

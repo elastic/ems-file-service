@@ -1,5 +1,5 @@
 {
-    versions: '1 - 2'
+    versions: '>=1'
     production: true
     type: http
     note:  States of Germany
