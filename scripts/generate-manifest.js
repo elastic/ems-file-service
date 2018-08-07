@@ -53,12 +53,12 @@ function throwIfDuplicates(array, prop) {
 }
 
 function manifestLayerV1(data, hostname) {
-  const manifestId = data.id || data.name;
+  const manifestId = data.id || data.filename;
   const layer = {
     attribution: data.attribution,
     weight: data.weight,
     name: data.humanReadableName,
-    url: `https://${hostname}/blob/${manifestId}?elastic_tile_service_tos=agree`,
+    url: `https://${hostname}/files/${manifestId}?elastic_tile_service_tos=agree`,
     format: data.conform.type,
     fields: data.fieldMapping.map(fieldMap => ({
       name: fieldMap.dest,

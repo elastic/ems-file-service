@@ -152,7 +152,7 @@ tape('Generate manifests', t => {
       version: 'v2',
       hostname: 'staging-dot-elastic-layer.appspot.com'
     });
-  }
+  };
   const safeDuplicateNames = function () {
     return generateManifest(duplicateNames, {
       version: 'v1',
