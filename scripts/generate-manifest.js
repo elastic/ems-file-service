@@ -18,12 +18,15 @@ function generateManifest(sources, {
   hostname = constants.STAGING_HOST
 } = {}) {
   if (!semver.valid(semver.coerce(version))) {
-    return new Error('A valid version parameter must be defined');
+    throw new Error('A valid version parameter must be defined');
   }
   const manifestVersion = semver.coerce(version);
-  const layers = sources.filter(data => {
-    return ((!production || (production && data.production)) && semver.satisfies(manifestVersion, data.versions));
-  }).map(data => {
+  const layers = sources.filter(data =>
+    ((!production || (production && data.production)) && semver.satisfies(manifestVersion, data.versions))
+  );
+  throwIfDuplicates(layers, 'name');
+  throwIfDuplicates(layers, 'humanReadableName');
+  const manifestLayers = layers.map(data => {
     switch (semver.major(manifestVersion)) {
       case 1:
         return manifestLayerV1(data, hostname);
@@ -34,9 +37,19 @@ function generateManifest(sources, {
     }
   });
   const manifest = {
-    layers: _.orderBy(layers, ['weight', 'name'], ['desc', 'asc']),
+    layers: _.orderBy(manifestLayers, ['weight', 'name'], ['desc', 'asc']),
   };
   return manifest;
+}
+
+function throwIfDuplicates(array, prop) {
+  const uniqueNames = _.groupBy(array, prop);
+  for (const key in uniqueNames) {
+    if (uniqueNames[key].length > 1) {
+      throw new Error(`${key} has duplicate ${prop}`);
+    }
+  }
+  return false;
 }
 
 function manifestLayerV1(data, hostname) {
