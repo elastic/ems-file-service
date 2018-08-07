@@ -7,3 +7,5 @@ airflow.db
 dist/
 *_snapshot/
 *_file-service.tar.gz
+*.iml
+.idea/
