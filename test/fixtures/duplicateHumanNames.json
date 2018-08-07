@@ -1,0 +1,47 @@
+[{
+  "versions": ">=1",
+  "production": true,
+  "attribution": "Similarion",
+  "type": "http",
+  "data": "http://example.com",
+  "name": "isengard_regions",
+  "humanReadableName": "Isengard Regions",
+  "fieldMapping": [
+    {
+      "name": "label_en",
+      "source": "label_en",
+      "dest": "label_en",
+      "desc": "Region name (English)"
+    }
+  ],
+  "weight": 0,
+  "id": 111111111111,
+  "conform": {
+    "type": "geojson"
+  },
+  "createdAt": "1000-01-02T17:12:15.978370",
+  "filename": "isengard_v1.json"
+}, {
+  "versions": "2",
+  "production": true,
+  "attribution": "Similarion",
+  "type": "http",
+  "data": "http://example.com",
+  "name": "isengard_regions_2",
+  "humanReadableName": "Isengard Regions",
+  "fieldMapping": [
+    {
+      "name": "label_en",
+      "source": "label_en",
+      "dest": "label_en",
+      "desc": "Region name (English)"
+    }
+  ],
+  "weight": 0,
+  "id": 222222222222,
+  "conform": {
+    "type": "geojson"
+  },
+  "createdAt": "1000-01-02T17:12:15.978370",
+  "filename": "isengard_v2.json"
+}]
