@@ -7,10 +7,10 @@ const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
 const generateManifest = require('./scripts/generate-manifest');
 const generateVectors = require('./scripts/generate-vectors');
+const constants = require('./scripts/constants')
 
-const VERSIONS = ['v1', 'v2'];
-const manifestHostname = process.env.TARGET_HOST || 'staging-dot-elastic-layer.appspot.com';
-const production = manifestHostname === 'vector.maps.elastic.co';
+const manifestHostname = process.env.TARGET_HOST || constants.STAGING_HOST;
+const production = manifestHostname === constants.PRODUCTION_HOST;
 
 const sources = glob.sync('sources/**/*.*json').map(source => {
   const f = fs.readFileSync(source, 'utf8');
@@ -24,7 +24,7 @@ mkdirp.sync('./dist/files');
 
 const vectorFiles = [];
 
-VERSIONS.forEach(version => {
+constants.VERSIONS.forEach(version => {
   mkdirp.sync(path.join('./dist', version));
   const manifest = generateManifest(sources, {
     version: version,

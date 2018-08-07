@@ -1,5 +1,6 @@
 const semver = require('semver');
 const _ = require('lodash');
+const constants = require('./constants')
 
 module.exports = generateManifest;
 
@@ -9,12 +10,12 @@ module.exports = generateManifest;
  * @param {Object} [opts]
  * @param {string} [opts.version='0'] - Only include layers the satisfy this semver version
  * @param {boolean} [opts.production=false] - If true, include only production layers
- * @param {string} [opts.hostname='staging-dot-elastic-layer.appspot.com'] - Hostname for files in manifest
+ * @param {string} [opts.hostname=`${constants.STAGING_HOST}`] - Hostname for files in manifest
  */
 function generateManifest(sources, {
   version = 'v0',
   production = false,
-  hostname = 'staging-dot-elastic-layer.appspot.com'
+  hostname = constants.STAGING_HOST
 } = {}) {
   if (!semver.valid(semver.coerce(version))) {
     return new Error('A valid version parameter must be defined');
@@ -39,7 +40,7 @@ function generateManifest(sources, {
 }
 
 function manifestLayerV1(data, hostname) {
-  const manifestId = data.id;
+  const manifestId = data.id || data.name;
   const layer = {
     attribution: data.attribution,
     weight: data.weight,
