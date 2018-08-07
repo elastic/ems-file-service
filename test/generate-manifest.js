@@ -10,7 +10,7 @@ const v1Expected = {
     'attribution': 'Similarion',
     'weight': 0,
     'name': 'Gondor Kingdoms',
-    'url': `https://staging-dot-elastic-layer.appspot.com/blob/222222222222?elastic_tile_service_tos=agree`,
+    'url': `https://staging-dot-elastic-layer.appspot.com/files/222222222222?elastic_tile_service_tos=agree`,
     'format': 'geojson',
     'fields': [{
       'name': 'label_en',
@@ -23,7 +23,7 @@ const v1Expected = {
     'attribution': 'Similarion',
     'weight': 0,
     'name': 'Mordor Regions',
-    'url': `https://staging-dot-elastic-layer.appspot.com/blob/111111111111?elastic_tile_service_tos=agree`,
+    'url': `https://staging-dot-elastic-layer.appspot.com/files/111111111111?elastic_tile_service_tos=agree`,
     'format': 'geojson',
     'fields': [
       {
@@ -43,7 +43,7 @@ const v2Expected = {
       'attribution': 'Similarion',
       'weight': 0,
       'name': 'Gondor Kingdoms',
-      'url': `https://staging-dot-elastic-layer.appspot.com/blob/222222222222?elastic_tile_service_tos=agree`,
+      'url': `https://staging-dot-elastic-layer.appspot.com/files/222222222222?elastic_tile_service_tos=agree`,
       'format': 'geojson',
       'fields': [
         {
@@ -58,7 +58,7 @@ const v2Expected = {
       'attribution': 'Similarion',
       'weight': 0,
       'name': 'Shire regions',
-      'url': `https://staging-dot-elastic-layer.appspot.com/blob/333333333333?elastic_tile_service_tos=agree`,
+      'url': `https://staging-dot-elastic-layer.appspot.com/files/333333333333?elastic_tile_service_tos=agree`,
       'format': 'geojson',
       'fields': [
         {
@@ -83,7 +83,7 @@ const prodExpected = {
       'attribution': 'Similarion',
       'weight': 0,
       'name': 'Gondor Kingdoms',
-      'url': `https://vector.maps.elastic.co/blob/222222222222?elastic_tile_service_tos=agree`,
+      'url': `https://vector.maps.elastic.co/files/222222222222?elastic_tile_service_tos=agree`,
       'format': 'geojson',
       'fields': [
         {
@@ -104,7 +104,7 @@ const safeDuplicatesExpected = {
     'attribution': 'Similarion',
     'weight': 0,
     'name': 'Isengard Regions',
-    'url': 'https://staging-dot-elastic-layer.appspot.com/blob/111111111111?elastic_tile_service_tos=agree',
+    'url': 'https://staging-dot-elastic-layer.appspot.com/files/111111111111?elastic_tile_service_tos=agree',
     'format': 'geojson',
     'fields': [
       {
