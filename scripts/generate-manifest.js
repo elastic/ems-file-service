@@ -1,6 +1,6 @@
 const semver = require('semver');
 const _ = require('lodash');
-const constants = require('./constants')
+const constants = require('./constants');
 
 module.exports = generateManifest;
 
@@ -22,7 +22,7 @@ function generateManifest(sources, {
   }
   const manifestVersion = semver.coerce(version);
   const layers = sources.filter(data => {
-    return ((!production || (production && data.production)) && semver.satisfies(manifestVersion, data.versions))
+    return ((!production || (production && data.production)) && semver.satisfies(manifestVersion, data.versions));
   }).map(data => {
     switch (semver.major(manifestVersion)) {
       case 1:
@@ -30,9 +30,9 @@ function generateManifest(sources, {
       case 2:
         return manifestLayerV2(data, hostname);
       default:
-        return null
+        return null;
     }
-  })
+  });
   const manifest = {
     layers: _.orderBy(layers, ['weight', 'name'], ['desc', 'asc']),
   };

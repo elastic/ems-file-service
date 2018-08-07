@@ -1,4 +1,3 @@
-const fs = require('fs');
 const path = require('path');
 const semver = require('semver');
 
@@ -26,11 +25,11 @@ function generateVectors(sources, {
   }).forEach(data => {
     const src = path.join(srcdir, data.filename);
     const dest = path.join(destdir, 'files', data.filename);
-    files.push({ src: src, dest: dest })
+    files.push({ src: src, dest: dest });
     if (data.id) {
       const destLegacy = path.join(destdir, 'blob', data.id.toString());
-      files.push({ src: src, dest: destLegacy })
+      files.push({ src: src, dest: destLegacy });
     }
   });
-  return files
+  return files;
 }

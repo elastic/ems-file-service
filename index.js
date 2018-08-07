@@ -7,7 +7,7 @@ const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
 const generateManifest = require('./scripts/generate-manifest');
 const generateVectors = require('./scripts/generate-vectors');
-const constants = require('./scripts/constants')
+const constants = require('./scripts/constants');
 
 const manifestHostname = process.env.TARGET_HOST || constants.STAGING_HOST;
 const production = manifestHostname === constants.PRODUCTION_HOST;
