@@ -6,10 +6,11 @@ set +x
 # then it runs itself from within another docker container to deploys to GCP
 
 # Usage:
-# * Compile and deploy:          ./deployStaging.sh
-# * Deploy only without docker:  ./deployStaging.sh nodocker
+# * Compile and deploy:          ./build.sh
+# * Deploy only without docker:  ./build.sh nodocker
 
 # Expected env variables:
+# * [GCE_ACCOUNT] - credentials for the google service account (JSON blob)
 # * [TARGET_HOST] - "vector.maps.elastic.co" or "staging-dot-elastic-layer.appspot.com" (default)
 # * [TARGET_BUCKET] - "elastic-ems-prod-file-service-live" or "elastic-ems-prod-file-service-staging".
 #                     If TARGET_BUCKET is not set, the files are built locally but not uploaded.
@@ -61,14 +62,15 @@ if [[ "$1" != "nodocker" ]]; then
 
 else
 
+    if [[ -z "${GCE_ACCOUNT}" ]]; then
+        echo "GCE_ACCOUNT is not set. Expected google service account JSON blob."
+        exit 1
+    fi
+
     # Copying files to the cloud
     # Login to the cloud with the service account
     gcloud auth activate-service-account --key-file <(echo "$GCE_ACCOUNT")
     unset GCE_ACCOUNT
-
-    # Copy files
-    echo "Copying $PWD/dist/* to gs://$TARGET_BUCKET"
-    gsutil -m cp -r -a public-read -Z -h "Content-Type:application/json" $PWD/dist/* "gs://$TARGET_BUCKET"
 
     if [[ -n "${ARCHIVE_BUCKET}" ]]; then
         TIMESTAMP=`date +"%Y-%m-%d_%H-%M-%S"`
@@ -103,4 +105,9 @@ else
             exit 1
         fi
     fi
+
+    # Copy files
+    echo "Copying $PWD/dist/* to gs://$TARGET_BUCKET"
+    gsutil -m cp -r -a public-read -Z -h "Content-Type:application/json" $PWD/dist/* "gs://$TARGET_BUCKET"
+
 fi
