@@ -24,7 +24,9 @@ function generateManifest(sources, opts) {
   const manifestVersion = semver.coerce(opts.version);
   const layers = [];
   for (const source of sources) {
-    if ((!opts.production || (opts.production && source.production)) && semver.satisfies(manifestVersion, source.versions)) {
+    if ((!opts.production ||
+      (opts.production && source.production)) &&
+      semver.satisfies(manifestVersion, source.versions)) {
       switch (semver.major(manifestVersion)) {
         case 1:
           layers.push(manifestLayerV1(source, opts.hostname));

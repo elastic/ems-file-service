@@ -24,8 +24,8 @@ function generateVectors(sources, opts) {
   const manifestVersion = semver.coerce(opts.version);
   for (const source of sources) {
     if ((!opts.production ||
-      (opts.production && source.production))
-      && semver.satisfies(manifestVersion, source.versions)) {
+      (opts.production && source.production)) &&
+      semver.satisfies(manifestVersion, source.versions)) {
       const src = path.join(opts.srcdir, source.filename);
       const dest = path.join(opts.destdir, 'files', source.filename);
       files.push({ src: src, dest: dest });
