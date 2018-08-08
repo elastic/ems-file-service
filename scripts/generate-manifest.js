@@ -16,7 +16,7 @@ function generateManifest(sources, opts) {
   opts = {
     version: 'v0',
     production: false,
-    hostname: constants.STAGING_HOST, ...opts
+    hostname: constants.STAGING_HOST, ...opts,
   };
   if (!semver.valid(semver.coerce(opts.version))) {
     throw new Error('A valid version parameter must be defined');

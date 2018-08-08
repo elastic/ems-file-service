@@ -14,11 +14,11 @@ const v1Expected = {
     'format': 'geojson',
     'fields': [{
       'name': 'label_en',
-      'description': 'Kingdom name (English)'
+      'description': 'Kingdom name (English)',
     }],
     'created_at': '1200-02-28T17:13:39.288909',
     'tags': [],
-    'id': 222222222222
+    'id': 222222222222,
   }, {
     'attribution': 'Similarion',
     'weight': 0,
@@ -28,13 +28,13 @@ const v1Expected = {
     'fields': [
       {
         'name': 'label_en',
-        'description': 'Region name (English)'
-      }
+        'description': 'Region name (English)',
+      },
     ],
     'created_at': '1000-01-02T17:12:15.978370',
     'tags': [],
-    'id': 111111111111
-  }]
+    'id': 111111111111,
+  }],
 };
 
 const v2Expected = {
@@ -48,12 +48,12 @@ const v2Expected = {
       'fields': [
         {
           'name': 'label_en',
-          'description': 'Kingdom name (English)'
-        }
+          'description': 'Kingdom name (English)',
+        },
       ],
       'created_at': '1200-02-28T17:13:39.288909',
       'tags': [],
-      'id': 222222222222
+      'id': 222222222222,
     }, {
       'attribution': 'Similarion',
       'weight': 0,
@@ -63,18 +63,18 @@ const v2Expected = {
       'fields': [
         {
           'name': 'label_en',
-          'description': 'Region name (English)'
+          'description': 'Region name (English)',
         },
         {
           'name': 'label_ws',
-          'description': 'Region name (Westron)'
-        }
+          'description': 'Region name (Westron)',
+        },
       ],
       'created_at': '1532-12-25T18:45:32.389979',
       'tags': [],
-      'id': 333333333333
-    }
-  ]
+      'id': 333333333333,
+    },
+  ],
 };
 
 const prodExpected = {
@@ -88,14 +88,14 @@ const prodExpected = {
       'fields': [
         {
           'name': 'label_en',
-          'description': 'Kingdom name (English)'
-        }
+          'description': 'Kingdom name (English)',
+        },
       ],
       'created_at': '1200-02-28T17:13:39.288909',
       'tags': [],
-      'id': 222222222222
-    }
-  ]
+      'id': 222222222222,
+    },
+  ],
 };
 
 
@@ -109,32 +109,32 @@ const safeDuplicatesExpected = {
     'fields': [
       {
         'name': 'label_en',
-        'description': 'Region name (English)'
-      }
+        'description': 'Region name (English)',
+      },
     ],
     'created_at': '1000-01-02T17:12:15.978370',
     'tags': [],
-    'id': 111111111111
-  }]
+    'id': 111111111111,
+  }],
 };
 
 tape('Generate manifests', t => {
   const v1 = generateManifest(sources, {
     version: 'v1',
-    hostname: 'staging-dot-elastic-layer.appspot.com'
+    hostname: 'staging-dot-elastic-layer.appspot.com',
   });
   t.deepEquals(v1, v1Expected);
 
   const v2 = generateManifest(sources, {
     version: 'v2',
-    hostname: 'staging-dot-elastic-layer.appspot.com'
+    hostname: 'staging-dot-elastic-layer.appspot.com',
   });
   t.deepEquals(v2, v2Expected);
 
   const prod = generateManifest(sources, {
     version: 'v2',
     production: true,
-    hostname: 'vector.maps.elastic.co'
+    hostname: 'vector.maps.elastic.co',
   });
   t.deepEquals(prod, prodExpected);
 
@@ -144,28 +144,28 @@ tape('Generate manifests', t => {
   const unsafeDuplicateIds = function () {
     return generateManifest(duplicateIds, {
       version: 'v2',
-      hostname: 'staging-dot-elastic-layer.appspot.com'
+      hostname: 'staging-dot-elastic-layer.appspot.com',
     });
   };
 
   const safeDuplicateIds = function () {
     return generateManifest(duplicateIds, {
       version: 'v1',
-      hostname: 'staging-dot-elastic-layer.appspot.com'
+      hostname: 'staging-dot-elastic-layer.appspot.com',
     });
   };
 
   const unsafeDuplicateHumanNames = function () {
     return generateManifest(duplicateHumanNames, {
       version: 'v2',
-      hostname: 'staging-dot-elastic-layer.appspot.com'
+      hostname: 'staging-dot-elastic-layer.appspot.com',
     });
   };
 
   const safeDuplicateHumanNames = function () {
     return generateManifest(duplicateHumanNames, {
       version: 'v1',
-      hostname: 'staging-dot-elastic-layer.appspot.com'
+      hostname: 'staging-dot-elastic-layer.appspot.com',
     });
   };
 

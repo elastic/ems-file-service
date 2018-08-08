@@ -18,7 +18,7 @@ function generateVectors(sources, opts) {
     production: false,
     srcdir: 'data',
     destdir: 'dist',
-    ...opts
+    ...opts,
   };
   const files = [];
   const manifestVersion = semver.coerce(opts.version);

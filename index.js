@@ -29,13 +29,13 @@ constants.VERSIONS.forEach(version => {
   const manifest = generateManifest(sources, {
     version: version,
     production: production,
-    hostname: manifestHostname
+    hostname: manifestHostname,
   });
   vectorFiles.push(generateVectors(sources, {
     version: version,
     production: production,
     srcdir: 'data',
-    destdir: 'dist'
+    destdir: 'dist',
   }));
   fs.writeFileSync(
     path.join('./dist', version, 'manifest'),
