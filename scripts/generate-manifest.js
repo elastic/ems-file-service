@@ -12,26 +12,28 @@ module.exports = generateManifest;
  * @param {boolean} [opts.production=false] - If true, include only production layers
  * @param {string} [opts.hostname=`${constants.STAGING_HOST}`] - Hostname for files in manifest
  */
-function generateManifest(sources, {
-  version = 'v0',
-  production = false,
-  hostname = constants.STAGING_HOST
-} = {}) {
-  if (!semver.valid(semver.coerce(version))) {
+function generateManifest(sources, opts) {
+  opts = {
+    version: 'v0',
+    production: false,
+    hostname: constants.STAGING_HOST, ...opts
+  };
+  if (!semver.valid(semver.coerce(opts.version))) {
     throw new Error('A valid version parameter must be defined');
   }
-  const manifestVersion = semver.coerce(version);
+  const manifestVersion = semver.coerce(opts.version);
   const layers = sources.filter(data =>
-    ((!production || (production && data.production)) && semver.satisfies(manifestVersion, data.versions))
+    ((!opts.production || (opts.production && data.production)) && semver.satisfies(manifestVersion, data.versions))
   );
   throwIfDuplicates(layers, 'name');
   throwIfDuplicates(layers, 'humanReadableName');
+  throwIfDuplicates(layers, 'id');
   const manifestLayers = layers.map(data => {
     switch (semver.major(manifestVersion)) {
       case 1:
-        return manifestLayerV1(data, hostname);
+        return manifestLayerV1(data, opts.hostname);
       case 2:
-        return manifestLayerV2(data, hostname);
+        return manifestLayerV2(data, opts.hostname);
       default:
         return null;
     }
@@ -58,7 +60,7 @@ function manifestLayerV1(data, hostname) {
     attribution: data.attribution,
     weight: data.weight,
     name: data.humanReadableName,
-    url: `https://${hostname}/files/${manifestId}?elastic_tile_service_tos=agree`,
+    url: `https://${hostname}/files/${data.filename}?elastic_tile_service_tos=agree`,
     format: data.conform.type,
     fields: data.fieldMapping.map(fieldMap => ({
       name: fieldMap.dest,

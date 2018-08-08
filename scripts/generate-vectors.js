@@ -12,22 +12,24 @@ module.exports = generateVectors;
  * @param {string} [opts.srcdir='data'] - Relative directory of source vector data
  * @param {string} [opts.destdir='dist'] - Relative directory of destination vector data
  */
-function generateVectors(sources, {
-  version = 'v0',
-  production = false,
-  srcdir = 'data',
-  destdir = 'dist'
-} = {}) {
+function generateVectors(sources, opts) {
+  opts = {
+    version: 'v0',
+    production: false,
+    srcdir: 'data',
+    destdir: 'dist',
+    ...opts
+  };
   const files = [];
-  const manifestVersion = semver.coerce(version);
+  const manifestVersion = semver.coerce(opts.version);
   sources.filter(data => {
-    return ((!production || (production && data.production)) && semver.satisfies(manifestVersion, data.versions));
+    return ((!opts.production || (opts.production && data.production)) && semver.satisfies(manifestVersion, data.versions));
   }).forEach(data => {
-    const src = path.join(srcdir, data.filename);
-    const dest = path.join(destdir, 'files', data.filename);
+    const src = path.join(opts.srcdir, data.filename);
+    const dest = path.join(opts.destdir, 'files', data.filename);
     files.push({ src: src, dest: dest });
     if (data.id) {
-      const destLegacy = path.join(destdir, 'blob', data.id.toString());
+      const destLegacy = path.join(opts.destdir, 'blob', data.id.toString());
       files.push({ src: src, dest: destLegacy });
     }
   });
