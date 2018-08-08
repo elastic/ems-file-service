@@ -3,7 +3,6 @@ const generateManifest = require('../scripts/generate-manifest');
 
 const sources = require('./fixtures/sources.json');
 const duplicateIds = require('./fixtures/duplicateIds.json');
-const duplicateNames = require('./fixtures/duplicateNames.json');
 const duplicateHumanNames = require('./fixtures/duplicateHumanNames.json');
 
 const v1Expected = {
@@ -156,21 +155,9 @@ tape('Generate manifests', t => {
     });
   };
 
-  const unsafeDuplicateNames = function () {
-    return generateManifest(duplicateNames, {
-      version: 'v2',
-      hostname: 'staging-dot-elastic-layer.appspot.com'
-    });
-  };
   const unsafeDuplicateHumanNames = function () {
     return generateManifest(duplicateHumanNames, {
       version: 'v2',
-      hostname: 'staging-dot-elastic-layer.appspot.com'
-    });
-  };
-  const safeDuplicateNames = function () {
-    return generateManifest(duplicateNames, {
-      version: 'v1',
       hostname: 'staging-dot-elastic-layer.appspot.com'
     });
   };
@@ -182,11 +169,9 @@ tape('Generate manifests', t => {
     });
   };
 
-  t.throws(unsafeDuplicateIds);
-  t.throws(unsafeDuplicateNames);
-  t.throws(unsafeDuplicateHumanNames);
-  t.deepEquals(safeDuplicateIds(), safeDuplicatesExpected);
-  t.deepEquals(safeDuplicateHumanNames(), safeDuplicatesExpected);
-  t.deepEquals(safeDuplicateNames(), safeDuplicatesExpected);
+  t.throws(unsafeDuplicateIds, 'Source ids cannot be duplicate in intersecting versions');
+  t.throws(unsafeDuplicateHumanNames, 'Source human names cannot be duplicate in intersecting versions');
+  t.deepEquals(safeDuplicateIds(), safeDuplicatesExpected, 'Source ids can be duplicate in non-intersecting versions');
+  t.deepEquals(safeDuplicateHumanNames(), safeDuplicatesExpected, 'Source human names can be duplicate in non-intersecting versions');
   t.end();
 });

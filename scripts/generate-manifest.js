@@ -22,24 +22,25 @@ function generateManifest(sources, opts) {
     throw new Error('A valid version parameter must be defined');
   }
   const manifestVersion = semver.coerce(opts.version);
-  const layers = sources.filter(data =>
-    ((!opts.production || (opts.production && data.production)) && semver.satisfies(manifestVersion, data.versions))
-  );
-  throwIfDuplicates(layers, 'name');
-  throwIfDuplicates(layers, 'humanReadableName');
-  throwIfDuplicates(layers, 'id');
-  const manifestLayers = layers.map(data => {
-    switch (semver.major(manifestVersion)) {
-      case 1:
-        return manifestLayerV1(data, opts.hostname);
-      case 2:
-        return manifestLayerV2(data, opts.hostname);
-      default:
-        return null;
+  const layers = [];
+  for (const source of sources) {
+    if ((!opts.production || (opts.production && source.production)) && semver.satisfies(manifestVersion, source.versions)) {
+      switch (semver.major(manifestVersion)) {
+        case 1:
+          layers.push(manifestLayerV1(source, opts.hostname));
+          break;
+        case 2:
+          layers.push(manifestLayerV2(source, opts.hostname));
+          break;
+      }
     }
-  });
+  }
+  for (const prop of ['name', 'id']) {
+    throwIfDuplicates(layers, prop);
+  }
+
   const manifest = {
-    layers: _.orderBy(manifestLayers, ['weight', 'name'], ['desc', 'asc']),
+    layers: _.orderBy(layers, ['weight', 'name'], ['desc', 'asc']),
   };
   return manifest;
 }

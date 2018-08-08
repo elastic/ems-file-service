@@ -22,16 +22,18 @@ function generateVectors(sources, opts) {
   };
   const files = [];
   const manifestVersion = semver.coerce(opts.version);
-  sources.filter(data => {
-    return ((!opts.production || (opts.production && data.production)) && semver.satisfies(manifestVersion, data.versions));
-  }).forEach(data => {
-    const src = path.join(opts.srcdir, data.filename);
-    const dest = path.join(opts.destdir, 'files', data.filename);
-    files.push({ src: src, dest: dest });
-    if (data.id) {
-      const destLegacy = path.join(opts.destdir, 'blob', data.id.toString());
-      files.push({ src: src, dest: destLegacy });
+  for (const source of sources) {
+    if ((!opts.production ||
+      (opts.production && source.production))
+      && semver.satisfies(manifestVersion, source.versions)) {
+      const src = path.join(opts.srcdir, source.filename);
+      const dest = path.join(opts.destdir, 'files', source.filename);
+      files.push({ src: src, dest: dest });
+      if (source.id) {
+        const destLegacy = path.join(opts.destdir, 'blob', source.id.toString());
+        files.push({ src: src, dest: destLegacy });
+      }
     }
-  });
+  }
   return files;
 }
