@@ -2,6 +2,7 @@ const tape = require('tape');
 const generateManifest = require('../scripts/generate-manifest');
 
 const sources = require('./fixtures/sources.json');
+const duplicateIds = require('./fixtures/duplicateIds.json');
 const duplicateNames = require('./fixtures/duplicateNames.json');
 const duplicateHumanNames = require('./fixtures/duplicateHumanNames.json');
 
@@ -141,6 +142,20 @@ tape('Generate manifests', t => {
   const noVersion = generateManifest(sources);
   t.deepEquals(noVersion, { layers: [] });
 
+  const unsafeDuplicateIds = function () {
+    return generateManifest(duplicateIds, {
+      version: 'v2',
+      hostname: 'staging-dot-elastic-layer.appspot.com'
+    });
+  };
+
+  const safeDuplicateIds = function () {
+    return generateManifest(duplicateIds, {
+      version: 'v1',
+      hostname: 'staging-dot-elastic-layer.appspot.com'
+    });
+  };
+
   const unsafeDuplicateNames = function () {
     return generateManifest(duplicateNames, {
       version: 'v2',
@@ -167,8 +182,10 @@ tape('Generate manifests', t => {
     });
   };
 
+  t.throws(unsafeDuplicateIds);
   t.throws(unsafeDuplicateNames);
   t.throws(unsafeDuplicateHumanNames);
+  t.deepEquals(safeDuplicateIds(), safeDuplicatesExpected);
   t.deepEquals(safeDuplicateHumanNames(), safeDuplicatesExpected);
   t.deepEquals(safeDuplicateNames(), safeDuplicatesExpected);
   t.end();
