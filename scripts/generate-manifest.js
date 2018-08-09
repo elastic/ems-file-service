@@ -8,7 +8,7 @@ module.exports = generateManifest;
  * Generate a manifest for a specific version
  * @param {Object[]} sources - An array of layer objects
  * @param {Object} [opts]
- * @param {string} [opts.version='0'] - Only include layers the satisfy this semver version
+ * @param {string} [opts.version='0'] - Only include layers that satisfy this semver version
  * @param {boolean} [opts.production=false] - If true, include only production layers
  * @param {string} [opts.hostname=`${constants.STAGING_HOST}`] - Hostname for files in manifest
  */

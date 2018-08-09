@@ -2,7 +2,6 @@ const Hjson = require('hjson');
 const glob = require('glob');
 const fs = require('fs');
 const path = require('path');
-const _ = require('lodash');
 const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
 const generateManifest = require('./scripts/generate-manifest');
@@ -22,29 +21,31 @@ rimraf.sync('./dist');
 mkdirp.sync('./dist/blob');
 mkdirp.sync('./dist/files');
 
-const vectorFiles = [];
+const vectorFiles = new Map();
 
-constants.VERSIONS.forEach(version => {
+for (const version of constants.VERSIONS) {
   mkdirp.sync(path.join('./dist', version));
   const manifest = generateManifest(sources, {
     version: version,
     production: production,
     hostname: manifestHostname,
   });
-  vectorFiles.push(generateVectors(sources, {
+  for (const file of generateVectors(sources, {
     version: version,
     production: production,
     srcdir: 'data',
     destdir: 'dist',
-  }));
+  })) {
+    // Set key = destination path as it is unique across versions
+    vectorFiles.set(file.dest, file.src);
+  }
   fs.writeFileSync(
     path.join('./dist', version, 'manifest'),
     JSON.stringify(manifest, null, 2)
   );
-});
+}
 
-// Flatten the vectorFiles array and remove duplicate files (used by more than one version) before copying
-const filesToCopy = _.uniqBy(_.flatten(vectorFiles), 'dest');
-filesToCopy.forEach(file => {
-  fs.copyFileSync(file.src, file.dest);
-});
+for (const file of vectorFiles) {
+  // file is an array of [dest, src]
+  fs.copyFileSync(file[1], file[0]);
+}
