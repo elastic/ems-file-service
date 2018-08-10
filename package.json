@@ -5,16 +5,31 @@
   "description": "Data sources to use with Elasticsearch Map Service",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "tape test/*.js",
+    "build": "node index.js"
   },
   "keywords": [],
   "author": "Nick Peihl <nick.peihl@elastic.co>",
   "license": "UNLICENSED",
-  "dependencies": {},
-  "devDependencies": {
-    "ajv": "^5.5.0",
+  "dependencies": {
     "glob": "^7.1.2",
     "hjson": "^3.1.1",
+    "lodash": "^4.17.10",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.2",
+    "semver": "^5.5.0"
+  },
+  "devDependencies": {
+    "@elastic/eslint-config-kibana": "^0.15.0",
+    "ajv": "^5.5.0",
+    "babel-eslint": "^8.0.0",
+    "eslint": "^4.19.1",
+    "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jest": "^21.0.0",
+    "eslint-plugin-mocha": "^4.9.0",
+    "eslint-plugin-prefer-object-spread": "^1.2.1",
+    "eslint-plugin-react": "^7.1.0",
     "tape": "^4.9.0"
   }
 }

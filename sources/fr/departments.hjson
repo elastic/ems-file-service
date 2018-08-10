@@ -1,13 +1,22 @@
 {
+    versions: '>=1'
+    production: true
     type: http
     note: Administrative departments of France
     data: https://sophox.org/regions/geojson.json
+    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
         {
             name: iso_3166_2
             source: iso_3166_2
             dest: iso_3166_2
             desc: ISO-3166-2 identifier
+        }
+        {
+            name: insee
+            source: insee
+            dest: insee
+            desc: INSEE department identifier
         }
         {
             name: label_en
@@ -20,12 +29,6 @@
             source: label_fr
             dest: label_fr
             desc: Department name (French)
-        }
-        {
-            name: insee
-            source: insee
-            dest: insee
-            desc: INSEE department identifier
         }
     ]
     query: {
@@ -72,5 +75,8 @@
         type: geojson
     }
     ttl: 108000
-    manifestId: 5732568548769792
+    weight: 0
+    createdAt: "2018-04-04T20:25:39.183760"
+    id: 5732568548769792
+    filename: france_departments_v1.json
 }

@@ -1,7 +1,10 @@
 {
+    versions: '>=1'
+    production: true
     type: http
     note:  States of Germany
     data: https://sophox.org/regions/geojson.json
+    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
         {
             name: iso_3166_2
@@ -63,5 +66,8 @@
         type: geojson
     }
     ttl: 108000
-    manifestId: 5634472569470976
+    weight: 0
+    createdAt: "2018-01-23T13:06:05.998550"
+    id: 5634472569470976
+    filename: germany_states_v1.json
 }

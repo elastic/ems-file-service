@@ -3,9 +3,30 @@
   "title": "Source",
   "description": "Elastic Map Service data source",
   "type": "object",
-  "required": ["type", "data", "name", "humanReadableName", "fieldMapping"],
+  "required": [
+    "versions",
+    "production",
+    "attribution",
+    "type",
+    "data",
+    "name",
+    "humanReadableName",
+    "fieldMapping",
+    "weight",
+    "conform",
+    "createdAt"
+  ],
   "additionalProperties": false,
   "properties": {
+    "versions": {
+      "type": "string",
+      "description":
+        "Must be a semver compatible string (ex. v1, 1, 1.0.0, 1.x) or range (ex 1 - 2, ^1.0.1). See more examples at https://www.npmjs.com/package/semver. "
+    },
+    "production": {
+      "type": "boolean",
+      "description": "Whether or not the layer should be published to production"
+    },
     "type": {
       "type": "string",
       "enum": ["http", "ftp", "ESRI"]
@@ -29,24 +50,42 @@
       "type": "string",
       "enum": ["zip"]
     },
+    "filename": {
+      "description":
+        "Source filename in `data` folder. This file is also copied to the `dist/files` folder.",
+      "type": "string"
+    },
     "license": {
       "oneOf": [{ "type": "string" }, { "$ref": "#/definitions/license" }]
     },
     "attribution": {
       "type": "string"
     },
-    "manifestId": {
-      "type": "number"
+    "id": {
+      "description":
+        "Manifest id number. These are different ids for staging and production in v1 and v2 so it can be an object with `production` and `staging` properties.",
+      "oneOf": [{ "type": "string" }, { "type": "number" }]
     },
     "ttl": {
       "description":
-        "Time to live (seconds) until we recache the data from the source",
+        "Time to live (seconds) until we recache the data from the source (unused)",
+      "type": "integer"
+    },
+    "weight": {
+      "description":
+        "Weight of layer for ordering. Larger numbers appear higher in order.",
       "type": "integer"
     },
     "name": {
+      "description": "Short name for source.",
+      "type": "string"
+    },
+    "createdAt": {
+      "description": "Layer creation date in ISO 8601 format.",
       "type": "string"
     },
     "humanReadableName": {
+      "description": "Human readable layer name.",
       "type": "string"
     },
     "conform": {

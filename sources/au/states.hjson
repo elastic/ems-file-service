@@ -1,7 +1,10 @@
 {
+    versions: '>=1'
+    production: true
     type: http
     note:  States of Australia
     data: https://sophox.org/regions/geojson.json
+    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
         {
             name: iso_3166_2
@@ -37,11 +40,11 @@
 
             # P150 = "contains administrative territorial entity"
             ?entity wdt:P150 ?id .
-            ?id wdt:P300 ?iso_3166_2 
+            ?id wdt:P300 ?iso_3166_2
 
 
             OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-            
+
             }
             # remove possible ID duplicates
             GROUP BY ?id}
@@ -49,10 +52,13 @@
             '''
     }
     name: australia_states
-    humanReadableName: Australia States and Territories
+    humanReadableName: Australia States
     conform: {
         type: geojson
     }
     ttl: 108000
-    manifestId: 5656058538229760
+    weight: 0
+    createdAt: "2018-06-27T23:47:32.202380"
+    id: 5631986051842048
+    filename: australia_states_v1.json
 }

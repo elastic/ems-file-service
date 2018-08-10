@@ -1,7 +1,10 @@
 {
+    versions: '>=1'
+    production: true
     type: http
     note:  Counties and Provinces of Ireland
     data: https://sophox.org/regions/geojson.json
+    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
         {
             name: iso_3166_2
@@ -51,7 +54,7 @@
 
             # P150 = "contains administrative territorial entity"
             ?entity wdt:P150 ?id .
-            
+
 
 
                 OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
@@ -66,10 +69,13 @@
             '''
     }
     name: ireland_counties
-    humanReadableName: Ireland counties and provinces
+    humanReadableName: Ireland Counties
     conform: {
         type: geojson
     }
     ttl: 108000
-    manifestId: 5656846262075392
+    weight: 0
+    createdAt: "2018-06-27T23:23:42.963794"
+    id: 5644406560391168
+    filename: ireland_counties_v1.json
 }

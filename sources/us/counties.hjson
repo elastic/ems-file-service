@@ -1,0 +1,80 @@
+{
+    versions: '>=2'
+    production: false
+    type: http
+    note:  Counties of United States
+    data: https://sophox.org/regions/geojson.json
+    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+    fieldMapping: [
+        {
+            name: fips_6_4
+            source: fips_6_4
+            dest: fips_6_4
+            desc: FIPS county code
+        }
+        {
+            name: gnis
+            source: gnis
+            dest: gnis
+            desc: GNIS ID
+        }
+        {
+            name: viaf
+            source: viaf
+            dest: viaf
+            desc: VIAF ID
+        }
+        {
+            name: label_en
+            source: label_en
+            dest: label_en
+            desc: County name (English)
+        }
+    ]
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            # version 8
+            SELECT
+              (if(bound(?id2),?id2,?id) as ?id)
+              ?fips_6_4_alpha ?gnis ?viaf ?label_en
+            WHERE {
+            # Using nested query to ensure there is only one ?id2 value
+            {SELECT
+              ?id
+              (SAMPLE(?id2) as ?id2)
+              (SAMPLE(?fips_6_4_alpha) as ?fips_6_4_alpha)
+              (SAMPLE(?gnis) as ?gnis)
+              (SAMPLE(?viaf) as ?viaf)
+              (SAMPLE(?label_en) as ?label_en)
+            WHERE {
+              # List of regions, whose sub-regions we want.
+              VALUES ?entity { wd:Q30 }
+
+              # P150 = "contains administrative territorial entity"
+              ?entity wdt:P150/wdt:P150 ?id .
+
+              OPTIONAL { ?id wdt:P3403 ?id2 . }
+
+              OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+              OPTIONAL { ?id wdt:P882 ?fips_6_4_alpha }
+              OPTIONAL { ?id wdt:P590 ?gnis }
+              OPTIONAL { ?id wdt:P214 ?viaf }
+            }
+            # remove possible ID duplicates
+            GROUP BY ?id}
+            }
+            '''
+    }
+    name: usa_counties
+    humanReadableName: USA Counties
+    conform: {
+        type: topojson
+    }
+    ttl: 108000
+    weight: 0
+    createdAt: "2018-03-23T17:38:00.671050"
+    id: 5672749318012928
+    filename: usa_counties_v2.json
+}

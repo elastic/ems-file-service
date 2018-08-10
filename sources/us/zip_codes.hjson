@@ -1,4 +1,6 @@
 {
+  versions: '>=2'
+  production: true
   type: http
   note: Zip Code Tabulation Areas from the Census TIGERWEB
   website: https://www.census.gov/geo/reference/zctas.html
@@ -12,13 +14,16 @@
     }
   ]
   license: Public Domain
-  name: zip_codes
-  humanReadableName: USA Zip Codes
+  name: usa_zip_codes
+  humanReadableName: USA zip codes
   conform:
   {
     type: topojson
   }
   attribution: US Census Bureau
   ttl: 108000
-  manifestId: 5676073085829120
+  weight: 0
+  createdAt: "2018-01-26T17:16:00.275510"
+  id: 5700305828184064
+  filename: usa_zip_codes_v2.json
 }

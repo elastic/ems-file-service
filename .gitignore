@@ -1,6 +1,11 @@
 node_modules
 .DS_Store
 .vscode
-logs
+logs/
 airflow.db
 *.pyc
+dist/
+*_snapshot/
+*_file-service.tar.gz
+*.iml
+.idea/

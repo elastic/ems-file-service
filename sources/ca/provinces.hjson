@@ -1,7 +1,10 @@
 {
+    versions: '>=1'
+    production: true
     type: http
     note: Canadian provinces
     data: https://sophox.org/regions/geojson.json
+    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
         {
             name: iso_3166_2
@@ -58,7 +61,11 @@
     humanReadableName: Canada Provinces
     conform: {
         type: geojson
-    } 
+    }
     ttl: 108000
-    manifestId: 5715999101812736
+    weight: 0
+    createdAt: "2018-01-23T13:07:00.346990"
+    id: 5715999101812736
+    filename: canada_provinces_v1.json
+
 }

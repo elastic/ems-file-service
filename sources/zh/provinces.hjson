@@ -1,13 +1,22 @@
 {
+    versions: '>=1'
+    production: true
     type: http
     note:  Administrative divisions of China
     data: https://sophox.org/regions/geojson.json
+    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
         {
             name: iso_3166_2
             source: iso_3166_2
             dest: iso_3166_2
             desc: ISO-3166-2 identifier
+        }
+        {
+            name: division_code
+            source: division_code
+            dest: division_code
+            desc: China administrative division code
         }
         {
             name: label_en
@@ -20,12 +29,6 @@
             source: label_zh
             dest: label_zh
             desc: Province name (Chinese)
-        }
-        {
-            name: division_code
-            source: division_code
-            dest: division_code
-            desc: China administrative division code
         }
     ]
     query: {
@@ -70,5 +73,8 @@
         type: geojson
     }
     ttl: 108000
-    manifestId: 5654313976201216
+    weight: 0
+    createdAt: "2018-04-04T21:16:38.930020"
+    id: 5654313976201216
+    filename: china_provinces_v1.json
 }
