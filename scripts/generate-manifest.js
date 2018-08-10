@@ -49,7 +49,7 @@ function generateManifest(sources, opts) {
 
 function throwIfDuplicates(array, prop) {
   const uniqueNames = _.groupBy(array, prop);
-  for (const key in uniqueNames) {
+  for (const key of Object.getOwnPropertyNames(uniqueNames)) {
     if (uniqueNames[key].length > 1) {
       throw new Error(`${key} has duplicate ${prop}`);
     }
