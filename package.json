@@ -1,8 +1,8 @@
 {
-  "name": "elastic-map-service-data",
+  "name": "ems-file-service",
   "private": true,
   "version": "0.0.1",
-  "description": "Data sources to use with Elasticsearch Map Service",
+  "description": "Data sources, vector data, and manifest generation for Elastic Maps Service",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js",
@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "Nick Peihl <nick.peihl@elastic.co>",
-  "license": "UNLICENSED",
+  "license": "Elastic-License",
   "dependencies": {
     "glob": "^7.1.2",
     "hjson": "^3.1.1",
