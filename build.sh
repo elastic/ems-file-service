@@ -108,6 +108,6 @@ else
 
     # Copy files
     echo "Copying $PWD/dist/* to gs://$TARGET_BUCKET"
-    gsutil -m cp -r -a public-read -Z -h "Content-Type:application/json" $PWD/dist/* "gs://$TARGET_BUCKET"
+    gsutil -m -h "Content-Type:application/json" cp -r -a public-read -Z $PWD/dist/* "gs://$TARGET_BUCKET"
 
 fi
