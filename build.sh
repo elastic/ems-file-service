@@ -115,6 +115,6 @@ else
 
     # Copy files
     echo "Copying $PWD/dist/* to gs://$TARGET_BUCKET"
-    gsutil -m cp -r -a public-read -Z -h "Content-Type:application/json" $PWD/dist/* "gs://$TARGET_BUCKET"
+    gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z $PWD/dist/* "gs://$TARGET_BUCKET"
 
 fi
