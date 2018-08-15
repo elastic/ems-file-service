@@ -19,9 +19,9 @@ set +x
 # Expected env variables:
 # * [GCE_ACCOUNT] - credentials for the google service account (JSON blob)
 # * [TARGET_HOST] - "vector.maps.elastic.co" or "staging-dot-elastic-layer.appspot.com" (default)
-# * [TARGET_BUCKET] - "elastic-ems-prod-file-service-live" or "elastic-ems-prod-file-service-staging".
+# * [TARGET_BUCKET] - "elastic-ems-prod-files-vector" or "elastic-ems-prod-files-vector-staging".
 #                     If TARGET_BUCKET is not set, the files are built locally but not uploaded.
-# * [ARCHIVE_BUCKET] - "elastic-ems-prod-file-service-archive"
+# * [ARCHIVE_BUCKET] - "elastic-ems-prod-files-vector-archive"
 #                      If ARCHIVE_BUCKET is set, a timestamped snapshot of the files is uploaded to the bucket.
 
 if [[ -z "${TARGET_HOST}" ]]; then

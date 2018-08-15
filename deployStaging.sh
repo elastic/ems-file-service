@@ -18,10 +18,10 @@ if [[ -z "${GPROJECT}" ]]; then
     exit 1
 fi
 
-export EMS_PROJECT="file-service"
+export EMS_PROJECT="files"
 
 export TARGET_HOST="staging-dot-elastic-layer.appspot.com"
-export TARGET_BUCKET=${GPROJECT}-${EMS_PROJECT}-staging
+export TARGET_BUCKET=${GPROJECT}-${EMS_PROJECT}-vector-staging
 
 unset ARCHIVE_BUCKET
 

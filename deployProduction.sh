@@ -18,10 +18,10 @@ if [[ -z "${GPROJECT}" ]]; then
     exit 1
 fi
 
-export EMS_PROJECT="file-service"
+export EMS_PROJECT="files-vector"
 
 export TARGET_HOST="vector.maps.elastic.co"
-export TARGET_BUCKET=${GPROJECT}-${EMS_PROJECT}-live
-export ARCHIVE_BUCKET=${GPROJECT}-${EMS_PROJECT}-archive
+export TARGET_BUCKET=${GPROJECT}-${EMS_PROJECT}
+export ARCHIVE_BUCKET=${GPROJECT}-files-archive
 
 ./build.sh
