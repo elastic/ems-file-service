@@ -18,14 +18,18 @@ set +x
 
 # Expected env variables:
 # * [GCE_ACCOUNT] - credentials for the google service account (JSON blob)
-# * [TARGET_HOST] - "vector.maps.elastic.co" or "staging-dot-elastic-layer.appspot.com" (default)
-# * [TARGET_BUCKET] - "elastic-ems-prod-files-vector" or "elastic-ems-prod-files-vector-staging".
-#                     If TARGET_BUCKET is not set, the files are built locally but not uploaded.
+# * [VECTOR_HOST] - "vector.maps.elastic.co" or "vector-staging.maps.elastic.co" (default)
+# * [VECTOR_BUCKET] - "elastic-ems-prod-files-vector" or "elastic-ems-prod-files-vector-staging".
+#                     If VECTOR_BUCKET is not set, the files are built locally but not uploaded.
 # * [ARCHIVE_BUCKET] - "elastic-ems-prod-files-vector-archive"
 #                      If ARCHIVE_BUCKET is set, a timestamped snapshot of the files is uploaded to the bucket.
 
-if [[ -z "${TARGET_HOST}" ]]; then
-    echo "TARGET_HOST is not set. Defaulting to 'staging-dot-elastic-layer.appspot.com'."
+if [[ -z "${VECTOR_HOST}" ]]; then
+    echo "VECTOR_HOST is not set. Defaulting to 'vector-staging.maps.elastic.co'."
+fi
+
+if [[ -z "${TILE_HOST}" ]]; then
+    echo "TILE_HOST is not set. Defaulting to 'tiles-maps-stage.elastic.co'"
 fi
 
 if [[ "$1" != "nodocker" ]]; then
@@ -35,7 +39,8 @@ if [[ "$1" != "nodocker" ]]; then
     echo "Generating manifests and vector data files for all versions using ${NODE_IMG} docker image"
     docker pull $NODE_IMG
     docker run --rm -i \
-        --env TARGET_HOST \
+        --env VECTOR_HOST \
+        --env TILE_HOST \
         --env GIT_COMMITTER_NAME=test \
         --env GIT_COMMITTER_EMAIL=test \
         --env HOME=/tmp \
@@ -45,15 +50,17 @@ if [[ "$1" != "nodocker" ]]; then
         $NODE_IMG \
         bash -c 'npm config set spin false && /opt/yarn*/bin/yarn && yarn test && yarn run build'
 
-    if [[ -n "${TARGET_BUCKET}" ]]; then
+    if [[ -n "${VECTOR_BUCKET}" && -n "${CATALOGUE_BUCKET}" ]]; then
         # Run this script from inside the docker container, using google/cloud-sdk image
-        echo "Deploying to ${TARGET_HOST}"
+        echo "Deploying vector files to ${VECTOR_HOST}"
         docker run \
             --rm -i \
             --env GCE_ACCOUNT \
             --env GPROJECT \
-            --env TARGET_HOST \
-            --env TARGET_BUCKET \
+            --env VECTOR_HOST \
+            --env TILE_HOST \
+            --env VECTOR_BUCKET \
+            --env CATALOGUE_BUCKET \
             --env ARCHIVE_BUCKET \
             --env EMS_PROJECT \
             --env HOME=/tmp \
@@ -64,7 +71,7 @@ if [[ "$1" != "nodocker" ]]; then
             /app/build.sh nodocker "$@"
         unset GCE_ACCOUNT
     else
-        echo "TARGET_BUCKET is not set. No data will be uploaded."
+        echo "VECTOR_BUCKET or CATALOGUE_BUCKET is not set. No data will be uploaded."
     fi
 
 else
@@ -113,8 +120,12 @@ else
         fi
     fi
 
-    # Copy files
-    echo "Copying $PWD/dist/* to gs://$TARGET_BUCKET"
-    gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z $PWD/dist/* "gs://$TARGET_BUCKET"
+    # Copy catalogue manifest
+    echo "Copying $PWD/dist/catalogue* to gs://$CATALOGUE_BUCKET"
+    gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z $PWD/dist/catalogue "gs://$CATALOGUE_BUCKET"
+
+    # Copy vector files
+    echo "Copying $PWD/dist/vector* to gs://$VECTOR_BUCKET"
+    gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z $PWD/dist/vector "gs://$VECTOR_BUCKET"
 
 fi

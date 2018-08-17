@@ -20,8 +20,10 @@ fi
 
 export EMS_PROJECT="files"
 
-export TARGET_HOST="staging-dot-elastic-layer.appspot.com"
-export TARGET_BUCKET=${GPROJECT}-${EMS_PROJECT}-vector-staging
+export TILE_HOST="tiles-maps-stage.elastic.co"
+export VECTOR_HOST="vector-staging.maps.elastic.co"
+export CATALOGUE_BUCKET=${GPROJECT}-${EMS_PROJECT}-catalogue-staging
+export VECTOR_BUCKET=${GPROJECT}-${EMS_PROJECT}-vector-staging
 
 unset ARCHIVE_BUCKET
 
