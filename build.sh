@@ -18,18 +18,22 @@ set +x
 
 # Expected env variables:
 # * [GCE_ACCOUNT] - credentials for the google service account (JSON blob)
+# * [TILE_HOST] - "tiles.maps.elastic.co" or "tiles-maps-stage.elastic.co" (default)
 # * [VECTOR_HOST] - "vector.maps.elastic.co" or "vector-staging.maps.elastic.co" (default)
+# * [CATALOGUE_BUCKET] - "elastic-ems-prod-files-catalogue" or "elastic-ems-prod-files-catalogue-staging"
 # * [VECTOR_BUCKET] - "elastic-ems-prod-files-vector" or "elastic-ems-prod-files-vector-staging".
-#                     If VECTOR_BUCKET is not set, the files are built locally but not uploaded.
-# * [ARCHIVE_BUCKET] - "elastic-ems-prod-files-vector-archive"
+#                     If VECTOR_BUCKET or CATALOGUE_BUCKET is not set, the files are built locally but not uploaded.
+# * [ARCHIVE_BUCKET] - "elastic-ems-prod-files-archive"
 #                      If ARCHIVE_BUCKET is set, a timestamped snapshot of the files is uploaded to the bucket.
 
 if [[ -z "${VECTOR_HOST}" ]]; then
-    echo "VECTOR_HOST is not set. Defaulting to 'vector-staging.maps.elastic.co'."
+    VECTOR_HOST="vector-staging.maps.elastic.co"
+    echo "VECTOR_HOST is not set. Defaulting to '${VECTOR_HOST}'."
 fi
 
 if [[ -z "${TILE_HOST}" ]]; then
-    echo "TILE_HOST is not set. Defaulting to 'tiles-maps-stage.elastic.co'"
+    TILE_HOST="tiles-maps-stage.elastic.co"
+    echo "TILE_HOST is not set. Defaulting to '${TILE_HOST}'."
 fi
 
 if [[ "$1" != "nodocker" ]]; then
@@ -71,7 +75,13 @@ if [[ "$1" != "nodocker" ]]; then
             /app/build.sh nodocker "$@"
         unset GCE_ACCOUNT
     else
-        echo "VECTOR_BUCKET or CATALOGUE_BUCKET is not set. No data will be uploaded."
+        echo "No data will be uploaded. The following bucket information is not set:"
+        if [[ -z "${VECTOR_BUCKET}" ]]; then
+          echo "VECTOR_BUCKET"
+        fi
+        if [[ -z "${CATALOGUE_BUCKET}" ]]; then
+          echo "CATALOGUE_BUCKET"
+        fi
     fi
 
 else
