@@ -132,10 +132,10 @@ else
 
     # Copy catalogue manifest
     echo "Copying $PWD/dist/catalogue* to gs://$CATALOGUE_BUCKET"
-    gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z $PWD/dist/catalogue "gs://$CATALOGUE_BUCKET"
+    gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z $PWD/dist/catalogue/* "gs://$CATALOGUE_BUCKET"
 
     # Copy vector files
     echo "Copying $PWD/dist/vector* to gs://$VECTOR_BUCKET"
-    gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z $PWD/dist/vector "gs://$VECTOR_BUCKET"
+    gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z $PWD/dist/vector/* "gs://$VECTOR_BUCKET"
 
 fi
