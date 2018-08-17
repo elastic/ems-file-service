@@ -5,7 +5,7 @@
  */
 
 const tape = require('tape');
-const generateManifest = require('../scripts/generate-manifest');
+const { generateCatalogueManifest, generateVectorManifest } = require('../scripts/generate-manifest');
 
 const sources = require('./fixtures/sources.json');
 const duplicateIds = require('./fixtures/duplicateIds.json');
@@ -124,52 +124,52 @@ const safeDuplicatesExpected = {
   }],
 };
 
-tape('Generate manifests', t => {
-  const v1 = generateManifest(sources, {
+tape('Generate vector manifests', t => {
+  const v1 = generateVectorManifest(sources, {
     version: 'v1',
     hostname: 'staging-dot-elastic-layer.appspot.com',
   });
   t.deepEquals(v1, v1Expected);
 
-  const v2 = generateManifest(sources, {
+  const v2 = generateVectorManifest(sources, {
     version: 'v2',
     hostname: 'staging-dot-elastic-layer.appspot.com',
   });
   t.deepEquals(v2, v2Expected);
 
-  const prod = generateManifest(sources, {
+  const prod = generateVectorManifest(sources, {
     version: 'v2',
     production: true,
     hostname: 'vector.maps.elastic.co',
   });
   t.deepEquals(prod, prodExpected);
 
-  const noVersion = generateManifest(sources);
+  const noVersion = generateVectorManifest(sources);
   t.deepEquals(noVersion, { layers: [] });
 
   const unsafeDuplicateIds = function () {
-    return generateManifest(duplicateIds, {
+    return generateVectorManifest(duplicateIds, {
       version: 'v2',
       hostname: 'staging-dot-elastic-layer.appspot.com',
     });
   };
 
   const safeDuplicateIds = function () {
-    return generateManifest(duplicateIds, {
+    return generateVectorManifest(duplicateIds, {
       version: 'v1',
       hostname: 'staging-dot-elastic-layer.appspot.com',
     });
   };
 
   const unsafeDuplicateHumanNames = function () {
-    return generateManifest(duplicateHumanNames, {
+    return generateVectorManifest(duplicateHumanNames, {
       version: 'v2',
       hostname: 'staging-dot-elastic-layer.appspot.com',
     });
   };
 
   const safeDuplicateHumanNames = function () {
-    return generateManifest(duplicateHumanNames, {
+    return generateVectorManifest(duplicateHumanNames, {
       version: 'v1',
       hostname: 'staging-dot-elastic-layer.appspot.com',
     });
@@ -179,5 +179,65 @@ tape('Generate manifests', t => {
   t.throws(unsafeDuplicateHumanNames, 'Source human names cannot be duplicate in intersecting versions');
   t.deepEquals(safeDuplicateIds(), safeDuplicatesExpected, 'Source ids can be duplicate in non-intersecting versions');
   t.deepEquals(safeDuplicateHumanNames(), safeDuplicatesExpected, 'Source human names can be duplicate in non-intersecting versions');
+  t.end();
+});
+
+tape('Generate catalogue manifest', t => {
+  const v1 = generateCatalogueManifest({
+    version: 'v1',
+    tileHostname: 'tiles-maps-stage.elastic.co',
+    vectorHostname: 'vector-staging.maps.elastic.co',
+  });
+  t.deepEquals(v1, {
+    services: [{
+      id: 'tiles_v2',
+      name: 'Elastic Maps Tile Service',
+      manifest: 'https://tiles-maps-stage.elastic.co/v2/manifest',
+      type: 'tms',
+    }, {
+      id: 'geo_layers',
+      name: 'Elastic Maps Vector Service',
+      manifest: 'https://vector-staging.maps.elastic.co/v1/manifest',
+      type: 'file',
+    }],
+  });
+
+  const v2 = generateCatalogueManifest({
+    version: 'v2',
+    tileHostname: 'tiles-maps-stage.elastic.co',
+    vectorHostname: 'vector-staging.maps.elastic.co',
+  });
+  t.deepEquals(v2, {
+    services: [{
+      id: 'tiles_v2',
+      name: 'Elastic Maps Tile Service',
+      manifest: 'https://tiles-maps-stage.elastic.co/v2/manifest',
+      type: 'tms',
+    }, {
+      id: 'geo_layers',
+      name: 'Elastic Maps Vector Service',
+      manifest: 'https://vector-staging.maps.elastic.co/v2/manifest',
+      type: 'file',
+    }],
+  });
+
+  const prod = generateCatalogueManifest({
+    version: 'v2',
+    tileHostname: 'tiles.maps.elastic.co',
+    vectorHostname: 'vector.maps.elastic.co',
+  });
+  t.deepEquals(prod, {
+    services: [{
+      id: 'tiles_v2',
+      name: 'Elastic Maps Tile Service',
+      manifest: 'https://tiles.maps.elastic.co/v2/manifest',
+      type: 'tms',
+    }, {
+      id: 'geo_layers',
+      name: 'Elastic Maps Vector Service',
+      manifest: 'https://vector.maps.elastic.co/v2/manifest',
+      type: 'file',
+    }],
+  });
   t.end();
 });

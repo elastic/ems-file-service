@@ -10,12 +10,13 @@ const fs = require('fs');
 const path = require('path');
 const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
-const generateManifest = require('./scripts/generate-manifest');
+const { generateVectorManifest, generateCatalogueManifest } = require('./scripts/generate-manifest');
 const generateVectors = require('./scripts/generate-vectors');
 const constants = require('./scripts/constants');
 
-const manifestHostname = process.env.TARGET_HOST || constants.STAGING_HOST;
-const production = manifestHostname === constants.PRODUCTION_HOST;
+const tileManifestHostname = process.env.TILE_HOST || constants.TILE_STAGING_HOST;
+const vectorManifestHostname = process.env.VECTOR_HOST || constants.VECTOR_STAGING_HOST;
+const production = vectorManifestHostname === constants.VECTOR_PRODUCTION_HOST;
 
 const sources = glob.sync('sources/**/*.*json').map(source => {
   const f = fs.readFileSync(source, 'utf8');
@@ -24,30 +25,41 @@ const sources = glob.sync('sources/**/*.*json').map(source => {
 
 // Clean and recreate `./dist` directories
 rimraf.sync('./dist');
-mkdirp.sync('./dist/blob');
-mkdirp.sync('./dist/files');
+mkdirp.sync('./dist/vector/blob');
+mkdirp.sync('./dist/vector/files');
+mkdirp.sync('./dist/catalogue');
 
 const vectorFiles = new Map();
 
 for (const version of constants.VERSIONS) {
-  mkdirp.sync(path.join('./dist', version));
-  const manifest = generateManifest(sources, {
+  mkdirp.sync(path.join('./dist/catalogue', version));
+  mkdirp.sync(path.join('./dist/vector', version));
+  const catalogueManifest = generateCatalogueManifest({
+    version: version,
+    tileHostname: tileManifestHostname,
+    vectorHostname: vectorManifestHostname,
+  });
+  const vectorManifest = generateVectorManifest(sources, {
     version: version,
     production: production,
-    hostname: manifestHostname,
+    hostname: vectorManifestHostname,
   });
   for (const file of generateVectors(sources, {
     version: version,
     production: production,
     srcdir: 'data',
-    destdir: 'dist',
+    destdir: 'dist/vector',
   })) {
     // Set key = destination path as it is unique across versions
     vectorFiles.set(file.dest, file.src);
   }
   fs.writeFileSync(
-    path.join('./dist', version, 'manifest'),
-    JSON.stringify(manifest, null, 2)
+    path.join('./dist/catalogue', version, 'manifest'),
+    JSON.stringify(catalogueManifest, null, 2)
+  );
+  fs.writeFileSync(
+    path.join('./dist/vector', version, 'manifest'),
+    JSON.stringify(vectorManifest, null, 2)
   );
 }
 
