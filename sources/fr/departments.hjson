@@ -4,7 +4,7 @@
     type: http
     note: Administrative departments of France
     data: https://sophox.org/regions/geojson.json
-    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+    attribution: "© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
         {
             name: iso_3166_2
