@@ -72,6 +72,29 @@
   },
   {
     "versions": ">=2",
+    "production": true,
+    "attribution": "Similarion",
+    "type": "http",
+    "data": "http://example.com",
+    "name": "Rohan",
+    "humanReadableName": "Rohan Kingdoms",
+    "fieldMapping": [
+      {
+        "name": "label_en",
+        "source": "label_en",
+        "dest": "label_en",
+        "desc": "Kingdom name (English)"
+      }
+    ],
+    "weight": 0,
+    "conform": {
+      "type": "topojson"
+    },
+    "createdAt": "1200-02-28T17:13:39.456456",
+    "filename": "rohan_v2.json"
+  },
+  {
+    "versions": ">=2",
     "production": false,
     "attribution": "Similarion",
     "type": "http",

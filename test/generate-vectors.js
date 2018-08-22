@@ -30,6 +30,9 @@ const v2Expected = [{
   'src': 'data/gondor_v2.json',
   'dest': 'dist/blob/222222222222',
 }, {
+  'src': 'data/rohan_v2.json',
+  'dest': 'dist/files/rohan_v2.json',
+}, {
   'src': 'data/shire_v2.json',
   'dest': 'dist/files/shire_v2.json',
 }, {
@@ -43,11 +46,17 @@ const prodExpected = [{
 }, {
   'src': 'data/gondor_v2.json',
   'dest': 'dist/blob/222222222222',
+}, {
+  'src': 'data/rohan_v2.json',
+  'dest': 'dist/files/rohan_v2.json',
 }];
 
 const v3Expected = [{
   'src': 'data/gondor_v3.json',
   'dest': 'dist/files/gondor_v3.json',
+}, {
+  'src': 'data/rohan_v2.json',
+  'dest': 'dist/files/rohan_v2.json',
 }, {
   'src': 'data/shire_v2.json',
   'dest': 'dist/files/shire_v2.json',

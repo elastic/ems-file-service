@@ -101,11 +101,12 @@ function throwIfDuplicates(array, prop) {
 
 function manifestLayerV1(data, hostname) {
   const manifestId = data.id || data.filename;
+  const urlPath = data.id ? `blob/${data.id}` : `files/${data.filename}`;
   const layer = {
     attribution: data.attribution,
     weight: data.weight,
     name: data.humanReadableName,
-    url: `https://${hostname}/files/${data.filename}?elastic_tile_service_tos=agree`,
+    url: `https://${hostname}/${urlPath}?elastic_tile_service_tos=agree`,
     format: data.conform.type,
     fields: data.fieldMapping.map(fieldMap => ({
       name: fieldMap.dest,
