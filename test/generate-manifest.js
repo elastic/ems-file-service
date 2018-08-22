@@ -16,7 +16,7 @@ const v1Expected = {
     'attribution': 'Similarion',
     'weight': 0,
     'name': 'Gondor Kingdoms',
-    'url': `https://staging-dot-elastic-layer.appspot.com/files/gondor_v2.json?elastic_tile_service_tos=agree`,
+    'url': `https://staging-dot-elastic-layer.appspot.com/blob/222222222222?elastic_tile_service_tos=agree`,
     'format': 'geojson',
     'fields': [{
       'name': 'label_en',
@@ -29,7 +29,7 @@ const v1Expected = {
     'attribution': 'Similarion',
     'weight': 0,
     'name': 'Mordor Regions',
-    'url': `https://staging-dot-elastic-layer.appspot.com/files/mordor_v1.json?elastic_tile_service_tos=agree`,
+    'url': `https://staging-dot-elastic-layer.appspot.com/blob/111111111111?elastic_tile_service_tos=agree`,
     'format': 'geojson',
     'fields': [
       {
@@ -49,7 +49,7 @@ const v2Expected = {
       'attribution': 'Similarion',
       'weight': 0,
       'name': 'Gondor Kingdoms',
-      'url': `https://staging-dot-elastic-layer.appspot.com/files/gondor_v2.json?elastic_tile_service_tos=agree`,
+      'url': `https://staging-dot-elastic-layer.appspot.com/blob/222222222222?elastic_tile_service_tos=agree`,
       'format': 'geojson',
       'fields': [
         {
@@ -63,8 +63,26 @@ const v2Expected = {
     }, {
       'attribution': 'Similarion',
       'weight': 0,
+      'name': 'Rohan Kingdoms',
+      'url': `https://staging-dot-elastic-layer.appspot.com/files/rohan_v2.json?elastic_tile_service_tos=agree`,
+      'format': 'topojson',
+      'fields': [
+        {
+          'name': 'label_en',
+          'description': 'Kingdom name (English)',
+        },
+      ],
+      'created_at': '1200-02-28T17:13:39.456456',
+      'tags': [],
+      'id': 'rohan_v2.json',
+      'meta': {
+        'feature_collection_path': 'data',
+      },
+    }, {
+      'attribution': 'Similarion',
+      'weight': 0,
       'name': 'Shire regions',
-      'url': `https://staging-dot-elastic-layer.appspot.com/files/shire_v2.json?elastic_tile_service_tos=agree`,
+      'url': `https://staging-dot-elastic-layer.appspot.com/blob/333333333333?elastic_tile_service_tos=agree`,
       'format': 'geojson',
       'fields': [
         {
@@ -89,7 +107,7 @@ const prodExpected = {
       'attribution': 'Similarion',
       'weight': 0,
       'name': 'Gondor Kingdoms',
-      'url': `https://vector.maps.elastic.co/files/gondor_v2.json?elastic_tile_service_tos=agree`,
+      'url': `https://vector.maps.elastic.co/blob/222222222222?elastic_tile_service_tos=agree`,
       'format': 'geojson',
       'fields': [
         {
@@ -100,6 +118,24 @@ const prodExpected = {
       'created_at': '1200-02-28T17:13:39.288909',
       'tags': [],
       'id': 222222222222,
+    }, {
+      'attribution': 'Similarion',
+      'weight': 0,
+      'name': 'Rohan Kingdoms',
+      'url': `https://vector.maps.elastic.co/files/rohan_v2.json?elastic_tile_service_tos=agree`,
+      'format': 'topojson',
+      'fields': [
+        {
+          'name': 'label_en',
+          'description': 'Kingdom name (English)',
+        },
+      ],
+      'created_at': '1200-02-28T17:13:39.456456',
+      'tags': [],
+      'id': 'rohan_v2.json',
+      'meta': {
+        'feature_collection_path': 'data',
+      },
     },
   ],
 };
@@ -110,7 +146,7 @@ const safeDuplicatesExpected = {
     'attribution': 'Similarion',
     'weight': 0,
     'name': 'Isengard Regions',
-    'url': 'https://staging-dot-elastic-layer.appspot.com/files/isengard_v1.json?elastic_tile_service_tos=agree',
+    'url': 'https://staging-dot-elastic-layer.appspot.com/blob/111111111111?elastic_tile_service_tos=agree',
     'format': 'geojson',
     'fields': [
       {
