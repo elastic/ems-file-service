@@ -131,11 +131,11 @@ else
     fi
 
     # Copy catalogue manifest
-    echo "Syncing $PWD/dist/catalogue* to gs://$CATALOGUE_BUCKET"
-    gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" rsync -d -r -Z $PWD/dist/catalogue/* "gs://$CATALOGUE_BUCKET"
+    echo "Copying $PWD/dist/catalogue* to gs://$CATALOGUE_BUCKET"
+    gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z $PWD/dist/catalogue/* "gs://$CATALOGUE_BUCKET"
 
     # Copy vector files
-    echo "Syncing $PWD/dist/vector* to gs://$VECTOR_BUCKET"
-    gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" rsync -d -r -Z $PWD/dist/vector/* "gs://$VECTOR_BUCKET"
+    echo "Copying $PWD/dist/vector* to gs://$VECTOR_BUCKET"
+    gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z $PWD/dist/vector/* "gs://$VECTOR_BUCKET"
 
 fi
