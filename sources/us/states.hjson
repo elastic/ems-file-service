@@ -7,16 +7,22 @@
     attribution: "© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
         {
-            name: postal
-            source: postal
-            dest: postal
-            desc: Two letter abbreviation
+            name: iso_3166_2
+            source: iso_3166_2
+            dest: iso_3166_2
+            desc: ISO-3166-2 identifier
         }
         {
             name: name
             source: name
             dest: name
             desc: State name
+        }
+        {
+            name: postal
+            source: postal
+            dest: postal
+            desc: Two letter abbreviation
         }
     ]
     query: {
