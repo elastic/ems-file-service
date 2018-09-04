@@ -1,0 +1,72 @@
+{
+    versions: '>=1'
+    production: true
+    type: http
+    note:  Provinces of Kingdom of the Netherlands
+    data: https://sophox.org/regions/geojson.json
+    attribution: "© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+    fieldMapping: [
+        {
+            name: iso_3166_2
+            source: iso_3166_2
+            dest: iso_3166_2
+            desc: ISO-3166-2 identifier
+        }
+        {
+            name: label_en
+            source: label_en
+            dest: label_en
+            desc: Province name (English)
+        }
+        {
+            name: label_nl
+            source: label_nl
+            dest: label_nl
+            desc: Province name (Dutch)
+        }
+    ]
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            # version 8
+            SELECT
+            (if(bound(?id2),?id2,?id) as ?id)
+            ?iso_3166_2 ?label_en ?label_nl
+            WHERE {
+              # Using nested query to ensure there is only one ?id2 value
+              {SELECT
+              ?id
+              (SAMPLE(?id2) as ?id2)
+              (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+              (SAMPLE(?label_en) as ?label_en)
+              (SAMPLE(?label_nl) as ?label_nl)
+              WHERE {
+                # List of regions, whose sub-regions we want.
+                VALUES ?entity { wd:Q29999 }
+
+                # P150 = "contains administrative territorial entity"
+                ?entity wdt:P150* ?id .
+                ?id wdt:P300 ?iso_3166_2
+                    # Use only codes from NL (excludes AW, BQ, CW, and SX country codes)
+                    FILTER(regex(?iso_3166_2, "^NL-.{2,3}$"))
+
+                    OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                OPTIONAL { ?id rdfs:label ?label_nl . FILTER(LANG(?label_nl) = "nl") }
+              }
+              # remove possible ID duplicates
+              GROUP BY ?id}
+            }
+            '''
+    }
+    name: netherlands_provinces
+    humanReadableName: Netherlands Provinces
+    conform: {
+        type: geojson
+    }
+    ttl: 108000
+    weight: 0
+    createdAt: "2018-08-29T22:38:11.952250"
+    id: 5714163003293696
+    filename: netherlands_provinces_v1.json
+}
