@@ -1,0 +1,38 @@
+{
+    versions: '>=1'
+    weight: 0
+    production: true
+    type: http
+    note:  Administrative subdivisions of the United Kingdom
+    attribution: Contains OS data © Crown copyright and database right 2018|Ordnance Survey of Northern Ireland (OSNI)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)
+    data: See README
+    fieldMapping: [
+        {
+            name: iso_3166_2
+            source: iso_3166_2
+            dest: iso_3166_2
+            desc: ISO-3166-2 identifier
+        }
+        {
+            name: gss
+            source: gss
+            dest: gss
+            desc: GSS code
+        }
+        {
+            name: label_en
+            source: label_en
+            dest: label_en
+            desc: Subdivision name (English)
+        }
+    ]
+    name: uk_subdivisions
+    humanReadableName: United Kingdom Subdivisions
+    conform: {
+        type: geojson
+    }
+    createdAt: 2018-08-24T17:49:30.145142000
+    id: 5642554087309312
+    filename: uk_subdivisions_v1.json
+    ttl: 108000
+}
