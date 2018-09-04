@@ -1,0 +1,94 @@
+{
+    versions: '>=1'
+    type: http
+    production: true
+    note: Counties of Norway
+    data: https://sophox.org/regions/geojson.json
+    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+    fieldMapping: [
+        {
+            name: iso_3166_2
+            source: iso_3166_2
+            dest: iso_3166_2
+            desc: ISO-3166-2 identifier
+        }
+        {
+            name: label_en
+            source: label_en
+            dest: label_en
+            desc: County name (English)
+        }
+        {
+            name: label_nn
+            source: label_nn
+            dest: label_nn
+            desc: County name (Nynorsk)
+        }
+        {
+            name: label_nb
+            source: label_nb
+            dest: label_nb
+            desc: County name (Bokmål)
+        }
+    ]
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            # version 8
+            SELECT
+            (if(bound(?id2),?id2,?id1) as ?id)
+            ?iso_3166_2 ?label_en ?label_nn ?label_nb
+            WHERE {
+              # Using nested query to ensure there is only one ?id2 value
+              {SELECT
+              ?id1
+              (SAMPLE(?id2) as ?id2)
+              (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+              (SAMPLE(?label_en) as ?label_en)
+              (SAMPLE(?label_nn) as ?label_nn)
+              (SAMPLE(?label_nb) as ?label_nb)
+              WHERE { {
+                # List of regions, whose sub-regions we want.
+                VALUES ?entity { wd:Q20 }
+
+                # P150 = "contains administrative territorial entity"
+                ?entity wdt:P150 ?id1 .
+                ?id1 wdt:P300 ?iso_3166_2
+
+                      OPTIONAL { ?id1 rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                OPTIONAL { ?id1 rdfs:label ?label_nn . FILTER(LANG(?label_nn) = "nn") }
+                OPTIONAL { ?id1 rdfs:label ?label_nb . FILTER(LANG(?label_nb) = "nb") }
+              } UNION {
+                # GeoIP database lists Trøndelag as NO-50, but that code doesn't exist in ISO 3166-2 yet,
+                # so we'll select and define the ISO code specifically then union it to our other data.
+
+                # List of regions, whose sub-regions we want.
+                VALUES ?entity { wd:Q20 }
+
+                # P150 = "contains administrative territorial entity"
+                ?entity wdt:P150 ?id1 .
+                FILTER( ?id1=wd:Q127676)
+                VALUES ?iso_3166_2 { "NO-50" }
+
+                OPTIONAL { ?id1 rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                OPTIONAL { ?id1 rdfs:label ?label_nn . FILTER(LANG(?label_nn) = "nn") }
+                OPTIONAL { ?id1 rdfs:label ?label_nb . FILTER(LANG(?label_nb) = "nb") }
+              }
+                    }
+              # remove possible ID duplicates
+              GROUP BY ?id1}
+            }
+            '''
+    }
+    name: norway_counties
+    humanReadableName: Norway Counties
+    conform: {
+        type: geojson
+    }
+    ttl: 108000
+    weight: 0
+    createdAt: "2018-08-29T17:27:28.246260"
+    id: 5646874153320448
+    filename: norway_counties_v1.json
+}
