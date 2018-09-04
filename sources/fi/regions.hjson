@@ -1,0 +1,78 @@
+{
+    versions: '>=1'
+    type: http
+    production: true
+    note: Regions of Finland
+    data: https://sophox.org/regions/geojson.json
+    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+    fieldMapping: [
+        {
+            name: iso_3166_2
+            source: iso_3166_2
+            dest: iso_3166_2
+            desc: ISO-3166-2 identifier
+        }
+        {
+            name: label_en
+            source: label_en
+            dest: label_en
+            desc: Region name (English)
+        }
+        {
+            name: label_fi
+            source: label_fi
+            dest: label_fi
+            desc: Region name (Finnish)
+        }
+        {
+            name: label_sv
+            source: label_sv
+            dest: label_sv
+            desc: Region name (Swedish)
+        }
+    ]
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            # version 8
+            SELECT
+            (if(bound(?id2),?id2,?id) as ?id)
+            ?iso_3166_2 ?label_en ?label_fi ?label_sv
+            WHERE {
+              # Using nested query to ensure there is only one ?id2 value
+              {SELECT
+              ?id
+              (SAMPLE(?id2) as ?id2)
+              (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+              (SAMPLE(?label_en) as ?label_en)
+              (SAMPLE(?label_fi) as ?label_fi)
+              (SAMPLE(?label_sv) as ?label_sv)
+              WHERE {
+                # List of regions, whose sub-regions we want.
+                VALUES ?entity { wd:Q33 }
+
+                # P150 = "contains administrative territorial entity"
+                ?entity wdt:P150* ?id .
+                ?id wdt:P300 ?iso_3166_2
+
+                    OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                OPTIONAL { ?id rdfs:label ?label_fi . FILTER(LANG(?label_fi) = "fi") }
+                OPTIONAL { ?id rdfs:label ?label_sv . FILTER(LANG(?label_sv) = "sv") }
+              }
+              # remove possible ID duplicates
+              GROUP BY ?id}
+            }
+            '''
+    }
+    name: finland_regions
+    humanReadableName: Finland Regions
+    conform: {
+        type: geojson
+    }
+    ttl: 108000
+    weight: 0
+    createdAt: "2018-08-28T22:18:10.207632"
+    id: 5692462144159744
+    filename: finland_regions_v1.json
+}
