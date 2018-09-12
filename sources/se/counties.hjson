@@ -66,5 +66,5 @@
     weight: 0
     createdAt: "2018-08-28T18:21:14.239664"
     id: 5760820306771968
-    filename: sweden_counties_v1.json
+    filename: sweden_counties_v1.geo.json
 }

@@ -64,7 +64,7 @@ const v2Expected = {
       'attribution': 'Similarion',
       'weight': 0,
       'name': 'Rohan Kingdoms',
-      'url': `https://staging-dot-elastic-layer.appspot.com/files/rohan_v2.json?elastic_tile_service_tos=agree`,
+      'url': `https://staging-dot-elastic-layer.appspot.com/files/rohan_v2.topo.json?elastic_tile_service_tos=agree`,
       'format': 'topojson',
       'fields': [
         {
@@ -74,7 +74,7 @@ const v2Expected = {
       ],
       'created_at': '1200-02-28T17:13:39.456456',
       'tags': [],
-      'id': 'rohan_v2.json',
+      'id': 'rohan_v2.topo.json',
       'meta': {
         'feature_collection_path': 'data',
       },
@@ -122,7 +122,7 @@ const prodExpected = {
       'attribution': 'Similarion',
       'weight': 0,
       'name': 'Rohan Kingdoms',
-      'url': `https://vector.maps.elastic.co/files/rohan_v2.json?elastic_tile_service_tos=agree`,
+      'url': `https://vector.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree`,
       'format': 'topojson',
       'fields': [
         {
@@ -132,7 +132,7 @@ const prodExpected = {
       ],
       'created_at': '1200-02-28T17:13:39.456456',
       'tags': [],
-      'id': 'rohan_v2.json',
+      'id': 'rohan_v2.topo.json',
       'meta': {
         'feature_collection_path': 'data',
       },

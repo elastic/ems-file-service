@@ -25,5 +25,5 @@
   weight: 0
   createdAt: "2018-01-26T17:16:00.275510"
   id: 5700305828184064
-  filename: usa_zip_codes_v2.json
+  filename: usa_zip_codes_v2.topo.json
 }

@@ -21,7 +21,7 @@
       "type": "geojson"
     },
     "createdAt": "1000-01-02T17:12:15.978370",
-    "filename": "mordor_v1.json"
+    "filename": "mordor_v1.geo.json"
   },
   {
     "versions": "1 - 2",
@@ -45,7 +45,7 @@
       "type": "geojson"
     },
     "createdAt": "1200-02-28T17:13:39.288909",
-    "filename": "gondor_v2.json"
+    "filename": "gondor_v2.topo.json"
   },
   {
     "versions": ">=3",
@@ -68,7 +68,7 @@
       "type": "geojson"
     },
     "createdAt": "1200-02-28T17:13:39.288909",
-    "filename": "gondor_v3.json"
+    "filename": "gondor_v3.topo.json"
   },
   {
     "versions": ">=2",
@@ -91,7 +91,7 @@
       "type": "topojson"
     },
     "createdAt": "1200-02-28T17:13:39.456456",
-    "filename": "rohan_v2.json"
+    "filename": "rohan_v2.topo.json"
   },
   {
     "versions": ">=2",
@@ -121,6 +121,6 @@
       "type": "geojson"
     },
     "createdAt": "1532-12-25T18:45:32.389979",
-    "filename": "shire_v2.json"
+    "filename": "shire_v2.topo.json"
   }
 ]

@@ -41,7 +41,7 @@ Whenever possible new vector layers should be created using a SPARQL query in [S
 11. Optionally, click the "Simplify" link and drag the slider to reduce the number of vertices (smaller file size). 
 12. Click the "Export" link on the top right of the map. Choose GeoJSON or TopoJSON as the File Format. 
 13. Type `rfc7946` in the "command line options" to reduce the precision of the coordinates and click "Export" to download the vector file.
-14. Rename the downloaded file and give it a version number (ex. `russia_states_v1.json`) and copy it to the `data` directory. 
+14. Rename the downloaded file with the first supported EMS version number (ex. `_v1`, `_v2`, `_v6.6`) and the vector type (`geo` for GeoJSON, `topo` for TopoJSON) (ex. `russia_states_v1.geo.json`). Copy this file to the `data` directory. 
 15. Copy and paste the SPARQL query from Sophox to the `query.sparql` field in the source file.
 16. Use the following bash command to generate the timestamp for the `createdAt` field. Use `gdate` on Mac OSX.
 `date -u +"%Y-%m-%dT%H:%M:%S.%6N"`
