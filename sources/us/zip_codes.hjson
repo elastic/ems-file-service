@@ -2,7 +2,7 @@
   versions: '>=2'
   production: true
   type: http
-  note: Zip Code Tabulation Areas from the Census TIGERWEB
+  note: Zip Code Tabulation Areas from the Census TIGERWEB (simplified)
   website: https://www.census.gov/geo/reference/zctas.html
   data: ftp://ftp2.census.gov/geo/tiger/TIGER2017/ZCTA5/tl_2017_us_zcta510.zip
   fieldMapping: [
@@ -20,10 +20,10 @@
   {
     type: topojson
   }
-  attribution: US Census Bureau
+  attribution: "[US Census Bureau](https://www.census.gov/geo/reference/zctas.html)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
   ttl: 108000
   weight: 0
-  createdAt: "2018-01-26T17:16:00.275510"
+  createdAt: "2018-09-12T16:20:47.303827"
   id: 5700305828184064
   filename: usa_zip_codes_v2.json
 }
