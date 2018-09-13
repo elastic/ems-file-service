@@ -8,9 +8,8 @@
   "humanReadableName": "Mordor Regions",
   "fieldMapping": [
     {
+      "type": "property",
       "name": "label_en",
-      "source": "label_en",
-      "dest": "label_en",
       "desc": "Region name (English)"
     }
   ],
@@ -31,9 +30,8 @@
   "humanReadableName": "Isengard Regions",
   "fieldMapping": [
     {
+      "type": "property",
       "name": "label_en",
-      "source": "label_en",
-      "dest": "label_en",
       "desc": "Region name (English)"
     }
   ],

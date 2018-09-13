@@ -109,7 +109,7 @@ function manifestLayerV1(data, hostname) {
     url: `https://${hostname}/${urlPath}?elastic_tile_service_tos=agree`,
     format: data.conform.type,
     fields: data.fieldMapping.map(fieldMap => ({
-      name: fieldMap.dest,
+      name: fieldMap.name,
       description: fieldMap.desc,
     })),
     created_at: data.createdAt,

@@ -41,7 +41,8 @@
     "fieldMapping": {
       "description":
         "Specifies map source field names or properties to elastic map service properties",
-      "type": "array"
+      "type": "array",
+      "items": { "$ref": "#/definitions/fieldMap" }
     },
     "website": {
       "type": "string"
@@ -114,6 +115,33 @@
         },
         "share-alike": {
           "type": "boolean"
+        }
+      }
+    },
+    "fieldMap": {
+      "description": "Specifies type, name, source, destination, and description of a field.",
+      "type": "object",
+      "required": [
+        "type",
+        "name",
+        "desc"
+      ],
+      "properties": {
+        "type": {
+          "description": "Type of field. Starting in Kibana v6.5 `id` fields are available as Join Fields in Kibana. By default, `property` fields cannot be used as a Join Field.",
+          "type": "string",
+          "enum": [
+            "id",
+            "property"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of field in vector data"
+        },
+        "desc": {
+          "type": "string",
+          "description": "Human readable field name"
         }
       }
     },

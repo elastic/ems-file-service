@@ -9,9 +9,8 @@
     "humanReadableName": "Mordor Regions",
     "fieldMapping": [
       {
+        "type": "property",
         "name": "label_en",
-        "source": "label_en",
-        "dest": "label_en",
         "desc": "Region name (English)"
       }
     ],
@@ -33,9 +32,8 @@
     "humanReadableName": "Gondor Kingdoms",
     "fieldMapping": [
       {
+        "type": "property",
         "name": "label_en",
-        "source": "label_en",
-        "dest": "label_en",
         "desc": "Kingdom name (English)"
       }
     ],
@@ -57,9 +55,8 @@
     "humanReadableName": "Gondor Kingdoms",
     "fieldMapping": [
       {
+        "type": "property",
         "name": "label_en",
-        "source": "label_en",
-        "dest": "label_en",
         "desc": "Kingdom name (English)"
       }
     ],
@@ -80,9 +77,8 @@
     "humanReadableName": "Rohan Kingdoms",
     "fieldMapping": [
       {
+        "type": "property",
         "name": "label_en",
-        "source": "label_en",
-        "dest": "label_en",
         "desc": "Kingdom name (English)"
       }
     ],
@@ -103,15 +99,12 @@
     "humanReadableName": "Shire regions",
     "fieldMapping": [
       {
+        "type": "property",
         "name": "label_en",
-        "source": "label_en",
-        "dest": "label_en",
         "desc": "Region name (English)"
       },
       {
         "name": "label_ws",
-        "source": "label_ad",
-        "dest": "label_ws",
         "desc": "Region name (Westron)"
       }
     ],
