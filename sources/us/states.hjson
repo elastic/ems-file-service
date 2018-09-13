@@ -17,7 +17,11 @@
             desc: Two letter abbreviation
         }
         {
+<<<<<<< HEAD
             type: property
+=======
+            type: id
+>>>>>>> Add field types to sources.
             name: name
             desc: State name
         }
