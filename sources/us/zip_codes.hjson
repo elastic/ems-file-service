@@ -8,9 +8,8 @@
   data: ftp://ftp2.census.gov/geo/tiger/TIGER2017/ZCTA5/tl_2017_us_zcta510.zip
   fieldMapping: [
     {
+      type: id
       name: zip
-      source: zcta5
-      dest: zip
       desc: 5-digit zip code
     }
   ]

@@ -9,21 +9,18 @@
     data: See README
     fieldMapping: [
         {
+            type: id
             name: iso_3166_2
-            source: iso_3166_2
-            dest: iso_3166_2
             desc: ISO-3166-2 identifier
         }
         {
+            type: id
             name: gss
-            source: gss
-            dest: gss
             desc: GSS code
         }
         {
+            type: property
             name: label_en
-            source: label_en
-            dest: label_en
             desc: Subdivision name (English)
         }
     ]

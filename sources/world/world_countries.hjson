@@ -8,25 +8,21 @@
   attribution: "[Made with NaturalEarth](http://www.naturalearthdata.com/about/terms-of-use)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
   fieldMapping: [
     {
+      type: id
       name: iso2
-      source: iso_a2,
-      dest: iso2
       desc: Two letter abbreviation
     }
     {
-      name: name
-      source: name
-      dest: name
-      desc: Country name
-    }
-    {
+      type: id
       name: iso3
-      source: iso_a3
-      dest: iso3
       desc: Three letter abbreviation
     }
+    {
+      type: property
+      name: name
+      desc: Country name
+    }
   ]
-
   website: http://naturalearthdata.comhttp://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-details/
   license:
   {
