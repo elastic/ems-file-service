@@ -42,5 +42,5 @@
   weight: 1
   createdAt: "2017-04-26T17:12:15.978370"
   id: 5659313586569216
-  filename: world_countries_v1.json
+  filename: world_countries_v1.geo.json
 }

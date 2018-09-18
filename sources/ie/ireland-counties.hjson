@@ -77,5 +77,5 @@
     weight: 0
     createdAt: "2018-06-27T23:23:42.963794"
     id: 5644406560391168
-    filename: ireland_counties_v1.json
+    filename: ireland_counties_v1.geo.json
 }

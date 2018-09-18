@@ -28,5 +28,11 @@ function testAllSources(validate) {
       }
       t.end();
     });
+    tape(`${source} filename field must have a matching file in the data directory`, (t) => {
+      const data = Hjson.parse(fs.readFileSync(source, 'utf8'));
+      const sourceFilename = data.filename;
+      t.ok(fs.existsSync(`./data/${sourceFilename}`));
+      t.end();
+    });
   });
 }
