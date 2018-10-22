@@ -10,6 +10,7 @@ const Hjson = require('hjson');
 const schema = require('../schema/source_schema.json');
 const glob = require('glob');
 const fs = require('fs');
+const jsts = require('jsts');
 
 const ajv = new Ajv();
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'), 'http://json-schema.org/draft-04/schema#');
@@ -17,9 +18,9 @@ testAllSources(ajv.compile(schema));
 
 function testAllSources(validate) {
   glob.sync('sources/**/*.*json').forEach((source) => {
+    const data = Hjson.parse(fs.readFileSync(source, 'utf8'));
     tape(`${source} schema must be valid`, (t) => {
       try {
-        const data = Hjson.parse(fs.readFileSync(source, 'utf8'));
         const valid = validate(data);
 
         t.ok(valid, `${source}: ${JSON.stringify(validate.errors)}`);
@@ -29,10 +30,27 @@ function testAllSources(validate) {
       t.end();
     });
     tape(`${source} filename field must have a matching file in the data directory`, (t) => {
-      const data = Hjson.parse(fs.readFileSync(source, 'utf8'));
       const sourceFilename = data.filename;
       t.ok(fs.existsSync(`./data/${sourceFilename}`));
       t.end();
     });
+    if (data.conform.type === 'geojson') {
+      tape(`${source} data must be valid and simple`, (t) => {
+        const geojson = fs.readFileSync(`./data/${data.filename}`, 'utf8');
+        validateGeometry(geojson, t);
+      });
+    }
   });
+}
+
+function validateGeometry(geojson, t) {
+  const reader = new jsts.io.GeoJSONReader();
+  const fc = reader.read(geojson);
+  t.ok(fc.features.every(feat => {
+    return feat.geometry.isSimple();
+  }), 'All geometries must be simple');
+  t.ok(fc.features.every(feat => {
+    return feat.geometry.isValid();
+  }), 'All geometries must be valid');
+  t.end();
 }
