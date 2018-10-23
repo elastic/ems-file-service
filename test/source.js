@@ -11,6 +11,7 @@ const schema = require('../schema/source_schema.json');
 const glob = require('glob');
 const fs = require('fs');
 const jsts = require('jsts');
+const geojsonhint = require('@mapbox/geojsonhint');
 
 const ajv = new Ajv();
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'), 'http://json-schema.org/draft-04/schema#');
@@ -50,5 +51,8 @@ function validateGeometry(geojson, t) {
   ), 'All geometries must be simple');
   t.ok(fc.features.every(feat => feat.geometry.isValid()
   ), 'All geometries must be valid');
+  for (const err of geojsonhint.hint(geojson)) {
+    t.fail(err.message);
+  }
   t.end();
 }

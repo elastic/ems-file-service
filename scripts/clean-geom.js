@@ -6,6 +6,7 @@
 
 const jsts = require('jsts');
 const fs = require('fs');
+const rewind = require('geojson-rewind');
 
 const filePath = process.argv[2];
 
@@ -35,8 +36,11 @@ const reader = new jsts.io.GeoJSONReader();
 const fc = fs.readFileSync(filePath, 'utf8');
 const gj = reader.read(fc);
 const features = gj.features.map(makeValid);
-const fixed = {
+
+// JSTS does not enforce winding order, so we pass the features through `geojson-rewind`.
+const fixed = rewind({
   type: 'FeatureCollection',
   features: features,
-};
+});
+
 fs.writeFileSync(filePath, JSON.stringify(fixed));
