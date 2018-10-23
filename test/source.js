@@ -46,11 +46,9 @@ function testAllSources(validate) {
 function validateGeometry(geojson, t) {
   const reader = new jsts.io.GeoJSONReader();
   const fc = reader.read(geojson);
-  t.ok(fc.features.every(feat => {
-    return feat.geometry.isSimple();
-  }), 'All geometries must be simple');
-  t.ok(fc.features.every(feat => {
-    return feat.geometry.isValid();
-  }), 'All geometries must be valid');
+  t.ok(fc.features.every(feat => feat.geometry.isSimple()
+  ), 'All geometries must be simple');
+  t.ok(fc.features.every(feat => feat.geometry.isValid()
+  ), 'All geometries must be valid');
   t.end();
 }
