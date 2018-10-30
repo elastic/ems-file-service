@@ -49,4 +49,5 @@ Whenever possible new vector layers should be created using a SPARQL query in [S
 `date +%s%6N` 
 18. The `filename` field in the source file should match the name of the file you added to the `data` directory.
 19. Run `npm test` to test for errors.
-20. Run `./build.sh` to build the manifest and blob files locally.
+20. Invalid or non-simple geometry errors that occur during testing can usually be fixed by running the `clean-geom.js` script against the GeoJSON file (e.g. `node scripts/clean-geom.js data/usa_states_v1.geo.json`).
+21. Run `./build.sh` to build the manifest and blob files locally.
