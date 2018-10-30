@@ -37,10 +37,11 @@ const fc = fs.readFileSync(filePath, 'utf8');
 const gj = reader.read(fc);
 const features = gj.features.map(makeValid);
 
-// JSTS does not enforce winding order, so we pass the features through `geojson-rewind`.
+// JSTS does not enforce winding order, so we pass the features through `geojson-rewind`
+// to wind them in clockwise order.
 const fixed = rewind({
   type: 'FeatureCollection',
   features: features,
-});
+}, true);
 
 fs.writeFileSync(filePath, JSON.stringify(fixed));
