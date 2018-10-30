@@ -2,7 +2,7 @@
     versions: '>=1'
     production: true
     type: http
-    note:  Cantons of Switzerland
+    note:  Switzerland Cantons
     data: https://sophox.org/regions/geojson.json
     attribution: "© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
@@ -82,7 +82,80 @@
             '''
     }
     name: switzerland_cantons
-    humanReadableName: Switzerland Cantons
+    humanReadableName: {
+      af: Switserse kantons
+      an: Cantons de Suiza
+      ar: كانتون في سويسرا
+      ast: cantón de Suiza
+      be: кантоны Швейцарыі
+      bg: Административно деление на Швейцария
+      br: Kantonioù Suis
+      bs: Kantoni u Švicarskoj
+      ca: cantó de Suïssa
+      cs: švýcarský kanton
+      cy: Cantons y Swistir
+      da: Kantonerne i Schweiz
+      de: Kanton der Schweiz
+      el: Καντόνια της Ελβετίας
+      en: Switzerland Cantons
+      en-ca: Switzerland Cantons
+      en-gb: Switzerland Cantons
+      eo: Kantonoj de Svislando
+      es: cantón de Suiza
+      et: Šveitsi kantonid
+      eu: Suitzako kantonamenduak
+      fi: Sveitsin kantonit
+      fr: canton de la Suisse
+      gd: Roinn Eilbheiseach
+      gl: Cantóns de Suíza
+      he: הקנטונים של שווייץ
+      hi: स्विट्ज़रलैंड के कैन्टन
+      hr: Švicarski kantoni
+      hu: Switzerland Cantons
+      hy: Շվեյցարիայի վարչական բաժանում
+      id: Daftar kanton di Swiss
+      ie: Cantones de Svissia
+      ilo: Dagiti kanton ti Suisa
+      io: Listo pri kantoni di Suisia
+      is: Kantónur í Sviss
+      it: cantoni della Svizzera
+      ja: スイスの地方行政区画
+      ka: შვეიცარიის კანტონები
+      kk: Швейцария әкімшілік бөлінісі
+      ko: 스위스의 주
+      lb: Schwäizer Kanton
+      ln: Bakanton ya Swisi
+      lt: Šveicarijos kantonai
+      lv: Šveices kantons
+      mk: кантон во Швајцарија
+      mr: स्वित्झर्लंडची राज्ये
+      nb: De sveitsiske kantonene
+      nl: kanton van Zwitserland
+      nn: De sveitsiske kantonene
+      oc: Cantons soïsses
+      pl: kantony Szwajcarii
+      pt: cantão da Suíça
+      rm: Chantuns da la Svizra
+      ru: кантоны Швейцарии
+      sco: canton o Swisserland
+      sh: Kantoni Švicarske
+      sl: Kantoni Švice
+      sq: Njësitë administrative të Zvicrës
+      sr: кантон Швајцарске
+      sv: Schweiz kantoner
+      sw: Majimbo ya Uswisi
+      th: รัฐของประเทศสวิตเซอร์แลนด์
+      tr: İsviçre'nin kantonları
+      uk: кантон Швейцарії
+      ur: سوئٹزرلینڈ کے کینٹن
+      vec: Cantoni de ła Svisera
+      vi: Bang của Thụy Sĩ
+      vls: Kantongs van Zwitserland
+      zh: 瑞士行政區劃
+      zh-cn: 瑞士行政區劃
+      zh-hans: 瑞士行政區劃
+      zh-hant: 瑞士行政區劃
+    }
     conform: {
         type: geojson
     }

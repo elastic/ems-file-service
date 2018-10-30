@@ -68,7 +68,9 @@
             '''
     }
     name: usa_counties
-    humanReadableName: USA Counties
+    humanReadableName: {
+      en: USA Counties
+    }
     conform: {
         type: topojson
     }

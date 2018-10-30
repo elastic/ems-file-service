@@ -6,7 +6,9 @@
     "type": "http",
     "data": "http://example.com",
     "name": "mordor_regions",
-    "humanReadableName": "Mordor Regions",
+    "humanReadableName": {
+      "en": "Mordor Regions"
+    },
     "fieldMapping": [
       {
         "name": "label_en",
@@ -30,7 +32,9 @@
     "type": "http",
     "data": "http://example.com",
     "name": "gondor",
-    "humanReadableName": "Gondor Kingdoms",
+    "humanReadableName": {
+      "en": "Gondor Kingdoms"
+    },
     "fieldMapping": [
       {
         "name": "label_en",
@@ -54,7 +58,9 @@
     "type": "http",
     "data": "http://example.com",
     "name": "gondor",
-    "humanReadableName": "Gondor Kingdoms",
+    "humanReadableName": {
+      "en": "Gondor Kingdoms"
+    },
     "fieldMapping": [
       {
         "name": "label_en",
@@ -77,7 +83,9 @@
     "type": "http",
     "data": "http://example.com",
     "name": "Rohan",
-    "humanReadableName": "Rohan Kingdoms",
+    "humanReadableName": {
+      "en": "Rohan Kingdoms"
+    },
     "fieldMapping": [
       {
         "name": "label_en",
@@ -100,7 +108,9 @@
     "type": "http",
     "data": "http://example.com",
     "name": "shire",
-    "humanReadableName": "Shire regions",
+    "humanReadableName": {
+      "en": "Shire regions"
+    },
     "fieldMapping": [
       {
         "name": "label_en",

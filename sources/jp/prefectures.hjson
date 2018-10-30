@@ -69,7 +69,9 @@
             '''
     }
     name: japan_prefectures
-    humanReadableName: Japan Prefectures
+    humanReadableName: {
+      en: Japan Prefectures
+    }
     conform: {
         type: geojson
     }

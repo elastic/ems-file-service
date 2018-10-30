@@ -70,7 +70,9 @@
             '''
     }
     name: france_departments
-    humanReadableName: France Departments
+    humanReadableName: {
+      en: France Departments
+    }
     conform: {
         type: geojson
     }

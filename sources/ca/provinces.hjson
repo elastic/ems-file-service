@@ -58,7 +58,43 @@
             '''
     }
     name: canada_provinces
-    humanReadableName: Canada Provinces
+    humanReadableName: {
+      ar: مقاطعة في كندا
+      ast: provincia del Canadá
+      bn: কানাডার প্রদেশ
+      ca: província de Canadà
+      cs: kanadská provincie
+      da: provins i Canada
+      de: Provinz in Kanada
+      en: Canada Provinces
+      en-ca: Canada Provinces
+      eo: provinco de Kanado
+      es: provincia de Canadá
+      et: Kanada provints
+      eu: Kanadako probintzia
+      fr: Provinces du Canada
+      he: פרובינציה בקנדה
+      hy: Կանադայի նահանգ
+      ia: Provincia de Canada
+      ilo: probinsia ti Kanada
+      it: provincia in Canada
+      nb: provins i Canada
+      nl: provincie van Canada
+      oc: província de Canadà
+      pl: prowincja Kanady
+      pt: província do Canadá
+      pt-br: província do Canadá
+      ru: провинция Канады
+      sh: Kanadske provincije
+      sr: провинција Канаде
+      sv: provins i Kanada
+      tg: провинсияи Канада
+      tl: lalawigan ng Canada
+      zh: 加拿大省份
+      zh-cn: 加拿大省份
+      zh-hk: 加拿大省份
+      zh-tw: 加拿大省份
+    }
     conform: {
         type: geojson
     }

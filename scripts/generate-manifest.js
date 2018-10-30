@@ -76,6 +76,8 @@ function generateVectorManifest(sources, opts) {
         case 2:
           layers.push(manifestLayerV2(source, opts.hostname));
           break;
+        case 6:
+          layers.push(manifestLayerV6(source, opts.hostname));
       }
     }
   }
@@ -105,7 +107,7 @@ function manifestLayerV1(data, hostname) {
   const layer = {
     attribution: data.attribution,
     weight: data.weight,
-    name: data.humanReadableName,
+    name: data.humanReadableName.en,
     url: `https://${hostname}/${urlPath}?elastic_tile_service_tos=agree`,
     format: data.conform.type,
     fields: data.fieldMapping.map(fieldMap => ({
@@ -126,5 +128,25 @@ function manifestLayerV2(data, hostname) {
       feature_collection_path: 'data',
     };
   }
+  return layer;
+}
+
+function manifestLayerV6(data, hostname) {
+  const urlPath = `files/${data.filename}`;
+  const layer = {
+    attribution: data.attribution,
+    weight: data.weight,
+    name: data.name,
+    description: data.humanReadableName,
+    url: `https://${hostname}/${urlPath}?elastic_tile_service_tos=agree`,
+    format: data.conform.type,
+    fields: data.fieldMapping.map(fieldMap => ({
+      name: fieldMap.dest,
+      description: fieldMap.desc,
+    })),
+    created_at: data.createdAt,
+    tags: [],
+    id: data.id,
+  };
   return layer;
 }

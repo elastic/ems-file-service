@@ -15,9 +15,10 @@
   ]
   license: Public Domain
   name: usa_zip_codes
-  humanReadableName: USA zip codes
-  conform:
-  {
+  humanReadableName: {
+      en: USA zip codes
+  }
+  conform: {
     type: topojson
   }
   attribution: US Census Bureau

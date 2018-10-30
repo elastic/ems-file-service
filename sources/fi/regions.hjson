@@ -66,7 +66,9 @@
             '''
     }
     name: finland_regions
-    humanReadableName: Finland Regions
+    humanReadableName: {
+      en: Finland Regions
+    }
     conform: {
         type: geojson
     }

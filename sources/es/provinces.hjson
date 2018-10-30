@@ -59,7 +59,9 @@
             '''
     }
     name: spain_provinces
-    humanReadableName: Spain Provinces
+    humanReadableName: {
+      en: Spain Provinces
+    }
     conform: {
         type: geojson
     }

@@ -86,7 +86,7 @@
     },
     "humanReadableName": {
       "description": "Human readable layer name.",
-      "type": "string"
+      "type": "object"
     },
     "conform": {
       "$ref": "#/definitions/conform"

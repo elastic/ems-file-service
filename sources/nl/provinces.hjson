@@ -60,7 +60,9 @@
             '''
     }
     name: netherlands_provinces
-    humanReadableName: Netherlands Provinces
+    humanReadableName: {
+      en: Netherlands Provinces
+    }
     conform: {
         type: geojson
     }

@@ -69,7 +69,9 @@
             '''
     }
     name: ireland_counties
-    humanReadableName: Ireland Counties
+    humanReadableName: {
+      en: Ireland Counties
+    }
     conform: {
         type: geojson
     }

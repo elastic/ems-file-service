@@ -5,7 +5,9 @@
   "type": "http",
   "data": "http://example.com",
   "name": "mordor_regions",
-  "humanReadableName": "Mordor Regions",
+  "humanReadableName": {
+    "en": "Mordor Regions"
+  },
   "fieldMapping": [
     {
       "name": "label_en",
@@ -28,7 +30,9 @@
   "type": "http",
   "data": "http://example.com",
   "name": "isengard_regions",
-  "humanReadableName": "Isengard Regions",
+  "humanReadableName": {
+    "en": "Isengard Regions"
+  },
   "fieldMapping": [
     {
       "name": "label_en",

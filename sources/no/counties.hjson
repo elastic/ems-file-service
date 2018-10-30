@@ -82,7 +82,9 @@
             '''
     }
     name: norway_counties
-    humanReadableName: Norway Counties
+    humanReadableName: {
+      en: Norway Counties
+    }
     conform: {
         type: geojson
     }

@@ -61,7 +61,9 @@
             '''
     }
     name: germany_states
-    humanReadableName: Germany States
+    humanReadableName: {
+      en: Germany States
+    }
     conform: {
         type: geojson
     }

@@ -52,7 +52,9 @@
             '''
     }
     name: usa_states
-    humanReadableName: USA States
+    humanReadableName: {
+      en: USA States
+    }
     conform: {
         type: geojson
     }

@@ -58,7 +58,9 @@
             '''
     }
     name: sweden_counties
-    humanReadableName: Sweden Counties
+    humanReadableName: {
+      en: Sweden Counties
+    }
     conform: {
         type: geojson
     }

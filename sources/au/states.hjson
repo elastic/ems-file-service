@@ -52,7 +52,28 @@
             '''
     }
     name: australia_states
-    humanReadableName: Australia States
+    humanReadableName: {
+      ar: ولاية في أستراليا
+      ast: estáu d'Australia
+      ca: estat d'Austràlia
+      cs: spolkový stát Austrálie
+      de: Bundesstaat von Australien
+      el: Πολιτεία της Αυστραλίας
+      en: Australia States
+      eo: ŝtato de Aŭstralio
+      es: estado de Australia
+      eu: Australiako estatu
+      fr: État d'Australie
+      ia: stato de Australia
+      it: stato australiano
+      la: civitas Australiae
+      nl: staat van Australië
+      oc: estat d'Austràlia
+      ru: штат Австралии
+      tl: estado ng Australia
+      uk: штат Австралії
+      zh-hk: 澳洲州份
+    }
     conform: {
         type: geojson
     }

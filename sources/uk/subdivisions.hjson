@@ -27,7 +27,9 @@
         }
     ]
     name: uk_subdivisions
-    humanReadableName: United Kingdom Subdivisions
+    humanReadableName: {
+      en: United Kingdom Subdivisions
+    }
     conform: {
         type: geojson
     }

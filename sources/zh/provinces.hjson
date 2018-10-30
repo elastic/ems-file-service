@@ -68,7 +68,9 @@
             '''
     }
     name: china_provinces
-    humanReadableName: China Provinces
+    humanReadableName: {
+      en: China Provinces
+    }
     conform: {
         type: geojson
     }
