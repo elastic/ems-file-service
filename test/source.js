@@ -51,8 +51,5 @@ function validateGeometry(geojson, t) {
   ), 'All geometries must be simple');
   t.ok(fc.features.every(feat => feat.geometry.isValid()
   ), 'All geometries must be valid');
-  for (const err of geojsonhint.hint(geojson)) {
-    t.fail(err.message);
-  }
   t.end();
 }
