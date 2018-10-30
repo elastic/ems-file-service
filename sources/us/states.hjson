@@ -18,7 +18,7 @@
             desc: Two letter abbreviation
         }
         {
-            type: id
+            type: property
             name: name
             desc: State name
         }
