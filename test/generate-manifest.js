@@ -163,13 +163,13 @@ const safeDuplicatesExpected = {
 tape('Generate vector manifests', t => {
   const v1 = generateVectorManifest(sources, {
     version: 'v1',
-    hostname: 'staging-dot-elastic-layer.appspot.com',
+    hostname: 'vector-staging.maps.elastic.co/',
   });
   t.deepEquals(v1, v1Expected);
 
   const v2 = generateVectorManifest(sources, {
     version: 'v2',
-    hostname: 'staging-dot-elastic-layer.appspot.com',
+    hostname: 'vector-staging.maps.elastic.co/',
   });
   t.deepEquals(v2, v2Expected);
 
@@ -186,28 +186,28 @@ tape('Generate vector manifests', t => {
   const unsafeDuplicateIds = function () {
     return generateVectorManifest(duplicateIds, {
       version: 'v2',
-      hostname: 'staging-dot-elastic-layer.appspot.com',
+      hostname: 'vector-staging.maps.elastic.co/',
     });
   };
 
   const safeDuplicateIds = function () {
     return generateVectorManifest(duplicateIds, {
       version: 'v1',
-      hostname: 'staging-dot-elastic-layer.appspot.com',
+      hostname: 'vector-staging.maps.elastic.co/',
     });
   };
 
   const unsafeDuplicateHumanNames = function () {
     return generateVectorManifest(duplicateHumanNames, {
       version: 'v2',
-      hostname: 'staging-dot-elastic-layer.appspot.com',
+      hostname: 'vector-staging.maps.elastic.co/',
     });
   };
 
   const safeDuplicateHumanNames = function () {
     return generateVectorManifest(duplicateHumanNames, {
       version: 'v1',
-      hostname: 'staging-dot-elastic-layer.appspot.com',
+      hostname: 'vector-staging.maps.elastic.co/',
     });
   };
 
