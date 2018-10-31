@@ -114,6 +114,7 @@
         "desc": "Region name (English)"
       },
       {
+        "type": "property",
         "name": "label_ws",
         "desc": "Region name (Westron)"
       }

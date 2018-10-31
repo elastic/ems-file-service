@@ -78,6 +78,9 @@ function generateVectorManifest(sources, opts) {
           break;
         case 6:
           layers.push(manifestLayerV6(source, opts.hostname));
+          break;
+        default:
+          throw new Error(`Unable to get a manifest for version ${manifestVersion}`);
       }
     }
   }
@@ -132,21 +135,10 @@ function manifestLayerV2(data, hostname) {
 }
 
 function manifestLayerV6(data, hostname) {
-  const urlPath = `files/${data.filename}`;
-  const layer = {
-    attribution: data.attribution,
-    weight: data.weight,
-    name: data.name,
-    description: data.humanReadableName,
-    url: `https://${hostname}/${urlPath}?elastic_tile_service_tos=agree`,
-    format: data.conform.type,
-    fields: data.fieldMapping.map(fieldMap => ({
-      name: fieldMap.dest,
-      description: fieldMap.desc,
-    })),
-    created_at: data.createdAt,
-    tags: [],
-    id: data.id,
-  };
-  return layer;
+  const fields = data.fieldMapping.map(fieldMap => ({
+    type: fieldMap.type,
+    name: fieldMap.name,
+    description: fieldMap.desc,
+  }));
+  return { ...manifestLayerV2(data, hostname), ...{ description: data.humanReadableName, fields: fields } };
 }

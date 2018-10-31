@@ -21,7 +21,6 @@
   },
   "devDependencies": {
     "@elastic/eslint-config-kibana": "^0.15.0",
-    "@mapbox/geojsonhint": "^2.1.0",
     "ajv": "^5.5.0",
     "babel-eslint": "^8.0.0",
     "eslint": "^4.19.1",
