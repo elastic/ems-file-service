@@ -16,7 +16,7 @@ const v1Expected = {
     'attribution': 'Similarion',
     'weight': 0,
     'name': 'Gondor Kingdoms',
-    'url': `https://staging-dot-elastic-layer.appspot.com/blob/222222222222?elastic_tile_service_tos=agree`,
+    'url': `https://vector-staging.maps.elastic.co//blob/222222222222?elastic_tile_service_tos=agree`,
     'format': 'geojson',
     'fields': [{
       'name': 'label_en',
@@ -29,7 +29,7 @@ const v1Expected = {
     'attribution': 'Similarion',
     'weight': 0,
     'name': 'Mordor Regions',
-    'url': `https://staging-dot-elastic-layer.appspot.com/blob/111111111111?elastic_tile_service_tos=agree`,
+    'url': `https://vector-staging.maps.elastic.co//blob/111111111111?elastic_tile_service_tos=agree`,
     'format': 'geojson',
     'fields': [
       {
@@ -49,7 +49,7 @@ const v2Expected = {
       'attribution': 'Similarion',
       'weight': 0,
       'name': 'Gondor Kingdoms',
-      'url': `https://staging-dot-elastic-layer.appspot.com/blob/222222222222?elastic_tile_service_tos=agree`,
+      'url': `https://vector-staging.maps.elastic.co//blob/222222222222?elastic_tile_service_tos=agree`,
       'format': 'geojson',
       'fields': [
         {
@@ -64,7 +64,7 @@ const v2Expected = {
       'attribution': 'Similarion',
       'weight': 0,
       'name': 'Rohan Kingdoms',
-      'url': `https://staging-dot-elastic-layer.appspot.com/files/rohan_v2.topo.json?elastic_tile_service_tos=agree`,
+      'url': `https://vector-staging.maps.elastic.co//files/rohan_v2.topo.json?elastic_tile_service_tos=agree`,
       'format': 'topojson',
       'fields': [
         {
@@ -82,7 +82,7 @@ const v2Expected = {
       'attribution': 'Similarion',
       'weight': 0,
       'name': 'Shire regions',
-      'url': `https://staging-dot-elastic-layer.appspot.com/blob/333333333333?elastic_tile_service_tos=agree`,
+      'url': `https://vector-staging.maps.elastic.co//blob/333333333333?elastic_tile_service_tos=agree`,
       'format': 'geojson',
       'fields': [
         {
@@ -146,7 +146,7 @@ const safeDuplicatesExpected = {
     'attribution': 'Similarion',
     'weight': 0,
     'name': 'Isengard Regions',
-    'url': 'https://staging-dot-elastic-layer.appspot.com/blob/111111111111?elastic_tile_service_tos=agree',
+    'url': 'https://vector-staging.maps.elastic.co//blob/111111111111?elastic_tile_service_tos=agree',
     'format': 'geojson',
     'fields': [
       {
@@ -163,13 +163,13 @@ const safeDuplicatesExpected = {
 tape('Generate vector manifests', t => {
   const v1 = generateVectorManifest(sources, {
     version: 'v1',
-    hostname: 'staging-dot-elastic-layer.appspot.com',
+    hostname: 'vector-staging.maps.elastic.co/',
   });
   t.deepEquals(v1, v1Expected);
 
   const v2 = generateVectorManifest(sources, {
     version: 'v2',
-    hostname: 'staging-dot-elastic-layer.appspot.com',
+    hostname: 'vector-staging.maps.elastic.co/',
   });
   t.deepEquals(v2, v2Expected);
 
@@ -186,28 +186,28 @@ tape('Generate vector manifests', t => {
   const unsafeDuplicateIds = function () {
     return generateVectorManifest(duplicateIds, {
       version: 'v2',
-      hostname: 'staging-dot-elastic-layer.appspot.com',
+      hostname: 'vector-staging.maps.elastic.co/',
     });
   };
 
   const safeDuplicateIds = function () {
     return generateVectorManifest(duplicateIds, {
       version: 'v1',
-      hostname: 'staging-dot-elastic-layer.appspot.com',
+      hostname: 'vector-staging.maps.elastic.co/',
     });
   };
 
   const unsafeDuplicateHumanNames = function () {
     return generateVectorManifest(duplicateHumanNames, {
       version: 'v2',
-      hostname: 'staging-dot-elastic-layer.appspot.com',
+      hostname: 'vector-staging.maps.elastic.co/',
     });
   };
 
   const safeDuplicateHumanNames = function () {
     return generateVectorManifest(duplicateHumanNames, {
       version: 'v1',
-      hostname: 'staging-dot-elastic-layer.appspot.com',
+      hostname: 'vector-staging.maps.elastic.co/',
     });
   };
 
