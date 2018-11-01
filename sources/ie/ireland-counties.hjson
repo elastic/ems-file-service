@@ -70,7 +70,59 @@
     }
     name: ireland_counties
     humanReadableName: {
+      an: Condatos d'Irlanda
+      ar: مقاطعة في أيرلندا
+      ast: Condaos d'Irlanda
+      be: Графствы Ірландыі
+      be-tarask: Графствы Ірляндыі
+      br: Kontelezhioù Iwerzhon
+      ca: Comtat d'Irlanda
+      cs: irská hrabství
+      cy: Siroedd Iwerddon
+      de: County von Irland
+      el: κομητεία της Ιρλανδίας
       en: Ireland Counties
+      en-ca: Ireland Counties
+      en-gb: Ireland Counties
+      eo: Graflandoj de Irlando
+      es: Condados de Irlanda
+      eu: Irlandaren banaketa administratiboa
+      fa: شهرستان ایرلند
+      fr: comté d'Irlande
+      fy: Greefskippen fan Ierlân
+      ga: Contaetha na hÉireann
+      gd: Contaetha na h-Eireann
+      gl: Condados de Irlanda
+      gv: Coondaeghyn Nerin
+      he: מחוזות אירלנד
+      hu: Az Ír-sziget megyéi
+      hy: Իռլանդիայի վարչական բաժանում
+      it: Contee dell'Irlanda
+      ja: アイルランドの地方行政区画
+      ka: ირლანდიის ადმინისტრაციული დაყოფა
+      kk: Ирландия әкімшілік бірліктері
+      ko: 아일랜드의 주
+      lt: Airijos administracinis suskirstymas
+      lv: Īrijas administratīvais iedalījums
+      mk: грофовија во Ирска
+      ms: Daerah di Republik Ireland
+      nb: Irlands grevskap
+      nl: graafschap van Ierland
+      nn: grevskap i Irland
+      pl: hrabstwo w Irlandii
+      pnb: آئرلینڈ دیاں کاؤنٹیاں
+      pt: condado da Irlanda
+      ro: Comitatele Irlandei
+      ru: графство Ирландии
+      sk: Grófstvo (Írsko)
+      sr: Ирски окрузи
+      sv: Irlands grevskap
+      sw: Wilaya za Eire
+      tg: Вилоятҳои Ирландия
+      uk: графство Ірландії
+      ur: آئر لینڈ کی کاؤنٹیاں
+      vls: Groafschappn van Ierland
+      zh: 愛爾蘭行政區劃
     }
     conform: {
         type: geojson

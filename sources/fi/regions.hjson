@@ -67,7 +67,65 @@
     }
     name: finland_regions
     humanReadableName: {
+      an: Rechions de Finlandia
+      ar: أقليم في فنلندا
+      ast: rexones de Finlandia
+      be: вобласці Фінляндыі
+      bs: Finske regije
+      ca: regió de Finlàndia
+      cs: kraje Finska
+      da: Finlands landskaber
+      de: Regionen in Finnland
+      el: Διοικητικές περιφέρειες της Φινλανδίας
       en: Finland Regions
+      en-ca: Finland Regions
+      en-gb: Finland Regions
+      eo: Provincoj de Finnlando
+      es: Regiones de Finlandia
+      et: Soome maakonnad
+      eu: Finlandiako eskualdeak
+      fi: Suomen maakunta
+      fr: région de Finlande
+      gv: Ardjyn Finnlynn
+      he: אזורי פינלנד
+      hu: Finnország régiói
+      hy: Ֆինլանդիայի մարզ
+      it: regioni della Finlandia
+      ja: フィンランドの県
+      ka: ფინეთის რეგიონები
+      ko: 핀란드의 지역
+      la: Regiones Finniae
+      li: regio's van Finlandj
+      mk: регион во Финска
+      nb: Finlands landskap
+      nl: regio van Finland
+      nn: landskap i Finland
+      pl: Regiony Finlandii
+      pnb: فن لینڈ دی انتظامی ونڈ
+      pt: Regiões da Finlândia
+      pt-br: Regiões da Finlândia
+      ru: область Финляндии
+      sco: Regions o Finland
+      se: Suoma eanangottit
+      sh: Finske regije
+      sq: Rajonet e Finlandës
+      sr: Административна подела Финске
+      sr-ec: Административна подела Финске
+      sr-el: Administrativna podela Finske
+      sv: Landskap i Finland
+      tr: Finlandiya'nın bölgeleri
+      uk: провінції Фінляндії
+      ur: فن لینڈ کے علاقہ جات
+      vec: Region de la Finlandia
+      vls: Regio's van Finland
+      xmf: ფინეთიშ რეგიონეფი
+      zh: 芬兰行政区
+      zh-cn: 芬兰行政区
+      zh-hans: 芬兰行政区
+      zh-hant: 芬蘭行政區
+      zh-hk: 芬蘭行政區
+      zh-sg: 芬兰行政区
+      zh-tw: 芬蘭行政區
     }
     conform: {
         type: geojson

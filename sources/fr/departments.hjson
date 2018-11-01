@@ -71,7 +71,88 @@
     }
     name: france_departments
     humanReadableName: {
+      af: Franse départements
+      an: departamentos de Francia
+      ar: أقاليم فرنسا
+      ast: departamentu de Francia
+      az: Fransa departamentlər siyahısı
+      be: дэпартаменты Францыі
+      bg: Департаменти на Франция
+      ca: departament francès
+      co: dipartimentu di a Francia
+      cs: francouzské departementy
+      cv: Франци департаменчĕсем
+      cy: Départements Ffrainc
+      da: departement (Frankrig)
+      de: Département in Frankreich
+      diq: Departmanê Fransa
+      el: γαλλικός νομός
       en: France Departments
+      eo: departemento de Francio
+      es: departamento de Francia
+      et: Prantsusmaa departemangud
+      eu: Frantziako departamendu
+      fi: Ranskan departementit
+      fr: département français
+      fy: departeminten fan Frankryk
+      gd: Départements na Frainge
+      gl: departamentos franceses
+      gv: Rheynnyn ny Frank
+      he: מחוזות צרפת
+      hi: फ्रांस के विभाग
+      hr: Francuski departmani
+      hu: Franciaország megyéje
+      hy: Ֆրանսիայի գավառ
+      ia: departimento de Francia
+      id: daftar departemen di Perancis
+      it: dipartimento francese
+      ja: フランスの県
+      jv: departemen ing Prancis
+      ka: საფრანგეთის დეპარტამენტები
+      kk: Франция департаменттері
+      ko: 프랑스의 주
+      lb: franséisch Departement
+      li: Departeminte vaan Fraankriek
+      lij: Dipartimenti françesi
+      lt: Prancūzijos departamentai
+      lv: Francijas departamenti
+      mk: департман во Франција
+      mr: फ्रान्सचे विभाग
+      ms: Jabatan di Perancis
+      mt: dipartimenti ta' Franza
+      nb: Frankrikes departementer
+      nl: departement van Frankrijk
+      nn: departement i Frankrike
+      oc: departament francés
+      pl: departament we Francji
+      pms: Dipartiment fransèis
+      pt: departamento da França
+      pt-br: departamento da França
+      ro: Departamentele Franței
+      ru: департамент Франции
+      scn: Dipartimentu francisi
+      sco: Depairtments o Fraunce
+      se: Frankriikka departemeanttat
+      sh: Departmani Francuske
+      sk: Departement (Francúzsko)
+      sl: Seznam departmajev Francije
+      sq: Departamentet e Francës
+      sr: административна подела Француске
+      sv: Frankrikes departement
+      sw: Orodha ya départements za Ufaransa
+      ta: பிரான்சின் திணைக்களங்கள்
+      tg: Департаментҳои Фаронса
+      th: จังหวัดของประเทศฝรั่งเศส
+      tr: Fransa'nın département
+      uk: департамент Франції
+      ur: فرانس کے محکمے
+      uz: Fransiya departamentlari
+      vec: dipartimenti fransexi
+      vi: Tỉnh (Pháp)
+      yue: 法國省
+      zh: 省 (法国)
+      zh-hant: 省 (法國)
+      zh-tw: 省 (法國)
     }
     conform: {
         type: geojson

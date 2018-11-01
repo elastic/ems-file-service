@@ -70,7 +70,87 @@
     }
     name: japan_prefectures
     humanReadableName: {
+      af: Prefekture van Japan
+      ar: محافظة في اليابان
+      as: জাপানৰ প্ৰশাসনিক অঞ্চল
+      ast: Prefectures de Xapón
+      bar: Präfekturn vo Japan
+      be: прэфектура Японіі
+      be-tarask: прэфэктура Японіі
+      bg: Административно деление на Япония
+      bjn: Prefektur Japang
+      bn: জাপানের প্রশাসনিক অঞ্চল
+      bs: Japanske prefekture
+      ca: prefectura de Japó
+      cy: Taleithiau Japan
+      da: Japans præfekturer
+      de: Präfektur von Japan
+      de-ch: Präfektur Japans
+      el: Νομός της Ιαπωνίας
       en: Japan Prefectures
+      en-ca: Japan Prefectures
+      en-gb: Japan Prefectures
+      eo: Gubernioj de Japanio
+      es: Prefecturas de Japón
+      et: Jaapani prefektuurid
+      eu: Japoniako prefeturak
+      fa: تقسیمات کشوری ژاپن
+      fi: Japanin prefektuurit
+      fo: Landslutir í Japan
+      fr: préfecture du Japon
+      ga: Maoracht na Seapáine
+      gl: Prefecturas do Xapón
+      he: מחוזות יפן
+      hi: जापान के प्रांत
+      hr: Japanske prefekture
+      hu: Japán prefektúrái
+      hy: Ճապոնիայի վարչական բաժանում
+      id: Daftar prefektur di Jepang
+      ilo: prepektura ti Hapon
+      it: prefettura del Giappone
+      // ja needs better translation that includes country name
+      ja: 都道府県
+      jv: Daftar prefektur ing Jepang
+      kk: Жапония префектуралары
+      km: អាណាខេត្ត និងក្រុងនៃប្រទេសជប៉ុន
+      ko: 일본의 행정 구역
+      lt: Prefektūra (Japonija)
+      lv: Japānas prefektūra
+      lzh: 日本日本行政區劃
+      mk: префектура во Јапонија
+      mn: Японы засаг захиргааны хуваарь
+      mr: जपानचे प्रभाग
+      ms: Wilayah di Jepun
+      nb: Japans prefekturer
+      nl: prefectuur van Japan
+      nn: Japanske prefektur
+      oc: prefectura de Japon
+      pam: Prefecture ning Japan
+      pl: Podział administracyjny Japonii
+      pt: Prefeituras do Japão
+      pt-br: Prefeituras do Japão
+      ro: Prefecturile Japoniei
+      ru: префектура Японии
+      rup: Prefecture di tu Iaponia
+      sco: prefecturs o Japan
+      sgs: Japuonėjės prefektūras
+      sh: Prefekture Japana
+      sr: префектура Јапана
+      su: Préféktur di Jepang
+      sv: prefektur i Japan
+      sw: Mikoa ya Japani
+      ta: மாநிலங்கள் (சப்பான்)
+      tg: Префектураҳои Ҷопон
+      th: จังหวัดของญี่ปุ่น
+      tl: Mga prepektura ng Hapon
+      tr: Japonya'nın prefektörlükleri
+      uk: префектура Японії
+      ur: جاپان کے پریفیکچر
+      vi: Tỉnh của Nhật Bản
+      war: Mga prefektura han Hapon
+      yi: פרעפעקטורן פון יאפאן
+      yue: 日本行政區劃
+      zh: 日本行政區劃
     }
     conform: {
         type: geojson
