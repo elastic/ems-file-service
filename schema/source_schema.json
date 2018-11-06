@@ -89,6 +89,7 @@
       "type": "string"
     },
     "humanReadableName": {
+      "description": "Localized human readable names",
       "$ref": "#/definitions/i18n"
     },
     "conform": {
@@ -100,7 +101,6 @@
   },
   "definitions": {
     "i18n": {
-      "description": "Localized human readable names",
       "type": "object",
       "required": ["en", "de", "zh"]
     },
