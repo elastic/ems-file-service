@@ -3,6 +3,7 @@
     type: http
     production: true
     note: Regions of Finland
+    wikidata: Q193512
     data: https://sophox.org/regions/geojson.json
     attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [

@@ -30,20 +30,21 @@ Whenever possible new vector layers should be created using a SPARQL query in [S
 
 1. If necessary, create a new folder in the `sources` directory with the corresponding two-digit country code (ex. `ru` for Russia).
 2. Copy and paste the template source file (`templates/source_template.hjson`) into the new directory you created in step 1. Give it a useful name (ex. `states.hjson`, `provinces.hjson`, etc).
-3. Complete the `note`, `name` and `humanReadableName` fields in the new source file.
-4. Copy and paste the `query.sparql` value into the query box on http://sophox.org. 
-5. Change the `Q33` in the `VALUES ?entity { wd:Q33 }` to the corresponding [Wikidata](https://www.wikidata.org) ID for the country for which you are adding subdivisions (ex. `Q33` is the [Wikidata ID for Finland](https://www.wikidata.org/wiki/Q33)).
-6. Run the SPARQL query and compare the `iso_3166_2` results with the [corresponding country's subdivision list on the ISO website](https://www.iso.org/obp/ui/#search) looking for missing `iso_3166_2` codes.
-7. The most common reason for missing `iso_3166_2` codes in the query results is an incomplete ["contains administrative territorial entity"](https://www.wikidata.org/wiki/Property:P150) property in the immediate parent region of the subdivision in Wikidata (usually, but not always, the country). You may need to add the subdivision Wikidata item to this property (ex. https://www.wikidata.org/wiki/Q33#P150).
-8. Add `label_*` fields for each official language of the country to the SPARQL query similar to the `label_en` field.
-9. Optionally, add unique subdivision code fields from other sources (ex. `logianm` in Ireland) to the query.
-10. Run the SPARQL query and check the map output.
-11. Optionally, click the "Simplify" link and drag the slider to reduce the number of vertices (smaller file size). 
-12. Click the "Export" link on the top right of the map. Choose GeoJSON or TopoJSON as the File Format. 
-13. Type `rfc7946` in the "command line options" to reduce the precision of the coordinates and click "Export" to download the vector file.
-14. Rename the downloaded file with the first supported EMS version number (ex. `_v1`, `_v2`, `_v6.6`) and the vector type (`geo` for GeoJSON, `topo` for TopoJSON) (ex. `russia_states_v1.geo.json`). Copy this file to the `data` directory. 
-15. Copy and paste the SPARQL query from Sophox to the `query.sparql` field in the source file.
-16. Use the following bash command to generate the timestamp for the `createdAt` field. Use `gdate` on Mac OSX.
+3. Complete the `note` and `name` fields in the new source file. 
+4. Use the `scripts/wikidata-labels.js` script to list the `humanReadableName` languages from Wikidata. You should spot check these translations as some languages might lack specificity (e.g. `Provins` rather than `Kinas provinser`).
+5. Copy and paste the `query.sparql` value into the query box on http://sophox.org. 
+6. Change the `Q33` in the `VALUES ?entity { wd:Q33 }` to the corresponding [Wikidata](https://www.wikidata.org) ID for the country for which you are adding subdivisions (ex. `Q33` is the [Wikidata ID for Finland](https://www.wikidata.org/wiki/Q33)).
+7. Run the SPARQL query and compare the `iso_3166_2` results with the [corresponding country's subdivision list on the ISO website](https://www.iso.org/obp/ui/#search) looking for missing `iso_3166_2` codes.
+8. The most common reason for missing `iso_3166_2` codes in the query results is an incomplete ["contains administrative territorial entity"](https://www.wikidata.org/wiki/Property:P150) property in the immediate parent region of the subdivision in Wikidata (usually, but not always, the country). You may need to add the subdivision Wikidata item to this property (ex. https://www.wikidata.org/wiki/Q33#P150).
+9. Add `label_*` fields for each official language of the country to the SPARQL query similar to the `label_en` field.
+10. Optionally, add unique subdivision code fields from other sources (ex. `logianm` in Ireland) to the query.
+11. Run the SPARQL query and check the map output.
+12. Optionally, click the "Simplify" link and drag the slider to reduce the number of vertices (smaller file size). 
+13. Click the "Export" link on the top right of the map. Choose GeoJSON or TopoJSON as the File Format. 
+14. Type `rfc7946` in the "command line options" to reduce the precision of the coordinates and click "Export" to download the vector file.
+15. Rename the downloaded file with the first supported EMS version number (ex. `_v1`, `_v2`, `_v6.6`) and the vector type (`geo` for GeoJSON, `topo` for TopoJSON) (ex. `russia_states_v1.geo.json`). Copy this file to the `data` directory. 
+16. Copy and paste the SPARQL query from Sophox to the `query.sparql` field in the source file.
+17. Use the following bash command to generate the timestamp for the `createdAt` field. Use `gdate` on Mac OSX.
 `date -u +"%Y-%m-%dT%H:%M:%S.%6N"`
 17. Generate a 17 digit number for the `id` field. A timestamp using the following bash command is suitable. Use `gdate` On Mac OSX. 
 `date +%s%6N` 

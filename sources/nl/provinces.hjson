@@ -3,6 +3,7 @@
     production: true
     type: http
     note:  Provinces of Kingdom of the Netherlands
+    wikidata: Q134390
     data: https://sophox.org/regions/geojson.json
     attribution: "© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
@@ -61,7 +62,68 @@
     }
     name: netherlands_provinces
     humanReadableName: {
+      af: Provinsies van Nederland
+      an: Provincias d'os Países Baixos
+      ar: أقليم في هولندا
+      ast: provincia de los Países Baxos
+      be: правінцыі Нідэрландаў
+      bg: Провинции на Нидерландия
+      br: Proviñsoù an Izelvroioù
+      ca: província dels Països Baixos
+      cs: nizozemské provincie
+      cy: Taleithiau'r Iseldiroedd
+      da: Nederlandske provinser
+      de: Provinz der Niederlande
+      el: Επαρχίες της Ολλανδίας
       en: Netherlands Provinces
+      en-gb: Netherlands Provinces
+      eo: provinco de Nederlando
+      es: provincia de los Países Bajos
+      eu: Herbehereen banaketa administratiboa
+      fi: Alankomaiden provinssit
+      fr: province des Pays-Bas
+      fy: Provinsjes fan Nederlân
+      gl: Provincias dos Países Baixos
+      he: מחוזות הולנד
+      hu: Holland tartományok listája
+      hy: Նիդերլանդների վարչական բաժանում
+      ia: provincia de Nederlandia
+      id: Provinsi di Belanda
+      it: provincia dei Paesi Bassi
+      ja: オランダの行政区分
+      jv: Propinsi ing Walanda
+      ka: ნიდერლანდის პროვინციები
+      ko: 네덜란드의 행정 구역
+      la: Provinciae Nederlandicae
+      lb: Hollännesch Provënzen
+      lfn: Provinses de Nederland
+      lv: Nīderlandes provinces
+      mk: покраина во Холандија
+      mr: नेदरलँड्सचे प्रांत
+      nb: Nederlands provinser
+      nds-nl: Provinsies van Nederlaand
+      nl: provincie van Nederland
+      nn: Provinsar i Nederland
+      oc: Província dels Païses Basses
+      pl: Podział administracyjny Holandii
+      ps: د نېدرلنډ اداري وېش
+      pt: província dos Países Baixos
+      ro: Provinciile Țărilor de Jos
+      ru: провинции Нидерландов
+      sco: Provinces o the Netherlands
+      sh: Nizozemske provincije
+      sq: Provincat e Holandës
+      sr: провинција Холандије
+      sv: Nederländernas provinser
+      sw: Mikoa ya Uholanzi
+      tg: Вилоятҳои Нидерланд
+      tr: Hollanda'nın illeri
+      uk: Провінції Нідерландів
+      ur: نیدرلینڈز کے صوبے
+      vi: Các tỉnh của Hà Lan
+      vls: Hollandsche provinsjes
+      zea: Provincies van Nederland
+      zh: 荷蘭省份
     }
     conform: {
         type: geojson

@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    wikidata:
     note:
     data: https://sophox.org/regions/geojson.json
     attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
@@ -50,7 +51,11 @@
             '''
     }
     name:
-    humanReadableName:
+    humanReadableName: {
+      en:
+      de:
+      zh:
+    }
     conform: {
         type: geojson
     }

@@ -3,6 +3,7 @@
     production: true
     type: http
     note:  Counties of Sweden
+    wikidata: Q200547
     data: https://sophox.org/regions/geojson.json
     attribution: "© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
@@ -59,7 +60,71 @@
     }
     name: sweden_counties
     humanReadableName: {
+      ar: محافظة في السويد
+      ast: Provincies de Suecia
+      az: İsveç əyalətləri
+      bg: Административно деление на Швеция
+      bn: সুইডেনের প্রদেশসমূহ
+      bs: Kotari u Švedskoj
+      ca: comtat de Suècia
+      cs: Kraje Švédska
+      da: Sveriges län
+      de: schwedischen Län
+      el: κομητεία της Σουηδίας
       en: Sweden Counties
+      en-ca: Sweden Counties
+      en-gb: Sweden Counties
+      eo: Modernaj provincoj de Svedio
+      es: provincia de Suecia
+      eu: Suediaren banaketa administratiboa
+      fi: Ruotsin läänit
+      fo: Svøríkis len
+      fr: comté de Suède
+      fy: Sweedske provinsjes
+      gd: Roinnean na Suaine
+      gl: Condados de Suecia
+      he: מחוזות שבדיה
+      hi: स्वीडन की काउंटियाँ
+      hr: Švedske županije
+      hu: Svédország megyéi
+      hy: Շվեդիայի վարչական բաժանում
+      id: provinsi di Swedia
+      it: contee della Svezia
+      ja: スウェーデンの県
+      ko: 스웨덴의 주
+      lb: Schwedesch Provënzen
+      lt: Švedijos lėnai
+      lv: Zviedrijas administratīvais iedalījums
+      mk: округ во Шведска
+      nb: Sveriges len
+      nl: provincies van Zweden
+      nn: len i Sverige
+      os: Швецийы административон дих
+      pl: Podział administracyjny Szwecji
+      pt: Condados da Suécia
+      pt-br: Condados da Suécia
+      ro: Comitatele Suediei
+      ru: коммуна Швеции
+      se: Ruoŧa leanat
+      sh: Švedske grofovije
+      sk: Provincia (Švédsko)
+      sq: Njësitë administrative të Suedisë
+      sr: округ Шведске
+      sr-ec: Административна подела Шведске
+      sr-el: Administrativna podela Švedske
+      sv: Sveriges län
+      sw: Mikoa na Wilaya za Uswidi
+      tr: İsveç'in illeri
+      uk: коммуна Швеции
+      ur: سویڈن کی کاؤنٹیاں
+      vec: Contee de la Svezia
+      zh: 瑞典省份
+      zh-cn: 瑞典省份
+      zh-hans: 瑞典省份
+      zh-hant: 瑞典省份
+      zh-hk: 瑞典省份
+      zh-sg: 瑞典省份
+      zh-tw: 瑞典省份
     }
     conform: {
         type: geojson

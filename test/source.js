@@ -11,7 +11,6 @@ const schema = require('../schema/source_schema.json');
 const glob = require('glob');
 const fs = require('fs');
 const jsts = require('jsts');
-const geojsonhint = require('@mapbox/geojsonhint');
 
 const ajv = new Ajv();
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'), 'http://json-schema.org/draft-04/schema#');

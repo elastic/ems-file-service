@@ -3,6 +3,7 @@
   production: true
   type: http
   note: Zip Code Tabulation Areas from the Census TIGERWEB
+  wikidata: Q136208
   website: https://www.census.gov/geo/reference/zctas.html
   data: ftp://ftp2.census.gov/geo/tiger/TIGER2017/ZCTA5/tl_2017_us_zcta510.zip
   fieldMapping: [
@@ -16,7 +17,37 @@
   license: Public Domain
   name: usa_zip_codes
   humanReadableName: {
-      en: USA zip codes
+    ar: رموز بريد الولايات المتحدة
+    bg: ЗИП код
+    chr: ᎪᏪᎵ ᏧᏪᏓᏍᏗ ᏗᏎᏍᏗ
+    de: ZIP-Code
+    en: USA zip codes
+    eo: Poŝtkodoj en Usono
+    es: Código ZIP
+    fr: Code ZIP
+    ga: Cód ZIP
+    gu: ઝીપ કોડ
+    hi: ज़िप कोड
+    hu: ZIP-kód
+    id: Kode ZIP
+    it: codice ZIP
+    ja: ZIPコード
+    kn: ZIP ಸಂಕೇತ
+    ko: ZIP 코드
+    ms: Kod ZIP
+    nl: postcodes in de Verenigde Staten
+    ro: Cod ZIP
+    ru: ZIP-код
+    sco: ZIP Code
+    sh: ZIP kod
+    sr: ЗИП код
+    sv: ZIP-kod
+    ta: சிப் குறியீடு
+    uk: ZIP-код
+    ur: زپ کوڈ
+    vi: Mã bưu điện Hoa Kỳ
+    yi: זיפ קאד
+    zh: 美國郵區編號
   }
   conform: {
     type: topojson

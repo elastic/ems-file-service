@@ -3,6 +3,7 @@
     type: http
     production: true
     note: Counties of Norway
+    wikidata: Q192299
     data: https://sophox.org/regions/geojson.json
     attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
@@ -83,7 +84,58 @@
     }
     name: norway_counties
     humanReadableName: {
+      ar: مقاطعة في النرويج
+      ast: Provincies de Noruega
+      bg: Административно деление на Норвегия
+      bs: Općine u Norveškoj
+      ca: Comtat de Noruega
+      cs: norský kraj
+      da: Norges fylker
+      de: norwegischen Provinzen
       en: Norway Counties
+      eo: provinco de Norvegio
+      es: provincia de Noruega
+      eu: Norvegiaren banaketa administratiboa
+      fi: Norjan läänit
+      fo: Fylki Noregs
+      fr: fylker de Norvège
+      fy: Provinsjes fan Noarwegen
+      he: מחוזות נורווגיה
+      hr: Okruzi Norveške
+      hu: Norvégia megyéi
+      is: Fylki Noregs
+      it: contee della Norvegia
+      ja: ノルウェーの県
+      ka: ნორვეგიის საგრაფოები
+      ko: 노르웨이의 주
+      li: pervincies in Nórwaeg
+      lt: Norvegijos administracinio suskirstymo vienetai
+      lv: Norvēģijas filke
+      mk: округ во Норвешка
+      ms: Daerah di Norway
+      nb: norsk fylke
+      nl: provincie van Noorwegen
+      nn: Fylkeskommune
+      pl: Okręgi Norwegii
+      pnb: ناروے دے ضلعے
+      ps: د ناروې فیلکی
+      pt: condado da Noruega
+      ro: Judeţele Norvegiei
+      ru: губерния Норвегии
+      sco: Coonties o Norawa
+      se: Norgga fylkkat
+      sl: Okrožja Norveške
+      sq: Qarqet e Norvegjisë
+      sr: округ Норвешке
+      sr-ec: Административна подела Норвешке
+      sr-el: Administrativna podela Norveške
+      sv: Norges fylken
+      sw: majimbo ya Norwei
+      tr: Norveç eyaleti
+      uk: Норвегія: фюльке
+      ur: ناروے کی کاؤنٹیاں
+      vec: Contee de la Norvesa
+      zh: 縣 (挪威)
     }
     conform: {
         type: geojson

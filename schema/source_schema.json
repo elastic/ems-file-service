@@ -34,6 +34,10 @@
     "data": {
       "type": "string"
     },
+    "wikidata": {
+      "type": "string",
+      "description": "The Wikidata ID of the region type. Used for i18n translations."
+    },
     "query": {
       "description": "Query string parameters to append to the data",
       "type": "object"
@@ -85,8 +89,7 @@
       "type": "string"
     },
     "humanReadableName": {
-      "description": "Human readable layer name.",
-      "type": "object"
+      "$ref": "#/definitions/i18n"
     },
     "conform": {
       "$ref": "#/definitions/conform"
@@ -96,6 +99,11 @@
     }
   },
   "definitions": {
+    "i18n": {
+      "description": "Localized human readable names",
+      "type": "object",
+      "required": ["en", "de", "zh"]
+    },
     "license": {
       "type": "object",
       "properties": {

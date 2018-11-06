@@ -3,6 +3,7 @@
     production: true
     type: http
     note: Administrative departments of France
+    wikidata: Q6465
     data: https://sophox.org/regions/geojson.json
     attribution: "© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [

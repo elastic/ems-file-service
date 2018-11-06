@@ -3,6 +3,7 @@
     production: false
     type: http
     note:  Counties of United States
+    wikidata: Q47168
     data: https://sophox.org/regions/geojson.json
     attribution: "© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
@@ -69,7 +70,42 @@
     }
     name: usa_counties
     humanReadableName: {
-      en: USA Counties
+        ast: condáu d'Estaos Xuníos
+        be: акруга ЗША
+        ca: comtat dels Estats Units
+        cs: okresy ve Spojených státech amerických
+        da: county i USA
+        de: County der Vereinigten Staaten
+        el: κομητεία των ΗΠΑ
+        en: USA Counties
+        en-ca: USA Counties
+        en-gb: USA Counties
+        eo: kantono de Usono
+        es: condado de Estados Unidos
+        eu: Ameriketako Estatu Batuetako konderri
+        fr: comté des États-Unis
+        gl: Condados dos Estados Unidos de América
+        hu: Az Amerikai Egyesült Államok megyéi
+        it: contee degli Stati Uniti d'America
+        ja: 郡 (アメリカ合衆国)
+        mk: округ во САД
+        nb: fylke i USA
+        nl: county van de Verenigde Staten
+        nn: County i USA
+        pl: hrabstwo w USA
+        pt: condado dos Estados Unidos
+        ro: Comitat al unui stat al Statelor Unite ale Americii
+        ru: округ штата США
+        sl: Okrožje Združenih držav Amerike
+        sv: county i USA
+        tg: округ дар штати ИМА
+        uk: округ США
+        zh: 县 (美国)
+        zh-cn: 县 (美国)
+        zh-hans: 县 (美国)
+        zh-hant: 县 (美国)
+        zh-hk: 县 (美国)
+        zh-tw: 县 (美国)
     }
     conform: {
         type: topojson

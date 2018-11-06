@@ -3,6 +3,7 @@
     production: true
     type: http
     note:  States of Australia
+    wikidata: Q5852411
     data: https://sophox.org/regions/geojson.json
     attribution: "© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
     fieldMapping: [
@@ -72,6 +73,7 @@
       ru: штат Австралии
       tl: estado ng Australia
       uk: штат Австралії
+      zh: 澳大利亚行政区划
       zh-hk: 澳洲州份
     }
     conform: {
