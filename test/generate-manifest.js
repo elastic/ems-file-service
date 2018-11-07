@@ -107,6 +107,11 @@ const v6Expected = {
       'attribution': 'Similarion',
       'weight': 0,
       'name': 'Gondor Kingdoms',
+      'displayName': {
+        'en': 'Gondor Kingdoms',
+        'de': 'Gondor',
+        'zh': '魔多',
+      },
       'url': `https://vector-staging.maps.elastic.co/files/gondor_v3.topo.json?elastic_tile_service_tos=agree`,
       'format': 'geojson',
       'fields': [
@@ -123,6 +128,11 @@ const v6Expected = {
       'attribution': 'Similarion',
       'weight': 0,
       'name': 'Rohan Kingdoms',
+      'displayName': {
+        'en': 'Rohan Kingdoms',
+        'de': 'Rohan',
+        'zh': '洛汗',
+      },
       'url': `https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree`,
       'format': 'topojson',
       'fields': [
@@ -142,7 +152,12 @@ const v6Expected = {
       'attribution': 'Similarion',
       'weight': 0,
       'name': 'Shire regions',
-      'url': `https://vector-staging.maps.elastic.co/blob/333333333333?elastic_tile_service_tos=agree`,
+      'displayName': {
+        'en': 'Shire regions',
+        'de': 'Auenland',
+        'zh': '夏爾',
+      },
+      'url': `https://vector-staging.maps.elastic.co/files/shire_v2.topo.json?elastic_tile_service_tos=agree`,
       'format': 'geojson',
       'fields': [
         {
@@ -158,7 +173,7 @@ const v6Expected = {
       ],
       'created_at': '1532-12-25T18:45:32.389979',
       'tags': [],
-      'id': 333333333333,
+      'id': 'shire_v2.topo.json',
     },
   ],
 };

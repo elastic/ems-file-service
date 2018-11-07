@@ -140,5 +140,12 @@ function manifestLayerV6(data, hostname) {
     name: fieldMap.name,
     description: fieldMap.desc,
   }));
-  return { ...manifestLayerV2(data, hostname), ...{ description: data.humanReadableName, fields: fields } };
+  const url = `https://${hostname}/files/${data.filename}?elastic_tile_service_tos=agree`;
+  return {
+    ...manifestLayerV2(data, hostname),
+    ...{ url: url,
+      displayName: data.humanReadableName,
+      fields: fields,
+      id: data.filename },
+  };
 }

@@ -6,7 +6,9 @@
   "data": "http://example.com",
   "name": "mordor_regions",
   "humanReadableName": {
-    "en": "Mordor Regions"
+    "en": "Mordor Regions",
+    "de": "Mordor",
+    "zh": "魔多"
   },
   "fieldMapping": [
     {
@@ -30,7 +32,9 @@
   "data": "http://example.com",
   "name": "isengard_regions",
   "humanReadableName": {
-    "en": "Isengard Regions"
+    "en": "Isengard Regions",
+    "de": "Isengard",
+    "zh": "艾辛格"
   },
   "fieldMapping": [
     {

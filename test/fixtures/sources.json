@@ -7,7 +7,9 @@
     "data": "http://example.com",
     "name": "mordor_regions",
     "humanReadableName": {
-      "en": "Mordor Regions"
+      "en": "Mordor Regions",
+      "de": "Mordor",
+      "zh": "魔多"
     },
     "fieldMapping": [
       {
@@ -32,7 +34,9 @@
     "data": "http://example.com",
     "name": "gondor",
     "humanReadableName": {
-      "en": "Gondor Kingdoms"
+      "en": "Gondor Kingdoms",
+      "de": "Gondor",
+      "zh": "魔多"
     },
     "fieldMapping": [
       {
@@ -57,7 +61,9 @@
     "data": "http://example.com",
     "name": "gondor",
     "humanReadableName": {
-      "en": "Gondor Kingdoms"
+      "en": "Gondor Kingdoms",
+      "de": "Gondor",
+      "zh": "魔多"
     },
     "fieldMapping": [
       {
@@ -81,7 +87,9 @@
     "data": "http://example.com",
     "name": "Rohan",
     "humanReadableName": {
-      "en": "Rohan Kingdoms"
+      "en": "Rohan Kingdoms",
+      "de": "Rohan",
+      "zh": "洛汗"
     },
     "fieldMapping": [
       {
@@ -105,7 +113,9 @@
     "data": "http://example.com",
     "name": "shire",
     "humanReadableName": {
-      "en": "Shire regions"
+      "en": "Shire regions",
+      "de": "Auenland",
+      "zh": "夏爾"
     },
     "fieldMapping": [
       {

@@ -6,7 +6,9 @@
   "data": "http://example.com",
   "name": "isengard_regions",
   "humanReadableName": {
-    "en": "Isengard Regions"
+    "en": "Isengard Regions",
+    "de": "Isengard",
+    "zh": "艾辛格"
   },
   "fieldMapping": [
     {
@@ -30,7 +32,9 @@
   "data": "http://example.com",
   "name": "isengard_regions_2",
   "humanReadableName": {
-    "en": "Isengard Regions"
+    "en": "Isengard Regions",
+    "de": "Isengard",
+    "zh": "艾辛格"
   },
   "fieldMapping": [
     {
