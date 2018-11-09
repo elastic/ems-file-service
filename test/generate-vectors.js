@@ -16,35 +16,35 @@ const v1Expected = [{
   'src': 'data/mordor_v1.geo.json',
   'dest': 'dist/blob/111111111111',
 }, {
-  'src': 'data/gondor_v2.topo.json',
-  'dest': 'dist/files/gondor_v2.topo.json',
+  'src': 'data/gondor_v2.geo.json',
+  'dest': 'dist/files/gondor_v2.geo.json',
 }, {
-  'src': 'data/gondor_v2.topo.json',
+  'src': 'data/gondor_v2.geo.json',
   'dest': 'dist/blob/222222222222',
 }];
 
 const v2Expected = [{
-  'src': 'data/gondor_v2.topo.json',
-  'dest': 'dist/files/gondor_v2.topo.json',
+  'src': 'data/gondor_v2.geo.json',
+  'dest': 'dist/files/gondor_v2.geo.json',
 }, {
-  'src': 'data/gondor_v2.topo.json',
+  'src': 'data/gondor_v2.geo.json',
   'dest': 'dist/blob/222222222222',
 }, {
   'src': 'data/rohan_v2.topo.json',
   'dest': 'dist/files/rohan_v2.topo.json',
 }, {
-  'src': 'data/shire_v2.topo.json',
-  'dest': 'dist/files/shire_v2.topo.json',
+  'src': 'data/shire_v2.geo.json',
+  'dest': 'dist/files/shire_v2.geo.json',
 }, {
-  'src': 'data/shire_v2.topo.json',
+  'src': 'data/shire_v2.geo.json',
   'dest': 'dist/blob/333333333333',
 }];
 
 const prodExpected = [{
-  'src': 'data/gondor_v2.topo.json',
-  'dest': 'dist/files/gondor_v2.topo.json',
+  'src': 'data/gondor_v2.geo.json',
+  'dest': 'dist/files/gondor_v2.geo.json',
 }, {
-  'src': 'data/gondor_v2.topo.json',
+  'src': 'data/gondor_v2.geo.json',
   'dest': 'dist/blob/222222222222',
 }, {
   'src': 'data/rohan_v2.topo.json',
@@ -52,16 +52,16 @@ const prodExpected = [{
 }];
 
 const v3Expected = [{
-  'src': 'data/gondor_v3.topo.json',
-  'dest': 'dist/files/gondor_v3.topo.json',
+  'src': 'data/gondor_v3.geo.json',
+  'dest': 'dist/files/gondor_v3.geo.json',
 }, {
   'src': 'data/rohan_v2.topo.json',
   'dest': 'dist/files/rohan_v2.topo.json',
 }, {
-  'src': 'data/shire_v2.topo.json',
-  'dest': 'dist/files/shire_v2.topo.json',
+  'src': 'data/shire_v2.geo.json',
+  'dest': 'dist/files/shire_v2.geo.json',
 }, {
-  'src': 'data/shire_v2.topo.json',
+  'src': 'data/shire_v2.geo.json',
   'dest': 'dist/blob/333333333333',
 }];
 

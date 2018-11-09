@@ -5,7 +5,12 @@
     note: Regions of Finland
     wikidata: Q193512
     data: https://sophox.org/regions/geojson.json
-    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+    attribution: {
+      en: [
+        "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)",
+        "[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+      ]
+    }
     fieldMapping: [
         {
             type: id
@@ -102,7 +107,6 @@
       pt: Regiões da Finlândia
       pt-br: Regiões da Finlândia
       ru: область Финляндии
-      sco: Regions o Finland
       se: Suoma eanangottit
       sh: Finske regije
       sq: Rajonet e Finlandës

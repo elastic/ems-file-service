@@ -5,7 +5,12 @@
     note: Spain communities and provinces. Some single-province communities are missing from the SPARQL query and have been manually added.
     wikidata: Q162620
     data: https://sophox.org/regions/geojson.json
-    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+    attribution: {
+      en: [
+        "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)",
+        "[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+      ]
+    }
     fieldMapping: [
         {
             type: id
@@ -118,7 +123,6 @@
       pt: províncias da Espanha
       roa-tara: Provinge d'a Spagne
       ru: провинция Испании
-      sco: Provinces o Spain
       se: Spánia eanangottit
       sh: Španjolske provincije
       sq: Provincat e Spanjës

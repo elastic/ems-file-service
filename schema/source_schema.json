@@ -20,8 +20,7 @@
   "properties": {
     "versions": {
       "type": "string",
-      "description":
-        "Must be a semver compatible string (ex. v1, 1, 1.0.0, 1.x) or range (ex 1 - 2, ^1.0.1). See more examples at https://www.npmjs.com/package/semver. "
+      "description": "Must be a semver compatible string (ex. v1, 1, 1.0.0, 1.x) or range (ex 1 - 2, ^1.0.1). See more examples at https://www.npmjs.com/package/semver. "
     },
     "production": {
       "type": "boolean",
@@ -43,8 +42,7 @@
       "type": "object"
     },
     "fieldMapping": {
-      "description":
-        "Specifies map source field names or properties to elastic map service properties",
+      "description": "Specifies map source field names or properties to elastic map service properties",
       "type": "array",
       "items": { "$ref": "#/definitions/fieldMap" }
     },
@@ -56,29 +54,28 @@
       "enum": ["zip"]
     },
     "filename": {
-      "description":
-        "Source filename in `data` folder. This file is also copied to the `dist/files` folder.",
+      "description": "Source filename in `data` folder. This file is also copied to the `dist/files` folder.",
       "type": "string"
     },
     "license": {
       "oneOf": [{ "type": "string" }, { "$ref": "#/definitions/license" }]
     },
     "attribution": {
-      "type": "string"
+      "type": "object",
+      "description": "Attribution for map data.",
+      "required": ["en"],
+      "additionalProperties": {"$ref": "#/definitions/i18n-attribution"}
     },
     "id": {
-      "description":
-        "Manifest id number. These are different ids for staging and production in v1 and v2 so it can be an object with `production` and `staging` properties.",
+      "description": "Manifest id number. These are different ids for staging and production in v1 and v2 so it can be an object with `production` and `staging` properties.",
       "oneOf": [{ "type": "string" }, { "type": "number" }]
     },
     "ttl": {
-      "description":
-        "Time to live (seconds) until we recache the data from the source (unused)",
+      "description": "Time to live (seconds) until we recache the data from the source (unused)",
       "type": "integer"
     },
     "weight": {
-      "description":
-        "Weight of layer for ordering. Larger numbers appear higher in order.",
+      "description": "Weight of layer for ordering. Larger numbers appear higher in order.",
       "type": "integer"
     },
     "name": {
@@ -101,6 +98,12 @@
     }
   },
   "definitions": {
+    "i18n-attribution": {
+      "type": "array",
+      "items": [
+        { "type": "string" }
+      ]
+    },
     "i18n": {
       "type": "object",
       "required": ["en", "de", "zh"]
@@ -129,19 +132,12 @@
     "fieldMap": {
       "description": "Specifies type, name, source, destination, and description of a field.",
       "type": "object",
-      "required": [
-        "type",
-        "name",
-        "desc"
-      ],
+      "required": ["type", "name", "desc"],
       "properties": {
         "type": {
-          "description": "Type of field. Starting in Kibana v6.5 `id` fields are available as Join Fields in Kibana. By default, `property` fields cannot be used as a Join Field.",
+          "description": "Type of field.",
           "type": "string",
-          "enum": [
-            "id",
-            "property"
-          ]
+          "enum": ["id", "property"]
         },
         "name": {
           "type": "string",

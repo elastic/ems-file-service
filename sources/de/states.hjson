@@ -5,7 +5,12 @@
     note:  States of Germany
     wikidata: Q1221156
     data: https://sophox.org/regions/geojson.json
-    attribution: "© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+    attribution: {
+      en: [
+        "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)",
+        "[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+      ]
+    }
     fieldMapping: [
         {
             type: id

@@ -51,7 +51,11 @@
   conform: {
     type: topojson
   }
-  attribution: US Census Bureau
+  attribution: {
+    en: [
+      "US Census Bureau"
+    ]
+  }
   ttl: 108000
   weight: 0
   createdAt: "2018-01-26T17:16:00.275510"

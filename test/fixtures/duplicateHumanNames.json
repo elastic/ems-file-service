@@ -1,7 +1,11 @@
 [{
   "versions": ">=1",
   "production": true,
-  "attribution": "Similarion",
+  "attribution": {
+    "en": [
+      "Similarion"
+    ]
+  },
   "type": "http",
   "data": "http://example.com",
   "name": "isengard_regions",
@@ -27,7 +31,11 @@
 }, {
   "versions": "2",
   "production": true,
-  "attribution": "Similarion",
+  "attribution": {
+    "en": [
+      "Similarion"
+    ]
+   },
   "type": "http",
   "data": "http://example.com",
   "name": "isengard_regions_2",

@@ -2,7 +2,11 @@
   {
     "versions": "1.x",
     "production": true,
-    "attribution": "Similarion",
+    "attribution": {
+     "en": [
+       "Similarion"
+     ]
+   },
     "type": "http",
     "data": "http://example.com",
     "name": "mordor_regions",
@@ -29,7 +33,11 @@
   {
     "versions": "1 - 2",
     "production": true,
-    "attribution": "Similarion",
+    "attribution": {
+      "en": [
+        "Similarion"
+      ]
+   },
     "type": "http",
     "data": "http://example.com",
     "name": "gondor",
@@ -51,12 +59,16 @@
       "type": "geojson"
     },
     "createdAt": "1200-02-28T17:13:39.288909",
-    "filename": "gondor_v2.topo.json"
+    "filename": "gondor_v2.geo.json"
   },
   {
     "versions": ">=3",
     "production": true,
-    "attribution": "Similarion",
+    "attribution": {
+      "en": [
+        "Similarion"
+      ]
+   },
     "type": "http",
     "data": "http://example.com",
     "name": "gondor",
@@ -77,15 +89,19 @@
       "type": "geojson"
     },
     "createdAt": "1200-02-28T17:13:39.288909",
-    "filename": "gondor_v3.topo.json"
+    "filename": "gondor_v3.geo.json"
   },
   {
     "versions": ">=2",
     "production": true,
-    "attribution": "Similarion",
+    "attribution": {
+      "en": [
+        "Similarion"
+      ]
+   },
     "type": "http",
     "data": "http://example.com",
-    "name": "Rohan",
+    "name": "rohan",
     "humanReadableName": {
       "en": "Rohan Kingdoms",
       "de": "Rohan",
@@ -108,7 +124,11 @@
   {
     "versions": ">=2",
     "production": false,
-    "attribution": "Similarion",
+    "attribution": {
+      "en": [
+        "Similarion"
+      ]
+   },
     "type": "http",
     "data": "http://example.com",
     "name": "shire",
@@ -135,6 +155,6 @@
       "type": "geojson"
     },
     "createdAt": "1532-12-25T18:45:32.389979",
-    "filename": "shire_v2.topo.json"
+    "filename": "shire_v2.geo.json"
   }
 ]

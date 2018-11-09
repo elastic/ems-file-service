@@ -5,7 +5,12 @@
     note:  Prefectures of Japan
     wikidata: Q50337
     data: https://sophox.org/regions/geojson.json
-    attribution: "© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+    attribution: {
+      en: [
+        "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)",
+        "[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+      ]
+    }
     fieldMapping: [
         {
             type: id
@@ -105,8 +110,6 @@
       id: Daftar prefektur di Jepang
       ilo: prepektura ti Hapon
       it: prefettura del Giappone
-      // ja needs better translation that includes country name
-      ja: 都道府県
       jv: Daftar prefektur ing Jepang
       kk: Жапония префектуралары
       km: អាណាខេត្ត និងក្រុងនៃប្រទេសជប៉ុន

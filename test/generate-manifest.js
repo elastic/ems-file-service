@@ -10,6 +10,7 @@ const { generateCatalogueManifest, generateVectorManifest } = require('../script
 const sources = require('./fixtures/sources.json');
 const duplicateIds = require('./fixtures/duplicateIds.json');
 const duplicateHumanNames = require('./fixtures/duplicateHumanNames.json');
+const duplicateNames = require('./fixtures/duplicateNames.json');
 
 const v1Expected = {
   'layers': [{
@@ -104,76 +105,86 @@ const v2Expected = {
 const v6Expected = {
   'layers': [
     {
-      'attribution': 'Similarion',
-      'weight': 0,
-      'name': 'Gondor Kingdoms',
-      'displayName': {
+      'layer_id': 'gondor',
+      'created_at': '1200-02-28T17:13:39.288909',
+      'attribution': {
+        'en': [
+          'Similarion',
+        ],
+      },
+      'formats': [
+        {
+          'format': 'geojson',
+          'url': 'https://vector-staging.maps.elastic.co/files/gondor_v3.geo.json?elastic_tile_service_tos=agree',
+        },
+      ],
+      'fields': [
+        {
+          'type': 'property',
+          'id': 'label_en',
+          'label': 'Kingdom name (English)',
+        },
+      ],
+      'layer_name': {
         'en': 'Gondor Kingdoms',
         'de': 'Gondor',
         'zh': '魔多',
       },
-      'url': `https://vector-staging.maps.elastic.co/files/gondor_v3.topo.json?elastic_tile_service_tos=agree`,
-      'format': 'geojson',
+    }, {
+      'layer_id': 'rohan',
+      'created_at': '1200-02-28T17:13:39.456456',
+      'attribution': {
+        'en': [
+          'Similarion',
+        ],
+      },
+      'formats': [
+        {
+          'format': 'topojson',
+          'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree',
+        },
+      ],
       'fields': [
         {
           'type': 'property',
-          'name': 'label_en',
-          'description': 'Kingdom name (English)',
+          'id': 'label_en',
+          'label': 'Kingdom name (English)',
         },
       ],
-      'created_at': '1200-02-28T17:13:39.288909',
-      'tags': [],
-      'id': 'gondor_v3.topo.json',
-    }, {
-      'attribution': 'Similarion',
-      'weight': 0,
-      'name': 'Rohan Kingdoms',
-      'displayName': {
+      'layer_name': {
         'en': 'Rohan Kingdoms',
         'de': 'Rohan',
         'zh': '洛汗',
       },
-      'url': `https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree`,
-      'format': 'topojson',
+    }, {
+      'layer_id': 'shire',
+      'created_at': '1532-12-25T18:45:32.389979',
+      'attribution': {
+        'en': ['Similarion'],
+      },
+      'formats': [
+        {
+          'format': 'geojson',
+          'url': `https://vector-staging.maps.elastic.co/files/shire_v2.geo.json?elastic_tile_service_tos=agree`,
+        },
+      ],
       'fields': [
         {
           'type': 'property',
-          'name': 'label_en',
-          'description': 'Kingdom name (English)',
+          'id': 'label_en',
+          'label': 'Region name (English)',
+        },
+        {
+          'type': 'property',
+          'id': 'label_ws',
+          'label': 'Region name (Westron)',
         },
       ],
-      'created_at': '1200-02-28T17:13:39.456456',
-      'tags': [],
-      'id': 'rohan_v2.topo.json',
-      'meta': {
-        'feature_collection_path': 'data',
-      },
-    }, {
-      'attribution': 'Similarion',
-      'weight': 0,
-      'name': 'Shire regions',
-      'displayName': {
+      'layer_name': {
         'en': 'Shire regions',
         'de': 'Auenland',
         'zh': '夏爾',
       },
-      'url': `https://vector-staging.maps.elastic.co/files/shire_v2.topo.json?elastic_tile_service_tos=agree`,
-      'format': 'geojson',
-      'fields': [
-        {
-          'type': 'property',
-          'name': 'label_en',
-          'description': 'Region name (English)',
-        },
-        {
-          'type': 'property',
-          'name': 'label_ws',
-          'description': 'Region name (Westron)',
-        },
-      ],
-      'created_at': '1532-12-25T18:45:32.389979',
-      'tags': [],
-      'id': 'shire_v2.topo.json',
     },
   ],
 };
@@ -216,7 +227,6 @@ const prodExpected = {
     },
   ],
 };
-
 
 const safeDuplicatesExpected = {
   'layers': [{
@@ -294,8 +304,16 @@ tape('Generate vector manifests', t => {
     });
   };
 
+  const unsafeDuplicateNames = function () {
+    return generateVectorManifest(duplicateNames, {
+      version: 'v6',
+      hostname: 'vector-staging.maps.elastic.co',
+    });
+  };
+
   t.throws(unsafeDuplicateIds, 'Source ids cannot be duplicate in intersecting versions');
   t.throws(unsafeDuplicateHumanNames, 'Source human names cannot be duplicate in intersecting versions');
+  t.throws(unsafeDuplicateNames, 'Source names cannot be duplicate in v6 manifests');
   t.deepEquals(safeDuplicateIds(), safeDuplicatesExpected, 'Source ids can be duplicate in non-intersecting versions');
   t.deepEquals(safeDuplicateHumanNames(), safeDuplicatesExpected, 'Source human names can be duplicate in non-intersecting versions');
   t.end();

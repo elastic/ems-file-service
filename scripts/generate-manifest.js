@@ -65,18 +65,22 @@ function generateVectorManifest(sources, opts) {
   }
   const manifestVersion = semver.coerce(opts.version);
   const layers = [];
+  const uniqueProperties = [];
   for (const source of sources) {
     if ((!opts.production ||
       (opts.production && source.production)) &&
       semver.satisfies(manifestVersion, source.versions)) {
       switch (semver.major(manifestVersion)) {
         case 1:
+          uniqueProperties.push('name', 'id');
           layers.push(manifestLayerV1(source, opts.hostname));
           break;
         case 2:
+          uniqueProperties.push('name', 'id');
           layers.push(manifestLayerV2(source, opts.hostname));
           break;
         case 6:
+          uniqueProperties.push('layer_id');
           layers.push(manifestLayerV6(source, opts.hostname));
           break;
         default:
@@ -84,7 +88,7 @@ function generateVectorManifest(sources, opts) {
       }
     }
   }
-  for (const prop of ['name', 'id']) {
+  for (const prop of uniqueProperties) {
     throwIfDuplicates(layers, prop);
   }
 
@@ -108,7 +112,7 @@ function manifestLayerV1(data, hostname) {
   const manifestId = data.id || data.filename;
   const urlPath = data.id ? `blob/${data.id}` : `files/${data.filename}`;
   const layer = {
-    attribution: data.attribution,
+    attribution: data.attribution.en.join('|'),
     weight: data.weight,
     name: data.humanReadableName.en,
     url: `https://${hostname}/${urlPath}?elastic_tile_service_tos=agree`,
@@ -137,15 +141,21 @@ function manifestLayerV2(data, hostname) {
 function manifestLayerV6(data, hostname) {
   const fields = data.fieldMapping.map(fieldMap => ({
     type: fieldMap.type,
-    name: fieldMap.name,
-    description: fieldMap.desc,
+    id: fieldMap.name,
+    label: fieldMap.desc,
   }));
-  const url = `https://${hostname}/files/${data.filename}?elastic_tile_service_tos=agree`;
-  return {
-    ...manifestLayerV2(data, hostname),
-    ...{ url: url,
-      displayName: data.humanReadableName,
-      fields: fields,
-      id: data.filename },
+  const layer = {
+    layer_id: data.name,
+    created_at: data.createdAt,
+    attribution: data.attribution,
+    formats: [
+      {
+        format: data.conform.type,
+        url: `https://${hostname}/files/${data.filename}?elastic_tile_service_tos=agree`,
+      },
+    ],
+    fields: fields,
+    layer_name: data.humanReadableName,
   };
+  return layer;
 }
