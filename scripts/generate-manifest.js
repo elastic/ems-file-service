@@ -68,7 +68,7 @@ function generateVectorManifest(sources, opts) {
   const manifestVersion = semver.coerce(opts.version);
   const layers = [];
   const uniqueProperties = [];
-  for (const source of sources) {
+  for (const source of _.orderBy(sources, ['weight', 'name'], ['desc', 'asc'])) {
     if ((!opts.production ||
       (opts.production && source.production)) &&
       semver.satisfies(manifestVersion, source.versions)) {
@@ -95,7 +95,7 @@ function generateVectorManifest(sources, opts) {
   }
 
   const manifest = {
-    layers: _.orderBy(layers, ['weight', 'name'], ['desc', 'asc']),
+    layers: layers,
   };
   return manifest;
 }

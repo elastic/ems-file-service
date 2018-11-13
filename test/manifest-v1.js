@@ -9,6 +9,7 @@ const { generateCatalogueManifest, generateVectorManifest } = require('../script
 const sources = require('./fixtures/sources.json');
 const duplicateIds = require('./fixtures/duplicateIds.json');
 const duplicateHumanNames = require('./fixtures/duplicateHumanNames.json');
+const weightedSources = require('./fixtures/weighted-sources.json');
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
 const v1Expected = {
@@ -122,8 +123,10 @@ module.exports = function (t) {
   });
   t.deepEquals(fieldInfoTest, v1Expected, 'fieldInfos not used in v1');
 
-  const noVersion = generateVectorManifest(sources);
-  t.deepEquals(noVersion, { layers: [] });
+  const weightedOrder = generateVectorManifest(weightedSources, {
+    version: 'v1',
+  }).layers.map(layer => layer.name);
+  t.deepEquals(weightedOrder, ['Rohan Kingdoms', 'Gondor Kingdoms', 'Mordor Regions', 'Shire regions']);
 
   const safeDuplicateIds = function () {
     return generateVectorManifest(duplicateIds, {

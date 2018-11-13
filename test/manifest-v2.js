@@ -9,6 +9,7 @@ const { generateCatalogueManifest, generateVectorManifest } = require('../script
 const sources = require('./fixtures/sources.json');
 const duplicateIds = require('./fixtures/duplicateIds.json');
 const duplicateHumanNames = require('./fixtures/duplicateHumanNames.json');
+const weightedSources = require('./fixtures/weighted-sources.json');
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
 const v2Expected = {
@@ -155,6 +156,12 @@ module.exports = function (t) {
       hostname: 'vector-staging.maps.elastic.co',
     });
   };
+
+  const weightedOrder = generateVectorManifest(weightedSources, {
+    version: 'v2',
+  }).layers.map(layer => layer.name);
+  t.deepEquals(weightedOrder, ['Rohan Kingdoms', 'Gondor Kingdoms', 'Mordor Regions', 'Shire regions']);
+
 
   const fieldInfoTest = generateVectorManifest(sources, {
     version: 'v2',

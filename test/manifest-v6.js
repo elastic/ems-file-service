@@ -8,6 +8,7 @@ const { generateCatalogueManifest, generateVectorManifest } = require('../script
 
 const sources = require('./fixtures/sources.json');
 const duplicateNames = require('./fixtures/duplicateNames.json');
+const weightedSources = require('./fixtures/weighted-sources.json');
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
 const v6Expected = {
@@ -406,6 +407,12 @@ module.exports = function (t) {
     });
   };
   t.throws(unsafeDuplicateNames, 'Source names cannot be duplicate in v6 manifests');
+
+  const weightedOrder = generateVectorManifest(weightedSources, {
+    version: 'v6.6',
+  }).layers.map(layer => layer.layer_id);
+  t.deepEquals(weightedOrder, ['rohan', 'gondor', 'mordor_regions', 'shire']);
+
 
   const fieldInfoFallback = generateVectorManifest(sources, {
     version: 'v6.6',
