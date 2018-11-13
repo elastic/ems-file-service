@@ -298,9 +298,14 @@ const fieldInfoFallbackExpected = {
         'zh': '洛汗',
       },
     },
+  ],
+};
+
+const fieldInfoMissingNameExpected = {
+  'layers': [
     {
-      'layer_id': 'shire',
-      'created_at': '1532-12-25T18:45:32.389979',
+      'layer_id': 'gondor',
+      'created_at': '1200-02-28T17:13:39.288909',
       'attribution': {
         'en': [
           'Similarion',
@@ -309,7 +314,7 @@ const fieldInfoFallbackExpected = {
       'formats': [
         {
           'format': 'geojson',
-          'url': 'https://vector-staging.maps.elastic.co/files/shire_v2.geo.json?elastic_tile_service_tos=agree',
+          'url': 'https://vector-staging.maps.elastic.co/files/gondor_v3.geo.json?elastic_tile_service_tos=agree',
         },
       ],
       'fields': [
@@ -317,28 +322,61 @@ const fieldInfoFallbackExpected = {
           'type': 'id',
           'id': 'wikidata',
           'label': {
+            'de': 'Wikidata-Kennung',
             'en': 'Wikidata identifier',
+            'zh': '维基数据标识符',
           },
         },
         {
           'type': 'property',
           'id': 'label_en',
           'label': {
-            'en': 'Region name (English)',
-          },
-        },
-        {
-          'type': 'property',
-          'id': 'label_ws',
-          'label': {
-            'en': 'Region name (Westron)',
+            'en': 'Kingdom name (English)',
           },
         },
       ],
       'layer_name': {
-        'en': 'Shire regions',
-        'de': 'Auenland',
-        'zh': '夏爾',
+        'en': 'Gondor Kingdoms',
+        'de': 'Gondor',
+        'zh': '魔多',
+      },
+    },
+    {
+      'layer_id': 'rohan',
+      'created_at': '1200-02-28T17:13:39.456456',
+      'attribution': {
+        'en': [
+          'Similarion',
+        ],
+      },
+      'formats': [
+        {
+          'format': 'topojson',
+          'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree',
+        },
+      ],
+      'fields': [
+        {
+          'type': 'id',
+          'id': 'wikidata',
+          'label': {
+            'de': 'Wikidata-Kennung',
+            'en': 'Wikidata identifier',
+            'zh': '维基数据标识符',
+          },
+        },
+        {
+          'type': 'property',
+          'id': 'label_en',
+          'label': {
+            'en': 'Kingdom name (English)',
+          },
+        },
+      ],
+      'layer_name': {
+        'en': 'Rohan Kingdoms',
+        'de': 'Rohan',
+        'zh': '洛汗',
       },
     },
   ],
@@ -372,10 +410,28 @@ module.exports = function (t) {
   const fieldInfoFallback = generateVectorManifest(sources, {
     version: 'v6.6',
     hostname: 'vector-staging.maps.elastic.co',
+    production: true,
   });
   t.deepEquals(fieldInfoFallback, fieldInfoFallbackExpected,
     'should fallback to source field `desc` if fieldInfos is not available');
 
+  const fieldInfoMissingName = generateVectorManifest(sources, {
+    version: 'v6.6',
+    hostname: 'vector-staging.maps.elastic.co',
+    production: true,
+    fieldInfo: {
+      'wikidata': {
+        'wikidata': 'Q43649390',
+        'i18n': {
+          'de': 'Wikidata-Kennung',
+          'en': 'Wikidata identifier',
+          'zh': '维基数据标识符',
+        },
+      },
+    },
+  });
+  t.deepEquals(fieldInfoMissingName, fieldInfoMissingNameExpected,
+    'should fallback to source field `desc` if `fieldInfo.name.i18n` is not available');
 
   const v6Catalogue = generateCatalogueManifest({
     version: 'v6.6',

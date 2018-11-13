@@ -163,14 +163,13 @@ function manifestLayerV6(data, hostname, opts) {
 }
 
 function getFieldLabels(fieldName, fieldInfo) {
-  if (!fieldInfo) return;
-  else if (fieldName.startsWith('label_')) {
+  if (fieldName.startsWith('label_') && _.get(fieldInfo, 'name.i18n')) {
     const lang = fieldName.replace('label_', '');
     const labels = _.mapValues(fieldInfo.name.i18n, (label) => {
       return `${label} (${lang})`;
     });
     return labels;
-  } else {
+  } else if (_.get(fieldInfo, `${fieldName}.i18n`)) {
     return fieldInfo[fieldName].i18n;
-  }
+  } else return;
 }
