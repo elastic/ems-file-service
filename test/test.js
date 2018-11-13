@@ -4,7 +4,7 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const tape = require('tap').test;
+const tap = require('tap').test;
 const { generateVectorManifest, generateCatalogueManifest } = require('../scripts/generate-manifest');
 const manifestv1 = require('./manifest-v1');
 const manifestv2 = require('./manifest-v2');
@@ -13,7 +13,7 @@ const vectors = require('./vectors-all');
 
 const sources = require('./fixtures/sources.json');
 
-tape('Generate manifests', t => {
+tap('Generate manifests', t => {
 
   t.test('v1 tests', t => manifestv1(t));
   t.test('v2 tests', t => manifestv2(t));
@@ -43,7 +43,7 @@ tape('Generate manifests', t => {
   t.end();
 });
 
-tape('Generate vectors', t => {
+tap('Generate vectors', t => {
   t.test('all versions', t => vectors(t));
   t.end();
 });
