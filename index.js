@@ -23,7 +23,7 @@ const sources = glob.sync('sources/**/*.*json').map(source => {
   return Hjson.parse(f);
 });
 
-const fieldInfo = Hjson.parse(fs.readFileSync('./i18n/fields.hjson', 'utf8'));
+const fieldInfo = Hjson.parse(fs.readFileSync('./schema/fields.hjson', 'utf8'));
 
 // Clean and recreate `./dist` directories
 rimraf.sync('./dist');
