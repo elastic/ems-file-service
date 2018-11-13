@@ -23,6 +23,8 @@ const sources = glob.sync('sources/**/*.*json').map(source => {
   return Hjson.parse(f);
 });
 
+const fieldInfo = Hjson.parse(fs.readFileSync('./i18n/fields.hjson', 'utf8'));
+
 // Clean and recreate `./dist` directories
 rimraf.sync('./dist');
 mkdirp.sync('./dist/vector/blob');
@@ -43,6 +45,7 @@ for (const version of constants.VERSIONS) {
     version: version,
     production: production,
     hostname: vectorManifestHostname,
+    fieldInfo: fieldInfo,
   });
   for (const file of generateVectors(sources, {
     version: version,

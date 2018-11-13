@@ -16,6 +16,11 @@
   },
   "fieldMapping": [
     {
+      "type": "id",
+      "name": "wikidata",
+      "desc": "Wikidata identifier"
+    },
+    {
       "type": "property",
       "name": "label_en",
       "desc": "Region name (English)"
@@ -46,6 +51,11 @@
   },
   "fieldMapping": [
     {
+      "type": "id",
+      "name": "wikidata",
+      "desc": "Wikidata identifier"
+    },
+    {
       "type": "property",
       "name": "label_en",
       "desc": "Region name (English)"
@@ -75,6 +85,11 @@
     "zh": "艾辛格"
   },
   "fieldMapping": [
+    {
+      "type": "id",
+      "name": "wikidata",
+      "desc": "Wikidata identifier"
+    },
     {
       "type": "property",
       "name": "label_en",

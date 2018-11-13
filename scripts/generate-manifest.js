@@ -53,12 +53,14 @@ function generateCatalogueManifest(opts) {
  * @param {string} [opts.version='0'] - Only include layers that satisfy this semver version
  * @param {boolean} [opts.production=false] - If true, include only production layers
  * @param {string} [opts.hostname=`${constants.VECTOR_STAGING_HOST}`] - Hostname for files in manifest
+ * @param {Object} [opts.fieldInfo=null] - Field metadata
  */
 function generateVectorManifest(sources, opts) {
   opts = {
     version: 'v0',
     production: false,
-    hostname: constants.VECTOR_STAGING_HOST, ...opts,
+    hostname: constants.VECTOR_STAGING_HOST,
+    fieldInfo: null, ...opts,
   };
   if (!semver.valid(semver.coerce(opts.version))) {
     throw new Error('A valid version parameter must be defined');
@@ -81,7 +83,7 @@ function generateVectorManifest(sources, opts) {
           break;
         case 6:
           uniqueProperties.push('layer_id');
-          layers.push(manifestLayerV6(source, opts.hostname));
+          layers.push(manifestLayerV6(source, opts.hostname, { fieldInfo: opts.fieldInfo }));
           break;
         default:
           throw new Error(`Unable to get a manifest for version ${manifestVersion}`);
@@ -138,11 +140,11 @@ function manifestLayerV2(data, hostname) {
   return layer;
 }
 
-function manifestLayerV6(data, hostname) {
+function manifestLayerV6(data, hostname, opts) {
   const fields = data.fieldMapping.map(fieldMap => ({
     type: fieldMap.type,
     id: fieldMap.name,
-    label: fieldMap.desc,
+    label: { ...{ en: fieldMap.desc }, ...getFieldLabels(fieldMap.name, opts.fieldInfo) },
   }));
   const layer = {
     layer_id: data.name,
@@ -158,4 +160,17 @@ function manifestLayerV6(data, hostname) {
     layer_name: data.humanReadableName,
   };
   return layer;
+}
+
+function getFieldLabels(fieldName, fieldInfo) {
+  if (!fieldInfo) return;
+  else if (fieldName.startsWith('label_')) {
+    const lang = fieldName.replace('label_', '');
+    const labels = _.mapValues(fieldInfo.name.i18n, (label) => {
+      return `${label} (${lang})`;
+    });
+    return labels;
+  } else {
+    return fieldInfo[fieldName].i18n;
+  }
 }

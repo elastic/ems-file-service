@@ -1,7 +1,7 @@
 [
   {
     "versions": "1.x",
-    "production": true,
+    "production": false,
     "attribution": {
      "en": [
        "Similarion"
@@ -16,6 +16,11 @@
       "zh": "魔多"
     },
     "fieldMapping": [
+      {
+        "type": "id",
+        "name": "wikidata",
+        "desc": "Wikidata identifier"
+      },
       {
         "type": "property",
         "name": "label_en",
@@ -48,6 +53,11 @@
     },
     "fieldMapping": [
       {
+        "type": "id",
+        "name": "wikidata",
+        "desc": "Wikidata identifier"
+      },
+      {
         "type": "property",
         "name": "label_en",
         "desc": "Kingdom name (English)"
@@ -79,6 +89,11 @@
     },
     "fieldMapping": [
       {
+        "type": "id",
+        "name": "wikidata",
+        "desc": "Wikidata identifier"
+      },
+      {
         "type": "property",
         "name": "label_en",
         "desc": "Kingdom name (English)"
@@ -109,6 +124,11 @@
     },
     "fieldMapping": [
       {
+        "type": "id",
+        "name": "wikidata",
+        "desc": "Wikidata identifier"
+      },
+      {
         "type": "property",
         "name": "label_en",
         "desc": "Kingdom name (English)"
@@ -138,6 +158,11 @@
       "zh": "夏爾"
     },
     "fieldMapping": [
+      {
+        "type": "id",
+        "name": "wikidata",
+        "desc": "Wikidata identifier"
+      },
       {
         "type": "property",
         "name": "label_en",

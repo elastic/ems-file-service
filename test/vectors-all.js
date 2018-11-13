@@ -4,7 +4,6 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const tape = require('tape');
 const generateVectors = require('../scripts/generate-vectors');
 
 const sources = require('./fixtures/sources.json');
@@ -65,7 +64,21 @@ const v3Expected = [{
   'dest': 'dist/blob/333333333333',
 }];
 
-tape('Generate vector layers for versions', t => {
+const v6Expected = [{
+  'src': 'data/gondor_v3.geo.json',
+  'dest': 'dist/files/gondor_v3.geo.json',
+}, {
+  'src': 'data/rohan_v2.topo.json',
+  'dest': 'dist/files/rohan_v2.topo.json',
+}, {
+  'src': 'data/shire_v2.geo.json',
+  'dest': 'dist/files/shire_v2.geo.json',
+}, {
+  'src': 'data/shire_v2.geo.json',
+  'dest': 'dist/blob/333333333333',
+}];
+
+module.exports = function (t) {
   const v1 = generateVectors(sources, {
     version: 'v1',
   });
@@ -81,13 +94,15 @@ tape('Generate vector layers for versions', t => {
     production: true,
   });
   t.deepEquals(prod, prodExpected, 'Version v2 (production');
-  t.end();
-});
 
-tape('Generate vector layers for future versions that do not have `ids`', t => {
   const v3 = generateVectors(sources, {
     version: 'v3',
   });
   t.deepEquals(v3, v3Expected, 'Version v3');
+
+  const v6 = generateVectors(sources, {
+    version: 'v6.6',
+  });
+  t.deepEquals(v6, v6Expected, 'Version 6.6');
   t.end();
-});
+};
