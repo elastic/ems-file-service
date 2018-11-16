@@ -58,11 +58,11 @@ for (const version of constants.VERSIONS) {
   }
   fs.writeFileSync(
     path.join('./dist/catalogue', version, 'manifest'),
-    JSON.stringify(catalogueManifest, null, 2)
+    JSON.stringify(catalogueManifest)
   );
   fs.writeFileSync(
     path.join('./dist/vector', version, 'manifest'),
-    JSON.stringify(vectorManifest, null, 2)
+    JSON.stringify(vectorManifest)
   );
 }
 
