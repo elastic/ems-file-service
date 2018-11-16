@@ -5,12 +5,24 @@
     note: Administrative departments of France
     wikidata: Q6465
     data: https://sophox.org/regions/geojson.json
-    attribution: {
-      en: [
-        "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)",
-        "[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
-      ]
-    }
+    attribution: [
+      {
+        label: {
+          en: © OpenStreetMap contributors
+        }
+        url: {
+          en: https://www.openstreetmap.org/copyright
+        }
+      }
+      {
+        label: {
+          en: Elastic Maps Service
+        }
+        url: {
+          en: https://www.elastic.co/elastic-maps-service
+        }
+      }
+    ]
     fieldMapping: [
         {
             type: id

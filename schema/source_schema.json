@@ -61,8 +61,12 @@
       "oneOf": [{ "type": "string" }, { "$ref": "#/definitions/license" }]
     },
     "attribution": {
-      "type": "object",
-      "description": "Attribution for map data.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/i18n-attribution"
+      },
+      "description": "Attribution for map data in locales when available.",
       "required": ["en"],
       "additionalProperties": {"$ref": "#/definitions/i18n-attribution"}
     },
@@ -99,14 +103,24 @@
   },
   "definitions": {
     "i18n-attribution": {
-      "type": "array",
-      "items": [
-        { "type": "string" }
-      ]
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label"],
+      "properties": {
+        "url": {
+          "$ref": "#/definitions/i18n"
+        },
+        "label": {
+          "$ref": "#/definitions/i18n"
+        }
+      }
     },
     "i18n": {
       "type": "object",
-      "required": ["en", "de", "zh"]
+      "required": ["en"],
+      "additionalProperties": {
+        "type": "string"
+      }
     },
     "license": {
       "type": "object",

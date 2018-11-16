@@ -5,13 +5,26 @@
     type: http
     note:  Administrative subdivisions of the United Kingdom
     wikidata: Q717478
-    attribution: {
-      en: [
-        "Contains OS data © Crown copyright and database right 2018",
-        "Ordnance Survey of Northern Ireland (OSNI)",
-        "[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
-      ]
-    }
+    attribution: [
+      {
+        label: {
+          en: Contains OS data © Crown copyright and database right 2018
+        }
+      }
+      {
+        label: {
+          en: Ordnance Survey of Northern Ireland (OSNI)
+        }
+      }
+      {
+        label: {
+          en: Elastic Maps Service
+        }
+        url: {
+          en: https://www.elastic.co/elastic-maps-service
+        }
+      }
+    ]
     data: See README
     fieldMapping: [
         {

@@ -51,11 +51,21 @@
   conform: {
     type: topojson
   }
-  attribution: {
-    en: [
-      "US Census Bureau"
-    ]
-  }
+  attribution: [
+    {
+      label: {
+        en: US Census Bureau
+      }
+    }
+    {
+      label: {
+        en: Elastic Maps Service
+      }
+      url: {
+        en: https://www.elastic.co/elastic-maps-service
+      }
+    }
+  ]
   ttl: 108000
   weight: 0
   createdAt: "2018-01-26T17:16:00.275510"
