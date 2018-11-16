@@ -4,6 +4,7 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
+const tap = require('tap').test;
 const generateVectors = require('../scripts/generate-vectors');
 
 const sources = require('./fixtures/sources.json');
@@ -78,7 +79,7 @@ const v6Expected = [{
   'dest': 'dist/blob/333333333333',
 }];
 
-module.exports = function (t) {
+tap('vector tests', t => {
   const v1 = generateVectors(sources, {
     version: 'v1',
   });
@@ -105,4 +106,4 @@ module.exports = function (t) {
   });
   t.deepEquals(v6, v6Expected, 'Version 6.6');
   t.end();
-};
+});

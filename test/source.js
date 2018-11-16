@@ -4,7 +4,7 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const tap = require('tap');
+const tap = require('tap').test;
 const Ajv = require('ajv');
 const Hjson = require('hjson');
 const schema = require('../schema/source_schema.json');

@@ -5,7 +5,7 @@
   "description": "Data sources, vector data, and manifest generation for Elastic Maps Service",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/test.js --cov",
+    "test": "tap test/*.js --cov",
     "build": "node index.js"
   },
   "keywords": [],

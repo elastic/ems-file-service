@@ -4,6 +4,7 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
+const tap = require('tap').test;
 const { generateCatalogueManifest, generateVectorManifest } = require('../scripts/generate-manifest');
 
 const sources = require('./fixtures/sources.json');
@@ -383,7 +384,7 @@ const fieldInfoMissingNameExpected = {
   ],
 };
 
-module.exports = function (t) {
+tap('v6 tests', t => {
   const v6 = generateVectorManifest(sources, {
     version: 'v6.6',
     hostname: 'vector-staging.maps.elastic.co',
@@ -478,4 +479,4 @@ module.exports = function (t) {
     }],
   });
   t.end();
-};
+});
