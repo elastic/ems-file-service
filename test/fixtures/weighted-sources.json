@@ -2,11 +2,13 @@
   {
     "versions": ">=1",
     "production": false,
-    "attribution": {
-     "en": [
-       "Similarion"
-     ]
-   },
+    "attribution": [
+      {
+        "label": {
+          "en": "The Silmarillion"
+        }
+      }
+    ],
     "type": "http",
     "data": "http://example.com",
     "name": "mordor_regions",
@@ -38,11 +40,13 @@
   {
     "versions": ">=1",
     "production": true,
-    "attribution": {
-      "en": [
-        "Similarion"
-      ]
-   },
+    "attribution": [
+      {
+        "label": {
+          "en": "The Silmarillion"
+        }
+      }
+    ],
     "type": "http",
     "data": "http://example.com",
     "name": "gondor",
@@ -74,11 +78,13 @@
   {
     "versions": ">=1",
     "production": true,
-    "attribution": {
-      "en": [
-        "Similarion"
-      ]
-   },
+    "attribution": [
+      {
+        "label": {
+          "en": "The Silmarillion"
+        }
+      }
+    ],
     "type": "http",
     "data": "http://example.com",
     "name": "rohan",
@@ -109,11 +115,13 @@
   {
     "versions": ">=1",
     "production": false,
-    "attribution": {
-      "en": [
-        "Similarion"
-      ]
-   },
+    "attribution": [
+      {
+        "label": {
+          "en": "The Silmarillion"
+        }
+      }
+    ],
     "type": "http",
     "data": "http://example.com",
     "name": "shire",

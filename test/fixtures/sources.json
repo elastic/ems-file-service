@@ -2,11 +2,13 @@
   {
     "versions": "1.x",
     "production": false,
-    "attribution": {
-     "en": [
-       "Similarion"
-     ]
-   },
+    "attribution": [
+      {
+        "label": {
+          "en": "The Silmarillion"
+        }
+      }
+    ],
     "type": "http",
     "data": "http://example.com",
     "name": "mordor_regions",
@@ -38,11 +40,23 @@
   {
     "versions": "1 - 2",
     "production": true,
-    "attribution": {
-      "en": [
-        "Similarion"
-      ]
-   },
+    "attribution": [
+      {
+        "label": {
+          "en": "The Silmarillion"
+        },
+        "url": {
+          "en": "https://en.wikipedia.org/wiki/The_Silmarillion"
+        }
+      }, {
+        "label": {
+          "en": "Elastic Maps Service"
+        },
+        "url": {
+          "en": "https://www.elastic.co/elastic-maps-service"
+        }
+      }
+    ],
     "type": "http",
     "data": "http://example.com",
     "name": "gondor",
@@ -74,11 +88,25 @@
   {
     "versions": ">=3",
     "production": true,
-    "attribution": {
-      "en": [
-        "Similarion"
-      ]
-   },
+    "attribution": [
+      {
+        "label": {
+          "en": "The Silmarillion",
+          "fr": "Le Silmarillion"
+        },
+        "url": {
+          "en": "https://en.wikipedia.org/wiki/The_Silmarillion",
+          "fr": "https://fr.wikipedia.org/wiki/Le_Silmarillion"
+        }
+      }, {
+        "label": {
+          "en": "Elastic Maps Service"
+        },
+        "url": {
+          "en": "https://www.elastic.co/elastic-maps-service"
+        }
+      }
+    ],
     "type": "http",
     "data": "http://example.com",
     "name": "gondor",
@@ -109,11 +137,13 @@
   {
     "versions": ">=2",
     "production": true,
-    "attribution": {
-      "en": [
-        "Similarion"
-      ]
-   },
+    "attribution": [
+      {
+        "label": {
+          "en": "The Silmarillion"
+        }
+      }
+    ],
     "type": "http",
     "data": "http://example.com",
     "name": "rohan",
@@ -144,11 +174,13 @@
   {
     "versions": ">=2",
     "production": false,
-    "attribution": {
-      "en": [
-        "Similarion"
-      ]
-   },
+    "attribution": [
+      {
+        "label": {
+          "en": "The Silmarillion"
+        }
+      }
+    ],
     "type": "http",
     "data": "http://example.com",
     "name": "shire",

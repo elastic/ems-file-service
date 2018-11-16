@@ -15,7 +15,7 @@ const fieldInfo = require('./fixtures/fieldInfo.json');
 
 const v1Expected = {
   'layers': [{
-    'attribution': 'Similarion',
+    'attribution': '[The Silmarillion](https://en.wikipedia.org/wiki/The_Silmarillion)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)',
     'weight': 0,
     'name': 'Gondor Kingdoms',
     'url': `https://vector-staging.maps.elastic.co/blob/222222222222?elastic_tile_service_tos=agree`,
@@ -34,7 +34,7 @@ const v1Expected = {
     'tags': [],
     'id': 222222222222,
   }, {
-    'attribution': 'Similarion',
+    'attribution': 'The Silmarillion',
     'weight': 0,
     'name': 'Mordor Regions',
     'url': `https://vector-staging.maps.elastic.co/blob/111111111111?elastic_tile_service_tos=agree`,
@@ -58,7 +58,7 @@ const v1Expected = {
 const prodExpected = {
   'layers': [
     {
-      'attribution': 'Similarion',
+      'attribution': '[The Silmarillion](https://en.wikipedia.org/wiki/The_Silmarillion)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)',
       'weight': 0,
       'name': 'Gondor Kingdoms',
       'url': `https://vector.maps.elastic.co/blob/222222222222?elastic_tile_service_tos=agree`,
@@ -82,7 +82,7 @@ const prodExpected = {
 
 const safeDuplicatesExpected = {
   'layers': [{
-    'attribution': 'Similarion',
+    'attribution': 'The Silmarillion',
     'weight': 0,
     'name': 'Isengard Regions',
     'url': 'https://vector-staging.maps.elastic.co/blob/111111111111?elastic_tile_service_tos=agree',

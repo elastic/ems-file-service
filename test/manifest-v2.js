@@ -16,7 +16,7 @@ const fieldInfo = require('./fixtures/fieldInfo.json');
 const v2Expected = {
   'layers': [
     {
-      'attribution': 'Similarion',
+      'attribution': '[The Silmarillion](https://en.wikipedia.org/wiki/The_Silmarillion)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)',
       'weight': 0,
       'name': 'Gondor Kingdoms',
       'url': `https://vector-staging.maps.elastic.co/blob/222222222222?elastic_tile_service_tos=agree`,
@@ -35,7 +35,7 @@ const v2Expected = {
       'tags': [],
       'id': 222222222222,
     }, {
-      'attribution': 'Similarion',
+      'attribution': 'The Silmarillion',
       'weight': 0,
       'name': 'Rohan Kingdoms',
       'url': `https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree`,
@@ -57,7 +57,7 @@ const v2Expected = {
         'feature_collection_path': 'data',
       },
     }, {
-      'attribution': 'Similarion',
+      'attribution': 'The Silmarillion',
       'weight': 0,
       'name': 'Shire regions',
       'url': `https://vector-staging.maps.elastic.co/blob/333333333333?elastic_tile_service_tos=agree`,
@@ -86,7 +86,7 @@ const v2Expected = {
 const prodExpected = {
   'layers': [
     {
-      'attribution': 'Similarion',
+      'attribution': '[The Silmarillion](https://en.wikipedia.org/wiki/The_Silmarillion)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)',
       'weight': 0,
       'name': 'Gondor Kingdoms',
       'url': `https://vector.maps.elastic.co/blob/222222222222?elastic_tile_service_tos=agree`,
@@ -105,7 +105,7 @@ const prodExpected = {
       'tags': [],
       'id': 222222222222,
     }, {
-      'attribution': 'Similarion',
+      'attribution': 'The Silmarillion',
       'weight': 0,
       'name': 'Rohan Kingdoms',
       'url': `https://vector.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree`,

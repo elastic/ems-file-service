@@ -114,7 +114,7 @@ function manifestLayerV1(data, hostname) {
   const manifestId = data.id || data.filename;
   const urlPath = data.id ? `blob/${data.id}` : `files/${data.filename}`;
   const layer = {
-    attribution: data.attribution.en.join('|'),
+    attribution: data.attribution.map(generateAttributionString).join('|'),
     weight: data.weight,
     name: data.humanReadableName.en,
     url: `https://${hostname}/${urlPath}?elastic_tile_service_tos=agree`,
@@ -172,4 +172,11 @@ function getFieldLabels(fieldName, fieldInfo) {
   } else if (_.get(fieldInfo, `${fieldName}.i18n`)) {
     return fieldInfo[fieldName].i18n;
   } else return;
+}
+
+function generateAttributionString(attr) {
+  if (!attr.label) {
+    throw new Error(`Attribution sources must have a 'label' property`);
+  }
+  return attr.url ? `[${attr.label.en}](${attr.url.en})` : `${attr.label.en}`;
 }

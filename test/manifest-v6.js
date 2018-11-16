@@ -17,11 +17,23 @@ const v6Expected = {
     {
       'layer_id': 'gondor',
       'created_at': '1200-02-28T17:13:39.288909',
-      'attribution': {
-        'en': [
-          'Similarion',
-        ],
-      },
+      'attribution': [{
+        'label': {
+          'en': 'The Silmarillion',
+          'fr': 'Le Silmarillion',
+        },
+        'url': {
+          'en': 'https://en.wikipedia.org/wiki/The_Silmarillion',
+          'fr': 'https://fr.wikipedia.org/wiki/Le_Silmarillion',
+        },
+      }, {
+        'label': {
+          'en': 'Elastic Maps Service',
+        },
+        'url': {
+          'en': 'https://www.elastic.co/elastic-maps-service',
+        },
+      }],
       'formats': [
         {
           'format': 'geojson',
@@ -56,11 +68,11 @@ const v6Expected = {
     }, {
       'layer_id': 'rohan',
       'created_at': '1200-02-28T17:13:39.456456',
-      'attribution': {
-        'en': [
-          'Similarion',
-        ],
-      },
+      'attribution': [{
+        'label': {
+          'en': 'The Silmarillion',
+        },
+      }],
       'formats': [
         {
           'format': 'topojson',
@@ -95,9 +107,11 @@ const v6Expected = {
     }, {
       'layer_id': 'shire',
       'created_at': '1532-12-25T18:45:32.389979',
-      'attribution': {
-        'en': ['Similarion'],
-      },
+      'attribution': [{
+        'label': {
+          'en': 'The Silmarillion',
+        },
+      }],
       'formats': [
         {
           'format': 'geojson',
@@ -147,11 +161,23 @@ const prodExpected = {
     {
       'layer_id': 'gondor',
       'created_at': '1200-02-28T17:13:39.288909',
-      'attribution': {
-        'en': [
-          'Similarion',
-        ],
-      },
+      'attribution': [{
+        'label': {
+          'en': 'The Silmarillion',
+          'fr': 'Le Silmarillion',
+        },
+        'url': {
+          'en': 'https://en.wikipedia.org/wiki/The_Silmarillion',
+          'fr': 'https://fr.wikipedia.org/wiki/Le_Silmarillion',
+        },
+      }, {
+        'label': {
+          'en': 'Elastic Maps Service',
+        },
+        'url': {
+          'en': 'https://www.elastic.co/elastic-maps-service',
+        },
+      }],
       'formats': [
         {
           'format': 'geojson',
@@ -186,11 +212,11 @@ const prodExpected = {
     }, {
       'layer_id': 'rohan',
       'created_at': '1200-02-28T17:13:39.456456',
-      'attribution': {
-        'en': [
-          'Similarion',
-        ],
-      },
+      'attribution': [{
+        'label': {
+          'en': 'The Silmarillion',
+        },
+      }],
       'formats': [
         {
           'format': 'topojson',
@@ -231,11 +257,23 @@ const fieldInfoFallbackExpected = {
     {
       'layer_id': 'gondor',
       'created_at': '1200-02-28T17:13:39.288909',
-      'attribution': {
-        'en': [
-          'Similarion',
-        ],
-      },
+      'attribution': [{
+        'label': {
+          'en': 'The Silmarillion',
+          'fr': 'Le Silmarillion',
+        },
+        'url': {
+          'en': 'https://en.wikipedia.org/wiki/The_Silmarillion',
+          'fr': 'https://fr.wikipedia.org/wiki/Le_Silmarillion',
+        },
+      }, {
+        'label': {
+          'en': 'Elastic Maps Service',
+        },
+        'url': {
+          'en': 'https://www.elastic.co/elastic-maps-service',
+        },
+      }],
       'formats': [
         {
           'format': 'geojson',
@@ -267,11 +305,11 @@ const fieldInfoFallbackExpected = {
     {
       'layer_id': 'rohan',
       'created_at': '1200-02-28T17:13:39.456456',
-      'attribution': {
-        'en': [
-          'Similarion',
-        ],
-      },
+      'attribution': [{
+        'label': {
+          'en': 'The Silmarillion',
+        },
+      }],
       'formats': [
         {
           'format': 'topojson',
@@ -308,11 +346,23 @@ const fieldInfoMissingNameExpected = {
     {
       'layer_id': 'gondor',
       'created_at': '1200-02-28T17:13:39.288909',
-      'attribution': {
-        'en': [
-          'Similarion',
-        ],
-      },
+      'attribution': [{
+        'label': {
+          'en': 'The Silmarillion',
+          'fr': 'Le Silmarillion',
+        },
+        'url': {
+          'en': 'https://en.wikipedia.org/wiki/The_Silmarillion',
+          'fr': 'https://fr.wikipedia.org/wiki/Le_Silmarillion',
+        },
+      }, {
+        'label': {
+          'en': 'Elastic Maps Service',
+        },
+        'url': {
+          'en': 'https://www.elastic.co/elastic-maps-service',
+        },
+      }],
       'formats': [
         {
           'format': 'geojson',
@@ -346,11 +396,11 @@ const fieldInfoMissingNameExpected = {
     {
       'layer_id': 'rohan',
       'created_at': '1200-02-28T17:13:39.456456',
-      'attribution': {
-        'en': [
-          'Similarion',
-        ],
-      },
+      'attribution': [{
+        'label': {
+          'en': 'The Silmarillion',
+        },
+      }],
       'formats': [
         {
           'format': 'topojson',
