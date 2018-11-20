@@ -9,3 +9,4 @@ dist/
 *_file-service.tar.gz
 *.iml
 .idea/
+.nyc_output/
