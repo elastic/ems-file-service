@@ -120,12 +120,13 @@
         zh-hk: 县 (美国)
         zh-tw: 县 (美国)
     }
-    conform: {
+    emsFormats: [{
         type: topojson
-    }
+        file: usa_counties_v2.topo.json
+        default: true
+    }]
     ttl: 108000
     weight: 0
     createdAt: "2018-03-23T17:38:00.671050"
     id: 5672749318012928
-    filename: usa_counties_v2.topo.json
 }

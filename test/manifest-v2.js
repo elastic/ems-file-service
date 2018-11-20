@@ -7,10 +7,11 @@
 const tap = require('tap').test;
 const { generateCatalogueManifest, generateVectorManifest } = require('../scripts/generate-manifest');
 
-const sources = require('./fixtures/sources.json');
-const duplicateIds = require('./fixtures/duplicateIds.json');
-const duplicateHumanNames = require('./fixtures/duplicateHumanNames.json');
-const weightedSources = require('./fixtures/weighted-sources.json');
+const sources = require('./fixtures/valid-sources/sources.json');
+const duplicateIds = require('./fixtures/valid-sources/duplicateIds.json');
+const duplicateHumanNames = require('./fixtures/valid-sources/duplicateHumanNames.json');
+const weightedSources = require('./fixtures/valid-sources/weighted-sources.json');
+const badAttribution = require('./fixtures/invalid-sources/bad-attribution.json');
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
 const v2Expected = {
@@ -38,7 +39,7 @@ const v2Expected = {
       'attribution': 'The Silmarillion',
       'weight': 0,
       'name': 'Rohan Kingdoms',
-      'url': `https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree`,
+      'url': `https://vector-staging.maps.elastic.co/blob/444444444444?elastic_tile_service_tos=agree`,
       'format': 'topojson',
       'fields': [
         {
@@ -52,7 +53,7 @@ const v2Expected = {
       ],
       'created_at': '1200-02-28T17:13:39.456456',
       'tags': [],
-      'id': 'rohan_v2.topo.json',
+      'id': 444444444444,
       'meta': {
         'feature_collection_path': 'data',
       },
@@ -108,7 +109,7 @@ const prodExpected = {
       'attribution': 'The Silmarillion',
       'weight': 0,
       'name': 'Rohan Kingdoms',
-      'url': `https://vector.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree`,
+      'url': `https://vector.maps.elastic.co/blob/444444444444?elastic_tile_service_tos=agree`,
       'format': 'topojson',
       'fields': [
         {
@@ -122,7 +123,7 @@ const prodExpected = {
       ],
       'created_at': '1200-02-28T17:13:39.456456',
       'tags': [],
-      'id': 'rohan_v2.topo.json',
+      'id': 444444444444,
       'meta': {
         'feature_collection_path': 'data',
       },
@@ -158,6 +159,12 @@ tap('v2 tests', t => {
     });
   };
 
+  const badAttributionTest = function () {
+    return generateVectorManifest(badAttribution, {
+      version: 'v2',
+    });
+  };
+
   const weightedOrder = generateVectorManifest(weightedSources, {
     version: 'v2',
   }).layers.map(layer => layer.name);
@@ -174,6 +181,7 @@ tap('v2 tests', t => {
 
   t.throws(unsafeDuplicateIds, 'Source ids cannot be duplicate in intersecting versions');
   t.throws(unsafeDuplicateHumanNames, 'Source human names cannot be duplicate in intersecting versions');
+  t.throws(badAttributionTest, 'Attribution must include a label');
 
   const v2Catalogue = generateCatalogueManifest({
     version: 'v2',

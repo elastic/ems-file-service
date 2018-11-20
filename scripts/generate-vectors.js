@@ -32,12 +32,15 @@ function generateVectors(sources, opts) {
     if ((!opts.production ||
       (opts.production && source.production)) &&
       semver.satisfies(manifestVersion, source.versions)) {
-      const src = path.join(opts.srcdir, source.filename);
-      const dest = path.join(opts.destdir, 'files', source.filename);
-      files.push({ src: src, dest: dest });
+      for (const format of source.emsFormats) {
+        const src = path.join(opts.srcdir, format.file);
+        const dest = path.join(opts.destdir, 'files', format.file);
+        files.push({ src: src, dest: dest });
+      }
       if (source.id) {
         const destLegacy = path.join(opts.destdir, 'blob', source.id.toString());
-        files.push({ src: src, dest: destLegacy });
+        const defaultFormat = source.emsFormats.filter(format => format.default).pop();
+        files.push({ src: path.join(opts.srcdir, defaultFormat.file), dest: destLegacy });
       }
     }
   }

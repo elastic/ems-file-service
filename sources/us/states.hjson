@@ -172,12 +172,13 @@
       zh-sg: 美国州份
       zh-tw: 美國州份
     }
-    conform: {
+    emsFormats: [{
         type: geojson
-    }
+        file: usa_states_v1.geo.json
+        default: true
+    }]
     ttl: 108000
     weight: 0
     createdAt: "2017-04-26T19:45:22.377820"
     id: 5086441721823232
-    filename: usa_states_v1.geo.json
 }

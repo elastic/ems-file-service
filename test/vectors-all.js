@@ -7,7 +7,7 @@
 const tap = require('tap').test;
 const generateVectors = require('../scripts/generate-vectors');
 
-const sources = require('./fixtures/sources.json');
+const sources = require('./fixtures/valid-sources/sources.json');
 
 const v1Expected = [{
   'src': 'data/mordor_v1.geo.json',
@@ -30,11 +30,20 @@ const v2Expected = [{
   'src': 'data/gondor_v2.geo.json',
   'dest': 'dist/blob/222222222222',
 }, {
+  'src': 'data/rohan_v2.geo.json',
+  'dest': 'dist/files/rohan_v2.geo.json',
+}, {
   'src': 'data/rohan_v2.topo.json',
   'dest': 'dist/files/rohan_v2.topo.json',
 }, {
+  'src': 'data/rohan_v2.topo.json',
+  'dest': 'dist/blob/444444444444',
+}, {
   'src': 'data/shire_v2.geo.json',
   'dest': 'dist/files/shire_v2.geo.json',
+}, {
+  'src': 'data/shire_v2.topo.json',
+  'dest': 'dist/files/shire_v2.topo.json',
 }, {
   'src': 'data/shire_v2.geo.json',
   'dest': 'dist/blob/333333333333',
@@ -47,19 +56,34 @@ const prodExpected = [{
   'src': 'data/gondor_v2.geo.json',
   'dest': 'dist/blob/222222222222',
 }, {
+  'src': 'data/rohan_v2.geo.json',
+  'dest': 'dist/files/rohan_v2.geo.json',
+}, {
   'src': 'data/rohan_v2.topo.json',
   'dest': 'dist/files/rohan_v2.topo.json',
+}, {
+  'src': 'data/rohan_v2.topo.json',
+  'dest': 'dist/blob/444444444444',
 }];
 
 const v3Expected = [{
   'src': 'data/gondor_v3.geo.json',
   'dest': 'dist/files/gondor_v3.geo.json',
 }, {
+  'src': 'data/rohan_v2.geo.json',
+  'dest': 'dist/files/rohan_v2.geo.json',
+}, {
   'src': 'data/rohan_v2.topo.json',
   'dest': 'dist/files/rohan_v2.topo.json',
 }, {
+  'src': 'data/rohan_v2.topo.json',
+  'dest': 'dist/blob/444444444444',
+}, {
   'src': 'data/shire_v2.geo.json',
   'dest': 'dist/files/shire_v2.geo.json',
+}, {
+  'src': 'data/shire_v2.topo.json',
+  'dest': 'dist/files/shire_v2.topo.json',
 }, {
   'src': 'data/shire_v2.geo.json',
   'dest': 'dist/blob/333333333333',
@@ -69,11 +93,20 @@ const v6Expected = [{
   'src': 'data/gondor_v3.geo.json',
   'dest': 'dist/files/gondor_v3.geo.json',
 }, {
+  'src': 'data/rohan_v2.geo.json',
+  'dest': 'dist/files/rohan_v2.geo.json',
+}, {
   'src': 'data/rohan_v2.topo.json',
   'dest': 'dist/files/rohan_v2.topo.json',
 }, {
+  'src': 'data/rohan_v2.topo.json',
+  'dest': 'dist/blob/444444444444',
+}, {
   'src': 'data/shire_v2.geo.json',
   'dest': 'dist/files/shire_v2.geo.json',
+}, {
+  'src': 'data/shire_v2.topo.json',
+  'dest': 'dist/files/shire_v2.topo.json',
 }, {
   'src': 'data/shire_v2.geo.json',
   'dest': 'dist/blob/333333333333',

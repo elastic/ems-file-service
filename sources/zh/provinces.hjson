@@ -133,12 +133,13 @@
       zh-sg: 中国省份
       zh-tw: 中國省份
     }
-    conform: {
+    emsFormats: [{
         type: geojson
-    }
+        file: china_provinces_v1.geo.json
+        default: true
+    }]
     ttl: 108000
     weight: 0
     createdAt: "2018-04-04T21:16:38.930020"
     id: 5654313976201216
-    filename: china_provinces_v1.geo.json
 }

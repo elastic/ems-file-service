@@ -178,12 +178,13 @@
       zh-hant: 聯邦州
       zh-hk: 聯邦州
     }
-    conform: {
+    emsFormats: [{
         type: geojson
-    }
+        file: germany_states_v1.geo.json
+        default: true
+    }]
     ttl: 108000
     weight: 0
     createdAt: "2018-01-23T13:06:05.998550"
     id: 5634472569470976
-    filename: germany_states_v1.geo.json
 }

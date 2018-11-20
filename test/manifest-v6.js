@@ -7,9 +7,9 @@
 const tap = require('tap').test;
 const { generateCatalogueManifest, generateVectorManifest } = require('../scripts/generate-manifest');
 
-const sources = require('./fixtures/sources.json');
-const duplicateNames = require('./fixtures/duplicateNames.json');
-const weightedSources = require('./fixtures/weighted-sources.json');
+const sources = require('./fixtures/valid-sources/sources.json');
+const duplicateNames = require('./fixtures/valid-sources/duplicateNames.json');
+const weightedSources = require('./fixtures/valid-sources/weighted-sources.json');
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
 const v6Expected = {
@@ -38,6 +38,7 @@ const v6Expected = {
         {
           'format': 'geojson',
           'url': 'https://vector-staging.maps.elastic.co/files/gondor_v3.geo.json?elastic_tile_service_tos=agree',
+          'legacy_default': true,
         },
       ],
       'fields': [
@@ -75,8 +76,14 @@ const v6Expected = {
       }],
       'formats': [
         {
+          'format': 'geojson',
+          'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.geo.json?elastic_tile_service_tos=agree',
+          'legacy_default': false,
+        },
+        {
           'format': 'topojson',
           'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree',
+          'legacy_default': true,
         },
       ],
       'fields': [
@@ -116,6 +123,12 @@ const v6Expected = {
         {
           'format': 'geojson',
           'url': `https://vector-staging.maps.elastic.co/files/shire_v2.geo.json?elastic_tile_service_tos=agree`,
+          'legacy_default': true,
+        },
+        {
+          'format': 'topojson',
+          'url': 'https://vector-staging.maps.elastic.co/files/shire_v2.topo.json?elastic_tile_service_tos=agree',
+          'legacy_default': false,
         },
       ],
       'fields': [
@@ -182,6 +195,7 @@ const prodExpected = {
         {
           'format': 'geojson',
           'url': 'https://vector.maps.elastic.co/files/gondor_v3.geo.json?elastic_tile_service_tos=agree',
+          'legacy_default': true,
         },
       ],
       'fields': [
@@ -219,8 +233,14 @@ const prodExpected = {
       }],
       'formats': [
         {
+          'format': 'geojson',
+          'url': 'https://vector.maps.elastic.co/files/rohan_v2.geo.json?elastic_tile_service_tos=agree',
+          'legacy_default': false,
+        },
+        {
           'format': 'topojson',
           'url': 'https://vector.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree',
+          'legacy_default': true,
         },
       ],
       'fields': [
@@ -278,6 +298,7 @@ const fieldInfoFallbackExpected = {
         {
           'format': 'geojson',
           'url': 'https://vector-staging.maps.elastic.co/files/gondor_v3.geo.json?elastic_tile_service_tos=agree',
+          'legacy_default': true,
         },
       ],
       'fields': [
@@ -312,8 +333,14 @@ const fieldInfoFallbackExpected = {
       }],
       'formats': [
         {
+          'format': 'geojson',
+          'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.geo.json?elastic_tile_service_tos=agree',
+          'legacy_default': false,
+        },
+        {
           'format': 'topojson',
           'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree',
+          'legacy_default': true,
         },
       ],
       'fields': [
@@ -367,6 +394,7 @@ const fieldInfoMissingNameExpected = {
         {
           'format': 'geojson',
           'url': 'https://vector-staging.maps.elastic.co/files/gondor_v3.geo.json?elastic_tile_service_tos=agree',
+          'legacy_default': true,
         },
       ],
       'fields': [
@@ -403,8 +431,14 @@ const fieldInfoMissingNameExpected = {
       }],
       'formats': [
         {
+          'format': 'geojson',
+          'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.geo.json?elastic_tile_service_tos=agree',
+          'legacy_default': false,
+        },
+        {
           'format': 'topojson',
           'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree',
+          'legacy_default': true,
         },
       ],
       'fields': [

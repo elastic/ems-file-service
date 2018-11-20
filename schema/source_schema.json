@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "Source",
   "description": "Elastic Map Service data source",
   "type": "object",
@@ -13,7 +13,7 @@
     "humanReadableName",
     "fieldMapping",
     "weight",
-    "conform",
+    "emsFormats",
     "createdAt"
   ],
   "additionalProperties": false,
@@ -53,10 +53,6 @@
       "type": "string",
       "enum": ["zip"]
     },
-    "filename": {
-      "description": "Source filename in `data` folder. This file is also copied to the `dist/files` folder.",
-      "type": "string"
-    },
     "license": {
       "oneOf": [{ "type": "string" }, { "$ref": "#/definitions/license" }]
     },
@@ -66,9 +62,7 @@
       "items": {
         "$ref": "#/definitions/i18n-attribution"
       },
-      "description": "Attribution for map data in locales when available.",
-      "required": ["en"],
-      "additionalProperties": {"$ref": "#/definitions/i18n-attribution"}
+      "description": "Attribution for map data in different locales when available."
     },
     "id": {
       "description": "Manifest id number. These are different ids for staging and production in v1 and v2 so it can be an object with `production` and `staging` properties.",
@@ -94,8 +88,28 @@
       "description": "Localized human readable names",
       "$ref": "#/definitions/i18n"
     },
-    "conform": {
-      "$ref": "#/definitions/conform"
+    "sourceFormat": {
+      "$ref": "#/definitions/format",
+      "description": "GIS file format for data coming from source"
+    },
+    "emsFormats": {
+      "description": "Array of GIS file formats exposed in the Elastic Maps Service manifest",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/format"
+      },
+      "minItems": 1,
+      "contains": {
+        "description": "Exactly one format must be specified as the default format to use.",
+        "type": "object",
+        "required": ["default"],
+        "properties": {
+          "default": {
+            "type": "boolean",
+            "enum": [true]
+          }
+        }
+      }
     },
     "note": {
       "oneOf": [{ "type": "string" }, { "type": "object" }]
@@ -163,29 +177,36 @@
         }
       }
     },
-    "conform": {
-      "description": "top-level conform object definition",
+    "format": {
+      "description": "GIS format such as shapefile, geojson, topojson",
       "type": "object",
+      "required": [ "type", "file" ],
       "properties": {
+        "default": {
+          "type": "boolean",
+          "description": "When choosing from multiple formats, use this layer by default"
+        },
         "type": {
           "type": "string",
           "enum": [
             "geojson",
             "shapefile",
-            "shapefile-polygon",
             "gdb",
-            "topojson"
+            "topojson",
+            "wkt"
           ]
         },
         "srs": {
           "type": "string",
-          "pattern": "EPSG:[0-9]+"
+          "pattern": "EPSG:[0-9]+",
+          "description": "Spatial Reference System. Assumed to be EPSG:4326 if not specified."
         },
         "file": {
-          "type": "string"
+          "type": "string",
+          "description": "File name"
         },
         "layer": {
-          "description": "specifies a layer to use from the GDB",
+          "description": "Specifies a layer to use from the given file if necessary",
           "oneOf": [{ "type": "integer" }, { "type": "string" }]
         }
       }

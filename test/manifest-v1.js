@@ -7,10 +7,10 @@
 const tap = require('tap').test;
 const { generateCatalogueManifest, generateVectorManifest } = require('../scripts/generate-manifest');
 
-const sources = require('./fixtures/sources.json');
-const duplicateIds = require('./fixtures/duplicateIds.json');
-const duplicateHumanNames = require('./fixtures/duplicateHumanNames.json');
-const weightedSources = require('./fixtures/weighted-sources.json');
+const sources = require('./fixtures/valid-sources/sources.json');
+const duplicateIds = require('./fixtures/valid-sources/duplicateIds.json');
+const duplicateHumanNames = require('./fixtures/valid-sources/duplicateHumanNames.json');
+const weightedSources = require('./fixtures/valid-sources/weighted-sources.json');
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
 const v1Expected = {

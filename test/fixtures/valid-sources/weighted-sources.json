@@ -31,11 +31,12 @@
     ],
     "weight": 0,
     "id": 111111111111,
-    "conform": {
-      "type": "geojson"
-    },
-    "createdAt": "1000-01-02T17:12:15.978370",
-    "filename": "mordor_v1.geo.json"
+    "emsFormats": [{
+      "type": "geojson",
+      "file": "mordor_v1.geo.json",
+      "default": true
+    }],
+    "createdAt": "1000-01-02T17:12:15.978370"
   },
   {
     "versions": ">=1",
@@ -69,11 +70,12 @@
     ],
     "weight": 0,
     "id": 222222222222,
-    "conform": {
-      "type": "geojson"
-    },
-    "createdAt": "1200-02-28T17:13:39.288909",
-    "filename": "gondor_v2.geo.json"
+    "emsFormats": [{
+      "type": "geojson",
+      "file": "gondor_v2.geo.json",
+      "default": true
+    }],
+    "createdAt": "1200-02-28T17:13:39.288909"
   },
   {
     "versions": ">=1",
@@ -106,11 +108,12 @@
       }
     ],
     "weight": 1,
-    "conform": {
-      "type": "geojson"
-    },
-    "createdAt": "1200-02-28T17:13:39.456456",
-    "filename": "rohan_v2.geo.json"
+    "emsFormats": [{
+      "type": "geojson",
+      "file": "rohan_v2.geo.json",
+      "default": true
+    }],
+    "createdAt": "1200-02-28T17:13:39.456456"
   },
   {
     "versions": ">=1",
@@ -149,10 +152,14 @@
     ],
     "weight": 0,
     "id": 333333333333,
-    "conform": {
-      "type": "geojson"
-    },
-    "createdAt": "1532-12-25T18:45:32.389979",
-    "filename": "shire_v2.geo.json"
+    "emsFormats": [{
+      "type": "geojson",
+      "file": "shire_v2.geo.json",
+      "default": true
+    }, {
+      "type": "topojson",
+      "file": "shire_v2.topo.json"
+    }],
+    "createdAt": "1532-12-25T18:45:32.389979"
   }
 ]

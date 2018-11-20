@@ -111,21 +111,21 @@ function throwIfDuplicates(array, prop) {
 }
 
 function manifestLayerV1(data, hostname) {
-  const manifestId = data.id || data.filename;
-  const urlPath = data.id ? `blob/${data.id}` : `files/${data.filename}`;
+  const format = getDefaultFormat(data.emsFormats).pop();
+  const urlPath = `blob/${data.id}`;
   const layer = {
-    attribution: data.attribution.map(generateAttributionString).join('|'),
+    attribution: data.attribution.map(getAttributionString).join('|'),
     weight: data.weight,
     name: data.humanReadableName.en,
     url: `https://${hostname}/${urlPath}?elastic_tile_service_tos=agree`,
-    format: data.conform.type,
+    format: format.type,
     fields: data.fieldMapping.map(fieldMap => ({
       name: fieldMap.name,
       description: fieldMap.desc,
     })),
     created_at: data.createdAt,
     tags: [],
-    id: manifestId,
+    id: data.id,
   };
   return layer;
 }
@@ -150,16 +150,21 @@ function manifestLayerV6(data, hostname, opts) {
     layer_id: data.name,
     created_at: data.createdAt,
     attribution: data.attribution,
-    formats: [
-      {
-        format: data.conform.type,
-        url: `https://${hostname}/files/${data.filename}?elastic_tile_service_tos=agree`,
-      },
-    ],
+    formats: data.emsFormats.map(format => {
+      return {
+        format: format.type,
+        url: `https://${hostname}/files/${format.file}?elastic_tile_service_tos=agree`,
+        legacy_default: format.default || false,
+      };
+    }),
     fields: fields,
     layer_name: data.humanReadableName,
   };
   return layer;
+}
+
+function getDefaultFormat(emsFormats) {
+  return emsFormats.filter(format => format.default);
 }
 
 function getFieldLabels(fieldName, fieldInfo) {
@@ -174,7 +179,7 @@ function getFieldLabels(fieldName, fieldInfo) {
   } else return;
 }
 
-function generateAttributionString(attr) {
+function getAttributionString(attr) {
   if (!attr.label) {
     throw new Error(`Attribution sources must have a 'label' property`);
   }

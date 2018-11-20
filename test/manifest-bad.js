@@ -7,7 +7,7 @@
 const tap = require('tap').test;
 const { generateVectorManifest, generateCatalogueManifest } = require('../scripts/generate-manifest');
 
-const sources = require('./fixtures/sources.json');
+const sources = require('./fixtures/valid-sources/sources.json');
 
 tap('Bad manifests', t => {
 

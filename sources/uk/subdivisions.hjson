@@ -88,11 +88,12 @@
       zh-hant: 英國行政區劃
       zh-hk: 英國行政區劃
     }
-    conform: {
+    emsFormats: [{
         type: geojson
-    }
+        file: uk_subdivisions_v1.geo.json
+        default: true
+    }]
     createdAt: 2018-08-24T17:49:30.145142000
     id: 5642554087309312
-    filename: uk_subdivisions_v1.geo.json
     ttl: 108000
 }

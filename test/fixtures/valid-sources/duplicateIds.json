@@ -31,11 +31,12 @@
     ],
     "weight": 0,
     "id": 111111111111,
-    "conform": {
-      "type": "geojson"
-    },
-    "createdAt": "1000-01-02T17:12:15.978370",
-    "filename": "mordor_regions.json"
+    "emsFormats": [{
+      "type": "geojson",
+      "file": "mordor_regions.json",
+      "default": true
+    }],
+    "createdAt": "1000-01-02T17:12:15.978370"
   },
   {
     "versions": ">=1",
@@ -69,10 +70,11 @@
     ],
     "weight": 0,
     "id": 111111111111,
-    "conform": {
-      "type": "geojson"
-    },
-    "createdAt": "1000-01-02T17:12:15.978370",
-    "filename": "isengard_v1.geo.json"
+    "emsFormats": [{
+      "type": "geojson",
+      "file": "isengard_v1.geo.json",
+      "default": true
+    }],
+    "createdAt": "1000-01-02T17:12:15.978370"
   }
 ]

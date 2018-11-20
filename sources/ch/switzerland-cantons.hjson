@@ -168,12 +168,13 @@
       zh-hans: 瑞士行政區劃
       zh-hant: 瑞士行政區劃
     }
-    conform: {
+    emsFormats: [{
         type: geojson
-    }
+        file: switzerland_cantons_v1.geo.json
+        default: true
+    }]
     ttl: 108000
     weight: 0
     createdAt: "2018-06-27T23:50:34.591773"
     id: 5641906755207168
-    filename: switzerland_cantons_v1.geo.json
 }

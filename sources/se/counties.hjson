@@ -140,12 +140,13 @@
       zh-sg: 瑞典省份
       zh-tw: 瑞典省份
     }
-    conform: {
+    emsFormats: [{
         type: geojson
-    }
+        file: sweden_counties_v1.geo.json
+        default: true
+    }]
     ttl: 108000
     weight: 0
     createdAt: "2018-08-28T18:21:14.239664"
     id: 5760820306771968
-    filename: sweden_counties_v1.geo.json
 }

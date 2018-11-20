@@ -150,12 +150,13 @@
       vec: Contee de la Norvesa
       zh: 縣 (挪威)
     }
-    conform: {
+    emsFormats: [{
         type: geojson
-    }
+        file: norway_counties_v1.geo.json
+        default: true
+    }]
     ttl: 108000
     weight: 0
     createdAt: "2018-08-29T17:27:28.246260"
     id: 5646874153320448
-    filename: norway_counties_v1.geo.json
 }

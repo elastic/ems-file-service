@@ -71,12 +71,13 @@
       de: ''
       zh: ''
     }
-    conform: {
+    emsFormats: [{
         type: geojson
-    }
+        file: ''
+        default: true
+    }]
     ttl: 108000
     weight: 0
     createdAt: ''
     id: 1
-    filename: ''
 }
