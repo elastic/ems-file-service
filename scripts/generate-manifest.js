@@ -60,7 +60,8 @@ function generateVectorManifest(sources, opts) {
     version: 'v0',
     production: false,
     hostname: constants.VECTOR_STAGING_HOST,
-    fieldInfo: null, ...opts,
+    fieldInfo: null,
+    ...opts,
   };
   if (!semver.valid(semver.coerce(opts.version))) {
     throw new Error('A valid version parameter must be defined');
@@ -167,18 +168,43 @@ function getDefaultFormat(emsFormats) {
   return emsFormats.filter(format => format.default);
 }
 
+/**
+ * Get localized labels for the field. Field names starting with `label_` are assumed to be
+ * followed by an ISO 639 language code and the field name is mapped to the `name.18n` property
+ * in `fieldInfo`. Otherwise, field names are mapped to the matching property in `fieldInfo`.
+ * @private
+ * @param {string} fieldName Name of the field in the source vector file
+ * @param {Object} fieldInfo Metadata about all available fields
+ * @param {Object.<string, string>} fieldInfo.i18n Each key is an ISO 639 language code and
+ * the value is the field translation
+ * @returns {Object.<string, string>}
+ * @example
+ * // returns { en: 'name (en)', fr: 'nom (en) }
+ * getFieldLabels('label_en', { name: { i18n: { en: 'name', fr: 'nom' } } });
+ * @example
+ * // returns { en: 'Dantai code', fr: 'code dantai' }
+ * getFieldLabels('dantai', { dantai: { i18n: { en: 'Dantai code', fr: 'code dantai' } } });
+ */
 function getFieldLabels(fieldName, fieldInfo) {
   if (fieldName.startsWith('label_') && _.get(fieldInfo, 'name.i18n')) {
     const lang = fieldName.replace('label_', '');
-    const labels = _.mapValues(fieldInfo.name.i18n, (label) => {
-      return `${label} (${lang})`;
-    });
+    const labels = _.mapValues(fieldInfo.name.i18n, label => `${label} (${lang})`);
     return labels;
   } else if (_.get(fieldInfo, `${fieldName}.i18n`)) {
     return fieldInfo[fieldName].i18n;
-  } else return;
+  } else {
+    return;
+  }
 }
 
+/**
+ * Get label or Markdown href string for v1 and v2 manifests
+ * @private
+ * @param {Object} attr Localized attribution
+ * @param {string} attr.label Attribution label
+ * @param {string} [attr.url] URL link to attribution (optional)
+ * @returns {string}
+ */
 function getAttributionString(attr) {
   if (!attr.label) {
     throw new Error(`Attribution sources must have a 'label' property`);

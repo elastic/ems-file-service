@@ -65,7 +65,7 @@
       "description": "Attribution for map data in different locales when available."
     },
     "id": {
-      "description": "Manifest id number. These are different ids for staging and production in v1 and v2 so it can be an object with `production` and `staging` properties.",
+      "description": "Manifest id number. These are used as blob file identifiers in the v1 and v2 manifests.",
       "oneOf": [{ "type": "string" }, { "type": "number" }]
     },
     "ttl": {
