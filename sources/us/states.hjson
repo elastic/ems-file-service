@@ -3,26 +3,41 @@
     production: true
     type: http
     note:  States of United States
+    wikidata: Q35657
     data: https://sophox.org/regions/geojson.json
-    attribution: "© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+    attribution: [
+      {
+        label: {
+          en: © OpenStreetMap contributors
+        }
+        url: {
+          en: https://www.openstreetmap.org/copyright
+        }
+      }
+      {
+        label: {
+          en: Elastic Maps Service
+        }
+        url: {
+          en: https://www.elastic.co/elastic-maps-service
+        }
+      }
+    ]
     fieldMapping: [
         {
+            type: id
             name: iso_3166_2
-            source: iso_3166_2
-            dest: iso_3166_2
             desc: ISO-3166-2 identifier
         }
         {
-            name: name
-            source: name
-            dest: name
-            desc: State name
+            type: id
+            name: postal
+            desc: Two letter abbreviation
         }
         {
-            name: postal
-            source: postal
-            dest: postal
-            desc: Two letter abbreviation
+            type: property
+            name: name
+            desc: State name
         }
     ]
     query: {
@@ -52,13 +67,118 @@
             '''
     }
     name: usa_states
-    humanReadableName: USA States
-    conform: {
-        type: geojson
+    humanReadableName: {
+      af: Deelstate van die Verenigde State van Amerika
+      an: Organización territorial d'os Estatos Unitos
+      ar: ولاية أمريكية
+      as: আমেৰিকা যুক্তৰাষ্ট্ৰৰ ৰাজ্যসমূহ
+      ast: Estaos d'Estaos Xuníos
+      bg: Щатите в САЩ
+      br: Stadoù ar Stadoù-Unanet
+      bs: Savezne države Sjedinjenih Američkih Država
+      ca: estat dels Estats Units
+      cs: Státy USA
+      cy: Taleithiau'r Unol Daleithiau
+      da: USA's delstater
+      de: Bundesstaat der Vereinigten Staaten
+      de-ch: Bundesstaat der Vereinigten Staaten
+      diq: Eyaletê Dewletanê Amerikayê Yewbiyayeyan
+      el: Πολιτείες των ΗΠΑ
+      en: USA States
+      en-ca: USA States
+      en-gb: USA States
+      eo: Usona ŝtato
+      es: estado de los Estados Unidos
+      et: Ameerika Ühendriikide osariik
+      eu: Ameriketako Estatu Batuetako estatu
+      fa: ایالات آمریکا
+      fi: Yhdysvaltain osavaltiot
+      fr: État des États-Unis
+      frp: Ètats des Ètats-Unis d’Amèrica
+      fy: Amerikaanske steaten
+      ga: Stáit Mheiriceá
+      gl: Estados dos Estados Unidos de América
+      gsw: Bundesstaat der Vereinigten Staaten
+      gv: Steat ny Steatyn Unnaneysit
+      haw: Nā mokuʻāina o ʻAmelika Hui
+      he: מדינות ארצות הברית
+      hi: संयुक्त राज्य अमेरिका के राज्य
+      hsb: zwjazkowy stat Zjednoćenych statow
+      hu: az Amerikai Egyesült Államok tagállama
+      hy: ԱՄՆ-ի նահանգ
+      ia: stato del Statos Unite de America
+      id: Daftar negara bagian di Amerika Serikat
+      ilo: Estado ti Estados Unidos
+      io: Stati di Usa
+      is: Fylki Bandaríkjanna
+      it: stato federato degli Stati Uniti d'America
+      ja: アメリカ合衆国の州
+      jbo: mergu'e vipygu'e
+      ka: აშშ-ის შტატი
+      kk: АҚШ әкімшілік бөлінуі
+      ko: 미국의 주
+      krc: АБШ-ны административ бёлюнюую
+      ku: Eyaletên DYA'yê
+      lb: Bundesstaate vun den USA
+      lt: JAV valstijos
+      lv: ASV štats
+      mg: Faritany Amerikana
+      mk: сојузна држава во САД
+      mr: अमेरिकेची राज्ये
+      mrj: Америкын Ушымы Штатвлӓн штатвлӓжӹ
+      ms: Negeri di Amerika Syarikat
+      nb: USAs delstater
+      nds: US-Bundsstaat
+      nds-nl: staotn van Amerika
+      nl: staat van de Verenigde Staten
+      nn: Delstatar i USA
+      nov: federali states del USA
+      pl: stan USA
+      pt: Estado dos Estados Unidos
+      pt-br: Estados dos Estados Unidos
+      ro: stat al SUA
+      ru: штат США
+      sa: अमेरिका राज्यस्य संयुक्त राज्य
+      sc: Istadu federadu de Istados Unidos d'Amèrica
+      sco: U.S. state
+      sgs: JAV valstėjės
+      sh: Savezne države Sjedinjenih Američkih Država
+      sl: Zvezna država Združenih držav Amerike
+      sq: Shtetet Federale të Amerikës
+      sr: савезна држава САД
+      stq: Buundesstoat fon do Fereende Stoaten
+      sv: USA:s delstater
+      ta: ஐக்கிய அமெரிக்காவின் அரசியல் பிரிவுகள்
+      te: అమెరికా లోని రాష్ట్రం
+      tg: иёлатҳои ИМА
+      th: รัฐของสหรัฐ
+      tl: Estado ng Estados Unidos
+      tr: ABD'nin eyaletleri
+      tt: АКШ административ бүленеше
+      uk: штат США
+      ur: امریکہ کی ریاستیں
+      vi: tiểu bang Hoa Kỳ
+      vls: Stoaten van de Verênigde Stoaten
+      wuu: 美国个州
+      yo: Àwọn Ìpínlẹ̀ Orílẹ̀-èdè Amẹ́ríkà
+      yue: 美國州份
+      zh: 美国州份
+      zh-cn: 美国州份
+      zh-hans: 美国州份
+      zh-hant: 美國州份
+      zh-hk: 美國州份
+      zh-mo: 美國州份
+      zh-my: 美国州份
+      zh-sg: 美国州份
+      zh-tw: 美國州份
     }
+    emsFormats: [{
+        type: geojson
+        file: usa_states_v1.geo.json
+        default: true
+    }]
     ttl: 108000
     weight: 0
     createdAt: "2017-04-26T19:45:22.377820"
     id: 5086441721823232
-    filename: usa_states_v1.geo.json
 }

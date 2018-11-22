@@ -29,25 +29,28 @@ npm run build
 Whenever possible new vector layers should be created using a SPARQL query in [Sophox](http://sophox.org). 
 
 1. If necessary, create a new folder in the `sources` directory with the corresponding two-digit country code (ex. `ru` for Russia).
-2. Copy and paste the template source file (`templates/source_template.hjson`) into the new directory you created in step 1. Give it a useful name (ex. `states.hjson`, `provinces.hjson`, etc).
-3. Complete the `note`, `name` and `humanReadableName` fields in the new source file.
-4. Copy and paste the `query.sparql` value into the query box on http://sophox.org. 
-5. Change the `Q33` in the `VALUES ?entity { wd:Q33 }` to the corresponding [Wikidata](https://www.wikidata.org) ID for the country for which you are adding subdivisions (ex. `Q33` is the [Wikidata ID for Finland](https://www.wikidata.org/wiki/Q33)).
-6. Run the SPARQL query and compare the `iso_3166_2` results with the [corresponding country's subdivision list on the ISO website](https://www.iso.org/obp/ui/#search) looking for missing `iso_3166_2` codes.
-7. The most common reason for missing `iso_3166_2` codes in the query results is an incomplete ["contains administrative territorial entity"](https://www.wikidata.org/wiki/Property:P150) property in the immediate parent region of the subdivision in Wikidata (usually, but not always, the country). You may need to add the subdivision Wikidata item to this property (ex. https://www.wikidata.org/wiki/Q33#P150).
-8. Add `label_*` fields for each official language of the country to the SPARQL query similar to the `label_en` field.
-9. Optionally, add unique subdivision code fields from other sources (ex. `logianm` in Ireland) to the query.
-10. Run the SPARQL query and check the map output.
-11. Optionally, click the "Simplify" link and drag the slider to reduce the number of vertices (smaller file size). 
-12. Click the "Export" link on the top right of the map. Choose GeoJSON or TopoJSON as the File Format. 
-13. Type `rfc7946` in the "command line options" to reduce the precision of the coordinates and click "Export" to download the vector file.
-14. Rename the downloaded file with the first supported EMS version number (ex. `_v1`, `_v2`, `_v6.6`) and the vector type (`geo` for GeoJSON, `topo` for TopoJSON) (ex. `russia_states_v1.geo.json`). Copy this file to the `data` directory. 
-15. Copy and paste the SPARQL query from Sophox to the `query.sparql` field in the source file.
-16. Use the following bash command to generate the timestamp for the `createdAt` field. Use `gdate` on Mac OSX.
+1. Copy and paste the template source file (`templates/source_template.hjson`) into the new directory you created in step 1. Give it a useful name (ex. `states.hjson`, `provinces.hjson`, etc).
+1. Complete the `note` and `name` fields in the new source file. 
+1. Copy and paste the `query.sparql` value into the query box on http://sophox.org. 
+1. Change the `Q33` in the `VALUES ?entity { wd:Q33 }` to the corresponding [Wikidata](https://www.wikidata.org) ID for the country for which you are adding subdivisions (ex. `Q33` is the [Wikidata ID for Finland](https://www.wikidata.org/wiki/Q33)).
+1. Run the SPARQL query and compare the `iso_3166_2` results with the [corresponding country's subdivision list on the ISO website](https://www.iso.org/obp/ui/#search) looking for missing `iso_3166_2` codes.
+1. The most common reason for missing `iso_3166_2` codes in the query results is an incomplete ["contains administrative territorial entity"](https://www.wikidata.org/wiki/Property:P150) property in the immediate parent region of the subdivision in Wikidata (usually, but not always, the country). You may need to add the subdivision Wikidata item to this property (ex. https://www.wikidata.org/wiki/Q33#P150).
+1. Add `label_*` fields for each official language of the country to the SPARQL query similar to the `label_en` field.
+1. Optionally, add unique subdivision code fields from other sources (ex. `logianm` in Ireland) to the query.
+1. Run the SPARQL query and check the map output.
+1. Optionally, click the "Simplify" link and drag the slider to reduce the number of vertices (smaller file size). 
+1. Click the "Export" link on the top right of the map. Choose GeoJSON or TopoJSON as the File Format. 
+1. Type `rfc7946` ƒin the "command line options" to reduce the precision of the coordinates and click "Export" to download the vector file.
+1. Rename the downloaded file with the first supported EMS version number (ex. `_v1`, `_v2`, `_v6.6`) and the vector type (`geo` for GeoJSON, `topo` for TopoJSON) (ex. `russia_states_v1.geo.json`). Copy this file to the `data` directory. 
+1. Complete the `emsFormats` properties: `type` is either `geojson` or `topojson`, `file` is the filename specified above, `default` is `true` when there is only one format. Subsequent formats can be added but only one item in the array can have `default: true`. The other items must be `default: false` or omit `default` entirely.
+1. Copy and paste the SPARQL query from Sophox to the `query.sparql` field in the source file.
+1. Use the `scripts/wikidata-labels.js` script to list the `humanReadableName` languages from Wikidata (e.g. `node scripts/wikidata-labels.js Q33`). You should spot check these translations as some languages might lack specificity (e.g. `Provins` rather than `Kinas provinser`).
+1. All fields used by sources that do not follow the `label_<language_code>`  schema must have translations in (schema/fields.hjson). If necessary, use the `scripts/wikidata-labels.js` script to list translations and copy them to (schema/fields.hjson) (e.g. `node scripts/wikidata-labels P5097`).
+1. Use the following bash command to generate the timestamp for the `createdAt` field. Use `gdate` on Mac OSX.
 `date -u +"%Y-%m-%dT%H:%M:%S.%6N"`
-17. Generate a 17 digit number for the `id` field. A timestamp using the following bash command is suitable. Use `gdate` On Mac OSX. 
+1. Generate a 17 digit number for the `id` field. A timestamp using the following bash command is suitable. Use `gdate` On Mac OSX. 
 `date +%s%6N` 
-18. The `filename` field in the source file should match the name of the file you added to the `data` directory.
-19. Run `npm test` to test for errors.
-20. Invalid or non-simple geometry errors that occur during testing can usually be fixed by running the `clean-geom.js` script against the GeoJSON file (e.g. `node scripts/clean-geom.js data/usa_states_v1.geo.json`).
-21. Run `./build.sh` to build the manifest and blob files locally.
+1. The `filename` field in the source file should match the name of the file you added to the `data` directory.
+1. Run `npm test` to test for errors.
+1. Invalid or non-simple geometry errors that occur during testing can usually be fixed by running the `clean-geom.js` script against the GeoJSON file (e.g. `node scripts/clean-geom.js data/usa_states_v1.geo.json`).
+1. Run `./build.sh` to build the manifest and blob files locally.

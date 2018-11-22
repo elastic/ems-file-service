@@ -3,31 +3,45 @@
     type: http
     production: true
     note: Regions of Finland
+    wikidata: Q193512
     data: https://sophox.org/regions/geojson.json
-    attribution: "[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)"
+    attribution: [
+      {
+        label: {
+          en: © OpenStreetMap contributors
+        }
+        url: {
+          en: https://www.openstreetmap.org/copyright
+        }
+      }
+      {
+        label: {
+          en: Elastic Maps Service
+        }
+        url: {
+          en: https://www.elastic.co/elastic-maps-service
+        }
+      }
+    ]
     fieldMapping: [
         {
+            type: id
             name: iso_3166_2
-            source: iso_3166_2
-            dest: iso_3166_2
             desc: ISO-3166-2 identifier
         }
         {
+            type: property
             name: label_en
-            source: label_en
-            dest: label_en
             desc: Region name (English)
         }
         {
+            type: property
             name: label_fi
-            source: label_fi
-            dest: label_fi
             desc: Region name (Finnish)
         }
         {
+            type: property
             name: label_sv
-            source: label_sv
-            dest: label_sv
             desc: Region name (Swedish)
         }
     ]
@@ -66,13 +80,73 @@
             '''
     }
     name: finland_regions
-    humanReadableName: Finland Regions
-    conform: {
-        type: geojson
+    humanReadableName: {
+      an: Rechions de Finlandia
+      ar: أقليم في فنلندا
+      ast: rexones de Finlandia
+      be: вобласці Фінляндыі
+      bs: Finske regije
+      ca: regió de Finlàndia
+      cs: kraje Finska
+      da: Finlands landskaber
+      de: Regionen in Finnland
+      el: Διοικητικές περιφέρειες της Φινλανδίας
+      en: Finland Regions
+      en-ca: Finland Regions
+      en-gb: Finland Regions
+      eo: Provincoj de Finnlando
+      es: Regiones de Finlandia
+      et: Soome maakonnad
+      eu: Finlandiako eskualdeak
+      fi: Suomen maakunta
+      fr: région de Finlande
+      gv: Ardjyn Finnlynn
+      he: אזורי פינלנד
+      hu: Finnország régiói
+      hy: Ֆինլանդիայի մարզ
+      it: regioni della Finlandia
+      ja: フィンランドの県
+      ka: ფინეთის რეგიონები
+      ko: 핀란드의 지역
+      la: Regiones Finniae
+      li: regio's van Finlandj
+      mk: регион во Финска
+      nb: Finlands landskap
+      nl: regio van Finland
+      nn: landskap i Finland
+      pl: Regiony Finlandii
+      pnb: فن لینڈ دی انتظامی ونڈ
+      pt: Regiões da Finlândia
+      pt-br: Regiões da Finlândia
+      ru: область Финляндии
+      se: Suoma eanangottit
+      sh: Finske regije
+      sq: Rajonet e Finlandës
+      sr: Административна подела Финске
+      sr-ec: Административна подела Финске
+      sr-el: Administrativna podela Finske
+      sv: Landskap i Finland
+      tr: Finlandiya'nın bölgeleri
+      uk: провінції Фінляндії
+      ur: فن لینڈ کے علاقہ جات
+      vec: Region de la Finlandia
+      vls: Regio's van Finland
+      xmf: ფინეთიშ რეგიონეფი
+      zh: 芬兰行政区
+      zh-cn: 芬兰行政区
+      zh-hans: 芬兰行政区
+      zh-hant: 芬蘭行政區
+      zh-hk: 芬蘭行政區
+      zh-sg: 芬兰行政区
+      zh-tw: 芬蘭行政區
     }
+    emsFormats: [{
+        type: geojson
+        file: finland_regions_v1.geo.json
+        default: true
+    }]
     ttl: 108000
     weight: 0
     createdAt: "2018-08-28T22:18:10.207632"
     id: 5692462144159744
-    filename: finland_regions_v1.geo.json
 }

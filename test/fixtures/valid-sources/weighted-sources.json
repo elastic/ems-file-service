@@ -1,0 +1,165 @@
+[
+  {
+    "versions": ">=1",
+    "production": false,
+    "attribution": [
+      {
+        "label": {
+          "en": "The Silmarillion"
+        }
+      }
+    ],
+    "type": "http",
+    "data": "http://example.com",
+    "name": "mordor_regions",
+    "humanReadableName": {
+      "en": "Mordor Regions",
+      "de": "Mordor",
+      "zh": "魔多"
+    },
+    "fieldMapping": [
+      {
+        "type": "id",
+        "name": "wikidata",
+        "desc": "Wikidata identifier"
+      },
+      {
+        "type": "property",
+        "name": "label_en",
+        "desc": "Region name (English)"
+      }
+    ],
+    "weight": 0,
+    "id": 111111111111,
+    "emsFormats": [{
+      "type": "geojson",
+      "file": "mordor_v1.geo.json",
+      "default": true
+    }],
+    "createdAt": "1000-01-02T17:12:15.978370"
+  },
+  {
+    "versions": ">=1",
+    "production": true,
+    "attribution": [
+      {
+        "label": {
+          "en": "The Silmarillion"
+        }
+      }
+    ],
+    "type": "http",
+    "data": "http://example.com",
+    "name": "gondor",
+    "humanReadableName": {
+      "en": "Gondor Kingdoms",
+      "de": "Gondor",
+      "zh": "魔多"
+    },
+    "fieldMapping": [
+      {
+        "type": "id",
+        "name": "wikidata",
+        "desc": "Wikidata identifier"
+      },
+      {
+        "type": "property",
+        "name": "label_en",
+        "desc": "Kingdom name (English)"
+      }
+    ],
+    "weight": 0,
+    "id": 222222222222,
+    "emsFormats": [{
+      "type": "geojson",
+      "file": "gondor_v2.geo.json",
+      "default": true
+    }],
+    "createdAt": "1200-02-28T17:13:39.288909"
+  },
+  {
+    "versions": ">=1",
+    "production": true,
+    "attribution": [
+      {
+        "label": {
+          "en": "The Silmarillion"
+        }
+      }
+    ],
+    "type": "http",
+    "data": "http://example.com",
+    "name": "rohan",
+    "humanReadableName": {
+      "en": "Rohan Kingdoms",
+      "de": "Rohan",
+      "zh": "洛汗"
+    },
+    "fieldMapping": [
+      {
+        "type": "id",
+        "name": "wikidata",
+        "desc": "Wikidata identifier"
+      },
+      {
+        "type": "property",
+        "name": "label_en",
+        "desc": "Kingdom name (English)"
+      }
+    ],
+    "weight": 1,
+    "emsFormats": [{
+      "type": "geojson",
+      "file": "rohan_v2.geo.json",
+      "default": true
+    }],
+    "createdAt": "1200-02-28T17:13:39.456456"
+  },
+  {
+    "versions": ">=1",
+    "production": false,
+    "attribution": [
+      {
+        "label": {
+          "en": "The Silmarillion"
+        }
+      }
+    ],
+    "type": "http",
+    "data": "http://example.com",
+    "name": "shire",
+    "humanReadableName": {
+      "en": "Shire regions",
+      "de": "Auenland",
+      "zh": "夏爾"
+    },
+    "fieldMapping": [
+      {
+        "type": "id",
+        "name": "wikidata",
+        "desc": "Wikidata identifier"
+      },
+      {
+        "type": "property",
+        "name": "label_en",
+        "desc": "Region name (English)"
+      },
+      {
+        "type": "property",
+        "name": "label_ws",
+        "desc": "Region name (Westron)"
+      }
+    ],
+    "weight": 0,
+    "id": 333333333333,
+    "emsFormats": [{
+      "type": "geojson",
+      "file": "shire_v2.geo.json",
+      "default": true
+    }, {
+      "type": "topojson",
+      "file": "shire_v2.topo.json"
+    }],
+    "createdAt": "1532-12-25T18:45:32.389979"
+  }
+]

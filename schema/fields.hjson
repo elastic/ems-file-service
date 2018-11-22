@@ -1,0 +1,839 @@
+{
+  dantai: {
+    wikidata: P429
+    i18n: {
+      ar: كود الحكومة المحلية الوطنية
+      be: дантай-код
+      be-tarask: дантай-код
+      bn: দানতাই কোড
+      bs: dantai kod
+      ca: codi dantai
+      cs: kód dantai
+      da: dantai-kode
+      de: Dantai-Code
+      el: κωδικός διοικητικής διαίρεσης Ιαπωνίας «Dantai»
+      en: Dantai code
+      en-gb: Dantai code
+      es: código de divisiones administrativas de Japón
+      eu: dantai identifikatzailea
+      fa: شناسهٔ دنتای
+      fi: dantai-koodi
+      fr: code dantai
+      ia: codice de dantai
+      ilo: dantai a kodigo
+      it: codice Dantai
+      ja: 全国地方公共団体コード
+      ko: 일본 전국지방공공단체 코드
+      mk: дантајски код
+      ms: kod dantai
+      nb: dantai-kode
+      nds: Dantai-Kood
+      nl: dantai-code
+      oc: còde dantai
+      pl: kod dantai
+      pt: código dantai
+      ru: код субъекта самоуправления Японии
+      sco: dantai code
+      uk: дантай-код
+      vi: mã đoàn thể
+      zh: 日本地方公共團體編號
+      zh-hans: 日本地方公共团体编号
+      zh-hant: 日本地方公共團體編號
+    }
+  }
+  division_code: {
+    wikidata: P442
+    i18n: {
+      ar: رمز تقسيم إداري صيني
+      be: код адміністрацыйнага падзелу Кітая
+      be-tarask: код адміністрацыйнага падзелу Кітаю
+      bn: চীনের প্রশাসনিক বিভাগের কোড
+      ca: codi de divisió administrativa de la Xina
+      cs: kód čínské administrativní jednotky
+      cy: Cod gweinyddol rhanbarthau Tsieina
+      da: kinesiske administrativ opdelingskode
+      de: chinesischer Code für Verwaltungseinheiten
+      el: κωδικός διοικητικής διαίρεσης της Κίνας
+      en: China administrative division code
+      en-gb: China administrative division code
+      eo: kodo de Ĉinia administra unuo
+      es: código de división administrativa china
+      eu: Txinako dibisio administratiboaren identifikatzailea
+      fa: شناسۀ تقسیمات کشوری چین
+      fi: Kiinan hallinnollisen osa-alueen koodi
+      fr: code de division administrative de la Chine
+      gsw: chinesische Code fir Verwaltigsainhaite
+      he: קוד החלוקה המנהלתית הסינית
+      hu: kínai közigazgatási egység kódja
+      ia: codice de division administrative de China
+      id: kode pembagian wilayah di Cina
+      it: codice divisione amministrativa cinese
+      ja: 中国行政区画コード
+      ka: ჩინეთის ადმინისტრაციული დაყოფის კოდი
+      ko: 중국 지역 관리 코드
+      lv: Ķīnas administratīvā iedalījuma kods
+      mk: кинески код на административна единица
+      ms: kod bahagian pentadbiran China
+      nb: kode for administrativt område (Kina)
+      nds: Kood för Amtsrebeden in China
+      nl: identificatiecode Chinees bestuurlijk gebied
+      nn: kode for administrativt område (Kina)
+      oc: còde de division administrativa de China
+      pl: kod podziału administracyjnego Chin
+      pt: código da divisão administrativa chinesa
+      pt-br: código da divisão administrativa chinesa
+      ro: cod al subdiviziunii administrative a Chinei
+      ru: код административного деления Китая
+      scn: còdici di distrittu amministrativu cinisi
+      sco: Cheenae admeenistrative diveesion code
+      sr: код административне поделе Кине
+      sr-ec: код административне поделе Кине
+      sr-el: kod administrativne podele Kine
+      sv: Kod för Kinas administrativa indelning
+      tr: Çin'de kullanılan idari birim kodu
+      uk: код адміністративного поділу КНР
+      vi: mã phân cấp hành chính Trung Quốc
+      wuu: 中華人民共和國行政區劃代碼
+      zh: 中华人民共和国行政区划代码
+      zh-cn: 中华人民共和国行政区划代码
+      zh-hans: 中华人民共和国行政区划代码
+      zh-hant: 中華人民共和國行政區劃代碼
+      zh-hk: 中華人民共和國行政區劃代碼
+      zh-mo: 中華人民共和國行政區劃代碼
+      zh-my: 中华人民共和国行政区划代码
+      zh-sg: 中华人民共和国行政区划代码
+      zh-tw: 中華人民共和國行政區劃代碼
+    }
+  }
+  fips_6_4: {
+    wikidata: P882
+    i18n: {
+      ar: معايير معالجة المعلومات الفيدرالية 6-4 (المقاطعات الأمريكية)
+      ast: FIPS 6-4 (condaos de los EE. XX.)
+      bn: এফআইপিএস ৬-৪ (মার্কিন যুক্তরাষ্ট্রের কাউন্টি)
+      ca: identificador FIPS 6-4
+      cy: dynodwr FIPS 6-4  siroedd yn UDA
+      da: FIPS 6-4 (counties i USA)
+      de: FIPS 6-4 (counties in USA)
+      el: FIPS 6-4 (κομητείες ΗΠΑ)
+      en: FIPS 6-4 (US counties)
+      en-gb: FIPS 6-4 (US counties)
+      eo: FIPS 6-4 (ŝtatoj en Usono)
+      es: FIPS 6-4 (condados EE. UU.)
+      fr: FIPS 6-4
+      hu: FIPS 6-4 (amerikai megyék)
+      it: FIPS 6-4
+      ko: FIPS 6-4 (미국의 군)
+      lv: FIPS 6-4 (ASV apgabali)
+      mk: американски окружен код FIPS 6-4
+      nb: FIPS 6-4-kode
+      nds: FIPS 6-4 (Kreise in de USA)
+      nl: FIPS 6-4
+      pl: FIPS 6-4
+      pt: FIPS 6-4 (condados dos EUA)
+      ru: код округа США FIPS 6-4
+      sco: FIPS 6-4 (US coonties)
+      sk: kód FIPS 6-4
+      uk: FIPS 6-4 (округи в США)
+      vi: FIPS 6-4 (quận Hoa Kỳ)
+      zh: FIPS 6-4 (美国的县)
+      zh-cn: FIPS 6-4 (美国的县)
+      zh-hans: FIPS 6-4 (美国的县)
+      zh-hant: FIPS 6-4 (美國的縣)
+      zh-hk: FIPS 6-4 (美國的縣)
+      zh-mo: FIPS 6-4 (美國的縣)
+      zh-my: FIPS 6-4 (美国的县)
+      zh-sg: FIPS 6-4 (美国的县)
+      zh-tw: FIPS 6-4 (美國的郡)
+    }
+  }
+  gnis: {
+    wikidata: P590
+    i18n: {
+      ar: معرف نظام معلومات الأسماء الجغرافية
+      be-tarask: код GNIS
+      bg: GNIS ID
+      bn: জিএনআইএস আইডি
+      bs: GNIS
+      ca: codi GNIS
+      cs: kód GNIS
+      cy: dynodwr GNIS
+      da: GNIS
+      de: GNIS-ID
+      el: GNIS
+      en: GNIS ID
+      en-ca: GNIS
+      en-gb: GNIS
+      eo: GNIS
+      es: GNIS
+      fi: GNIS-tunniste
+      fr: identifiant Geographic Names Information System
+      he: מזהה GNIS
+      hu: GNIS
+      it: identificativo GNIS
+      ja: GNIS ID
+      ko: GNIS ID
+      lv: GNIS ID
+      mk: GNIS
+      nb: GNIS ID
+      nds: GNIS
+      nl: GNIS-identificatiecode
+      oc: còdi GNIS
+      pl: identyfikator GNIS
+      pt: código GNIS
+      ru: код GNIS
+      scn: còdici idintificativu GNIS
+      sco: GNIS
+      sk: kód GNIS
+      sl: GNIS
+      sr: топонимски информациони систем
+      sr-ec: GNIS идентификатор
+      sr-el: GNIS identifikator
+      sv: GNIS
+      uk: ідентифікатор GNIS
+      ur: جغرافیای نام معلومات کے نظام کی شناخت
+      vi: GNIS
+      zh: GNIS ID
+      zh-hans: GNIS ID
+      zh-hant: GNIS ID
+      zh-tw: GNIS編號
+    }
+  }
+  gss: {
+    wikidata: P836
+    i18n: {
+    ar: رمز الخدمة الإحصائية البريطانية
+    ca: codi GSS (2011)
+    cy: cod GSS (2011)
+    de: GSS code (2011)
+    en: GSS code (2011)
+    en-gb: GSS code (2011)
+    eo: kodo GSS (2011)
+    es: código GSS (2011)
+    fa: کد GSS (سال ۲۰۱۱)
+    fr: GSS code (2011)
+    hu: GSS-kód (2011)
+    ko: GSS 코드
+    mk: GSS-код (2011)
+    nl: GSS-code
+    pl: kod GSS (2011)
+    pt: código GSS (2011)
+    ru: код GSS (2011)
+    sco: GSS code (2011)
+    sk: kód GSS (2011)
+    sv: GSS kod (2011)
+    uk: код GSS (2011)
+    }
+  }
+  insee: {
+    wikidata: P2586
+    i18n: {
+      ar: رمز قسم في إنسي
+      be-tarask: код INSEE для дэпартамэнту Францыі
+      bn: ইন্সে দেপার্ত্যমঁ কোড
+      ca: codi de departament INSEE
+      de: INSEE-Departement-Code
+      en: INSEE department code
+      eo: INSEE departementa kodo
+      es: código departamento INSEE
+      fr: code INSEE d'un département
+      he: קוד מחוז של INSEE
+      hu: INSEE-megyekód
+      it: codice dipartimento INSEE
+      ko: 프랑스통계청 데파르트망 코드
+      mk: INSEE-код на департманот
+      nl: INSEE-code voor departement
+      pl: kod departamentu INSEE
+      ru: код департамента Франции  INSEE
+      uk: код департаменту Франції INSEE
+      zh-hans: INSEE部门编码
+    }
+  }
+  iso2: {
+    wikidata: P297
+    i18n: {
+      af: landkode (ISO 3166-1 alpha-2)
+      ar: أيزو 3166-1 حرفي-2
+      be: код краіны (ISO 3166-1 alpha-2)
+      be-tarask: код краіны (ISO 3166-1 alpha-2)
+      bn: রাষ্ট্রীয় কোড (আইএসও ৩১৬৬-১ আলফা-২)
+      br: kod ar vro (ISO 3166-1 alpha-2)
+      bs: ISO 3166-1 alpha-2 kod
+      ca: codi de país (ISO 3166-1 alpha-2)
+      ckb: کۆدی وڵات (ISO 3166-1 alpha-2)
+      cs: kód země (ISO 3166-1 alpha-2)
+      da: landekode (ISO 3166-1 alfa-2)
+      de: Ländercode (ISO 3166-1 alpha-2)
+      el: ISO 3166-1 alpha-2
+      en: ISO 3166-1 alpha-2 code
+      en-gb: country code (ISO 3166-1 alpha-2)
+      eo: landokodo (ISO 3166-1 alfa-2)
+      es: código ISO 3166-1 de dos letras
+      et: maakood (ISO 3166-1 alpha-2)
+      eu: ISO 3166-1 alpha-2
+      fa: کد کشور (ایزو ۳۱۶۶-۱ آلفا-۲)
+      fi: valtion koodi (ISO 3166-1 alpha-2)
+      fr: code ISO 3166-1 alpha-2 du pays
+      gl: código ISO 3166-1 de dúas letras
+      gu: ISO 3166-1 alpha-2
+      he: קוד מדינה לפי ISO 3166-1 alpha 2
+      hi: आईएसओ 3166-1 अल्फा -2
+      hu: országkód (ISO 3166-1 alpha-2)
+      hy: ԻՍՕ 3166-1 երկտառ
+      ia: ISO 3166-1 alpha-2
+      id: kode negara (ISO 3166-1 alpha-2)
+      ilo: kodigo ti pagilian IATA
+      is: ISO 3166-1 alpha-2 landskóði
+      it: ISO 3166-1 alpha-2
+      ja: 国名コード (ISO 3166-1 alpha-2)
+      ka: ქვეყნის კოდი (ISO 3166-1 alpha-2)
+      ko: ISO 3166-1 코드 (alpha-2)
+      la: siglum civitatis (ISO 3166-1 alpha-2)
+      lb: Lännercode (ISO 3166-1 alpha-2)
+      lv: valsts kods (ISO 3166-1 alpha-2)
+      mg: ISO 3166-1 alpha-2
+      min: kode nagara (ISO 3166-1 alpha-2)
+      mk: ISO 3166-1 алфа-2
+      mr: आय.एस.ओ. ३१६६-१ कोड
+      ms: kod negara (ISO 3166-1 alpha-2)
+      mt: kodiċi ISO 3166-1 alfa-2
+      nb: landskode (ISO 3166-1 alfa-2)
+      nds: Lännerkood (ISO 3166-1 alpha-2)
+      nl: landcode (ISO 3166-1 alpha-2)
+      nn: landkode (ISO 3166-1 alfa-2)
+      oc: ISO 3166-1 alpha-2 del país
+      pl: kod ISO 3166-1 alpha-2
+      pt: ISO 3166-1 alfa-2
+      pt-br: ISO 3166-1 alfa-2
+      ro: cod de țară (ISO 3166-1 alpha-2)
+      ru: ISO 3166-1 alpha-2
+      scn: còdici ISO 3166-1 alpha-2
+      sco: ISO 3166-1 alpha-2
+      sk: kód krajiny (ISO 3166-1 alpha-2)
+      sl: dvočrkovna oznaka države (ISO 3166-1 alpha-2)
+      sr: ISO 3166-1 алфа-2
+      sv: ISO 3166-1 alpha-2
+      ta: ஐஎஸ்ஒ 3166-1 ஆல்பா -2
+      te: ISO 3166-1 అక్షర-2
+      tt: ике хәрефле ISO 3166-1 коды
+      uk: код ISO 3166-1 alpha-2
+      uz: davlat kodi (ISO 3166-1 alpha-2)
+      vi: mã quốc gia (ISO 3166-1 alpha-2)
+      yi: לאנד קאד ISO 3166-1 alpha-2
+      zh: ISO 3166-1 二字母代码
+      zh-cn: ISO 3166-1 二字母代码
+      zh-hans: ISO 3166-1 二字母代码
+      zh-hant: ISO 3166-1 二字母代碼
+      zh-hk: ISO 3166-1 二字母代碼
+      zh-mo: ISO 3166-1 二字母代碼
+      zh-sg: ISO 3166-1 二字母代码
+      zh-tw: ISO 3166-1 二字母代碼
+    }
+  }
+  iso3: {
+    wikidata: P298
+    i18n: {
+      af: landkode (ISO 3166-1 alpha-3)
+      ar: أيزو 3166-1 حرفي-3
+      be: код краіны (ISO 3166-1 alpha-3)
+      be-tarask: код краіны (ISO 3166-1 alpha-3)
+      bn: রাষ্ট্রীয় কোড (আইএসও ৩১৬৬-১ আলফা-৩)
+      br: kod ar vro (ISO 3166-1 alpha-3)
+      bs: ISO 3166-1 alpha-3 kod
+      ca: codi de país (ISO 3166-1 alpha-3)
+      ckb: کۆدی وڵات (ISO 3166-1 alpha-3)
+      co: còdice di paese ISO 3166-1 alpha-2
+      cs: kód země (ISO 3166-1 alpha-3)
+      da: landekoder (ISO 3166-1 alfa-3)
+      de: Ländercode (ISO 3166-1 alpha-3)
+      el: ISO 3166-1 alpha-3
+      en: ISO 3166-1 alpha-3 code
+      en-gb: country code (ISO 3166-1 alpha-3)
+      eo: landokodo (ISO 3166-1 alfa-3)
+      es: código ISO 3166-1 de tres letras
+      et: maakood (ISO 3166-1 alpha-3)
+      eu: ISO 3166-1 alpha-3
+      fa: کد کشور (ایزو ۳۱۶۶-۱ آلفا-۳)
+      fi: valtion koodi (ISO 3166-1 alpha-3)
+      fr: code ISO 3166-1 alpha-3
+      gl: código ISO 3166-1 de tres letras
+      gu: ISO 3166-1 alpha-3
+      he: קוד מדינה לפי ISO 3166-1 alpha 3
+      hi: आईएसओ 3166-1 अल्फा -3
+      hu: országkód (ISO 3166-1 alpha-3)
+      ia: ISO 3166-1 alpha-3
+      id: kode negara (ISO 3166-1 alpha-3)
+      ilo: kodigo ti pagilian (ISO 3166-1 alpha-3)
+      is: ISO 3166-1 alpha-3 landskóði
+      it: ISO 3166-1 alpha-3
+      ja: 国名コード (ISO 3166-1 alpha-3)
+      ka: ქვეყნის კოდი (ISO 3166-1 alpha-3)
+      ko: ISO 3166-1 코드 (alpha-3)
+      la: siglum civitatis (ISO 3166-1 alpha-3)
+      lb: Lännercode (ISO 3166-1 alpha-3)
+      lv: valsts kods (ISO 3166-1 alpha-3)
+      mg: ISO 3166-1 alpha-3
+      min: kode nagara (ISO 3166-1 alpha-3)
+      mk: ISO 3166-1 алфа-3
+      ms: kod negara (ISO 3166-1 alpha-3)
+      mt: kodiċi ISO 3166-1 alfa-3
+      nb: landskode (ISO 3166-1 alfa-3)
+      nds: Lännerkood (ISO 3166-1 alpha-3)
+      nl: landcode (ISO 3166-1 alpha-3)
+      nn: landkode (ISO 3166-1 alfa-3)
+      oc: ISO 3166-1 alpha-3
+      pl: kod ISO 3166-1 alpha-3
+      pt: ISO 3166-1 alfa-3
+      pt-br: ISO 3166-1 alfa-3
+      ro: cod de țară (ISO 3166-1 alpha-3)
+      ru: ISO 3166-1 alpha-3
+      scn: còdici ISO 3166-1 alpha-3
+      sco: ISO 3166-1 alpha-3
+      sk: kód krajiny (ISO 3166-1 alpha-3)
+      sl: tričkrovna oznaka države (ISO 3166-1 alpha-3)
+      sr: ISO 3166-1 алфа-3
+      sv: ISO 3166-1 alpha-3
+      te: ISO 3166-1 అక్షర-3
+      tt: өч хәрефле ISO 3166-1 коды
+      uk: код ISO 3166-1 alpha-3
+      uz: davlat kodi (ISO 3166-1 alpha-3)
+      vi: mã quốc gia (ISO 3166-1 alpha-3)
+      yi: לאנד קאד לויט ISO 3166-1 alpha 3
+      zh: ISO 3166-1三字母代码
+      zh-cn: ISO 3166-1三字母代码
+      zh-hans: ISO 3166-1三字母代码
+      zh-hant: ISO 3166-1三字母代碼
+      zh-hk: ISO 3166-1三字母代碼
+      zh-mo: ISO 3166-1三字母代碼
+      zh-sg: ISO 3166-1三字母代码
+      zh-tw: ISO 3166-1三字母代碼
+    }
+  }
+  iso_3166_2: {
+    wikidata: P300
+    i18n: {
+      af: ISO 3166-2
+      ar: أيزو 3166-2
+      be: ISO 3166-2
+      be-tarask: ISO 3166-2
+      bn: আইএসও ৩১৬৬-২
+      bs: ISO 3166-2
+      ca: ISO 3166-2
+      cs: ISO 3166-2
+      cy: cod ISO 3166-2
+      da: ISO 3166-2
+      de: ISO 3166-2 Code
+      el: ISO 3166-2
+      en: ISO 3166-2 code
+      en-gb: ISO 3166-2
+      eo: ISO 3166-2
+      es: ISO 3166-2
+      et: ISO 3166-2
+      eu: ISO 3166-2
+      fa: ایزو ۳۱۶۶-۲
+      fi: ISO 3166-2
+      fr: ISO 3166-2
+      gl: ISO 3166-2
+      he: קוד ISO 3166-2
+      hr: ISO 3166-2
+      hu: ISO 3166-2
+      ia: ISO 3166-2
+      id: ISO 3166-2
+      ilo: ISO 3166-2
+      it: ISO 3166-2
+      ja: ISO 3166-2
+      ka: ISO 3166-2
+      ko: ISO 3166-2 코드
+      la: codex ISO 3166-2
+      lb: Code ISO 3166-2
+      lv: ISO 3166-2
+      mk: ISO 3166-2
+      mr: ISO 3166-2 कोड
+      nb: ISO 3166-2
+      nds: ISO 3166-2
+      nl: ISO 3166-2
+      nn: ISO 3166-2
+      oc: ISO 3166-2
+      or: ISO 3166-2
+      pa: ISO 3166-2 ਕੋਡ
+      pl: kod ISO 3166-2
+      pt: ISO 3166-2
+      pt-br: código ISO 3166-2
+      rm: ISO 3166-2
+      ro: ISO 3166-2
+      ru: ISO 3166-2
+      scn: ISO 3166-2
+      sco: ISO 3166-2
+      sk: ISO 3166-2
+      sl: oznaka ISO 3166-2
+      sq: ISO 3166-2
+      sr: ISO 3166-2
+      sv: ISO 3166-2
+      tg: ISO 3166-2
+      tt: ISO 3166-2
+      uk: код ISO 3166-2
+      ur: آئی ایس او 3166-2 کوڈ
+      vi: ISO 3166-2
+      zh: ISO 3166-2代码
+      zh-cn: ISO 3166-2代码
+      zh-hans: ISO 3166-2代码
+      zh-hant: ISO 3166-2代碼
+      zh-hk: ISO 3166-2代碼
+      zh-mo: ISO 3166-2代碼
+      zh-sg: ISO 3166-2代码
+      zh-tw: ISO 3166-2代碼
+    }
+  }
+  logainm: {
+    wikidata: P5097
+    i18n: {
+      ar: معرف الأسماء المكانية في أيرلندا
+      ca: identificador Logainm
+      en: Logainm ID
+      fr: identifiant Logainm.ie
+      pl: identyfikator Logainm
+      uk: ідентифікатор Logainm
+    }
+  }
+  name: {
+    wikidata: P2561
+    i18n: {
+      am: ስም
+      ar: الاسم
+      ast: alcuñu
+      ba: исем
+      be-tarask: імя
+      bn: নাম
+      ca: nom
+      cs: jméno
+      cy: enw
+      da: navn
+      de: Name
+      el: όνομα
+      en: name
+      eo: nomo
+      es: nombre
+      et: nimi
+      eu: izena
+      fi: nimi
+      fo: navn
+      fr: nom
+      ga: ainm
+      gl: nome
+      he: שם
+      hi: नाम
+      hsb: mjeno
+      hu: név
+      id: nama
+      it: nome
+      ja: 名前
+      ko: 성명
+      ku-latn: nav
+      lb: Numm
+      lfn: nom
+      mk: име
+      mr: नाव
+      ms: nama
+      nb: navn
+      ne: नाम
+      nl: naam
+      nn: namn
+      oc: nom
+      or: ନାମ
+      pam: lagyu
+      pl: nazwa
+      pt: nome
+      ro: nume
+      ru: имя
+      sq: name
+      sv: namn
+      sw: jina
+      te: పేరు
+      tg: ном
+      tl: pangalan
+      tr: isim
+      uk: відомий під іменем
+      ur: نام
+      vi: tên
+      yo: orúkọ
+      zh: 名称
+      zh-hans: 名称
+    }
+  }
+  postal: {
+    wikidata: P5086
+    i18n: {
+      ar: رمز سلسلة لمعايير معالجة المعلومات الفيدرالية للولايات الأمريكية
+      ca: codi de cadena FIPS d'estat estatunidenc
+      en: FIPS 5-2 alpha code (US states)
+      uk: текстовий код FIPS для штатів США
+      zh-hans: 用于美国州份的FIPS字符串代码
+      zh-hant: 用於美國州份的FIPS字符串代碼
+    }
+  }
+  viaf: {
+    wikidata: P214
+    i18n: {
+      af: VIAF
+      an: VIAF
+      ar: معرف ملف استنادي دولي افتراضي (VIAF)
+      ast: identificador VIAF
+      ba: VIAF коды
+      bar: VIAF
+      be: ідэнтыфікатар VIAF
+      be-tarask: ідэнтыфікатар VIAF
+      bg: Идентификатор за виртуалния международен нормативен архив (VIAF)
+      bn: ভিআইএএফ আইডি
+      br: VIAF
+      bs: VIAF
+      ca: identificador VIAF
+      co: VIAF
+      cs: VIAF
+      cy: dynodwr VIAF
+      da: VIAF
+      de: VIAF
+      de-at: VIAF
+      de-ch: VIAF
+      el: κωδικός αναφοράς VIAF
+      en: VIAF ID
+      en-ca: VIAF identifier
+      en-gb: VIAF identifier
+      eo: VIAF (internacia) identigilo
+      es: identificador VIAF
+      et: VIAF
+      eu: VIAF identifikadorea
+      fa: شناسه بم بم
+      fi: VIAF-tunniste
+      fr: identifiant Fichier d'autorité international virtuel
+      frp: VIAF
+      frr: VIAF ID
+      fur: VIAF
+      ga: VIAF
+      gd: VIAF
+      gl: identificador VIAF
+      gsw: VIAF
+      gu: VIAF ઓળખ
+      he: מזהה VIAF
+      hi: VIAF अभिज्ञापक
+      hr: VIAF
+      hsb: VIAF
+      hu: VIAF-azonosító
+      hy: VIAF կոդ
+      ia: identificator VIAF
+      id: penanda VIAF
+      ie: VIAF
+      ilo: panangilasin ti VIAF
+      io: VIAF
+      is: VIAF
+      it: identificativo VIAF
+      ja: VIAF識別子
+      jam: VIAF
+      ka: VIAF  იდენტიფიკატორი
+      kg: VIAF
+      ko: 가상국제전거파일 ID
+      ksh: VIAF-Kännommer
+      la: siglum VIAF
+      lb: VIAF
+      li: VIAF
+      lij: VIAF
+      lmo: VIAF
+      lt: VIAF kodas
+      lv: VIAF identifikators
+      mg: Mpamantatra VIAF
+      min: Identifikasi VIAF
+      mk: VIAF
+      ml: വി.ഐ.എ.എഫ്. തിരിച്ചറിയലുപാധി
+      mr: व्हीआयएएफ ओळखण
+      ms: ID VIAF
+      mzn: VIAF  شناسه
+      nap: VIAF
+      nb: VIAF-id
+      nds: VIAF
+      nds-nl: VIAF
+      ne: VIAF पहिचान सङ्केत
+      nl: VIAF
+      nn: VIAF-id
+      nrm: VIAF
+      oc: identificant VIAF
+      or: ଭି.ଆଇ.ଏ.ଏଫ. ସୂଚକ
+      pcd: VIAF
+      pl: identyfikator VIAF
+      pms: VIAF
+      pt: identificador VIAF
+      pt-br: identificador VIAF
+      rm: VIAF
+      ro: identificator VIAF
+      ru: код VIAF
+      sc: VIAF
+      scn: còdici idintificativu VIAF
+      sco: VIAF identifier
+      sh: VIAF identifikator
+      sk: VIAF
+      sl: VIAF
+      sq: VIAF ID
+      sr: ВИАФ
+      sr-ec: ВИАФ
+      sr-el: VIAF
+      stq: VIAF
+      sv: VIAF
+      sw: VIAF
+      ta: VIAF அடையாளம் காட்டி
+      te: వి ఐ ఎ ఎఫ్  ఐడెంటిఫైయర్
+      tg: коди VIAF
+      th: VIAF
+      tr: VIAF kimliği
+      ts: Xihlawulekisi xa VIAF
+      tt: VIAF идентификаторы
+      uk: ідентифікатор VIAF
+      ur: وی آئی اے ایف - آئی ڈی
+      uz: VIAF identifikatori
+      vec: VIAF
+      vi: mã số VIAF
+      vls: VIAF
+      vo: VIAF
+      wa: VIAF
+      wo: VIAF
+      zh: VIAF标识符
+      zh-cn: VIAF标识符
+      zh-hans: VIAF标识符
+      zh-hant: VIAF編號
+      zh-hk: VIAF編號
+      zh-sg: VIAF标识符
+      zh-tw: VIAF編號
+      zu: VIAF
+    }
+  }
+  wikidata: {
+    wikidata: Q43649390
+    i18n: {
+      ar: معرف ويكي بيانات
+      bn: উইকিউপাত্ত শনাক্তকারী
+      ca: identificador de Wikidata
+      cs: identifikátor Wikidat
+      de: Wikidata-Kennung
+      en: Wikidata identifier
+      eo: Vikidatumoj-identigilo
+      es: identificador de Wikidata
+      fr: identifiant Wikidata
+      it: identificatore Wikidata
+      nl: Wikidata-identificatiecode
+      nn: Wikidata-identifikator
+      pl: identyfikator w Wikidanych
+      pt: identificador Wikidata
+      ru: идентификатор Викиданных
+      sv: Wikidata identifierare
+      uk: ідентифікатор Вікіданих
+      zh-hans: 维基数据标识符
+      zh-hant: 維基數據標識符
+    }
+  }
+  zip: {
+    wikidata: P281
+    i18n: {
+      af: poskode
+      an: codigo postal
+      ar: الرمز البريدي
+      ast: códigu postal
+      ba: почта индексы
+      be: паштовы індэкс
+      be-tarask: паштовы код
+      bg: пощенски код
+      bn: পোস্টাল কোড
+      br: kod-post
+      bs: poštanski broj
+      ca: codi postal
+      ce: поштан индекс
+      ckb: کۆدی پۆستە
+      cs: poštovní směrovací číslo
+      cy: cod post
+      da: postnummer
+      de: Postleitzahl
+      el: ταχυδρομικός κώδικας
+      en: postal code
+      en-ca: postcode
+      en-gb: postcode
+      eo: poŝtkodo
+      es: código postal
+      et: sihtnumber
+      eu: postakodea
+      fa: کد پستی
+      fi: postinumero
+      fr: code postal
+      frr: Postkääntaal
+      fy: postkoade
+      gl: código postal
+      gsw: Poschtlaitzahl
+      gu: પોસ્ટલ કોડ
+      he: מיקוד
+      hr: poštanski broj
+      hsb: póstowe čisło
+      hu: irányítószám
+      hy: փոստային ինդեքս
+      ia: codice postal
+      id: kode pos
+      ilo: kodigo ti koreo
+      io: postkodo
+      it: codice postale
+      ja: 郵便番号
+      ka: საფოსტო ინდექსი
+      ko: 우편번호
+      ku-latn: koda posteyê
+      ky: поочта индекси
+      la: Numerus cursualis
+      lb: Postcode
+      lt: pašto kodas
+      lv: pasta indekss
+      mg: kaodim-paositra
+      mk: поштенски број
+      ml: പോസ്റ്റൽ കോഡ്
+      mr: डाक संकेतांक
+      ms: Poskod
+      nb: postnummer
+      nds: Postleidtall
+      nds-nl: postkode
+      nl: postcode
+      nn: postnummer
+      oc: còdi postal
+      olo: poštuindeksu
+      or: ପୋଷ୍ଟାଲ କୋଡ଼
+      pa: ਡਾਕ ਕੋਡ
+      pl: kod pocztowy
+      ps: پوستي کوډ
+      pt: código postal
+      pt-br: código postal
+      rm: numer postal
+      ro: cod poștal
+      ru: почтовый индекс
+      scn: còdici d'avviamentu pustali
+      sco: postal code
+      se: poastanummar
+      sk: poštové smerovacie číslo
+      sl: poštna številka
+      sq: kodi postar
+      sr: поштански број
+      sr-ec: поштански број
+      sr-el: poštanski broj
+      sv: postnummer
+      ta: அஞ்சல் குறியீடு
+      te: తపాలా సంకేతం
+      tg: нишонаи почта
+      tg-cyrl: нишонаи почта
+      th: รหัสไปรษณีย์
+      tr: posta kodu
+      tt: почта индексы
+      tt-cyrl: почта индексы
+      uk: поштовий індекс
+      ur: ڈاک رمز
+      vi: mã bưu chính
+      yue: 郵政編碼
+      zh: 邮政编码
+      zh-cn: 邮政编码
+      zh-hans: 邮政编码
+      zh-hant: 郵遞區號
+      zh-hk: 郵區編號
+      zh-my: 邮递区号
+      zh-sg: 邮递区号
+      zh-tw: 郵遞區號
+    }
+  }
+}
