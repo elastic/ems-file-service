@@ -61,6 +61,9 @@ const v6Expected = {
           },
         },
       ],
+      'legacy_ids': [
+        'gondor',
+      ],
       'layer_name': {
         'en': 'Gondor Kingdoms',
         'de': 'Gondor',
@@ -105,6 +108,9 @@ const v6Expected = {
             'zh': '名称 (en)',
           },
         },
+      ],
+      'legacy_ids': [
+        'rohan',
       ],
       'layer_name': {
         'en': 'Rohan Kingdoms',
@@ -159,6 +165,9 @@ const v6Expected = {
             'zh': '名称 (ws)',
           },
         },
+      ],
+      'legacy_ids': [
+        'shire',
       ],
       'layer_name': {
         'en': 'Shire regions',
@@ -218,6 +227,9 @@ const prodExpected = {
           },
         },
       ],
+      'legacy_ids': [
+        'gondor',
+      ],
       'layer_name': {
         'en': 'Gondor Kingdoms',
         'de': 'Gondor',
@@ -262,6 +274,9 @@ const prodExpected = {
             'zh': '名称 (en)',
           },
         },
+      ],
+      'legacy_ids': [
+        'rohan',
       ],
       'layer_name': {
         'en': 'Rohan Kingdoms',
@@ -317,6 +332,9 @@ const fieldInfoFallbackExpected = {
           },
         },
       ],
+      'legacy_ids': [
+        'gondor',
+      ],
       'layer_name': {
         'en': 'Gondor Kingdoms',
         'de': 'Gondor',
@@ -358,6 +376,9 @@ const fieldInfoFallbackExpected = {
             'en': 'Kingdom name (English)',
           },
         },
+      ],
+      'legacy_ids': [
+        'rohan',
       ],
       'layer_name': {
         'en': 'Rohan Kingdoms',
@@ -415,6 +436,9 @@ const fieldInfoMissingNameExpected = {
           },
         },
       ],
+      'legacy_ids': [
+        'gondor',
+      ],
       'layer_name': {
         'en': 'Gondor Kingdoms',
         'de': 'Gondor',
@@ -458,6 +482,9 @@ const fieldInfoMissingNameExpected = {
             'en': 'Kingdom name (English)',
           },
         },
+      ],
+      'legacy_ids': [
+        'rohan',
       ],
       'layer_name': {
         'en': 'Rohan Kingdoms',
