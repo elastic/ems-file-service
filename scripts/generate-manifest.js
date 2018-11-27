@@ -159,6 +159,7 @@ function manifestLayerV6(data, hostname, opts) {
       };
     }),
     fields: fields,
+    legacy_ids: [ data.name ],
     layer_name: data.humanReadableName,
   };
   return layer;
