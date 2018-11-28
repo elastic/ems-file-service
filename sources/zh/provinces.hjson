@@ -54,6 +54,7 @@
             (if(bound(?id2),?id2,?id1) as ?id)
             ?iso_3166_2 ?division_code ?label_en ?label_zh
             WHERE {
+            SERVICE <https://query.wikidata.org/sparql> {
             # Using nested query to ensure there is only one ?id2 value
             {SELECT
             ?id1
@@ -78,6 +79,7 @@
             }
             # remove possible ID duplicates
             GROUP BY ?id1}
+            }
             }
             '''
     }

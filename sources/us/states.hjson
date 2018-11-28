@@ -46,7 +46,9 @@
             #defaultView:MapRegions
             # version 8
             SELECT  (if(bound(?id2),?id2,?id) as ?id)  ?iso_3166_2 ?postal ?name ?label_en
-            WHERE {# Using nested query to ensure there is only one ?id2 value
+            WHERE {
+            SERVICE <https://query.wikidata.org/sparql> {
+            # Using nested query to ensure there is only one ?id2 value
             {
                 SELECT  ?id
                         (SAMPLE(?id2) as ?id2)
@@ -64,6 +66,7 @@
                 # remove possible ID duplicates
                 GROUP BY ?id
             }}
+            }
             '''
     }
     name: usa_states
