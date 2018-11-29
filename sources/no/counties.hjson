@@ -49,11 +49,11 @@
         sparql:
             '''
             #defaultView:MapRegions
-            # version 8
             SELECT
             (if(bound(?id2),?id2,?id1) as ?id)
             ?iso_3166_2 ?label_en ?label_nn ?label_nb
             WHERE {
+              SERVICE <https://query.wikidata.org/sparql> {
               # Using nested query to ensure there is only one ?id2 value
               {SELECT
               ?id1
@@ -92,6 +92,7 @@
                     }
               # remove possible ID duplicates
               GROUP BY ?id1}
+            }
             }
             '''
     }
