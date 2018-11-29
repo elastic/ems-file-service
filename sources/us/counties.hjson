@@ -49,7 +49,6 @@
         sparql:
             '''
             #defaultView:MapRegions
-            # version 8
             SELECT
               (if(bound(?id2),?id2,?id) as ?id)
               ?fips_6_4_alpha ?gnis ?viaf ?label_en

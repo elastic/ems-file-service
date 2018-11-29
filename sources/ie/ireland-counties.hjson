@@ -49,7 +49,6 @@
         sparql:
             '''
             #defaultView:MapRegions
-            # version 8
             SELECT
             (if(bound(?id2),?id2,?id) as ?id)
             ?iso_3166_2 ?label_en ?label_ga ?logainm
