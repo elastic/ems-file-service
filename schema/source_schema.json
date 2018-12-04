@@ -88,6 +88,13 @@
       "description": "Localized human readable names",
       "$ref": "#/definitions/i18n"
     },
+    "legacyIds": {
+      "description": "Identifying names or ids used in legacy versions of EMS",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "sourceFormat": {
       "$ref": "#/definitions/format",
       "description": "GIS file format for data coming from source"
@@ -208,6 +215,17 @@
         "layer": {
           "description": "Specifies a layer to use from the given file if necessary",
           "oneOf": [{ "type": "integer" }, { "type": "string" }]
+        },
+        "meta": {
+          "description": "Additional properties that can be used to describe and parse the vector file",
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "feature_collection_path": {
+              "type": "string",
+              "description": "For TopoJSON files, the value of the member of `objects` to be used. Refer to https://github.com/topojson/topojson-specification#215-objects"
+            }
+          }
         }
       }
     }

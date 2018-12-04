@@ -84,6 +84,9 @@
             '''
     }
     name: ireland_counties
+    legacyIds: [
+      Ireland Counties
+    ]
     humanReadableName: {
       an: Condatos d'Irlanda
       ar: مقاطعة في أيرلندا

@@ -70,6 +70,9 @@
             '''
     }
     name: australia_states
+    legacyIds: [
+      Australia States
+    ]
     humanReadableName: {
       ar: ولاية في أستراليا
       ast: estáu d'Australia

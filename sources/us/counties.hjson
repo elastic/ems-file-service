@@ -83,6 +83,9 @@
             '''
     }
     name: usa_counties
+    legacyIds: [
+      USA Counties
+    ]
     humanReadableName: {
         ast: condáu d'Estaos Xuníos
         be: акруга ЗША
@@ -125,6 +128,9 @@
         type: topojson
         file: usa_counties_v2.topo.json
         default: true
+        meta: {
+          feature_collection_path: data
+        }
     }]
     ttl: 108000
     weight: 0

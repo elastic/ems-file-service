@@ -36,7 +36,7 @@ const v6Expected = {
       }],
       'formats': [
         {
-          'format': 'geojson',
+          'type': 'geojson',
           'url': 'https://vector-staging.maps.elastic.co/files/gondor_v3.geo.json?elastic_tile_service_tos=agree',
           'legacy_default': true,
         },
@@ -62,7 +62,8 @@ const v6Expected = {
         },
       ],
       'legacy_ids': [
-        'gondor',
+        'Gondor',
+        'Gondor Kingdoms',
       ],
       'layer_name': {
         'en': 'Gondor Kingdoms',
@@ -79,14 +80,17 @@ const v6Expected = {
       }],
       'formats': [
         {
-          'format': 'geojson',
+          'type': 'geojson',
           'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.geo.json?elastic_tile_service_tos=agree',
           'legacy_default': false,
         },
         {
-          'format': 'topojson',
+          'type': 'topojson',
           'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree',
           'legacy_default': true,
+          'meta': {
+            'feature_collection_path': 'regions',
+          },
         },
       ],
       'fields': [
@@ -110,7 +114,8 @@ const v6Expected = {
         },
       ],
       'legacy_ids': [
-        'rohan',
+        'Rohan',
+        'Rohan Kingdoms',
       ],
       'layer_name': {
         'en': 'Rohan Kingdoms',
@@ -127,14 +132,15 @@ const v6Expected = {
       }],
       'formats': [
         {
-          'format': 'geojson',
+          'type': 'geojson',
           'url': `https://vector-staging.maps.elastic.co/files/shire_v2.geo.json?elastic_tile_service_tos=agree`,
           'legacy_default': true,
         },
         {
-          'format': 'topojson',
+          'type': 'topojson',
           'url': 'https://vector-staging.maps.elastic.co/files/shire_v2.topo.json?elastic_tile_service_tos=agree',
           'legacy_default': false,
+
         },
       ],
       'fields': [
@@ -167,7 +173,9 @@ const v6Expected = {
         },
       ],
       'legacy_ids': [
-        'shire',
+        'Shire',
+        'Shire regions',
+        'Shire Regions',
       ],
       'layer_name': {
         'en': 'Shire regions',
@@ -202,7 +210,7 @@ const prodExpected = {
       }],
       'formats': [
         {
-          'format': 'geojson',
+          'type': 'geojson',
           'url': 'https://vector.maps.elastic.co/files/gondor_v3.geo.json?elastic_tile_service_tos=agree',
           'legacy_default': true,
         },
@@ -228,7 +236,8 @@ const prodExpected = {
         },
       ],
       'legacy_ids': [
-        'gondor',
+        'Gondor',
+        'Gondor Kingdoms',
       ],
       'layer_name': {
         'en': 'Gondor Kingdoms',
@@ -245,14 +254,17 @@ const prodExpected = {
       }],
       'formats': [
         {
-          'format': 'geojson',
+          'type': 'geojson',
           'url': 'https://vector.maps.elastic.co/files/rohan_v2.geo.json?elastic_tile_service_tos=agree',
           'legacy_default': false,
         },
         {
-          'format': 'topojson',
+          'type': 'topojson',
           'url': 'https://vector.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree',
           'legacy_default': true,
+          'meta': {
+            'feature_collection_path': 'regions',
+          },
         },
       ],
       'fields': [
@@ -276,7 +288,8 @@ const prodExpected = {
         },
       ],
       'legacy_ids': [
-        'rohan',
+        'Rohan',
+        'Rohan Kingdoms',
       ],
       'layer_name': {
         'en': 'Rohan Kingdoms',
@@ -311,7 +324,7 @@ const fieldInfoFallbackExpected = {
       }],
       'formats': [
         {
-          'format': 'geojson',
+          'type': 'geojson',
           'url': 'https://vector-staging.maps.elastic.co/files/gondor_v3.geo.json?elastic_tile_service_tos=agree',
           'legacy_default': true,
         },
@@ -333,7 +346,8 @@ const fieldInfoFallbackExpected = {
         },
       ],
       'legacy_ids': [
-        'gondor',
+        'Gondor',
+        'Gondor Kingdoms',
       ],
       'layer_name': {
         'en': 'Gondor Kingdoms',
@@ -351,14 +365,17 @@ const fieldInfoFallbackExpected = {
       }],
       'formats': [
         {
-          'format': 'geojson',
+          'type': 'geojson',
           'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.geo.json?elastic_tile_service_tos=agree',
           'legacy_default': false,
         },
         {
-          'format': 'topojson',
+          'type': 'topojson',
           'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree',
           'legacy_default': true,
+          'meta': {
+            'feature_collection_path': 'regions',
+          },
         },
       ],
       'fields': [
@@ -378,7 +395,8 @@ const fieldInfoFallbackExpected = {
         },
       ],
       'legacy_ids': [
-        'rohan',
+        'Rohan',
+        'Rohan Kingdoms',
       ],
       'layer_name': {
         'en': 'Rohan Kingdoms',
@@ -413,7 +431,7 @@ const fieldInfoMissingNameExpected = {
       }],
       'formats': [
         {
-          'format': 'geojson',
+          'type': 'geojson',
           'url': 'https://vector-staging.maps.elastic.co/files/gondor_v3.geo.json?elastic_tile_service_tos=agree',
           'legacy_default': true,
         },
@@ -437,7 +455,8 @@ const fieldInfoMissingNameExpected = {
         },
       ],
       'legacy_ids': [
-        'gondor',
+        'Gondor',
+        'Gondor Kingdoms',
       ],
       'layer_name': {
         'en': 'Gondor Kingdoms',
@@ -455,14 +474,17 @@ const fieldInfoMissingNameExpected = {
       }],
       'formats': [
         {
-          'format': 'geojson',
+          'type': 'geojson',
           'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.geo.json?elastic_tile_service_tos=agree',
           'legacy_default': false,
         },
         {
-          'format': 'topojson',
+          'type': 'topojson',
           'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree',
           'legacy_default': true,
+          'meta': {
+            'feature_collection_path': 'regions',
+          },
         },
       ],
       'fields': [
@@ -484,7 +506,8 @@ const fieldInfoMissingNameExpected = {
         },
       ],
       'legacy_ids': [
-        'rohan',
+        'Rohan',
+        'Rohan Kingdoms',
       ],
       'layer_name': {
         'en': 'Rohan Kingdoms',

@@ -76,6 +76,9 @@
             '''
     }
     name: germany_states
+    legacyIds: [
+      Germany States
+    ]
     humanReadableName: {
       af: Deelstate van Duitsland
       am: የጀርመን ክፍላገራት

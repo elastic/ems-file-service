@@ -85,6 +85,9 @@
             '''
     }
     name: france_departments
+    legacyIds: [
+      France Departments
+    ]
     humanReadableName: {
       af: Franse départements
       an: departamentos de Francia

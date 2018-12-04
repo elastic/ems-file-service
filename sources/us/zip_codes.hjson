@@ -15,6 +15,11 @@
   ]
   license: Public Domain
   name: usa_zip_codes
+  legacyIds: [
+    // "zip codes" is lowercase in v2 manifest. Title case ID is added to match precedent set by other layers.
+    USA zip codes
+    USA Zip Codes
+  ]
   humanReadableName: {
     ar: رموز بريد الولايات المتحدة
     bg: ЗИП код
@@ -52,6 +57,9 @@
     type: topojson
     file: usa_zip_codes_v2.topo.json
     default: true
+    meta: {
+      feature_collection_path: data
+    }
   }]
   attribution: [
     {

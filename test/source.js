@@ -11,6 +11,7 @@ const schema = require('../schema/source_schema.json');
 const glob = require('glob');
 const fs = require('fs');
 const jsts = require('jsts');
+const _ = require('lodash');
 
 const ajv = new Ajv();
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
@@ -47,18 +48,27 @@ function testSourceSchema(source) {
 }
 
 function testSourceFiles(source) {
+  // TODO Test that source fields exist in vector files
   tap(`${source.name} formats`, (t) => {
     for (const format of source.emsFormats) {
       t.ok(fs.existsSync(`./data/${format.file}`), `${source.name} filename fields must have a matching file in the data directory`);
       if (format.type === 'geojson') {
-        tap(`${source.name} data must be valid and simple`, (t) => {
-          const geojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
-          validateGeometry(geojson, t);
-        });
+        const geojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
+        validateGeometry(geojson, t);
+      } else if (format.type === 'topojson') {
+        const topojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
+        validateObjectsMember(topojson, format, t);
       }
       t.end();
     }
   });
+}
+
+function validateObjectsMember(topojson, format, t) {
+  const fc = JSON.parse(topojson);
+  const fcPath = _.get(format, 'meta.feature_collection_path', 'data');
+  t.ok(fc.objects.hasOwnProperty(fcPath));
+  t.type(fc.objects[fcPath], 'object');
 }
 
 function validateGeometry(geojson, t) {
@@ -68,5 +78,4 @@ function validateGeometry(geojson, t) {
   ), 'All geometries must be simple');
   t.ok(fc.features.every(feat => feat.geometry.isValid()
   ), 'All geometries must be valid');
-  t.end();
 }

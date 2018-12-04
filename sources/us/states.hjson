@@ -69,6 +69,9 @@
             '''
     }
     name: usa_states
+    legacyIds: [
+      USA States
+    ]
     humanReadableName: {
       af: Deelstate van die Verenigde State van Amerika
       an: Organización territorial d'os Estatos Unitos

@@ -12,6 +12,7 @@
     "type": "http",
     "data": "http://example.com",
     "name": "mordor_regions",
+    "legacyIds": [ "Mordor" ],
     "humanReadableName": {
       "en": "Mordor Regions",
       "de": "Mordor",
@@ -61,6 +62,7 @@
     "type": "http",
     "data": "http://example.com",
     "name": "gondor",
+    "legacyIds": [ "Gondor" ],
     "humanReadableName": {
       "en": "Gondor Kingdoms",
       "de": "Gondor",
@@ -112,6 +114,7 @@
     "type": "http",
     "data": "http://example.com",
     "name": "gondor",
+    "legacyIds": [ "Gondor", "Gondor Kingdoms" ],
     "humanReadableName": {
       "en": "Gondor Kingdoms",
       "de": "Gondor",
@@ -150,6 +153,7 @@
     "type": "http",
     "data": "http://example.com",
     "name": "rohan",
+    "legacyIds": [ "Rohan", "Rohan Kingdoms" ],
     "humanReadableName": {
       "en": "Rohan Kingdoms",
       "de": "Rohan",
@@ -175,7 +179,10 @@
     },{
       "type": "topojson",
       "file": "rohan_v2.topo.json",
-      "default": true
+      "default": true,
+      "meta": {
+        "feature_collection_path": "regions"
+      }
     }],
     "createdAt": "1200-02-28T17:13:39.456456"
   },
@@ -192,6 +199,7 @@
     "type": "http",
     "data": "http://example.com",
     "name": "shire",
+    "legacyIds": [ "Shire", "Shire regions", "Shire Regions" ],
     "humanReadableName": {
       "en": "Shire regions",
       "de": "Auenland",

@@ -12,6 +12,7 @@
     "type": "http",
     "data": "http://example.com",
     "name": "mordor_regions",
+    "legacyIds": [ "Mordor" ],
     "humanReadableName": {
       "en": "Mordor Regions",
       "de": "Mordor",
@@ -51,6 +52,7 @@
     "type": "http",
     "data": "http://example.com",
     "name": "isengard_regions",
+    "legacyIds": [ "Isengard" ],
     "humanReadableName": {
       "en": "Isengard Regions",
       "de": "Isengard",
