@@ -112,7 +112,7 @@ function throwIfDuplicates(array, prop) {
 }
 
 function manifestLayerV1(data, hostname) {
-  const format = getDefaultFormat(data.emsFormats).pop();
+  const format = getDefaultFormat(data.emsFormats);
   const urlPath = `blob/${data.id}`;
   const layer = {
     attribution: data.attribution.map(getAttributionString).join('|'),
@@ -133,9 +133,10 @@ function manifestLayerV1(data, hostname) {
 
 function manifestLayerV2(data, hostname) {
   const layer = manifestLayerV1(data, hostname);
-  if (layer.format === 'topojson') {
+  const format = getDefaultFormat(data.emsFormats);
+  if (format.type === 'topojson') {
     layer.meta = {
-      feature_collection_path: 'data',
+      feature_collection_path: _.get(format, 'meta.feature_collection_path', 'data'),
     };
   }
   return layer;
@@ -152,11 +153,11 @@ function manifestLayerV6(data, hostname, opts) {
     created_at: data.createdAt,
     attribution: data.attribution,
     formats: data.emsFormats.map(format => {
-      return {
+      return { ...{
         type: format.type,
         url: `https://${hostname}/files/${format.file}?elastic_tile_service_tos=agree`,
         legacy_default: format.default || false,
-      };
+      }, ...(format.meta && { meta: format.meta }) };
     }),
     fields: fields,
     legacy_ids: data.legacyIds,
@@ -166,7 +167,7 @@ function manifestLayerV6(data, hostname, opts) {
 }
 
 function getDefaultFormat(emsFormats) {
-  return emsFormats.filter(format => format.default);
+  return emsFormats.filter(format => format.default)[0];
 }
 
 /**

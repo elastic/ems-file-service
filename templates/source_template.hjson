@@ -74,9 +74,15 @@
       zh: ''
     }
     emsFormats: [{
-        type: geojson
-        file: ''
-        default: true
+      type: geojson
+      file: ''
+      default: true
+    }, {
+      type: topojson
+      file: ''
+      meta: {
+        feature_collection_path: 'data'
+      }
     }]
     ttl: 108000
     weight: 0

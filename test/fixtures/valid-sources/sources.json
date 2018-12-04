@@ -179,7 +179,10 @@
     },{
       "type": "topojson",
       "file": "rohan_v2.topo.json",
-      "default": true
+      "default": true,
+      "meta": {
+        "feature_collection_path": "regions"
+      }
     }],
     "createdAt": "1200-02-28T17:13:39.456456"
   },

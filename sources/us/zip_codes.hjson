@@ -57,6 +57,9 @@
     type: topojson
     file: usa_zip_codes_v2.topo.json
     default: true
+    meta: {
+      feature_collection_path: data
+    }
   }]
   attribution: [
     {

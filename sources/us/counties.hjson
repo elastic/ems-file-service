@@ -128,6 +128,9 @@
         type: topojson
         file: usa_counties_v2.topo.json
         default: true
+        meta: {
+          feature_collection_path: data
+        }
     }]
     ttl: 108000
     weight: 0

@@ -215,6 +215,17 @@
         "layer": {
           "description": "Specifies a layer to use from the given file if necessary",
           "oneOf": [{ "type": "integer" }, { "type": "string" }]
+        },
+        "meta": {
+          "description": "Additional properties that can be used to describe and parse the vector file",
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "feature_collection_path": {
+              "type": "string",
+              "description": "For TopoJSON files, the value of the member of `objects` to be used. Refer to https://github.com/topojson/topojson-specification#215-objects"
+            }
+          }
         }
       }
     }

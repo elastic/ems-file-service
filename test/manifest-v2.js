@@ -55,7 +55,7 @@ const v2Expected = {
       'tags': [],
       'id': 444444444444,
       'meta': {
-        'feature_collection_path': 'data',
+        'feature_collection_path': 'regions',
       },
     }, {
       'attribution': 'The Silmarillion',
@@ -125,7 +125,7 @@ const prodExpected = {
       'tags': [],
       'id': 444444444444,
       'meta': {
-        'feature_collection_path': 'data',
+        'feature_collection_path': 'regions',
       },
     },
   ],

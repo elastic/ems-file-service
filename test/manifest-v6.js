@@ -88,6 +88,9 @@ const v6Expected = {
           'type': 'topojson',
           'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree',
           'legacy_default': true,
+          'meta': {
+            'feature_collection_path': 'regions',
+          },
         },
       ],
       'fields': [
@@ -137,6 +140,7 @@ const v6Expected = {
           'type': 'topojson',
           'url': 'https://vector-staging.maps.elastic.co/files/shire_v2.topo.json?elastic_tile_service_tos=agree',
           'legacy_default': false,
+
         },
       ],
       'fields': [
@@ -258,6 +262,9 @@ const prodExpected = {
           'type': 'topojson',
           'url': 'https://vector.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree',
           'legacy_default': true,
+          'meta': {
+            'feature_collection_path': 'regions',
+          },
         },
       ],
       'fields': [
@@ -366,6 +373,9 @@ const fieldInfoFallbackExpected = {
           'type': 'topojson',
           'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree',
           'legacy_default': true,
+          'meta': {
+            'feature_collection_path': 'regions',
+          },
         },
       ],
       'fields': [
@@ -472,6 +482,9 @@ const fieldInfoMissingNameExpected = {
           'type': 'topojson',
           'url': 'https://vector-staging.maps.elastic.co/files/rohan_v2.topo.json?elastic_tile_service_tos=agree',
           'legacy_default': true,
+          'meta': {
+            'feature_collection_path': 'regions',
+          },
         },
       ],
       'fields': [
