@@ -81,6 +81,9 @@
             '''
     }
     name: finland_regions
+    legacyIds: [
+      Finland Regions
+    ]
     humanReadableName: {
       an: Rechions de Finlandia
       ar: أقليم في فنلندا

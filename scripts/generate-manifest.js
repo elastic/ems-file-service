@@ -153,13 +153,13 @@ function manifestLayerV6(data, hostname, opts) {
     attribution: data.attribution,
     formats: data.emsFormats.map(format => {
       return {
-        format: format.type,
+        type: format.type,
         url: `https://${hostname}/files/${format.file}?elastic_tile_service_tos=agree`,
         legacy_default: format.default || false,
       };
     }),
     fields: fields,
-    legacy_ids: [ data.name ],
+    legacy_ids: data.legacyIds,
     layer_name: data.humanReadableName,
   };
   return layer;

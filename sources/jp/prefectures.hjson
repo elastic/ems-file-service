@@ -84,6 +84,9 @@
             '''
     }
     name: japan_prefectures
+    legacyIds: [
+      Japan Prefectures
+    ]
     humanReadableName: {
       af: Prefekture van Japan
       ar: محافظة في اليابان

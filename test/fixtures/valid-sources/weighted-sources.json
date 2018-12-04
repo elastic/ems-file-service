@@ -12,6 +12,7 @@
     "type": "http",
     "data": "http://example.com",
     "name": "mordor_regions",
+    "legacyIds": [ "Mordor" ],
     "humanReadableName": {
       "en": "Mordor Regions",
       "de": "Mordor",
@@ -51,6 +52,7 @@
     "type": "http",
     "data": "http://example.com",
     "name": "gondor",
+    "legacyIds": [ "Gondor", "Gondor Kingdoms" ],
     "humanReadableName": {
       "en": "Gondor Kingdoms",
       "de": "Gondor",
@@ -90,6 +92,7 @@
     "type": "http",
     "data": "http://example.com",
     "name": "rohan",
+    "legacyIds": [ "Rohan", "Rohan Kingdoms" ],
     "humanReadableName": {
       "en": "Rohan Kingdoms",
       "de": "Rohan",
@@ -128,6 +131,7 @@
     "type": "http",
     "data": "http://example.com",
     "name": "shire",
+    "legacyIds": [ "Shire", "Shire regions", "Shire Regions" ],
     "humanReadableName": {
       "en": "Shire regions",
       "de": "Auenland",

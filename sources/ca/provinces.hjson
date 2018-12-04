@@ -74,6 +74,9 @@
             '''
     }
     name: canada_provinces
+    legacyIds: [
+      Canada Provinces
+    ]
     humanReadableName: {
       ar: مقاطعة في كندا
       ast: provincia del Canadá

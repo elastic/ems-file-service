@@ -76,6 +76,9 @@
             '''
     }
     name: netherlands_provinces
+    legacyIds: [
+      Netherlands Provinces
+    ]
     humanReadableName: {
       af: Provinsies van Nederland
       an: Provincias d'os Países Baixos

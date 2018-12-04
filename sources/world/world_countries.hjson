@@ -47,6 +47,9 @@
     text: Made with Natural Earth
   }
   name: world_countries
+  legacyIds: [
+    World Countries
+  ]
   humanReadableName: {
     aeb-arab: البلاد
     af: land

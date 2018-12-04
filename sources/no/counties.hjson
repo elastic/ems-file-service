@@ -97,6 +97,9 @@
             '''
     }
     name: norway_counties
+    legacyIds: [
+      Norway Counties
+    ]
     humanReadableName: {
       ar: مقاطعة في النرويج
       ast: Provincies de Noruega

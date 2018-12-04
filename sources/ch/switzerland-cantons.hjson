@@ -95,6 +95,9 @@
             '''
     }
     name: switzerland_cantons
+    legacyIds: [
+      Switzerland Cantons
+    ]
     humanReadableName: {
       af: Switserse kantons
       an: Cantons de Suiza

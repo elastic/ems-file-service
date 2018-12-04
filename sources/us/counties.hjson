@@ -83,6 +83,9 @@
             '''
     }
     name: usa_counties
+    legacyIds: [
+      USA Counties
+    ]
     humanReadableName: {
         ast: condáu d'Estaos Xuníos
         be: акруга ЗША

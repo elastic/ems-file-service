@@ -83,6 +83,9 @@
             '''
     }
     name: china_provinces
+    legacyIds: [
+      China Provinces
+    ]
     humanReadableName: {
       ar: مقاطعة في الصين
       ast: Provincies de China

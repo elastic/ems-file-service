@@ -74,6 +74,9 @@
             '''
     }
     name: sweden_counties
+    legacyIds: [
+      Sweden Counties
+    ]
     humanReadableName: {
       ar: محافظة في السويد
       ast: Provincies de Suecia

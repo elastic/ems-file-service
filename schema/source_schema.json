@@ -88,6 +88,13 @@
       "description": "Localized human readable names",
       "$ref": "#/definitions/i18n"
     },
+    "legacyIds": {
+      "description": "Identifying names or ids used in legacy versions of EMS",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "sourceFormat": {
       "$ref": "#/definitions/format",
       "description": "GIS file format for data coming from source"
