@@ -68,5 +68,6 @@ for (const version of constants.VERSIONS) {
 
 for (const file of vectorFiles) {
   // file is an array of [dest, src]
-  fs.copyFileSync(file[1], file[0]);
+  const vector = JSON.parse(fs.readFileSync(file[1]));
+  fs.writeFileSync(file[0], JSON.stringify(vector), 'utf8');
 }
