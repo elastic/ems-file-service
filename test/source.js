@@ -11,6 +11,7 @@ const schema = require('../schema/source_schema.json');
 const glob = require('glob');
 const fs = require('fs');
 const jsts = require('jsts');
+const topojson = require('topojson');
 const _ = require('lodash');
 
 const ajv = new Ajv();
@@ -48,27 +49,32 @@ function testSourceSchema(source) {
 }
 
 function testSourceFiles(source) {
-  // TODO Test that source fields exist in vector files
   tap(`${source.name} formats`, (t) => {
     for (const format of source.emsFormats) {
       t.ok(fs.existsSync(`./data/${format.file}`), `${source.name} filename fields must have a matching file in the data directory`);
+      const vector = fs.readFileSync(`./data/${format.file}`, 'utf8');
+      let featureCollection;
       if (format.type === 'geojson') {
-        const geojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
-        validateGeometry(geojson, t);
+        featureCollection = JSON.parse(vector);
       } else if (format.type === 'topojson') {
-        const topojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
-        validateObjectsMember(topojson, format, t);
+        const data = JSON.parse(vector);
+        const fcPath = _.get(format, 'meta.feature_collection_path', 'data');
+        validateObjectsMember(data, fcPath, t);
+        const features = _.get(data, `objects.${fcPath}`);
+        featureCollection = topojson.feature(data, features);
+      } else {
+        throw new Error(`Vector format ${format.type} is not supported`);
       }
+      validateGeometry(featureCollection, t);
+      validateFields(featureCollection, source.fieldMapping, t);
       t.end();
     }
   });
 }
 
-function validateObjectsMember(topojson, format, t) {
-  const fc = JSON.parse(topojson);
-  const fcPath = _.get(format, 'meta.feature_collection_path', 'data');
-  t.ok(fc.objects.hasOwnProperty(fcPath));
-  t.type(fc.objects[fcPath], 'object');
+function validateObjectsMember(topo, fcPath, t) {
+  t.ok(topo.objects.hasOwnProperty(fcPath));
+  t.type(topo.objects[fcPath], 'object');
 }
 
 function validateGeometry(geojson, t) {
@@ -78,4 +84,11 @@ function validateGeometry(geojson, t) {
   ), 'All geometries must be simple');
   t.ok(fc.features.every(feat => feat.geometry.isValid()
   ), 'All geometries must be valid');
+}
+
+function validateFields(fc, fieldMapping, t) {
+  for (const fieldMap of fieldMapping) {
+    t.ok(fc.features.every(feat => feat.properties.hasOwnProperty(fieldMap.name)),
+      `${fieldMap.name} must be present on every feature`);
+  }
 }
