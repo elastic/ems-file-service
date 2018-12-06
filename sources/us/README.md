@@ -12,6 +12,7 @@ mapshaper -i ~/Downloads/cb_2017_us_county_20m/cb_2017_us_county_20m.shp \
 -rename-layers data \
 -filter-fields GEOID,COUNTYNS,NAME \
 -rename-fields fips=GEOID,gnis=COUNTYNS,label_en=NAME \
+-simplify 0.9 \
 -o format=topojson prettify id-field=fips \
 ./data/usa_counties_v2.topo.json
 ```
