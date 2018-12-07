@@ -22,20 +22,24 @@ function makeValid(feature) {
     properties: feature.properties,
   };
   if (feature.id) newFeature.id = feature.id;
-  if (!feature.geometry.isSimple() || !feature.geometry.isValid()) {
+  if (feature.geometry === null) {
+    return;
+  } else if (!feature.geometry.isSimple() || !feature.geometry.isValid()) {
     const geom = feature.geometry.buffer(0);
     newFeature.geometry = writer.write(geom);
+    return newFeature;
   } else {
     newFeature.geometry = writer.write(feature.geometry);
+    return;
   }
-  return newFeature;
 }
 
 const reader = new jsts.io.GeoJSONReader();
 
 const fc = fs.readFileSync(filePath, 'utf8');
 const gj = reader.read(fc);
-const features = gj.features.map(makeValid);
+// Filter out null geometries
+const features = gj.features.map(makeValid).filter(Boolean);
 
 // JSTS does not enforce winding order, so we pass the features through `geojson-rewind`
 // to wind them in clockwise order.
