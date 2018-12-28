@@ -61,7 +61,8 @@
                     OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
               }
               # remove possible ID duplicates
-              GROUP BY ?id}
+              GROUP BY ?id
+              ORDER BY ?id}
             }
             }
             '''
