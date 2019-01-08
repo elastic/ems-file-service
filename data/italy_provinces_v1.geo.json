@@ -1393,6 +1393,7 @@
   },
   "properties": {
     "istat": "111",
+    "iso_3166_2": "NULL",
     "label_en": "Province of South Sardinia",
     "label_it": "provincia del Sud Sardegna"
   },
