@@ -66,7 +66,7 @@
     }
     emsFormats: [{
       type: geojson
-      file: south_korea_munisipalities_v1.geo.json
+      file: south_korea_municipalities_v1.geo.json
       default: true
     }]
     ttl: 108000
