@@ -1,17 +1,14 @@
 {
     versions: '>=2'
-    production: false
+    production: true
     type: http
     note:  Counties of United States
     wikidata: Q47168
-    data: https://sophox.org/regions/geojson.json
+    data: http://www2.census.gov/geo/tiger/GENZ2017/shp/cb_2017_us_county_20m.zip
     attribution: [
       {
         label: {
-          en: © OpenStreetMap contributors
-        }
-        url: {
-          en: https://www.openstreetmap.org/copyright
+          en: US Census Bureau
         }
       }
       {
@@ -26,8 +23,8 @@
     fieldMapping: [
         {
             type: id
-            name: fips_6_4
-            desc: FIPS county code
+            name: fips
+            desc: FIPS code
         }
         {
             type: id
@@ -35,53 +32,11 @@
             desc: GNIS ID
         }
         {
-            type: id
-            name: viaf
-            desc: VIAF ID
-        }
-        {
             type: property
             name: label_en
             desc: County name (English)
         }
     ]
-    query: {
-        sparql:
-            '''
-            #defaultView:MapRegions
-            SELECT
-              (if(bound(?id2),?id2,?id) as ?id)
-              ?fips_6_4_alpha ?gnis ?viaf ?label_en
-            WHERE {
-            SERVICE <https://query.wikidata.org/sparql> {
-            # Using nested query to ensure there is only one ?id2 value
-            {SELECT
-              ?id
-              (SAMPLE(?id2) as ?id2)
-              (SAMPLE(?fips_6_4_alpha) as ?fips_6_4_alpha)
-              (SAMPLE(?gnis) as ?gnis)
-              (SAMPLE(?viaf) as ?viaf)
-              (SAMPLE(?label_en) as ?label_en)
-            WHERE {
-              # List of regions, whose sub-regions we want.
-              VALUES ?entity { wd:Q30 }
-
-              # P150 = "contains administrative territorial entity"
-              ?entity wdt:P150/wdt:P150 ?id .
-
-              OPTIONAL { ?id wdt:P3403 ?id2 . }
-
-              OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-              OPTIONAL { ?id wdt:P882 ?fips_6_4_alpha }
-              OPTIONAL { ?id wdt:P590 ?gnis }
-              OPTIONAL { ?id wdt:P214 ?viaf }
-            }
-            # remove possible ID duplicates
-            GROUP BY ?id}
-            }
-            }
-            '''
-    }
     name: usa_counties
     legacyIds: [
       USA Counties
@@ -94,9 +49,9 @@
         da: county i USA
         de: County der Vereinigten Staaten
         el: κομητεία των ΗΠΑ
-        en: USA Counties
-        en-ca: USA Counties
-        en-gb: USA Counties
+        en: USA County
+        en-ca: USA County
+        en-gb: USA County
         eo: kantono de Usono
         es: condado de Estados Unidos
         eu: Ameriketako Estatu Batuetako konderri
@@ -134,6 +89,6 @@
     }]
     ttl: 108000
     weight: 0
-    createdAt: "2018-03-23T17:38:00.671050"
-    id: 5672749318012928
+    createdAt: "2018-11-30T00:08:19.618869"
+    id: 1543537167969055
 }
