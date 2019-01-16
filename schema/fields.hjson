@@ -484,6 +484,50 @@
       zh-tw: ISO 3166-2代碼
     }
   }
+  istat: {
+    wikidata: P635
+    i18n: {
+      ar: معرف المعهد الوطني للإحصاء
+      be: код ISTAT
+      be-tarask: код ISTAT
+      bg: ISTAT ID
+      bn: আইএসটিএটি আইডি
+      br: kod ISTAT
+      ca: identificador ISTAT
+      cs: kód ISTAT
+      cy: dynodwr ISTAT
+      da: ISTAT ID
+      de: ISTAT-ID
+      el: κωδικός ISTAT των ιταλικών δήμων
+      en: ISTAT ID
+      en-gb: ISTAT ID
+      eo: ISTAT-identigilo
+      es: código ISTAT
+      eu: ISTAT-en identifikatzailea
+      fr: identifiant ISTAT
+      hu: ISTAT-azonosító
+      it: codice ISTAT
+      ja: ISTATコード
+      ko: ISTAT ID
+      mk: ISTAT-назнака
+      ms: ID ISTAT
+      nb: italiensk kommunenummer
+      nl: Italiaanse gemeentecode
+      oc: identificant ISTAT
+      pl: identyfikator ISTAT
+      pt: identificador ISTAT
+      ru: код ISTAT
+      scn: còdici ISTAT
+      sco: ISTAT ID
+      sk: kód ISTAT
+      sr: ISTAT идентификатор
+      sr-ec: ISTAT идентификатор
+      sr-el: ISTAT identifikator
+      sv: ISTAT ID
+      uk: ідентифікатор ISTAT
+      vi: số ISTAT
+    }
+  }
   logainm: {
     wikidata: P5097
     i18n: {
