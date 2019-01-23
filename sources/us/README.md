@@ -16,3 +16,5 @@ mapshaper -i ~/Downloads/cb_2017_us_county_20m/cb_2017_us_county_20m.shp \
 -o format=topojson prettify id-field=fips \
 ./data/usa_counties_v2.topo.json
 ```
+
+*Note: To maintain an established precedent with layer names in the English language, the `en`, `en-ca`, and `en-gb` human readable names in `counties.hjson` have been manually adjusted from singular to plural format.*
