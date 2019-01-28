@@ -1,0 +1,3 @@
+# Brazil States
+
+*Note* Some invalid geometry near the Southeast border of Santa Catarina requires manual editing in QGIS. Run the QGIS "Fix geometries" tool to fix most of the geometry errors. You may still need to manually edit some vertices near -50.0985, -29.2272. After manual geometry correction run `node ./scripts/clean-geom ./data/brazil_states_v1.geo.json` to clean the vector file so it passes the geometry tests (`npm run test`). [Mon Jan 28 12:18:28 PST 2019]
