@@ -1,0 +1,116 @@
+{
+    versions: '>=1'
+    type: http
+    production: true
+    wikidata: Q41806065
+    note: Districts and Autonomous Regions Of Portugal
+    data: https://sophox.org/regions/geojson.json
+    attribution: [
+      {
+        label: {
+          en: © OpenStreetMap contributors
+        }
+        url: {
+          en: https://www.openstreetmap.org/copyright
+        }
+      }
+      {
+        label: {
+          en: Elastic Maps Service
+        }
+        url: {
+          en: https://www.elastic.co/elastic-maps-service
+        }
+      }
+    ]
+    fieldMapping: [
+        {
+          type: id
+          name: iso_3166_2
+          desc: ISO-3166-2 identifier
+        }
+        {
+          type: property
+          name: label_en
+          desc: District name (English)
+        }
+        {
+          type: property
+          name: label_pt
+          desc: District name (Portuguese)
+        }
+        {
+          type: property
+          name: label_mwl
+          desc: District name (Mirandese)
+        }
+    ]
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            SELECT
+            (if(bound(?id2),?id2,?id) as ?id)
+            ?iso_3166_2 ?label_en
+            ?label_pt
+            ?label_mwl
+            WHERE {
+              SERVICE <https://query.wikidata.org/sparql> {
+              # Using nested query to ensure there is only one ?id2 value
+              {SELECT
+              ?id
+              (SAMPLE(?id2) as ?id2)
+              (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+              (SAMPLE(?label_en) as ?label_en)
+              (SAMPLE(?label_pt) as ?label_pt)
+              (SAMPLE(?label_mwl) as ?label_mwl)
+              WHERE {
+                # List of regions, whose sub-regions we want.
+                VALUES ?entity { wd:Q45 }
+
+                # P150 = "contains administrative territorial entity"
+                ?entity wdt:P150 ?id .
+                ?id wdt:P300 ?iso_3166_2
+
+                    OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                    OPTIONAL { ?id rdfs:label ?label_pt . FILTER(LANG(?label_pt) = "pt")}
+                    OPTIONAL { ?id rdfs:label ?label_mwl . FILTER(LANG(?label_mwl) = "mwl")}
+              }
+              # remove possible ID duplicates
+              GROUP BY ?id}
+            }
+            }
+            '''
+    }
+    name: portugal_districts_v1
+    legacyIds: [
+      Portugal Districts
+    ]
+    humanReadableName: {
+      ar: محافظة في البرتغال
+      bar: Distrikt in Portugal
+      ca: districte de Portugal
+      en: Portugal Districts
+      es: distrito portugués
+      eu: Portugalgo barrutia
+      fr: district du Portugal
+      ja: ポルトガルの県
+      mk: округ во Португалија
+      nb: distrikt i Portugal
+      pt: distrito de Portugal
+      ru: округ Португалии
+      sco: destrict o Portugal
+      sr: округ Португалији
+    }
+    emsFormats: [
+      {
+        type: geojson
+        file: portugal_districts_v1.geo.json
+        default: true
+      }
+    ]
+    ttl: 108000
+    weight: 0
+    createdAt: 2019-01-25T22:42:43.127Z
+    id: 1548456163127000
+}
