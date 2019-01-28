@@ -1,7 +1,7 @@
 {
     versions: '>=1'
     type: http
-    production: false
+    production: true
     wikidata: Q62326
     note: Region Of Denmark
     data: https://sophox.org/regions/geojson.json
@@ -32,12 +32,12 @@
         {
           type: property
           name: label_en
-          desc: Subdivision name (English)
+          desc: Region name (English)
         }
         {
           type: property
           name: label_da
-          desc: Subdivision name (Danish)
+          desc: Region name (Danish)
         }
     ]
     query: {
