@@ -34,7 +34,6 @@
     "geojson-rewind": "^0.3.1",
     "jsts": "^2.0.2",
     "make-fetch-happen": "^4.0.1",
-    "mkdirp-promise": "^5.0.1",
     "mustache": "^3.0.1",
     "node-fetch": "^2.2.0",
     "p-map": "^2.0.0",
