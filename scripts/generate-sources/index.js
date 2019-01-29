@@ -3,25 +3,43 @@ const path = require('path');
 const Mustache = require('mustache');
 const Hjson = require('hjson');
 const pMap = require('p-map');
+const util = require('util');
 const generateSource = require('./generate-source');
 const getSophoxVectors = require('./generate-data');
-const mkdirp = require('mkdirp-promise');
 const { stripWdUri } = require('./utils');
 const geoipIsoCodes = require('../geoip-iso-codes');
 const validateDataset = require('./validate-dataset');
 const pino = require('pino');
 
-const countries = require('../../scripted-regions/countries.json');
+const mkdirp = util.promisify(require('mkdirp'));
 
+const countries = require('../countries.json');
+const geoip2csv = process.argv[2];
+
+if (!geoip2csv) {
+  throw new Error(`
+    Please provide the path to the GeoLite2-City-Locations-en.csv file.
+    Example:
+    node scripts/generate-sources/index.js ~/Downloads/GeoLite2-City-Locations-en.csv
+    The file can be downloaded from https://dev.maxmind.com/geoip/geoip2/geolite2/
+  `);
+}
+
+// TODO This anonymous function actually doesn't return anything
 (async () => {
-  const isoCodes = await geoipIsoCodes('/Users/nickpeihl/Downloads/GeoLite2-City-CSV_20181218/GeoLite2-City-Locations-en.csv');
+  const isoCodes = await geoipIsoCodes(geoip2csv);
   const template = await fs.readFile('./templates/source_template.mustache', 'utf8');
-  const logger = pino(pino.destination(path.join('./scripted-regions/logs', `regions.log`)));
+  await mkdirp('./.scripted-regions/logs');
+  await mkdirp('./.scripted-regions/data');
+  await mkdirp('./.scripted-regions/sources');
+  const logger = pino(pino.destination(path.join('./.scripted-regions/logs', `regions.log`)));
   const mapper = async country => {
     const countryCode = country.country_code.toLowerCase();
     const countryLogger = logger.child({ country_iso_code: country.country_code, country_name: country.name });
-    const dir = await mkdirp(`./scripted-regions/sources/${countryCode}`);
+    const dir = await mkdirp(`./.scripted-regions/sources/${countryCode}`);
     if (!dir) {
+      // If the country subdirectory already exists, assume the data has already been generated.
+      // Don't overwrite any of the generated data.
       return noop();
     }
     const adminLevels = [1, 2];
@@ -47,7 +65,7 @@ const countries = require('../../scripted-regions/countries.json');
         }, `ISO Code in vector does not exist in GeoIP2 database`));
         Promise.all([
           await fs.writeFile(path.join(dir, `${sourceJson.legacyIds[0]}.hjson`), source),
-          await fs.writeFile(path.join('./scripted-regions/data',
+          await fs.writeFile(path.join('./.scripted-regions/data',
             sourceJson.emsFormats.filter(f => f.type === 'geojson')[0].file),
           JSON.stringify(vectors)),
         ]);
@@ -61,6 +79,7 @@ const countries = require('../../scripted-regions/countries.json');
   console.log(result);
 })();
 
+// Random sleep between requests
 function sleep(max) {
   max = Math.floor(max);
   const ms = Math.floor(Math.random() * (max - 100)) + 100;

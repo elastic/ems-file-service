@@ -11,4 +11,4 @@ dist/
 .idea/
 .nyc_output/
 .cache
-scripted-regions/
+.scripted-regions/

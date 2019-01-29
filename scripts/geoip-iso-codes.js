@@ -4,7 +4,7 @@ const util = require('util');
 const csv = require('csv-parser');
 const unique = require('unique-stream');
 const _ = require('lodash');
-const countries = require('../scripted-regions/countries');
+const countries = require('./countries.json');
 
 const isoCodes = countries.map(country => country.country_code.toLowerCase());
 
