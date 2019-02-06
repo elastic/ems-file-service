@@ -28,13 +28,14 @@ USA Zip Codes v2 was retrieved from now defunct GeoCommons open data website. It
 
 Zip codes for the United States are available as Zip Code Tabulation Areas (ZCTAs) created by the US Census Bureau. USA Zip Codes v7 was generated from the 2018 ZCTAs which is based on the 2010 census. The US Census Bureau identifies [major differences between the 2000 Census and 2010 Census ZCTAs](https://www.census.gov/geo/reference/zctas.html). 
 
-The ZCTAs are extremely detailed and the 2017 shapefile is >500MB. To make ZCTAs suitable for visualizing in Elastic Maps Service we have to dramatically simplify the shapes. The ZCTA shapefile can be downloaded from the link in the `data` field in the `sources/us/zip_codes_v7.hjson` file.
+The ZCTAs are extremely detailed and the 2018 shapefile is >500MB. To make ZCTAs suitable for visualizing in Elastic Maps Service we have to dramatically simplify the shapes. The ZCTA shapefile can be downloaded from the link in the `data` field in the `sources/us/zip_codes_v7.hjson` file.
 
 The mapshaper command line program can be used to simplify the shapes while maintaining topology and the conversion from shapefile to TopoJSON. Mapshaper requires Node.js and can be installed with `npm i -g mapshaper`. 
 
 ```
 mapshaper-xl tl_2018_us_zcta510.shp snap \
 -simplify 0.1% \
+-clean \
 -filter-fields ZCTA5CE10 \
 -sort this.properties.ZCTA5CE10 \
 -rename-fields zip=ZCTA5CE10 \
