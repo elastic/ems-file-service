@@ -16,8 +16,8 @@
   license: Public Domain
   name: usa_zip_codes
   legacyIds: [
-    USA zip codes
     USA Zip Codes
+    USA zip codes
   ]
   humanReadableName: {
     ar: رموز بريد الولايات المتحدة
