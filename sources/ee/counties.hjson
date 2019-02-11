@@ -1,0 +1,151 @@
+{
+    versions: '>=1'
+    type: http
+    production: true
+    wikidata: Q189672
+    note: Counties Of Estonia
+    data: https://sophox.org/regions/geojson.json
+    attribution: [
+      {
+        label: {
+          en: © OpenStreetMap contributors
+        }
+        url: {
+          en: https://www.openstreetmap.org/copyright
+        }
+      }
+      {
+        label: {
+          en: Elastic Maps Service
+        }
+        url: {
+          en: https://www.elastic.co/elastic-maps-service
+        }
+      }
+    ]
+    fieldMapping: [
+        {
+          type: id
+          name: iso_3166_2
+          desc: ISO-3166-2 identifier
+        }
+        {
+          type: property
+          name: label_en
+          desc: County name (English)
+        }
+        {
+          type: property
+          name: label_et
+          desc: County name (Estonian)
+        }
+    ]
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            SELECT
+            (if(bound(?id2),?id2,?id) as ?id)
+            ?iso_3166_2 ?label_en
+            ?label_et
+            WHERE {
+              SERVICE <https://query.wikidata.org/sparql> {
+              # Using nested query to ensure there is only one ?id2 value
+              {SELECT
+              ?id
+              (SAMPLE(?id2) as ?id2)
+              (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+              (SAMPLE(?label_en) as ?label_en)
+              (SAMPLE(?label_et) as ?label_et)
+              WHERE {
+                # List of regions, whose sub-regions we want.
+                VALUES ?entity { wd:Q191 }
+
+                # P150 = "contains administrative territorial entity"
+                ?entity wdt:P150 ?id .
+                ?id wdt:P300 ?iso_3166_2
+
+                    OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                    OPTIONAL { ?id rdfs:label ?label_et . FILTER(LANG(?label_et) = "et")}
+              }
+              # remove possible ID duplicates
+              GROUP BY ?id}
+            }
+            }
+            '''
+    }
+    name: estonia_counties_v1
+    legacyIds: [
+      Estonia Counties
+    ]
+    humanReadableName: {
+      an: Condatos d'Estonia
+      ar: مقاطعة في إستونيا
+      az: Estoniyanın inzibati bölgüsü
+      ba: Эстонияның административ бүленеше
+      be: паветы Эстоніі
+      be-tarask: павет Эстоніі
+      bs: Okruzi Estonije
+      ca: Comtats d'Estònia
+      cs: Kraje v Estonsku
+      da: Estlands amter
+      de: Landkreis in Estland
+      el: Επαρχίες της Εσθονίας
+      en: Estonia Counties
+      en-ca: Counties of Estonia
+      en-gb: Counties of Estonia
+      eo: Distriktoj de Estonio
+      es: Condados de Estonia
+      fa: شهرستان‌های استونی
+      fi: Viron maakunnat
+      gl: Condados de Estonia
+      he: חלוקה מנהלית של אסטוניה
+      hr: Okruzi Estonije
+      hu: Észtország megyéi
+      hy: Էստոնիայի վարչական բաժանում
+      it: Contee dell'Estonia
+      ja: エストニアの県
+      ka: ესტონეთის ოლქები
+      ko: 에스토니아의 주
+      la: Comitatus Estoniae
+      lt: Estijos apskritys
+      lv: Igaunijas pagasti
+      mk: округ во Естонија
+      ms: Daerah di Estonia
+      nb: Estlands fylker
+      nds-nl: Previnsies van Estlaand
+      nl: provincie van Estland
+      nn: fylke i Estland
+      oc: comtat d'Estònia
+      pt: Regiões da Estónia
+      pt-br: Regiões da Estónia
+      ro: Comitatele Estoniei
+      ru: уезд Эстонии
+      sco: Coonties o Estonie
+      se: Estteeatnama eanangottit
+      sr: округ Естоније
+      sv: landskap i Estland
+      ur: استونیا کی کاؤنٹیاں
+      vi: Hạt của Estonia
+      vro: Eesti maakunnaq
+      xmf: ესტონეთიშ ოლქეფი
+      zh: 愛沙尼亞行政區劃
+      zh-cn: 爱沙尼亚行政区划
+      zh-hans: 爱沙尼亚行政区划
+      zh-hant: 愛沙尼亞行政區劃
+      zh-hk: 愛沙尼亞行政區劃
+      zh-sg: 爱沙尼亚行政区划
+      zh-tw: 愛沙尼亞行政區劃
+    }
+    emsFormats: [
+      {
+        type: geojson
+        file: estonia_counties_v1.geo.json
+        default: true
+      }
+    ]
+    ttl: 108000
+    weight: 0
+    createdAt: 2019-02-08T19:23:21.504Z
+    id: 1549653801504000
+}
