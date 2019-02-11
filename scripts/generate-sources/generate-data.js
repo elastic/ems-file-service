@@ -12,6 +12,7 @@ const fetch = require('make-fetch-happen').defaults({
     randomize: true,
   },
 });
+const cleanGeom = require('../clean-geom');
 
 module.exports = async function getSophoxVectors(opts) {
   opts = {
@@ -23,5 +24,11 @@ module.exports = async function getSophoxVectors(opts) {
   const sparql = encodeURIComponent(opts.sparql);
   url.search = `sparql=${sparql}`;
   const res = await fetch(url.toString());
-  return res.json();
+  const geojson = await res.json();
+  const clean = cleanGeom(geojson);
+  const orderedFeatures = clean.features.sort((a, b) => a.id > b.id);
+  return {
+    type: 'FeatureCollection',
+    features: orderedFeatures,
+  };
 };

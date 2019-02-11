@@ -16,6 +16,7 @@ const { stripWdUri } = require('./utils');
 const geoipIsoCodes = require('../geoip-iso-codes');
 const validateDataset = require('./validate-dataset');
 const pino = require('pino');
+const stringify = require('json-stringify-pretty-compact');
 
 const mkdirp = util.promisify(require('mkdirp'));
 
@@ -73,7 +74,7 @@ if (!geoip2csv) {
           await fs.writeFile(path.join(dir, `${sourceJson.legacyIds[0]}.hjson`), source),
           await fs.writeFile(path.join('./.scripted-regions/data',
             sourceJson.emsFormats.filter(f => f.type === 'geojson')[0].file),
-          JSON.stringify(vectors)),
+          stringify(vectors, { indent: 2 })),
         ]);
       } catch (err) {
         subdivisionLogger.error(err);
