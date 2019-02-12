@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: IN
     wikidata: Q131541
     note: States and Territories Of India
     data: https://sophox.org/regions/geojson.json

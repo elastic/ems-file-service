@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: KR
     wikidata: Q41156
     note: Municipalities of Republic of Korea (South Korea)
     data: See README

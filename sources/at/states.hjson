@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: AT
     wikidata: Q261543
     note: States Of Austria
     data: https://sophox.org/regions/geojson.json

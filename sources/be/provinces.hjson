@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: BE
     wikidata: Q83116
     note: Provinces Of Belgium
     data: https://sophox.org/regions/geojson.json

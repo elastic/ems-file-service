@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: EE
     wikidata: Q189672
     note: Counties Of Estonia
     data: https://sophox.org/regions/geojson.json

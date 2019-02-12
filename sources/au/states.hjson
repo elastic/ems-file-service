@@ -1,6 +1,7 @@
 {
     versions: '>=1'
     production: true
+    countryCode: AU
     type: http
     note:  States of Australia
     wikidata: Q5852411

@@ -1,6 +1,7 @@
 {
     versions: '>=1'
     production: true
+    countryCode: CH
     type: http
     note:  Switzerland Cantons
     wikidata: Q23058

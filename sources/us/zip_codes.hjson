@@ -1,6 +1,7 @@
 {
   versions: '>=2'
   production: true
+  countryCode: US
   type: http
   note: Zip Code Tabulation Areas from the Census TIGERWEB
   wikidata: Q136208

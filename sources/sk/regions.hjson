@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: SK
     wikidata: Q15057583
     note: Regions Of Slovakia
     data: https://sophox.org/regions/geojson.json

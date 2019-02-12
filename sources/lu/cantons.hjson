@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: LU
     wikidata: Q1146429
     note: Cantons Of Luxembourg
     data: https://sophox.org/regions/geojson.json
