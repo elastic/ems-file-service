@@ -1,6 +1,7 @@
 {
     versions: '>=1'
     production: true
+    countryCode: CN
     type: http
     note:  Administrative divisions of China
     wikidata: Q1615742

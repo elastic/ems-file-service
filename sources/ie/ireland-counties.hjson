@@ -1,6 +1,7 @@
 {
     versions: '>=1'
     production: true
+    countryCode: IE
     type: http
     note:  Counties and Provinces of Ireland
     wikidata: Q179872

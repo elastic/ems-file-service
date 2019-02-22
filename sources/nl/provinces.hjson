@@ -1,6 +1,7 @@
 {
     versions: '>=1'
     production: true
+    countryCode: NL
     type: http
     note:  Provinces of Kingdom of the Netherlands
     wikidata: Q134390

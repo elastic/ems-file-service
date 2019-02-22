@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: FI
     note: Regions of Finland
     wikidata: Q193512
     data: https://sophox.org/regions/geojson.json

@@ -1,6 +1,7 @@
 {
     versions: '>=1'
     production: true
+    countryCode: DE
     type: http
     note:  States of Germany
     wikidata: Q1221156
