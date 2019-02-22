@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: ES
     note: Spain communities and provinces. Some single-province communities are missing from the SPARQL query and have been manually added.
     wikidata: Q162620
     data: https://sophox.org/regions/geojson.json

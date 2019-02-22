@@ -1,6 +1,7 @@
 {
     versions: '>=1'
     production: true
+    countryCode: JP
     type: http
     note:  Prefectures of Japan
     wikidata: Q50337
