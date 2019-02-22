@@ -6,7 +6,7 @@
   note: Zip Code Tabulation Areas from the 2000 Census TIGERWEB
   wikidata: Q136208
   website: https://www.census.gov/geo/reference/zctas.html
-  data: http://geocommons.com/overlays/54893
+  data: https://gist.github.com/jefffriesen/6892860
   fieldMapping: [
     {
       type: id
