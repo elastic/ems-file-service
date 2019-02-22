@@ -1,6 +1,7 @@
 {
     versions: '>=1'
     production: true
+    countryCode: SE
     type: http
     note:  Counties of Sweden
     wikidata: Q200547
