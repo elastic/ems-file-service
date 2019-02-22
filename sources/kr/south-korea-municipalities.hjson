@@ -2,13 +2,14 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: KR
     wikidata: Q41156
-    note: Munisipalities of Republic of Korea (South Korea)
+    note: Municipalities of Republic of Korea (South Korea)
     data: See README
     attribution: [
       {
         label: {
-          en: Contains Data from South Korea Maps
+          en: South Korea Maps
         }
         url: {
           en: https://github.com/southkorea/southkorea-maps
@@ -16,7 +17,7 @@
       }
       {
         label: {
-          en: Contains Data from KOSTAT - copyright to Korea Open Government License(KOGL) Type1
+          en: KOSTAT - copyright to KOGL Type1
           ko: 통계청 통계지리정보서비스 - 공공누리 제 1유형 라이선스(http://www.kogl.or.kr/info/license.do)
         }
         url: {
@@ -49,15 +50,15 @@
             desc: 시군구명칭 (한국어)
         }
     ]
-    name: south_korea_munisipalities
+    name: south_korea_municipalities
     legacyIds: [
-      South Korea Munisipalities
+      South Korea Municipalities
     ]
     humanReadableName: {
       de: Verwaltungsgliederung Südkoreas
       it: Suddivisioni della Corea del Sud
       ja: 大韓民国の地方行政区画
-      en: Subdivisions of South Korea
+      en: South Korea Municipalities
       es: Organización territorial de Corea del Sur
       fr: Subdivision de la Corée du Sud
       ko: 대한민국 시군구

@@ -2,6 +2,7 @@
     versions: '>=1'
     weight: 0
     production: true
+    countryCode: GB
     type: http
     note:  Administrative subdivisions of the United Kingdom
     wikidata: Q717478
