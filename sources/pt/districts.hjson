@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: PT
     wikidata: Q41806065
     note: Districts and Autonomous Regions Of Portugal
     data: https://sophox.org/regions/geojson.json
