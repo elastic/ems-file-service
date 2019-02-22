@@ -1,6 +1,7 @@
 {
     versions: '>=7'
     production: true
+    countryCode: FR
     type: http
     note: Administrative departments of France
     wikidata: Q6465
