@@ -1,5 +1,5 @@
 {
-    versions: '>=1 - <7'
+    versions: '1 - 6.7'
     production: true
     countryCode: FR
     type: http
