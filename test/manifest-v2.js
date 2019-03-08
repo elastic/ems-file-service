@@ -12,6 +12,7 @@ const duplicateIds = require('./fixtures/valid-sources/duplicateIds.json');
 const duplicateHumanNames = require('./fixtures/valid-sources/duplicateHumanNames.json');
 const weightedSources = require('./fixtures/valid-sources/weighted-sources.json');
 const badAttribution = require('./fixtures/invalid-sources/bad-attribution.json');
+const badVersions = require('./fixtures/invalid-sources/bad-versions');
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
 const v2Expected = {
@@ -165,6 +166,12 @@ tap('v2 tests', t => {
     });
   };
 
+  const badVersionsTest = function () {
+    return generateVectorManifest(badVersions, {
+      version: 'v2',
+    });
+  };
+
   const weightedOrder = generateVectorManifest(weightedSources, {
     version: 'v2',
   }).layers.map(layer => layer.name);
@@ -182,6 +189,7 @@ tap('v2 tests', t => {
   t.throws(unsafeDuplicateIds, 'Source ids cannot be duplicate in intersecting versions');
   t.throws(unsafeDuplicateHumanNames, 'Source human names cannot be duplicate in intersecting versions');
   t.throws(badAttributionTest, 'Attribution must include a label');
+  t.throws(badVersionsTest, 'Version must be a valid range');
 
   const v2Catalogue = generateCatalogueManifest({
     version: 'v2',
