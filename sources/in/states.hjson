@@ -51,27 +51,34 @@
             ?label_hi
             WHERE {
               SERVICE <https://query.wikidata.org/sparql> {
-              # Using nested query to ensure there is only one ?id2 value
-              {SELECT
-              ?id
-              (SAMPLE(?id2) as ?id2)
-              (SAMPLE(?iso_3166_2) as ?iso_3166_2)
-              (SAMPLE(?label_en) as ?label_en)
-              (SAMPLE(?label_hi) as ?label_hi)
-              WHERE {
-                # List of regions, whose sub-regions we want.
-                VALUES ?entity { wd:Q668 }
+                # Using nested query to ensure there is only one ?id2 value
+                {SELECT
+                ?id
+                (SAMPLE(?id2) as ?id2)
+                (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+                (SAMPLE(?label_en) as ?label_en)
+                (SAMPLE(?label_hi) as ?label_hi)
+              WHERE {{
+                  # List of regions, whose sub-regions we want.
+                  VALUES ?entity { wd:Q668 }
 
-                # P150 = "contains administrative territorial entity"
-                ?entity wdt:P150 ?id .
-                ?id wdt:P300 ?iso_3166_2
+                  # P150 = "contains administrative territorial entity"
+                  ?entity wdt:P150 ?id .
+                  ?id wdt:P300 ?iso_3166_2
 
-                    OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                  OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
                     OPTIONAL { ?id rdfs:label ?label_hi . FILTER(LANG(?label_hi) = "hi")}
+                # Include disputed territories. See README.
+                } UNION {
+                  VALUES ( ?id ?iso_3166_2 ) {
+                    ( wd:Q230830 "IN-JK" )
+                    ( wd:Q43100 "IN-JK" )
+                  }
+                }
+                }
+                # remove possible ID duplicates
+                GROUP BY ?id}
               }
-              # remove possible ID duplicates
-              GROUP BY ?id}
-            }
             }
             '''
     }
