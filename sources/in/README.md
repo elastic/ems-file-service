@@ -1,6 +1,6 @@
 # India States and Territories
 
-India has claims on regions administered by Pakistan and China. These claims should be included in the state of Jammu and Kashmir in the India States and Territories layer. The disputed claim regions are included in the Sophox query and downloaded as separate features in the GeoJSON feature colleciton. These separate features should be manually merged with the Jammu and Kashmir state feature.
+India has claims on regions administered by Pakistan and China. These claims should be included in the state of Jammu and Kashmir in the India States and Territories layer. The disputed claim regions are included in the Sophox query and downloaded as separate features in the GeoJSON feature collection. These separate features should be manually merged with the Jammu and Kashmir state feature.
 
 For example,
 ```
