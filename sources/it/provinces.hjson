@@ -62,7 +62,21 @@
             ?id wdt:P300 ?iso_3166_2.
             MINUS {
               ?id (wdt:P576|wdt:P582) ?end.
-              FILTER(?id NOT IN(wd:Q16112, wd:Q16150, wd:Q16154, wd:Q16166, wd:Q16208, wd:Q16227, wd:Q16251, wd:Q16277, wd:Q16288))
+              FILTER(?id NOT IN(
+              wd:Q16112,
+              wd:Q16150,
+              wd:Q16154,
+              wd:Q16166,
+              wd:Q16208,
+              wd:Q16227,
+              wd:Q16251,
+              wd:Q16277,
+              wd:Q16288,
+              wd:Q16184,
+              wd:Q16247,
+              wd:Q16293,
+              wd:Q16294
+              ))
             }
             OPTIONAL { ?id wdt:P635 ?istat. }
             OPTIONAL {

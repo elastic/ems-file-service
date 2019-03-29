@@ -8,12 +8,12 @@ Several provinces have been abolished in recent years, but the [ISO 3166 Country
 The following provinces were absorbed into a new province called South Sardinia.
 - [Carbonia-Iglesias, IT-CI](https://en.wikipedia.org/wiki/Province_of_Carbonia-Iglesias)
 - [Medio Campidano, IT-VS](https://en.wikipedia.org/wiki/Province_of_Medio_Campidano)
-
-The following provinces were abolished, but not replaced with any other province. So we exclude these provinces.
-
-- [Gorizia, IT-GO](https://en.wikipedia.org/wiki/Province_of_Gorizia)
 - [Ogliastra, IT-OG](https://en.wikipedia.org/wiki/Province_of_Ogliastra)
 - [Olbia-Tempio, IT-OT](https://en.wikipedia.org/wiki/Province_of_Olbia-Tempio)
+
+The provinces of Fruili-Venezia Giulia were abolished in 2017 and the administrative duties were delegated to the municipalities. However, the geographic boundaries of the provinces are still relevant, so they are included.
+
+- [Gorizia, IT-GO](https://en.wikipedia.org/wiki/Province_of_Gorizia)
 - [Pordenone, IT-PN](https://en.wikipedia.org/wiki/Province_of_Pordenone)
 - [Trieste, IT-TS](https://en.wikipedia.org/wiki/Province_of_Trieste)
 - [Udine, IT-UD](https://en.wikipedia.org/wiki/Province_of_Udine)
