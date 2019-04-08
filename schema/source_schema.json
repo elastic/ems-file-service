@@ -18,6 +18,10 @@
   ],
   "additionalProperties": false,
   "properties": {
+    "countryCode": {
+      "type": "string",
+      "description": "Two letter country code"
+    },
     "versions": {
       "type": "string",
       "description": "Must be a semver compatible string (ex. v1, 1, 1.0.0, 1.x) or range (ex 1 - 2, ^1.0.1). See more examples at https://www.npmjs.com/package/semver. "

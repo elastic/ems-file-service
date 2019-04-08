@@ -1,6 +1,7 @@
 {
     versions: '>=1'
     production: true
+    countryCode: CA
     type: http
     note: Canadian provinces
     wikidata: Q11828004

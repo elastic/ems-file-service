@@ -70,6 +70,9 @@ function generateVectorManifest(sources, opts) {
   const layers = [];
   const uniqueProperties = [];
   for (const source of _.orderBy(sources, ['weight', 'name'], ['desc', 'asc'])) {
+    if (!semver.validRange(source.versions)) {
+      throw new Error(`Invalid versions specified for ${source.name}`);
+    }
     if ((!opts.production ||
       (opts.production && source.production)) &&
       semver.satisfies(manifestVersion, source.versions)) {
@@ -83,6 +86,7 @@ function generateVectorManifest(sources, opts) {
           layers.push(manifestLayerV2(source, opts.hostname));
           break;
         case 6:
+        case 7: // v6 and v7 manifest schema are the same
           uniqueProperties.push('layer_id');
           layers.push(manifestLayerV6(source, opts.hostname, { fieldInfo: opts.fieldInfo }));
           break;

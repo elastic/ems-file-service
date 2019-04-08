@@ -1,6 +1,7 @@
 {
     versions: '>=2'
     production: true
+    countryCode: US
     type: http
     note:  Counties of United States
     wikidata: Q47168

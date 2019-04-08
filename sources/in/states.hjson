@@ -1,0 +1,190 @@
+{
+    versions: '>=1'
+    type: http
+    production: true
+    countryCode: IN
+    wikidata: Q131541
+    note: States and Territories Of India
+    data: https://sophox.org/regions/geojson.json
+    attribution: [
+      {
+        label: {
+          en: © OpenStreetMap contributors
+        }
+        url: {
+          en: https://www.openstreetmap.org/copyright
+        }
+      }
+      {
+        label: {
+          en: Elastic Maps Service
+        }
+        url: {
+          en: https://www.elastic.co/elastic-maps-service
+        }
+      }
+    ]
+    fieldMapping: [
+        {
+          type: id
+          name: iso_3166_2
+          desc: ISO-3166-2 identifier
+        }
+        {
+          type: property
+          name: label_en
+          desc: State name (English)
+        }
+        {
+          type: property
+          name: label_hi
+          desc: State name (Hindi)
+        }
+    ]
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            SELECT
+            (if(bound(?id2),?id2,?id) as ?id)
+            ?iso_3166_2 ?label_en
+            ?label_hi
+            WHERE {
+              SERVICE <https://query.wikidata.org/sparql> {
+                # Using nested query to ensure there is only one ?id2 value
+                {SELECT
+                ?id
+                (SAMPLE(?id2) as ?id2)
+                (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+                (SAMPLE(?label_en) as ?label_en)
+                (SAMPLE(?label_hi) as ?label_hi)
+              WHERE {{
+                  # List of regions, whose sub-regions we want.
+                  VALUES ?entity { wd:Q668 }
+
+                  # P150 = "contains administrative territorial entity"
+                  ?entity wdt:P150 ?id .
+                  ?id wdt:P300 ?iso_3166_2
+
+                  OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                    OPTIONAL { ?id rdfs:label ?label_hi . FILTER(LANG(?label_hi) = "hi")}
+                # Include disputed territories. See README.
+                } UNION {
+                  VALUES ( ?id ?iso_3166_2 ) {
+                    ( wd:Q230830 "IN-JK" )
+                    ( wd:Q43100 "IN-JK" )
+                  }
+                }
+                }
+                # remove possible ID duplicates
+                GROUP BY ?id}
+              }
+            }
+            '''
+    }
+    name: india_states_v1
+    legacyIds: [
+      India States
+    ]
+    humanReadableName: {
+      af: Federale staatsvorm van Indië
+      an: Estatos y territorios d'a India
+      ang: Indisc rīce
+      ar: ولاية في الهند ومنطقة فيها
+      as: ভাৰতৰ ৰাজ্য আৰু কেন্দ্ৰীয়শাসিত অঞ্চলসমূহ
+      bar: Bundesstootn und Unionsterritorien in Indien
+      be: штаты і тэрыторыі Індыі
+      bg: Административно деление на Индия
+      bho: भारतीय प्रान्त आ केन्द्रशासित प्रदेश
+      bn: ভারতের রাজ্য ও কেন্দ্রশাসিত অঞ্চল
+      bpy: ভারতর রাজ্য বারো কেন্দ্রশাসিত অঞ্চলহানি
+      br: Stadoù ha tiriadoù India
+      bs: Države i teritorije Indije
+      ca: Estats i territoris de l'Índia
+      cs: indické státy a teritoria
+      cy: Taleithiau a thiriogaethau India
+      da: Indiens delstater og territorier
+      de: Bundesstaat oder Unionsterritorium in Indien
+      el: πολιτεία ή περιοχή της Ινδίας
+      en: India States and Territories
+      en-ca: States and territories of India
+      en-gb: States and territories of India
+      eo: ŝtato aŭ teritorio de Barato
+      es: Estados y territorios de la India
+      eu: Indiaren banaketa administratiboa
+      fa: ایالت‌ها و قلمروهای هند
+      fi: Intian osavaltiot ja territoriot
+      fr: État ou territoire de l'Inde
+      gl: Subdivisións da India
+      gu: ભારતનાં રાજ્યો
+      he: המדינות והטריטוריות של הודו
+      hi: भारत के राज्य एवम् केन्द्र-शासित प्रदेश
+      hr: Države i teritoriji Indije
+      hu: India közigazgatása
+      hy: Հնդկաստանի վարչական բաժանում
+      id: Daftar negara bagian dan wilayah di India
+      it: Stati federati e territori dell'India
+      ja: インドの地方行政区画
+      ka: ინდოეთის ადმინისტრაციული დაყოფა
+      kn: ಭಾರತದ ರಾಜ್ಯಗಳು ಮತ್ತು ಕೇಂದ್ರಾಡಳಿತ ಪ್ರದೇಶಗಳು
+      ko: 인도의 행정 구역
+      ks: بھارَتی حالَت تہٕ علاقہٕ
+      lt: Indijos valstijos ir teritorijos
+      lv: Indijas štati un teritorijas
+      mai: भारतक राज्य आ सङ्घीय राज्य क्षेत्रसभ
+      mk: сојузна држава или територија во Индија
+      ml: ഇന്ത്യയിലെ സംസ്ഥാനങ്ങളും കേന്ദ്രഭരണപ്രദേശങ്ങളും
+      mr: भारताची राज्ये आणि प्रदेश
+      ms: Negeri dan wilayah di India
+      nan: Ìn-tō͘ ê hêng-chèng-khu
+      nb: Indias delstater og territorier
+      ne: भारतका राज्यहरु र केन्द्र शासित राज्यहरु
+      new: भारतया राज्यतेगु धलः
+      nl: staat of territorium van India
+      nn: statar og territorium i India
+      or: ଭାରତର ରାଜ୍ୟ ଓ କେନ୍ଦ୍ରଶାସିତ ଅଞ୍ଚଳ
+      pa: ਭਾਰਤੀ ਸੂਬੇ ਅਤੇ ਕੇਂਦਰੀ ਸ਼ਾਸ਼ਤ ਪ੍ਰਦੇਸ
+      pam: Estadu ampong teritoriu ning India
+      pl: stany i terytoria Indii
+      ps: د هند رياستونه
+      pt: Estados e territórios da Índia
+      pt-br: Estados e territórios da Índia
+      rmy: Staturya thai teritorurya la Indiyake
+      ro: State și teritorii ale Indiei
+      ru: штаты и территории Индии
+      sa: भारतस्य राज्यानि
+      sco: States an territories o Indie
+      sd: ڀارت جون رياستون ۽ اتحادي علائقا
+      si: ඉන්දියාවේ ප්‍රාන්ත හා මධ්‍යම රාජ්‍ය පාලන ප්‍රදේශ
+      sk: Administratívne členenie Indie
+      sw: Majimbo ya Uhindi
+      ta: இந்தியாவின் மாநிலங்களும் ஆட்சிப்பகுதிகளும்
+      tcy: ಭಾರತೊದ ರಾಜ್ಯೊಲು ಬೊಕ್ಕ ಕೇಂದ್ರಾಡಳಿತ ಪ್ರದೇಶೊಲು
+      te: భారతదేశం యొక్క రాష్ట్రాలు మరియు కేంద్రపాలిత ప్రాంతాలు
+      tr: Hindistan'ın idari yapılanması
+      uk: штати та союзні території Індії
+      ur: بھارت کی ریاستیں اور عملداریاں
+      vep: Indijan štatad da territorijad
+      vi: Phân cấp hành chính Ấn Độ
+      xmf: ინდოეთიშ ადმინისტრაციული დორთუალა
+      yo: Àwọn ìpínlẹ̀ àti agbègbè ilẹ̀ Índíà
+      zh: 印度诸邦与联邦属地
+      zh-cn: 印度诸邦与联邦属地
+      zh-hans: 印度诸邦与联邦属地
+      zh-hant: 印度諸邦與聯邦屬地
+      zh-hk: 印度諸邦與聯邦屬地
+      zh-sg: 印度诸邦与联邦属地
+      zh-tw: 印度諸邦與聯邦屬地
+    }
+    emsFormats: [
+      {
+        type: geojson
+        file: india_states_v1.geo.json
+        default: true
+      }
+    ]
+    ttl: 108000
+    weight: 0
+    createdAt: 2019-02-08T21:26:56.159Z
+    id: 1549661216159000
+}
