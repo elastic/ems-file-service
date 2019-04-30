@@ -30,11 +30,14 @@ function generateCatalogueManifest(opts) {
   if (!semver.valid(semver.coerce(opts.version))) {
     throw new Error('A valid version parameter must be defined');
   }
+  const tilesManifest = semver.lt(semver.coerce(opts.version), '7.1.0')
+    ? { id: 'tiles_v2', version: 'v2' }
+    : { id: 'tiles', version: 'v7.1' };
   const manifest = {
     services: [{
-      id: 'tiles_v2',
+      id: tilesManifest.id,
       name: 'Elastic Maps Tile Service',
-      manifest: `https://${opts.tileHostname}/v2/manifest`,
+      manifest: `https://${opts.tileHostname}/${tilesManifest.version}/manifest`,
       type: 'tms',
     }, {
       id: 'geo_layers',
