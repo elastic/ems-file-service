@@ -30,9 +30,9 @@ function generateCatalogueManifest(opts) {
   if (!semver.valid(semver.coerce(opts.version))) {
     throw new Error('A valid version parameter must be defined');
   }
-  const tilesManifest = semver.lt(semver.coerce(opts.version), '7.1.0')
+  const tilesManifest = semver.lt(semver.coerce(opts.version), '7.2.0')
     ? { id: 'tiles_v2', version: 'v2' }
-    : { id: 'tiles', version: 'v7.1' };
+    : { id: 'tiles', version: 'v7.2' };
   const manifest = {
     services: [{
       id: tilesManifest.id,
