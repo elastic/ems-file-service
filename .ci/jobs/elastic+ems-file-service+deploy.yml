@@ -1,0 +1,22 @@
+---
+- job:
+    name: elastic+ems-file-service+deploy
+    display-name: elastic / ems-file-service - deploy
+    description: Sync all files from EMS ems-file-service staging server to production
+      using ./deployProduction.sh.
+    builders:
+    - shell: |-
+        #!/usr/local/bin/runbld
+        set -e
+        set +x
+
+        export GPROJECT=elastic-ems-prod
+        VAULT_ACCOUNT=secret/gce/$GPROJECT/service-account/jenkins
+
+        export VAULT_TOKEN=$(vault write -field=token auth/approle/login role_id="$VAULT_ROLE_ID" secret_id="$VAULT_SECRET_ID")
+        export GCE_ACCOUNT=$(vault read -field=value $VAULT_ACCOUNT)
+        unset VAULT_ROLE_ID VAULT_SECRET_ID VAULT_ADDR VAULT_TOKEN VAULT_ACCOUNT
+
+        # Expects env: GPROJECT, GCE_ACCOUNT, GIT_BRANCH
+        # Run EMS script, set in the template parameter
+        ./deployProduction.sh
