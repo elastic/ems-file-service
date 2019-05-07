@@ -18,7 +18,7 @@ set +x
 
 # Expected env variables:
 # * [GCE_ACCOUNT] - credentials for the google service account (JSON blob)
-# * [TILE_HOST] - "tiles.maps.elastic.co" or "tiles-maps-stage.elastic.co" (default)
+# * [TILE_HOST] - "tiles.maps.elastic.co" or "tiles.maps.elstc.co" (default)
 # * [VECTOR_HOST] - "vector.maps.elastic.co" or "vector-staging.maps.elastic.co" (default)
 # * [CATALOGUE_BUCKET] - "elastic-ems-prod-files-catalogue" or "elastic-ems-prod-files-catalogue-staging"
 # * [VECTOR_BUCKET] - "elastic-ems-prod-files-vector" or "elastic-ems-prod-files-vector-staging".
@@ -32,7 +32,7 @@ if [[ -z "${VECTOR_HOST}" ]]; then
 fi
 
 if [[ -z "${TILE_HOST}" ]]; then
-    TILE_HOST="tiles-maps-stage.elastic.co"
+    TILE_HOST="tiles.maps.elstc.co"
     echo "TILE_HOST is not set. Defaulting to '${TILE_HOST}'."
 fi
 

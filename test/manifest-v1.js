@@ -148,14 +148,14 @@ tap('v1 tests', t => {
 
   const v1Catalogue = generateCatalogueManifest({
     version: 'v1',
-    tileHostname: 'tiles-maps-stage.elastic.co',
+    tileHostname: 'tiles.maps.elstc.co',
     vectorHostname: 'vector-staging.maps.elastic.co',
   });
   t.deepEquals(v1Catalogue, {
     services: [{
       id: 'tiles_v2',
       name: 'Elastic Maps Tile Service',
-      manifest: 'https://tiles-maps-stage.elastic.co/v2/manifest',
+      manifest: 'https://tiles.maps.elstc.co/v2/manifest',
       type: 'tms',
     }, {
       id: 'geo_layers',
