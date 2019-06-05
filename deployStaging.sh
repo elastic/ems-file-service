@@ -20,7 +20,7 @@ fi
 
 export EMS_PROJECT="files"
 
-export TILE_HOST="tiles.maps.elstc.co"
+export TILE_HOST="tiles.maps.elastic.co"
 export VECTOR_HOST="vector-staging.maps.elastic.co"
 export CATALOGUE_BUCKET=${GPROJECT}-${EMS_PROJECT}-catalogue-staging
 export VECTOR_BUCKET=${GPROJECT}-${EMS_PROJECT}-vector-staging
