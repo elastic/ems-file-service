@@ -20,10 +20,10 @@ set +x
 # * [GCE_ACCOUNT] - credentials for the google service account (JSON blob)
 # * [TILE_HOST] - "tiles.maps.elastic.co" or "tiles.maps.elstc.co" (default)
 # * [VECTOR_HOST] - "vector.maps.elastic.co" or "vector-staging.maps.elastic.co" (default)
-# * [CATALOGUE_BUCKET] - "elastic-ems-prod-files-catalogue" or "elastic-ems-prod-files-catalogue-staging"
-# * [VECTOR_BUCKET] - "elastic-ems-prod-files-vector" or "elastic-ems-prod-files-vector-staging".
+# * [CATALOGUE_BUCKET] - "elastic-bekitzur-emsfiles-catalogue" or "elastic-bekitzur-emsfiles-catalogue-staging"
+# * [VECTOR_BUCKET] - "elastic-bekitzur-emsfiles-vector" or "elastic-bekitzur-emsfiles-vector-staging".
 #                     If VECTOR_BUCKET or CATALOGUE_BUCKET is not set, the files are built locally but not uploaded.
-# * [ARCHIVE_BUCKET] - "elastic-ems-prod-files-archive"
+# * [ARCHIVE_BUCKET] - "elastic-bekitzur-emsfiles-archive"
 #                      If ARCHIVE_BUCKET is set, a timestamped snapshot of the files is uploaded to the bucket.
 
 if [[ -z "${VECTOR_HOST}" ]]; then

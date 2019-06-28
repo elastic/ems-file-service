@@ -14,16 +14,16 @@ set +x
 # * GCE_ACCOUNT - credentials for the google service account (JSON blob)
 
 if [[ -z "${GPROJECT}" ]]; then
-    echo "GPROJECT is not set, e.g. 'GPROJECT=elastic-ems-prod'"
+    echo "GPROJECT is not set, e.g. 'GPROJECT=elastic-bekitzur'"
     exit 1
 fi
 
-export EMS_PROJECT="files"
+export EMS_PROJECT="emsfiles"
 
 export TILE_HOST="tiles.maps.elastic.co"
 export VECTOR_HOST="vector.maps.elastic.co"
 export CATALOGUE_BUCKET=${GPROJECT}-${EMS_PROJECT}-catalogue
 export VECTOR_BUCKET=${GPROJECT}-${EMS_PROJECT}-vector
-export ARCHIVE_BUCKET=${GPROJECT}-files-archive
+export ARCHIVE_BUCKET=${GPROJECT}-${EMS_PROJECT}-archive
 
 ./build.sh
