@@ -1,0 +1,29 @@
+---
+- job:
+    name: elastic+ems-file-service+feature-layers
+    display-name: 'elastic / ems-file-service # feature-layers'
+    description: Build and deploy feature-layers branch to development server using ./deployDev.sh.
+    parameters:
+    - string:
+      name: branch_identifier
+      default: refs/heads/feature-layers
+      description: the Git branch specifier to build (&lt;branchName&gt;, &lt;tagName&gt;,
+        &lt;commitId&gt;, etc.)
+    triggers:
+    - github
+    builders:
+    - shell: |-
+        #!/usr/local/bin/runbld
+        set -e
+        set +x
+
+        export GPROJECT=elastic-ems-dev
+        VAULT_ACCOUNT=secret/gce/$GPROJECT/service-account/jenkins
+
+        export VAULT_TOKEN=$(vault write -field=token auth/approle/login role_id="$VAULT_ROLE_ID" secret_id="$VAULT_SECRET_ID")
+        export GCE_ACCOUNT=$(vault read -field=value $VAULT_ACCOUNT)
+        unset VAULT_ROLE_ID VAULT_SECRET_ID VAULT_ADDR VAULT_TOKEN VAULT_ACCOUNT
+
+        # Expects env: GPROJECT, GCE_ACCOUNT, GIT_BRANCH
+        # Run EMS script, set in the template parameter
+        ./deployDev.sh
