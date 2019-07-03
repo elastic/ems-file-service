@@ -10,7 +10,7 @@ set -e
 set +x
 
 # Expected env variables:
-# * GPROJECT - e.g. "elastic-ems"
+# * GPROJECT - e.g. "elastic-bekitzur"
 # * GCE_ACCOUNT - credentials for the google service account (JSON blob)
 
 if [[ -z "${GPROJECT}" ]]; then

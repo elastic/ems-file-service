@@ -10,7 +10,7 @@ set -e
 set +x
 
 # Expected env variables:
-# * GPROJECT - e.g. "elastic-ems"
+# * GPROJECT - e.g. "elastic-bekitzur"
 # * GCE_ACCOUNT - credentials for the google service account (JSON blob)
 
 if [[ -z "${GPROJECT}" ]]; then
@@ -18,12 +18,12 @@ if [[ -z "${GPROJECT}" ]]; then
     exit 1
 fi
 
-export EMS_PROJECT="feature-layers"
+export EMS_PROJECT="emsfiles"
 
 export TILE_HOST="tiles.maps.elastic.co"
-export VECTOR_HOST="storage.googleapis.com/${GPROJECT}-${EMS_PROJECT}-vector"
-export CATALOGUE_BUCKET=${GPROJECT}-${EMS_PROJECT}-catalogue
-export VECTOR_BUCKET=${GPROJECT}-${EMS_PROJECT}-vector
+export VECTOR_HOST="storage.googleapis.com/${GPROJECT}-${EMS_PROJECT}-vector-dev"
+export CATALOGUE_BUCKET=${GPROJECT}-${EMS_PROJECT}-catalogue-dev
+export VECTOR_BUCKET=${GPROJECT}-${EMS_PROJECT}-vector-dev
 
 unset ARCHIVE_BUCKET
 
