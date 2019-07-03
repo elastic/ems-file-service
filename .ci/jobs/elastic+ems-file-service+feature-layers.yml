@@ -5,7 +5,7 @@
     description: Build and deploy feature-layers branch to development server using ./deployDev.sh.
     parameters:
     - string:
-      name: branch_identifier
+      name: branch_specifier
       default: refs/heads/feature-layers
       description: the Git branch specifier to build (&lt;branchName&gt;, &lt;tagName&gt;,
         &lt;commitId&gt;, etc.)
