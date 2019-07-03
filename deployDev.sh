@@ -24,6 +24,8 @@ export TILE_HOST="tiles.maps.elastic.co"
 export VECTOR_HOST="storage.googleapis.com/${GPROJECT}-${EMS_PROJECT}-vector-dev"
 export CATALOGUE_BUCKET=${GPROJECT}-${EMS_PROJECT}-catalogue-dev
 export VECTOR_BUCKET=${GPROJECT}-${EMS_PROJECT}-vector-dev
+export VECTOR_HOST="storage.googleapis.com/${VECTOR_BUCKET}"
+
 
 unset ARCHIVE_BUCKET
 
