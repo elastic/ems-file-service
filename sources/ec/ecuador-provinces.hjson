@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: EC
     wikidata: Q719987
     note: Province Of Ecuador
     data: https://sophox.org/regions/geojson.json

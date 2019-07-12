@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: SR
     wikidata: Q1649296
     note: District Of Suriname
     data: https://sophox.org/regions/geojson.json

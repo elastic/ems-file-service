@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: AR
     wikidata: Q44753
     note: Province Of Argentina
     data: https://sophox.org/regions/geojson.json

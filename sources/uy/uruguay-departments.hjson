@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: UY
     wikidata: Q56059
     note: Department Of Uruguay
     data: https://sophox.org/regions/geojson.json

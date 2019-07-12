@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: GY
     wikidata: Q2087773
     note: Region Of Guyana
     data: https://sophox.org/regions/geojson.json

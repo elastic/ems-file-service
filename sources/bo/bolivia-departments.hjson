@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: BO
     wikidata: Q250050
     note: Department Of Bolivia
     data: https://sophox.org/regions/geojson.json

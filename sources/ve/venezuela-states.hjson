@@ -2,6 +2,7 @@
     versions: '>=1'
     type: http
     production: true
+    countryCode: VE
     wikidata: Q501094
     note: State Of Venezuela
     data: https://sophox.org/regions/geojson.json
