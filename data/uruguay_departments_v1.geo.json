@@ -7,8 +7,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-DU",
-    "label_es": "Departamento de Durazno",
-    "label_en": "Durazno Department"
+    "label_es": "Durazno",
+    "label_en": "Durazno"
   },
   "id": "Q16591"
 },
@@ -21,7 +21,7 @@
   "properties": {
     "iso_3166_2": "UY-CL",
     "label_es": "Cerro Largo",
-    "label_en": "Cerro Largo Department"
+    "label_en": "Cerro Largo"
   },
   "id": "Q16575"
 },
@@ -33,8 +33,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-FD",
-    "label_es": "Departamento de Florida",
-    "label_en": "Florida Department"
+    "label_es": "Florida",
+    "label_en": "Florida"
   },
   "id": "Q16593"
 },
@@ -47,7 +47,7 @@
   "properties": {
     "iso_3166_2": "UY-CA",
     "label_es": "Canelones",
-    "label_en": "Canelones Department"
+    "label_en": "Canelones"
   },
   "id": "Q16577"
 },
@@ -59,8 +59,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-PA",
-    "label_es": "Departamento de Paysandú",
-    "label_en": "Paysandú Department"
+    "label_es": "Paysandú",
+    "label_en": "Paysandú"
   },
   "id": "Q16576"
 },
@@ -72,8 +72,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-SA",
-    "label_es": "Departamento de Salto",
-    "label_en": "Salto Department"
+    "label_es": "Salto",
+    "label_en": "Salto"
   },
   "id": "Q16595"
 },
@@ -85,8 +85,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-CO",
-    "label_es": "Departamento de Colonia",
-    "label_en": "Colonia Department"
+    "label_es": "Colonia",
+    "label_en": "Colonia"
   },
   "id": "Q16580"
 },
@@ -98,8 +98,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-FS",
-    "label_es": "Departamento de Flores",
-    "label_en": "Flores Department"
+    "label_es": "Flores",
+    "label_en": "Flores"
   },
   "id": "Q16578"
 },
@@ -111,8 +111,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-SJ",
-    "label_es": "Departamento de San José",
-    "label_en": "San José Department"
+    "label_es": "San José",
+    "label_en": "San José"
   },
   "id": "Q16579"
 },
@@ -124,8 +124,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-RO",
-    "label_es": "Departamento de Rocha",
-    "label_en": "Rocha Department"
+    "label_es": "Rocha",
+    "label_en": "Rocha"
   },
   "id": "Q16582"
 },
@@ -137,8 +137,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-SO",
-    "label_es": "Departamento de Soriano",
-    "label_en": "Soriano Department"
+    "label_es": "Soriano",
+    "label_en": "Soriano"
   },
   "id": "Q16584"
 },
@@ -151,7 +151,7 @@
   "properties": {
     "iso_3166_2": "UY-TA",
     "label_es": "Tacuarembó",
-    "label_en": "Tacuarembó Department"
+    "label_en": "Tacuarembó"
   },
   "id": "Q16587"
 },
@@ -163,8 +163,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-MO",
-    "label_es": "Departamento de Montevideo",
-    "label_en": "Montevideo Department"
+    "label_es": "Montevideo",
+    "label_en": "Montevideo"
   },
   "id": "Q16594"
 },
@@ -176,8 +176,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-RN",
-    "label_es": "Departamento de Río Negro",
-    "label_en": "Río Negro Department"
+    "label_es": "Río Negro",
+    "label_en": "Río Negro"
   },
   "id": "Q16596"
 },
@@ -189,8 +189,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-AR",
-    "label_es": "Departamento de Artigas",
-    "label_en": "Artigas Department"
+    "label_es": "Artigas",
+    "label_en": "Artigas"
   },
   "id": "Q16603"
 },
@@ -202,8 +202,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-RV",
-    "label_es": "Departamento de Rivera",
-    "label_en": "Rivera Department"
+    "label_es": "Rivera",
+    "label_en": "Rivera"
   },
   "id": "Q16609"
 },
@@ -215,8 +215,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-TT",
-    "label_es": "Departamento de Treinta y Tres",
-    "label_en": "Treinta y Tres Department"
+    "label_es": "Treinta y Tres",
+    "label_en": "Treinta y Tres"
   },
   "id": "Q16610"
 },
@@ -228,8 +228,8 @@
   },
   "properties": {
     "iso_3166_2": "UY-MA",
-    "label_es": "Departamento de Maldonado",
-    "label_en": "Maldonado Department"
+    "label_es": "Maldonado",
+    "label_en": "Maldonado"
   },
   "id": "Q331196"
 },
@@ -242,7 +242,7 @@
   "properties": {
     "iso_3166_2": "UY-LA",
     "label_es": "Lavalleja",
-    "label_en": "Lavalleja Department"
+    "label_en": "Lavalleja"
   },
   "id": "Q460435"
 }
