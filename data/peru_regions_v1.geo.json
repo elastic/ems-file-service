@@ -7,9 +7,9 @@
   },
   "properties": {
     "label_es": "Loreto",
-    "label_qu": "Luritu suyu",
+    "label_qu": "Luritu",
     "iso_3166_2": "PE-LOR",
-    "label_ay": "Luritu jach'a suyu",
+    "label_ay": "Luritu",
     "label_en": "Loreto"
   },
   "id": "Q200938"
@@ -22,9 +22,9 @@
   },
   "properties": {
     "label_es": "Amazonas",
-    "label_qu": "Amarumayu suyu",
+    "label_qu": "Amarumayu",
     "iso_3166_2": "PE-AMA",
-    "label_ay": "Amarujawira jach'a suyu",
+    "label_ay": "Amarujawira",
     "label_en": "Amazonas"
   },
   "id": "Q201162"
@@ -37,9 +37,9 @@
   },
   "properties": {
     "label_es": "Cuzco",
-    "label_qu": "Qusqu suyu",
+    "label_qu": "Qusqu",
     "iso_3166_2": "PE-CUS",
-    "label_ay": "Qusqu jach'a suyu",
+    "label_ay": "Qusqu",
     "label_en": "Cusco"
   },
   "id": "Q205057"
@@ -52,9 +52,9 @@
   },
   "properties": {
     "label_es": "Arequipa",
-    "label_qu": "Ariqipa suyu",
+    "label_qu": "Ariqipa",
     "iso_3166_2": "PE-ARE",
-    "label_ay": "Ariqipa jach'a suyu",
+    "label_ay": "Ariqipa",
     "label_en": "Arequipa"
   },
   "id": "Q205068"
@@ -67,9 +67,9 @@
   },
   "properties": {
     "label_es": "Cajamarca",
-    "label_qu": "Kashamarka suyu",
+    "label_qu": "Kashamarka",
     "iso_3166_2": "PE-CAJ",
-    "label_ay": "Qajamarka jach'a suyu",
+    "label_ay": "Qajamarka",
     "label_en": "Cajamarca"
   },
   "id": "Q205078"
@@ -82,9 +82,9 @@
   },
   "properties": {
     "label_es": "Áncash",
-    "label_qu": "Anqash suyu",
+    "label_qu": "Anqash",
     "iso_3166_2": "PE-ANC",
-    "label_ay": "Ankashu jach'a suyu",
+    "label_ay": "Ankashu",
     "label_en": "Áncash"
   },
   "id": "Q205089"
@@ -97,9 +97,9 @@
   },
   "properties": {
     "label_es": "Puno",
-    "label_qu": "Punu suyu",
+    "label_qu": "Punu",
     "iso_3166_2": "PE-PUN",
-    "label_ay": "Punu jach'a suyu",
+    "label_ay": "Punu",
     "label_en": "Puno"
   },
   "id": "Q205104"
@@ -112,9 +112,9 @@
   },
   "properties": {
     "label_es": "Ayacucho",
-    "label_qu": "Ayakuchu suyu",
+    "label_qu": "Ayakuchu",
     "iso_3166_2": "PE-AYA",
-    "label_ay": "Ayaquchu jach'a suyu",
+    "label_ay": "Ayaquchu",
     "label_en": "Ayacucho"
   },
   "id": "Q205112"
@@ -127,9 +127,9 @@
   },
   "properties": {
     "label_es": "La Libertad",
-    "label_qu": "Qispi Kay suyu",
+    "label_qu": "Qispi Kay",
     "iso_3166_2": "PE-LAL",
-    "label_ay": "La Libertad jach'a suyu",
+    "label_ay": "La Libertad",
     "label_en": "La Libertad"
   },
   "id": "Q205126"
@@ -142,9 +142,9 @@
   },
   "properties": {
     "label_es": "Tacna",
-    "label_qu": "Taqna suyu",
+    "label_qu": "Taqna",
     "iso_3166_2": "PE-TAC",
-    "label_ay": "Taqna jach'a suyu",
+    "label_ay": "Taqna",
     "label_en": "Tacna"
   },
   "id": "Q207413"
@@ -157,9 +157,9 @@
   },
   "properties": {
     "label_es": "Ucayali",
-    "label_qu": "Ukayali suyu",
+    "label_qu": "Ukayali",
     "iso_3166_2": "PE-UCA",
-    "label_ay": "Ukayali jach'a suyu",
+    "label_ay": "Ukayali",
     "label_en": "Ucayali"
   },
   "id": "Q207424"
@@ -172,9 +172,9 @@
   },
   "properties": {
     "label_es": "Junín",
-    "label_qu": "Sunin suyu",
+    "label_qu": "Sunin",
     "iso_3166_2": "PE-JUN",
-    "label_ay": "Hunin jach'a suyu",
+    "label_ay": "Hunin",
     "label_en": "Junín"
   },
   "id": "Q207973"
@@ -187,9 +187,9 @@
   },
   "properties": {
     "label_es": "Moquegua",
-    "label_qu": "Muqiwa suyu",
+    "label_qu": "Muqiwa",
     "iso_3166_2": "PE-MOQ",
-    "label_ay": "Moqwegwa jach'a suyu",
+    "label_ay": "Moqwegwa",
     "label_en": "Moquegua"
   },
   "id": "Q208182"
@@ -202,9 +202,9 @@
   },
   "properties": {
     "label_es": "Piura",
-    "label_qu": "Piwra suyu",
+    "label_qu": "Piwra",
     "iso_3166_2": "PE-PIU",
-    "label_ay": "Piwra jach'a suyu",
+    "label_ay": "Piwra",
     "label_en": "Piura"
   },
   "id": "Q208183"
@@ -217,9 +217,9 @@
   },
   "properties": {
     "label_es": "Apurímac",
-    "label_qu": "Apurimaq suyu",
+    "label_qu": "Apurimaq",
     "iso_3166_2": "PE-APU",
-    "label_ay": "Apurimaq jach'a suyu",
+    "label_ay": "Apurimaq",
     "label_en": "Apurímac"
   },
   "id": "Q208185"
@@ -232,9 +232,9 @@
   },
   "properties": {
     "label_es": "Ica",
-    "label_qu": "Ika suyu",
+    "label_qu": "Ika",
     "iso_3166_2": "PE-ICA",
-    "label_ay": "Ika jach'a suyu",
+    "label_ay": "Ika",
     "label_en": "Ica"
   },
   "id": "Q208186"
@@ -247,9 +247,9 @@
   },
   "properties": {
     "label_es": "Tumbes",
-    "label_qu": "Tumpis suyu",
+    "label_qu": "Tumpis",
     "iso_3166_2": "PE-TUM",
-    "label_ay": "Tumpis jach'a suyu",
+    "label_ay": "Tumpis",
     "label_en": "Tumbes"
   },
   "id": "Q209597"
@@ -262,9 +262,9 @@
   },
   "properties": {
     "label_es": "Lambayeque",
-    "label_qu": "Lampalliqi suyu",
+    "label_qu": "Lampalliqi",
     "iso_3166_2": "PE-LAM",
-    "label_ay": "Lampalliqi jach'a suyu",
+    "label_ay": "Lampalliqi",
     "label_en": "Lambayeque"
   },
   "id": "Q210061"
@@ -277,7 +277,7 @@
   },
   "properties": {
     "label_es": "Madre de Dios",
-    "label_qu": "Mayutata suyu",
+    "label_qu": "Mayutata",
     "iso_3166_2": "PE-MDD",
     "label_en": "Madre de Dios"
   },
@@ -291,9 +291,9 @@
   },
   "properties": {
     "label_es": "Pasco",
-    "label_qu": "Pasqu suyu",
+    "label_qu": "Pasqu",
     "iso_3166_2": "PE-PAS",
-    "label_ay": "Pasqu jach'a suyu",
+    "label_ay": "Pasqu",
     "label_en": "Pasco"
   },
   "id": "Q211208"
@@ -306,9 +306,9 @@
   },
   "properties": {
     "label_es": "San Martín",
-    "label_qu": "San Martin suyu",
+    "label_qu": "San Martin",
     "iso_3166_2": "PE-SAM",
-    "label_ay": "San Martín jach'a suyu",
+    "label_ay": "San Martín",
     "label_en": "San Martín"
   },
   "id": "Q211793"
@@ -321,9 +321,9 @@
   },
   "properties": {
     "label_es": "Lima",
-    "label_qu": "Lima suyu",
+    "label_qu": "Lima",
     "iso_3166_2": "PE-LIM",
-    "label_ay": "Lima jach'a suyu",
+    "label_ay": "Lima",
     "label_en": "Lima"
   },
   "id": "Q211795"
@@ -336,9 +336,9 @@
   },
   "properties": {
     "label_es": "Huánuco",
-    "label_qu": "Wanuku suyu",
+    "label_qu": "Wanuku",
     "iso_3166_2": "PE-HUC",
-    "label_ay": "Wanuku jach'a suyu",
+    "label_ay": "Wanuku",
     "label_en": "Huanuco"
   },
   "id": "Q215221"
@@ -351,9 +351,9 @@
   },
   "properties": {
     "label_es": "Huancavelica",
-    "label_qu": "Wankawillka suyu",
+    "label_qu": "Wankawillka",
     "iso_3166_2": "PE-HUV",
-    "label_ay": "Wankawillka jach'a suyu",
+    "label_ay": "Wankawillka",
     "label_en": "Huancavelica"
   },
   "id": "Q505220"
