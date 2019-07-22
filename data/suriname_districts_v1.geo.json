@@ -8,7 +8,7 @@
   "properties": {
     "iso_3166_2": "SR-PM",
     "label_nl": "Paramaribo",
-    "label_en": "Paramaribo District"
+    "label_en": "Paramaribo"
   },
   "id": "Q1130134"
 },
@@ -21,7 +21,7 @@
   "properties": {
     "iso_3166_2": "SR-SI",
     "label_nl": "Sipaliwini",
-    "label_en": "Sipaliwini District"
+    "label_en": "Sipaliwini"
   },
   "id": "Q1130138"
 },
@@ -34,7 +34,7 @@
   "properties": {
     "iso_3166_2": "SR-CR",
     "label_nl": "Coronie",
-    "label_en": "Coronie District"
+    "label_en": "Coronie"
   },
   "id": "Q1130141"
 },
@@ -47,7 +47,7 @@
   "properties": {
     "iso_3166_2": "SR-PR",
     "label_nl": "Para",
-    "label_en": "Para District"
+    "label_en": "Para"
   },
   "id": "Q1140891"
 },
@@ -60,7 +60,7 @@
   "properties": {
     "iso_3166_2": "SR-MA",
     "label_nl": "Marowijne",
-    "label_en": "Marowijne District"
+    "label_en": "Marowijne"
   },
   "id": "Q1140897"
 },
@@ -73,7 +73,7 @@
   "properties": {
     "iso_3166_2": "SR-NI",
     "label_nl": "Nickerie",
-    "label_en": "Nickerie District"
+    "label_en": "Nickerie"
   },
   "id": "Q1147515"
 },
@@ -86,7 +86,7 @@
   "properties": {
     "iso_3166_2": "SR-WA",
     "label_nl": "Wanica",
-    "label_en": "Wanica District"
+    "label_en": "Wanica"
   },
   "id": "Q1147524"
 },
@@ -99,7 +99,7 @@
   "properties": {
     "iso_3166_2": "SR-SA",
     "label_nl": "Saramacca",
-    "label_en": "Saramacca District"
+    "label_en": "Saramacca"
   },
   "id": "Q1351157"
 },
@@ -112,7 +112,7 @@
   "properties": {
     "iso_3166_2": "SR-BR",
     "label_nl": "Brokopondo",
-    "label_en": "Brokopondo District"
+    "label_en": "Brokopondo"
   },
   "id": "Q847680"
 },
@@ -125,7 +125,7 @@
   "properties": {
     "iso_3166_2": "SR-CM",
     "label_nl": "Commewijne",
-    "label_en": "Commewijne District"
+    "label_en": "Commewijne"
   },
   "id": "Q952510"
 }
