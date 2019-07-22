@@ -7,8 +7,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-C",
-    "label_es": "Buenos Aires",
-    "label_en": "Buenos Aires"
+    "label_es": "Ciudad Autónoma de Buenos Aires",
+    "label_en": "Autonomous City of Buenos Aires"
   },
   "id": "Q1486"
 },
@@ -20,8 +20,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-B",
-    "label_es": "Provincia de Buenos Aires",
-    "label_en": "Buenos Aires Province"
+    "label_es": "Buenos Aires",
+    "label_en": "Buenos Aires"
   },
   "id": "Q44754"
 },
@@ -33,8 +33,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-K",
-    "label_es": "Provincia de Catamarca",
-    "label_en": "Catamarca Province"
+    "label_es": "Catamarca",
+    "label_en": "Catamarca"
   },
   "id": "Q44756"
 },
@@ -46,8 +46,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-H",
-    "label_es": "Provincia del Chaco",
-    "label_en": "Chaco Province"
+    "label_es": "Chaco",
+    "label_en": "Chaco"
   },
   "id": "Q44757"
 },
@@ -59,7 +59,7 @@
   },
   "properties": {
     "iso_3166_2": "AR-W",
-    "label_es": "Provincia de Corrientes",
+    "label_es": "Corrientes",
     "label_en": "Corrientes"
   },
   "id": "Q44758"
@@ -72,8 +72,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-X",
-    "label_es": "Provincia de Córdoba",
-    "label_en": "Córdoba Province"
+    "label_es": "Córdoba",
+    "label_en": "Córdoba"
   },
   "id": "Q44759"
 },
@@ -85,8 +85,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-P",
-    "label_es": "Provincia de Formosa",
-    "label_en": "Formosa Province"
+    "label_es": "Formosa",
+    "label_en": "Formosa"
   },
   "id": "Q44761"
 },
@@ -98,8 +98,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-E",
-    "label_es": "Provincia de Entre Ríos",
-    "label_en": "Entre Ríos Province"
+    "label_es": "Entre Ríos",
+    "label_en": "Entre Ríos"
   },
   "id": "Q44762"
 },
@@ -111,8 +111,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-Y",
-    "label_es": "Provincia de Jujuy",
-    "label_en": "Jujuy Province"
+    "label_es": "Jujuy",
+    "label_en": "Jujuy"
   },
   "id": "Q44764"
 },
@@ -124,7 +124,7 @@
   },
   "properties": {
     "iso_3166_2": "AR-L",
-    "label_es": "Provincia de La Pampa",
+    "label_es": "La Pampa",
     "label_en": "La Pampa"
   },
   "id": "Q44795"
@@ -137,8 +137,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-F",
-    "label_es": "Provincia de La Rioja",
-    "label_en": "La Rioja Province"
+    "label_es": "La Rioja",
+    "label_en": "La Rioja"
   },
   "id": "Q44796"
 },
@@ -150,7 +150,7 @@
   },
   "properties": {
     "iso_3166_2": "AR-M",
-    "label_es": "Provincia de Mendoza",
+    "label_es": "Mendoza",
     "label_en": "Mendoza"
   },
   "id": "Q44797"
@@ -163,8 +163,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-N",
-    "label_es": "Provincia de Misiones",
-    "label_en": "Misiones Province"
+    "label_es": "Misiones",
+    "label_en": "Misiones"
   },
   "id": "Q44798"
 },
@@ -176,8 +176,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-Q",
-    "label_es": "Provincia de Neuquén",
-    "label_en": "Neuquén Province"
+    "label_es": "Neuquén",
+    "label_en": "Neuquén"
   },
   "id": "Q44800"
 },
@@ -189,8 +189,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-R",
-    "label_es": "Provincia de Río Negro",
-    "label_en": "Río Negro Province"
+    "label_es": "Río Negro",
+    "label_en": "Río Negro"
   },
   "id": "Q44802"
 },
@@ -202,8 +202,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-A",
-    "label_es": "Provincia de Salta",
-    "label_en": "Salta Province"
+    "label_es": "Salta",
+    "label_en": "Salta"
   },
   "id": "Q44803"
 },
@@ -215,8 +215,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-J",
-    "label_es": "Provincia de San Juan",
-    "label_en": "San Juan Province"
+    "label_es": "San Juan",
+    "label_en": "San Juan"
   },
   "id": "Q44805"
 },
@@ -228,8 +228,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-D",
-    "label_es": "Provincia de San Luis",
-    "label_en": "San Luis Province"
+    "label_es": "San Luis",
+    "label_en": "San Luis"
   },
   "id": "Q44818"
 },
@@ -241,8 +241,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-Z",
-    "label_es": "Provincia de Santa Cruz",
-    "label_en": "Santa Cruz Province"
+    "label_es": "Santa Cruz",
+    "label_en": "Santa Cruz"
   },
   "id": "Q44821"
 },
@@ -254,8 +254,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-S",
-    "label_es": "Provincia de Santa Fe",
-    "label_en": "Santa Fe Province"
+    "label_es": "Santa Fe",
+    "label_en": "Santa Fe"
   },
   "id": "Q44823"
 },
@@ -267,8 +267,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-G",
-    "label_es": "Provincia de Santiago del Estero",
-    "label_en": "Santiago del Estero Province"
+    "label_es": "Santiago del Estero",
+    "label_en": "Santiago del Estero"
   },
   "id": "Q44827"
 },
@@ -280,8 +280,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-T",
-    "label_es": "Provincia de Tucumán",
-    "label_en": "Tucumán Province"
+    "label_es": "Tucumán",
+    "label_en": "Tucumán"
   },
   "id": "Q44829"
 },
@@ -293,8 +293,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-V",
-    "label_es": "Provincia de Tierra del Fuego, Antártida e islas del Atlántico Sur",
-    "label_en": "Tierra del Fuego Province"
+    "label_es": "Tierra del Fuego",
+    "label_en": "Tierra del Fuego"
   },
   "id": "Q44832"
 },
@@ -306,8 +306,8 @@
   },
   "properties": {
     "iso_3166_2": "AR-U",
-    "label_es": "Provincia del Chubut",
-    "label_en": "Chubut Province"
+    "label_es": "Chubut",
+    "label_en": "Chubut"
   },
   "id": "Q45007"
 }
