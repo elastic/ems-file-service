@@ -7,8 +7,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-SD",
-    "label_es": "Provincia de Santo Domingo de los Tsáchilas",
-    "label_en": "Santo Domingo de los Tsáchilas Province"
+    "label_es": "Santo Domingo de los Tsáchilas",
+    "label_en": "Santo Domingo de los Tsáchilas"
   },
   "id": "Q1123208"
 },
@@ -20,8 +20,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-SE",
-    "label_es": "Provincia de Santa Elena",
-    "label_en": "Santa Elena Province"
+    "label_es": "Santa Elena",
+    "label_en": "Santa Elena"
   },
   "id": "Q1124125"
 },
@@ -33,8 +33,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-N",
-    "label_es": "Provincia de Napo",
-    "label_en": "Napo Province"
+    "label_es": "Napo",
+    "label_en": "Napo"
   },
   "id": "Q211900"
 },
@@ -46,8 +46,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-Y",
-    "label_es": "Provincia de Pastaza",
-    "label_en": "Pastaza Province"
+    "label_es": "Pastaza",
+    "label_en": "Pastaza"
   },
   "id": "Q214814"
 },
@@ -59,8 +59,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-A",
-    "label_es": "Provincia de Azuay",
-    "label_en": "Azuay Province"
+    "label_es": "Azuay",
+    "label_en": "Azuay"
   },
   "id": "Q220451"
 },
@@ -72,8 +72,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-H",
-    "label_es": "Provincia de Chimborazo",
-    "label_en": "Chimborazo Province"
+    "label_es": "Chimborazo",
+    "label_en": "Chimborazo"
   },
   "id": "Q238492"
 },
@@ -85,8 +85,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-X",
-    "label_es": "Provincia de Cotopaxi",
-    "label_en": "Cotopaxi Province"
+    "label_es": "Cotopaxi",
+    "label_en": "Cotopaxi"
   },
   "id": "Q241140"
 },
@@ -98,8 +98,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-B",
-    "label_es": "Provincia de Bolívar",
-    "label_en": "Bolívar Province"
+    "label_es": "Bolívar",
+    "label_en": "Bolívar"
   },
   "id": "Q261165"
 },
@@ -111,8 +111,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-P",
-    "label_es": "Provincia de Pichincha",
-    "label_en": "Pichincha Province"
+    "label_es": "Pichincha",
+    "label_en": "Pichincha"
   },
   "id": "Q272586"
 },
@@ -124,8 +124,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-C",
-    "label_es": "Provincia de Carchi",
-    "label_en": "Carchi Province"
+    "label_es": "Carchi",
+    "label_en": "Carchi"
   },
   "id": "Q321729"
 },
@@ -137,8 +137,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-I",
-    "label_es": "Provincia de Imbabura",
-    "label_en": "Imbabura Province"
+    "label_es": "Imbabura",
+    "label_en": "Imbabura"
   },
   "id": "Q321863"
 },
@@ -150,8 +150,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-G",
-    "label_es": "Provincia de Guayas",
-    "label_en": "Guayas Province"
+    "label_es": "Guayas",
+    "label_en": "Guayas"
   },
   "id": "Q335464"
 },
@@ -163,8 +163,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-F",
-    "label_es": "Provincia de Cañar",
-    "label_en": "Cañar Province"
+    "label_es": "Cañar",
+    "label_en": "Cañar"
   },
   "id": "Q335471"
 },
@@ -176,7 +176,7 @@
   },
   "properties": {
     "iso_3166_2": "EC-E",
-    "label_es": "Provincia de Esmeraldas",
+    "label_es": "Esmeraldas",
     "label_en": "Esmeraldas"
   },
   "id": "Q335526"
@@ -189,8 +189,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-O",
-    "label_es": "Provincia de El Oro",
-    "label_en": "El Oro Province"
+    "label_es": "El Oro",
+    "label_en": "El Oro"
   },
   "id": "Q466019"
 },
@@ -202,8 +202,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-W",
-    "label_es": "Provincia de Galápagos",
-    "label_en": "Galápagos Province"
+    "label_es": "Galápagos",
+    "label_en": "Galápagos"
   },
   "id": "Q475038"
 },
@@ -215,8 +215,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-U",
-    "label_es": "Provincia de Sucumbíos",
-    "label_en": "Sucumbíos Province"
+    "label_es": "Sucumbíos",
+    "label_en": "Sucumbíos"
   },
   "id": "Q499456"
 },
@@ -228,8 +228,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-D",
-    "label_es": "Provincia de Orellana",
-    "label_en": "Orellana Province"
+    "label_es": "Orellana",
+    "label_en": "Orellana"
   },
   "id": "Q499475"
 },
@@ -241,8 +241,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-L",
-    "label_es": "Provincia de Loja",
-    "label_en": "Loja Province"
+    "label_es": "Loja",
+    "label_en": "Loja"
   },
   "id": "Q504238"
 },
@@ -254,8 +254,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-T",
-    "label_es": "Provincia de Tungurahua",
-    "label_en": "Tungurahua Province"
+    "label_es": "Tungurahua",
+    "label_en": "Tungurahua"
   },
   "id": "Q504252"
 },
@@ -268,7 +268,7 @@
   "properties": {
     "iso_3166_2": "EC-R",
     "label_es": "Los Ríos",
-    "label_en": "Los Ríos Province"
+    "label_en": "Los Ríos"
   },
   "id": "Q504260"
 },
@@ -280,8 +280,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-M",
-    "label_es": "Provincia de Manabí",
-    "label_en": "Manabí Province"
+    "label_es": "Manabí",
+    "label_en": "Manabí"
   },
   "id": "Q504666"
 },
@@ -293,8 +293,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-S",
-    "label_es": "Provincia de Morona Santiago",
-    "label_en": "Morona-Santiago Province"
+    "label_es": "Morona Santiago",
+    "label_en": "Morona-Santiago"
   },
   "id": "Q549522"
 },
@@ -306,8 +306,8 @@
   },
   "properties": {
     "iso_3166_2": "EC-Z",
-    "label_es": "Provincia de Zamora Chinchipe",
-    "label_en": "Zamora-Chinchipe Province"
+    "label_es": "Zamora Chinchipe",
+    "label_en": "Zamora-Chinchipe"
   },
   "id": "Q744670"
 }

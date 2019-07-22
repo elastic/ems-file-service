@@ -40,11 +40,6 @@
           name: label_es
           desc: Province name (Spanish)
         }
-        {
-          type: property
-          name: label_qug
-          desc: Province name (Kichwa)
-        }
     ]
     query: {
         sparql:
@@ -55,7 +50,6 @@
             ?iso_3166_2
             ?label_en
             ?label_es
-            ?label_qug
             WHERE {
               SERVICE <https://query.wikidata.org/sparql> {
               # Using nested query to ensure there is only one ?id2 value
@@ -65,7 +59,6 @@
               (SAMPLE(?iso_3166_2) as ?iso_3166_2)
               (SAMPLE(?label_en) as ?label_en)
               (SAMPLE(?label_es) as ?label_es)
-              (SAMPLE(?label_qug) as ?label_qug)
               WHERE {
                 # List of regions, whose sub-regions we want.
                 VALUES ?entity { wd:Q736 }
@@ -77,7 +70,6 @@
 
                     OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
                     OPTIONAL { ?id rdfs:label ?label_es . FILTER(LANG(?label_es) = "es")}
-                    OPTIONAL { ?id rdfs:label ?label_qug . FILTER(LANG(?label_qug) = "qug")}
               }
               # remove possible ID duplicates
               GROUP BY ?id}
