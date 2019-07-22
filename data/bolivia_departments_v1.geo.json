@@ -7,10 +7,10 @@
   },
   "properties": {
     "label_es": "Oruro",
-    "label_qu": "Uru Uru suyu",
+    "label_qu": "Uru Uru",
     "iso_3166_2": "BO-O",
-    "label_gn": "Tetãvore Oruro",
-    "label_ay": "Ururu jach'a suyu",
+    "label_gn": "Oruro",
+    "label_ay": "Ururu",
     "label_en": "Oruro"
   },
   "id": "Q1061368"
@@ -23,10 +23,10 @@
   },
   "properties": {
     "label_es": "Beni",
-    "label_qu": "Beni suyu",
+    "label_qu": "Beni",
     "iso_3166_2": "BO-B",
-    "label_gn": "Tetãvore Beni",
-    "label_ay": "Wini jach'a suyu",
+    "label_gn": "Beni",
+    "label_ay": "Wini",
     "label_en": "Beni"
   },
   "id": "Q233169"
@@ -39,10 +39,10 @@
   },
   "properties": {
     "label_es": "Cochabamba",
-    "label_qu": "Quchapampa suyu",
+    "label_qu": "Quchapampa",
     "iso_3166_2": "BO-C",
-    "label_gn": "Tetãvore Cochabamba",
-    "label_ay": "Quchapampa jach'a suyu",
+    "label_gn": "Cochabamba",
+    "label_ay": "Quchapampa",
     "label_en": "Cochabamba"
   },
   "id": "Q233917"
@@ -55,10 +55,10 @@
   },
   "properties": {
     "label_es": "Tarija",
-    "label_qu": "Tarija suyu",
+    "label_qu": "Tarija",
     "iso_3166_2": "BO-T",
-    "label_gn": "Tetãvore Tarija",
-    "label_ay": "Tarixa jach'a suyu",
+    "label_gn": "Tarija",
+    "label_ay": "Tarixa",
     "label_en": "Tarija"
   },
   "id": "Q233933"
@@ -71,10 +71,10 @@
   },
   "properties": {
     "label_es": "Santa Cruz",
-    "label_qu": "Santa Krus suyu",
+    "label_qu": "Santa Krus",
     "iso_3166_2": "BO-S",
-    "label_gn": "Tetãvore Santa Cruz",
-    "label_ay": "Santa Krus jach'a suyu",
+    "label_gn": "Santa Cruz",
+    "label_ay": "Santa Krus",
     "label_en": "Santa Cruz"
   },
   "id": "Q235106"
@@ -87,10 +87,10 @@
   },
   "properties": {
     "label_es": "Chuquisaca",
-    "label_qu": "Chuqichaka suyu",
+    "label_qu": "Chuqichaka",
     "iso_3166_2": "BO-H",
-    "label_gn": "Tetãvore Chuquisaca",
-    "label_ay": "Chuqisaka jach'a suyu",
+    "label_gn": "Chuquisaca",
+    "label_ay": "Chuqisaka",
     "label_en": "Chuquisaca"
   },
   "id": "Q235110"
@@ -103,10 +103,10 @@
   },
   "properties": {
     "label_es": "Pando",
-    "label_qu": "Pando suyu",
+    "label_qu": "Pando",
     "iso_3166_2": "BO-N",
-    "label_gn": "Tetãvore Pando",
-    "label_ay": "Pandu jach'a suyu",
+    "label_gn": "Pando",
+    "label_ay": "Pandu",
     "label_en": "Pando"
   },
   "id": "Q235362"
@@ -119,10 +119,10 @@
   },
   "properties": {
     "label_es": "Potosí",
-    "label_qu": "P'utuqsi suyu",
+    "label_qu": "P'utuqsi",
     "iso_3166_2": "BO-P",
-    "label_gn": "Tetãvore Potosí",
-    "label_ay": "Putusi jach'a suyu",
+    "label_gn": "Potosí",
+    "label_ay": "Putusi",
     "label_en": "Potosí"
   },
   "id": "Q238079"
@@ -135,10 +135,10 @@
   },
   "properties": {
     "label_es": "La Paz",
-    "label_qu": "Chuqiyapu suyu",
+    "label_qu": "Chuqiyapu",
     "iso_3166_2": "BO-L",
-    "label_gn": "Tetãvore La Paz",
-    "label_ay": "Chuqiyapu jach'a suyu",
+    "label_gn": "La Paz",
+    "label_ay": "Chuqiyapu",
     "label_en": "La Paz"
   },
   "id": "Q272784"
