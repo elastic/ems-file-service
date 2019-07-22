@@ -8,7 +8,7 @@
   "properties": {
     "iso_3166_2": "CO-BOY",
     "label_es": "Boyacá",
-    "label_en": "Boyacá Department"
+    "label_en": "Boyacá"
   },
   "id": "Q121233"
 },
@@ -21,7 +21,7 @@
   "properties": {
     "iso_3166_2": "CO-ANT",
     "label_es": "Antioquia",
-    "label_en": "Antioquia Department"
+    "label_en": "Antioquia"
   },
   "id": "Q123304"
 },
@@ -34,7 +34,7 @@
   "properties": {
     "iso_3166_2": "CO-CAS",
     "label_es": "Casanare",
-    "label_en": "Casanare Department"
+    "label_en": "Casanare"
   },
   "id": "Q13984"
 },
@@ -47,7 +47,7 @@
   "properties": {
     "iso_3166_2": "CO-CAQ",
     "label_es": "Caquetá",
-    "label_en": "Caquetá Department"
+    "label_en": "Caquetá"
   },
   "id": "Q13985"
 },
@@ -60,7 +60,7 @@
   "properties": {
     "iso_3166_2": "CO-VAC",
     "label_es": "Valle del Cauca",
-    "label_en": "Valle del Cauca Department"
+    "label_en": "Valle del Cauca"
   },
   "id": "Q13990"
 },
@@ -73,7 +73,7 @@
   "properties": {
     "iso_3166_2": "CO-RIS",
     "label_es": "Risaralda",
-    "label_en": "Risaralda Department"
+    "label_en": "Risaralda"
   },
   "id": "Q13993"
 },
@@ -86,7 +86,7 @@
   "properties": {
     "iso_3166_2": "CO-QUI",
     "label_es": "Quindío",
-    "label_en": "Quindío Department"
+    "label_en": "Quindío"
   },
   "id": "Q13995"
 },
@@ -99,7 +99,7 @@
   "properties": {
     "iso_3166_2": "CO-MAG",
     "label_es": "Magdalena",
-    "label_en": "Magdalena Department"
+    "label_en": "Magdalena"
   },
   "id": "Q199910"
 },
@@ -112,7 +112,7 @@
   "properties": {
     "iso_3166_2": "CO-NAR",
     "label_es": "Nariño",
-    "label_en": "Nariño Department"
+    "label_en": "Nariño"
   },
   "id": "Q230217"
 },
@@ -125,7 +125,7 @@
   "properties": {
     "iso_3166_2": "CO-ARA",
     "label_es": "Arauca",
-    "label_en": "Arauca Department"
+    "label_en": "Arauca"
   },
   "id": "Q230223"
 },
@@ -138,7 +138,7 @@
   "properties": {
     "iso_3166_2": "CO-CHO",
     "label_es": "Chocó",
-    "label_en": "Chocó Department"
+    "label_en": "Chocó"
   },
   "id": "Q230584"
 },
@@ -151,7 +151,7 @@
   "properties": {
     "iso_3166_2": "CO-BOL",
     "label_es": "Bolívar",
-    "label_en": "Bolívar Department"
+    "label_en": "Bolívar"
   },
   "id": "Q230597"
 },
@@ -164,7 +164,7 @@
   "properties": {
     "iso_3166_2": "CO-CAU",
     "label_es": "Cauca",
-    "label_en": "Cauca Department"
+    "label_en": "Cauca"
   },
   "id": "Q230602"
 },
@@ -177,7 +177,7 @@
   "properties": {
     "iso_3166_2": "CO-CAL",
     "label_es": "Caldas",
-    "label_en": "Caldas Department"
+    "label_en": "Caldas"
   },
   "id": "Q230607"
 },
@@ -190,7 +190,7 @@
   "properties": {
     "iso_3166_2": "CO-ATL",
     "label_es": "Atlántico",
-    "label_en": "Atlántico Department"
+    "label_en": "Atlántico"
   },
   "id": "Q230882"
 },
@@ -203,7 +203,7 @@
   "properties": {
     "iso_3166_2": "CO-CUN",
     "label_es": "Cundinamarca",
-    "label_en": "Cundinamarca Department"
+    "label_en": "Cundinamarca"
   },
   "id": "Q232564"
 },
@@ -216,7 +216,7 @@
   "properties": {
     "iso_3166_2": "CO-PUT",
     "label_es": "Putumayo",
-    "label_en": "Putumayo Department"
+    "label_en": "Putumayo"
   },
   "id": "Q232953"
 },
@@ -229,7 +229,7 @@
   "properties": {
     "iso_3166_2": "CO-NSA",
     "label_es": "Norte de Santander",
-    "label_en": "Norte de Santander Department"
+    "label_en": "Norte de Santander"
   },
   "id": "Q233058"
 },
@@ -242,7 +242,7 @@
   "properties": {
     "iso_3166_2": "CO-TOL",
     "label_es": "Tolima",
-    "label_en": "Tolima Department"
+    "label_en": "Tolima"
   },
   "id": "Q234501"
 },
@@ -255,7 +255,7 @@
   "properties": {
     "iso_3166_2": "CO-VAU",
     "label_es": "Vaupés",
-    "label_en": "Vaupés Department"
+    "label_en": "Vaupés"
   },
   "id": "Q234505"
 },
@@ -268,7 +268,7 @@
   "properties": {
     "iso_3166_2": "CO-COR",
     "label_es": "Córdoba",
-    "label_en": "Córdoba Department"
+    "label_en": "Córdoba"
   },
   "id": "Q234912"
 },
@@ -281,7 +281,7 @@
   "properties": {
     "iso_3166_2": "CO-CES",
     "label_es": "Cesar",
-    "label_en": "Cesar Department"
+    "label_en": "Cesar"
   },
   "id": "Q234916"
 },
@@ -294,7 +294,7 @@
   "properties": {
     "iso_3166_2": "CO-HUI",
     "label_es": "Huila",
-    "label_en": "Huila Department"
+    "label_en": "Huila"
   },
   "id": "Q234920"
 },
@@ -307,7 +307,7 @@
   "properties": {
     "iso_3166_2": "CO-SAN",
     "label_es": "Santander",
-    "label_en": "Santander Department"
+    "label_en": "Santander"
   },
   "id": "Q235166"
 },
@@ -320,7 +320,7 @@
   "properties": {
     "iso_3166_2": "CO-SUC",
     "label_es": "Sucre",
-    "label_en": "Sucre Department"
+    "label_en": "Sucre"
   },
   "id": "Q235188"
 },
@@ -346,7 +346,7 @@
   "properties": {
     "iso_3166_2": "CO-GUA",
     "label_es": "Guainía",
-    "label_en": "Guainía Department"
+    "label_en": "Guainía"
   },
   "id": "Q238645"
 },
@@ -372,7 +372,7 @@
   "properties": {
     "iso_3166_2": "CO-VID",
     "label_es": "Vichada",
-    "label_en": "Vichada Department"
+    "label_en": "Vichada"
   },
   "id": "Q268729"
 },
@@ -385,7 +385,7 @@
   "properties": {
     "iso_3166_2": "CO-LAG",
     "label_es": "La Guajira",
-    "label_en": "La Guajira Department"
+    "label_en": "La Guajira"
   },
   "id": "Q272747"
 },
@@ -398,7 +398,7 @@
   "properties": {
     "iso_3166_2": "CO-GUV",
     "label_es": "Guaviare",
-    "label_en": "Guaviare Department"
+    "label_en": "Guaviare"
   },
   "id": "Q272885"
 },
@@ -424,7 +424,7 @@
   "properties": {
     "iso_3166_2": "CO-AMA",
     "label_es": "Amazonas",
-    "label_en": "Amazonas Department"
+    "label_en": "Amazonas"
   },
   "id": "Q44724"
 }
