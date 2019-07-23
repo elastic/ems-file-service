@@ -1,0 +1,152 @@
+{
+    versions: '>=1'
+    type: http
+    production: true
+    countryCode: PY
+    wikidata: Q815068
+    note: Department Of Paraguay
+    data: https://sophox.org/regions/geojson.json
+    attribution: [
+      {
+        label: {
+          en: © OpenStreetMap contributors
+        }
+        url: {
+          en: https://www.openstreetmap.org/copyright
+        }
+      }
+      {
+        label: {
+          en: Elastic Maps Service
+        }
+        url: {
+          en: https://www.elastic.co/elastic-maps-service
+        }
+      }
+    ]
+    fieldMapping: [
+        {
+          type: id
+          name: iso_3166_2
+          desc: ISO-3166-2 identifier
+        }
+        {
+          type: property
+          name: label_en
+          desc: Department name (English)
+        }
+        {
+          type: property
+          name: label_es
+          desc: Department name (Spanish)
+        }
+        {
+          type: property
+          name: label_gn
+          desc: Department name (Guarani)
+        }
+    ]
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            SELECT
+            (if(bound(?id2),?id2,?id1) as ?id)
+            ?iso_3166_2
+            ?label_en
+            ?label_es
+            ?label_gn
+            WHERE {
+              SERVICE <https://query.wikidata.org/sparql> {
+                # Using nested query to ensure there is only one ?id2 value
+                {SELECT
+                ?id1
+                (SAMPLE(?id2) as ?id2)
+                (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+                (SAMPLE(?label_en) as ?label_en)
+                (SAMPLE(?label_es) as ?label_es)
+                (SAMPLE(?label_gn) as ?label_gn)
+                WHERE {
+                  # List of regions, whose sub-regions we want.
+                  VALUES ?entity { wd:Q733 }
+
+                  # P150 = "contains administrative territorial entity"
+                  ?entity wdt:P150 ?id1 .
+
+                  # Special handling for Asunción (District Capital)
+                  # due to Wikidata tag conflicts in OSM
+                  BIND(if(?id1=wd:Q2723419, wd:Q2933, ?id1)  AS ?id2)
+
+                  ?id2 wdt:P300 ?iso_3166_2 .
+
+                  OPTIONAL { ?id2 rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                  OPTIONAL { ?id2 rdfs:label ?label_es . FILTER(LANG(?label_es) = "es")}
+                  OPTIONAL { ?id2 rdfs:label ?label_gn . FILTER(LANG(?label_gn) = "gn")}
+                }
+                # remove possible ID duplicates
+                GROUP BY ?id1}
+              }
+            }
+            '''
+    }
+    name: paraguay_departments
+    legacyIds: [
+      Paraguay departments
+    ]
+    humanReadableName: {
+      ar: إدارة في باراغواي
+      bar: Departamentos in Paraguay
+      bs: Departmani u Paragvaju
+      ca: departament del Paraguai
+      cs: Departementy Paraguaye
+      de: Departamento in Paraguay
+      el: διαμέρισμα της Παραγουάης
+      en: Paraguay departments
+      eo: departemento de Paragvajo
+      es: departamento de Paraguay
+      eu: Paraguaiko departamendu
+      fr: département du Paraguay
+      gl: departamentos do Paraguai
+      gn: Tetãvore Paraguái
+      he: מחוזות פרגוואי
+      hr: Paragvajski okruzi
+      hu: Paraguay megyéi
+      hy: Պարագվայի վարչական բաժանում
+      id: Daftar departemen di Paraguay
+      it: dipartimento del Paraguay
+      ja: パラグアイの行政区画
+      ka: პარაგვაის დეპარტამენტები
+      ko: 파라과이의 행정 구역
+      lt: Paragvajaus departamentai
+      mk: Департмани во Парагвај
+      ms: Jabatan di Paraguay
+      nb: Paraguays departementer
+      nl: departement van Paraguay
+      pl: departamento Paragwaju
+      pt: departamento do Paraguai
+      ro: Departamente în Paraguay
+      ru: департамент Парагвая
+      sco: Depairtments o Paraguay
+      sh: Paragvajski okruzi
+      sk: Department
+      sv: departement av Paraguay
+      uk: департамент Парагваю
+      ur: پیراگوئے کے محکمہ جات
+      xmf: პარაგვაიშ დეპარტამენტეფი
+      zh: 巴拉圭行政区划
+      zh-hans: 巴拉圭行政区划
+      zh-hant: 巴拉圭行政區劃
+      zh-hk: 巴拉圭行政區劃
+    }
+    emsFormats: [
+      {
+        type: geojson
+        file: paraguay_departments_v1.geo.json
+        default: true
+      }
+    ]
+    ttl: 108000
+    weight: 0
+    createdAt: 2019-07-02T21:44:10.233Z
+    id: 1562103850233000
+}

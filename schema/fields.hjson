@@ -1,4 +1,16 @@
 {
+  cut: {
+    wikidata: P6929
+    i18n: {
+      ar: معرف الرموز الإقليمية الفريدة
+      en: CUT code
+      es: Códigos Únicos Territoriales (CUT)
+      mk: ЧУТ-код
+      nl: CUT-identificatiecode voor bestuurlijk gebied
+      sr: ЧУТ код
+      uk: код CUT
+    }
+  }
   dantai: {
     wikidata: P429
     i18n: {
