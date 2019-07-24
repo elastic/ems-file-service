@@ -79,7 +79,7 @@
     }
     name: venezuela_states
     legacyIds: [
-      Venezuela states
+      Venezuela States
     ]
     humanReadableName: {
       af: State van Venezuela
@@ -93,7 +93,7 @@
       cs: Státy Venezuely
       da: Venezuelas delstater
       de: Bundesstaat von Venezuela
-      en: Venezuela states
+      en: Venezuela States
       es: estado de Venezuela
       eu: Venezuelako estatua
       fa: ایالت‌های ونزوئلا

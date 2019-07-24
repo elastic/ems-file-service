@@ -103,7 +103,7 @@
     }
     name: bolivia_departments
     legacyIds: [
-      Bolivia departments
+      Bolivia Departments
     ]
     humanReadableName: {
       ar: إدارة في بوليفيا
@@ -113,7 +113,7 @@
       cs: Departementy Bolívie
       da: Bolivias departementer
       de: Departamento in Bolivien
-      en: Bolivia departments
+      en: Bolivia Departments
       eo: Departementoj de Bolivio
       es: departamento de Bolivia
       eu: Boliviaren banaketa administratiboa

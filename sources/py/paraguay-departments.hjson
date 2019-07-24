@@ -91,7 +91,7 @@
     }
     name: paraguay_departments
     legacyIds: [
-      Paraguay departments
+      Paraguay Departments
     ]
     humanReadableName: {
       ar: إدارة في باراغواي
@@ -101,7 +101,7 @@
       cs: Departementy Paraguaye
       de: Departamento in Paraguay
       el: διαμέρισμα της Παραγουάης
-      en: Paraguay departments
+      en: Paraguay Departments
       eo: departemento de Paragvajo
       es: departamento de Paraguay
       eu: Paraguaiko departamendu

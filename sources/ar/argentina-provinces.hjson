@@ -79,7 +79,7 @@
     }
     name: argentina_provinces
     legacyIds: [
-      Argentina provinces
+      Argentina Provinces
     ]
     humanReadableName: {
       ar: محافظة في الأرجنتين
@@ -93,7 +93,7 @@
       cy: Taleithiau&#39;r Ariannin
       da: Argentinas provinser
       de: Provinz Argentiniens
-      en: Argentina provinces
+      en: Argentina Provinces
       en-ca: Provinces of Argentina
       en-gb: province of Argentina
       eo: provinco de Argentino
