@@ -71,13 +71,13 @@
     }
     name: guyana_regions
     legacyIds: [
-      Guyana regions
+      Guyana Regions
     ]
     humanReadableName: {
       ar: أقليم في غيانا
       bs: Gvajanske regije
       de: Region Guyanas
-      en: Guyana regions
+      en: Guyana Regions
       es: Organización territorial de Guyana
       fa: مناطق گویان
       he: מחוזות גיאנה
