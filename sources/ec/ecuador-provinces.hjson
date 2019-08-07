@@ -79,7 +79,7 @@
     }
     name: ecuador_province
     legacyIds: [
-      Ecuador province
+      Ecuador Provinces
     ]
     humanReadableName: {
       ar: مقاطعة في الإكوادور
@@ -89,7 +89,7 @@
       cs: Provincie Ekvádoru
       da: Ecuadors provinser
       de: Provinz in Ecuador
-      en: Ecuador provinces
+      en: Ecuador Provinces
       en-ca: Provinces of Ecuador
       en-gb: Provinces of Ecuador
       eo: Provincoj de Ekvadoro

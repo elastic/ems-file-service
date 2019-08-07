@@ -94,14 +94,14 @@
     }
     name: peru_regions
     legacyIds: [
-      Peru regions
+      Peru Regions
     ]
     humanReadableName: {
       ar: أقليم في البيرو
       ast: rexón de Perú
       ca: regió del Perú
       de: Region von Peru
-      en: Peru regions
+      en: Peru Regions
       eo: regiono de Peruo
       es: región de Perú
       eu: Peruko eskualdea

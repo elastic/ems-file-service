@@ -85,7 +85,7 @@
     }
     name: chile_regions
     legacyIds: [
-      Chile regions
+      Chile Regions
     ]
     humanReadableName: {
       ar: أقليم في تشيلي
@@ -96,7 +96,7 @@
       cs: chilské regiony
       da: Chiles regioner
       de: Region in Chile
-      en: Chile regions
+      en: Chile Regions
       eo: Regionoj de Ĉilio
       es: región de Chile
       eu: Txileko eskualdeak

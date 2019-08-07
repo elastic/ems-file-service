@@ -79,7 +79,7 @@
     }
     name: uruguay_departments
     legacyIds: [
-      Uruguay departments
+      Uruguay Departments
     ]
     humanReadableName: {
       ar: إدارة في الأوروغواي
@@ -91,7 +91,7 @@
       cs: departement Uruguaye
       da: Uruguays departementer
       de: Departamento in Uruguay
-      en: Uruguay departments
+      en: Uruguay Departments
       eo: departemento de Urugvajo
       es: departamento de Uruguay
       eu: Uruguaiko departamendua
