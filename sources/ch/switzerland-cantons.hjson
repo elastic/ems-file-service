@@ -31,6 +31,11 @@
             desc: ISO-3166-2 identifier
         }
         {
+            type: id
+            name: canton_code
+            desc: Canton Code
+        }
+        {
             type: property
             name: label_en
             desc: Canton name (English)
@@ -62,7 +67,8 @@
             #defaultView:MapRegions
             SELECT
             (if(bound(?id2),?id2,?id) as ?id)
-            ?iso_3166_2 ?label_en ?label_de ?label_fr ?label_it ?label_rm
+            ?iso_3166_2 ?canton_code
+            ?label_en ?label_de ?label_fr ?label_it ?label_rm
             WHERE {
             SERVICE <https://query.wikidata.org/sparql> {
             # Using nested query to ensure there is only one ?id2 value
@@ -70,6 +76,7 @@
             ?id
             (SAMPLE(?id2) as ?id2)
             (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+            (SAMPLE(?canton_code) as ?canton_code)
             (SAMPLE(?label_en) as ?label_en)
             (SAMPLE(?label_de) as ?label_de)
             (SAMPLE(?label_fr) as ?label_fr)
@@ -82,6 +89,7 @@
                 # P150 = "contains administrative territorial entity"
                 ?entity wdt:P150* ?id .
                 ?id wdt:P300 ?iso_3166_2
+                STRAFTER("CH-", ?iso_3166_2) ?canton_code
 
                 OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
                 OPTIONAL { ?id rdfs:label ?label_de . FILTER(LANG(?label_de) = "de") }
