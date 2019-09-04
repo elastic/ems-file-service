@@ -89,7 +89,7 @@
                 # P150 = "contains administrative territorial entity"
                 ?entity wdt:P150* ?id .
                 ?id wdt:P300 ?iso_3166_2
-                STRAFTER("CH-", ?iso_3166_2) ?canton_code
+                BIND(STRAFTER(?iso_3166_2, "CH-") as ?canton_code)
 
                 OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
                 OPTIONAL { ?id rdfs:label ?label_de . FILTER(LANG(?label_de) = "de") }
