@@ -2,7 +2,7 @@
     versions: '>=1'
     type: http
     production: true
-    wikidata:
+    wikidata: Q24279
     note: Parish of Andorra
     data: https://sophox.org/regions/geojson.json
     attribution: [
@@ -83,7 +83,7 @@
             }
             '''
     }
-    name: andorra_counties
+    name: andorra_parishes
     legacyIds: [
         Andorra Parishes
     ]
@@ -97,7 +97,7 @@
         cy: Plwyfi Andorra
         da: Sogn fra Andorra
         de: Pfarreien von Andorra
-        en: Parishes of Andorra
+        en: Andorra Parishes
         eo: Parizoj de Andoro
         es: Parroquias de Andorra
         fa: ارودنآ یاه ناملراپ
