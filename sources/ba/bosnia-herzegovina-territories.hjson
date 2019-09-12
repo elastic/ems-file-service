@@ -90,55 +90,50 @@
     }
     name: bosnia_herzegovina_territories
     legacyIds: [
-      Administrative Territorial Entity Of Bosnia And Herzegovina
+      Territory Of Bosnia And Herzegovina
     ]
     humanReadableName: {
-      an: Organización territorial de Bosnia y Herzegovina
-      ar: كيان إداري إقليمي في البوسنة والهرسك
-      be: Адміністрацыйны падзел Босніі і Герцагавіны
-      be-tarask: адміністрацыйны падзел Босьніі і Герцагавіны
-      bs: Administrativna podjela Bosne i Hercegovine
-      ca: Organització territorial de Bòsnia i Hercegovina
-      cs: Administrativní dělení Bosny a Hercegoviny
-      de: Verwaltungseinheit von Bosnien und Herzegowina
-      en: administrative territorial entity of Bosnia and Herzegovina
-      eo: administraj unuoj de Bosnio kaj Hercegovino
-      es: entidad territorial administrativa de Bosnia y Herzegovina
-      eu: Bosnia-Herzegovinaren banaketa administratiboa
-      fr: subdivisions de Bosnie-Herzégovine
-      he: חלוקה מנהלית של בוסניה והרצגובינה
-      hr: Upravna podjela Bosne i Hercegovine
-      hu: Bosznia-hercegovinai entitás
-      hy: Բոսնիա և Հերցեգովինայի վարչական բաժանում
-      id: Pembagian administratif Bosnia dan Herzegovina
-      it: Suddivisioni della Bosnia ed Erzegovina
-      ja: ボスニア・ヘルツェゴビナの地方行政区画
-      ka: ბოსნია და ჰერცეგოვინის ადმინისტრაციული დაყოფა
-      lt: Bosnijos ir Hercegovinos administracinis skirstymas
-      lv: Bosnijas un Hercegovinas administratīvais iedalījums
-      mk: административна единица на БиХ
-      nl: bestuurlijke indeling van Bosnië en Herzegovina
-      oc: Subdivisions de Bòsnia e Ercegovina
-      pl: Podział administracyjny Bośni i Hercegowiny
-      pt: Organização político-administrativa da Bósnia e Herzegovina
-      ro: Entitate administrativă teritorială a Bosniei și Herțegovina
-      ru: административное деление Боснии и Герцеговины
-      sco: Poleetical diveesions o Bosnie an Herzegovinae
-      sh: Administrativna podjela Bosne i Hercegovine
-      sq: Njësitë administrative të Bosnjës dhe Hercegovinës
-      sr: управно-територијална јединица Босне и Херцеговине
-      sr-ec: управно-територијална јединица Босне и Херцеговине
-      sr-el: upravno-teritorijalna jedinica Bosne i Hercegovine
-      tg: тақсимоти маъмурии Босния ва Герсоговина
-      tr: Bosna-Hersek'in idari bölümleri
-      uk: адміністративний поділ Боснії і Герцеговини
-      ur: بوسنیا و ہرزیگووینا کی سیاسی تقسیم
-      zh: 波士尼亞與赫塞哥維納政區
-      zh-cn: 波斯尼亚与黑塞哥维纳政区
-      zh-hans: 波士尼亚与赫塞哥维纳政区
-      zh-hant: 波士尼亞與赫塞哥維納政區
-      zh-hk: 波斯尼亞與黑塞哥維那政區
-      zh-sg: 波士尼亚与黑塞哥维纳政区
+      ar: أراضي البوسنة والهرسك
+      be: Тэрыторыя Босніі і Герцагавіны
+      be: Тэрыторыя Босніі і Герцагавіны
+      bs: Teritoriji Bosne i Hercegovine
+      ca: Territori de Bòsnia i Hercegovina
+      cs: Území Bosny a Hercegoviny
+      de: Gebiet von Bosnien und Herzegowina
+      en: Territory of Bosnia and Herzegovina
+      eo: Teritorio de Bosnio kaj Hercegovino
+      es: Territorio de Bosnia y Herzegovina
+      eu: Bosnia eta Herzegovina Lurralde
+      fr: Territoire de la Bosnie-Herzégovine
+      he: הטריטוריה של בוסניה והרצגובינה
+      hr: Teritorij Bosne i Hercegovine
+      hu: Terület Bosznia és Hercegovina
+      hy: Տարածքը Բոսնիա եւ Հերցեգովինա
+      id: Wilayah Bosnia dan Herzegovina
+      it: Territorio della Bosnia-Erzegovina
+      ja: ボスニア・ヘルツェゴビナの領土
+      ka: ტერიტორიაზე ბოსნია და ჰერცოგოვინა
+      lt: Teritorija Bosnijoje ir Hercegovinoje
+      lv: Teritorija Bosnijas un Hercegovinas
+      mk: Територијата на Босна и Херцеговина
+      nl: Grondgebied van Bosnië en Herzegovina
+      pl: Terytorium Bośni i Hercegowiny
+      pt: Território da Bósnia e Herzegovina
+      ro: Teritoriul Bosniei și Herțegovinei
+      ru: Территория Боснии и Герцеговины
+      sq: Territori i Bosnjës dhe Hercegovinës
+      sr: Територија Босне и Херцеговине
+      sr: Територија Босне и Херцеговине
+      sr: Територија Босне и Херцеговине
+      tg: Қаламрави Босния ва Ҳерсеговина
+      tr: Bosna Hersek Bölge
+      uk: Територія Боснії і Герцеговини
+      ur: بوسنیا اور ہرزیگوینا علاقہ
+      zh: 波斯尼亚和黑塞哥维那的领土
+      zh-cn: 波斯尼亚和黑塞哥维那的领土
+      zh-hans: 波斯尼亚和黑塞哥维那的领土
+      zh-hant: 波斯尼亞和黑塞哥維那的領土
+      zh-hk: 波斯尼亞和黑塞哥維那的領土
     }
     emsFormats: [{
       type: geojson
