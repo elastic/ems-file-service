@@ -36,7 +36,7 @@
         }
         {
             type: property
-            name: label_ls
+            name: label_cs
             desc: Subdivision name (Czech)
         }
     ]
@@ -79,52 +79,43 @@
         Czechia Regions
     ]
     humanReadableName: {
-      af: Administratiewe geweste van Tsjeggië
-      an: Rechions d'a Republica Checa
-      ar: أقليم في جمهورية التشيك
-      az: Çexiyanın inzibati-ərazi bölgüsü
-      be: краі Чэхіі
-      be-tarask: краі Чэхіі
-      bg: Административно деление на Чехия
-      br: Rannvroioù ar Republik Tchek
-      bs: Krajevi u Češkoj
-      ca: regió de la República Txeca
-      cs: kraj v Česku
-      da: Regioner i Tjekkiet
-      de: Region in Tschechien
-      en: region of the Czech Republic
+      ar: المناطق من التشيك
+      be: Рэгіёны з Чэхіі
+      bs: Regije iz Češke
+      ca: Regions de Txèquia
+      cs: Regiony z Česka
+      de: Regionen aus Tschechien
+      en: Czechia Regions
       eo: Regionoj de Ĉeĥio
-      es: región de la República Checa
-      eu: Txekiar Errepublikaren banaketa administratiboa
-      fa: "استان\u200cهای جمهوری چک"
-      fr: kraj de la République tchèque
-      he: מחוזות צ'כיה
-      hsb: kraj w Čěskej
-      hu: Csehország közigazgatása
-      hy: Չեխիայի վարչական բաժանում
-      id: Pembagian administratif Republik Ceko
-      it: regione della Repubblica Ceca
-      ja: チェコの地域区分
-      ka: ჩეხეთის მხარეები
-      lt: Čekijos kraštai
-      lv: Čehijas apgabali
-      mk: крај во Чешка
-      nb: region i Tsjekkia
-      nl: regio van Tsjechië
-      oc: region de la Republica Chèca
-      pam: Ding Labuad na ning Tseka Republika
-      pl: Podział administracyjny Czech
-      pnb: چیک جمہوریہ دے علاقے
-      pt: regiões da República Checa
-      ro: regiune
-      ru: край Чехии
-      sk: Kraj
-      sr: крај Чешке Републике
-      sv: Tjeckiens region
-      tr: Çek Cumhuriyeti'nin illeri
-      uk: край Чехії
-      ur: چیک جمہوریہ کے علاقہ جات
-      zh: 捷克州
+      es: Regiones de Chequia
+      eu: Czechia batetik Eskualde
+      fr: Régions de la République Tchèque
+      he: אזורים מן צ'כיה
+      hr: Regije s Češkoj
+      hu: Régiók Csehországból
+      hy: Մարզեր ից Չեխիայում
+      id: Daerah dari Czechia
+      it: Regioni da Repubblica Ceca
+      ja: チェコからの地域
+      ka: რეგიონები ჩეხეთიდან
+      lt: Regionai iš Čekijos
+      lv: Reģioni no Čehijas
+      mk: Региони од Чешка
+      nl: Regio's van Tsjechië
+      pl: Regiony z Czech
+      pt: Regiões de Czechia
+      ru: Регионы из Чехии
+      sq: Rajonet nga Çekia
+      sr: Региони из Чешка
+      tg: Минтақаҳои аз Чехия
+      tr: Çek Cumhuriyeti'nden Bölgeler
+      uk: Регіони з Чехії
+      ur: Czechia سے خطے
+      zh: 从捷克的地区
+      zh-cn: 从捷克的地区
+      zh-hans: 从捷克的地区
+      zh-hant: 從捷克的地區
+      zh-hk: 從捷克的地區
     }
     emsFormats: [{
       type: geojson
