@@ -30,4 +30,4 @@ For example
 ...
 ```
 
-Copy and paste the CSV file (including headers) into the QuickStatements text box and click the Import CSV button. Then click the Run box to make the edits. 
+Open the [QuickStatements webpage](https://tools.wmflabs.org/quickstatements/#/) and start a New Batch. Copy and paste the CSV file (including headers) into the QuickStatements text box and click the Import CSV Commands button. Then click the Run box to make the edits. 
