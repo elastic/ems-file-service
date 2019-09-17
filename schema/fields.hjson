@@ -11,6 +11,13 @@
       uk: код CUT
     }
   }
+  canton_code: {
+    wikidata: ''
+    i18n: {
+      en: Canton code
+      es: código de cantón
+    }
+  }
   dantai: {
     wikidata: P429
     i18n: {
