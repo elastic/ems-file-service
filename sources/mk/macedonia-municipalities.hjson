@@ -49,39 +49,38 @@
         sparql:
             '''
             #defaultView:MapRegions
-            SELECT
-            (if(bound(?id2),?id2,?id) as ?id)
-            ?iso_3166_2 ?label_en ?label_mk ?label_sq 
+            SELECT ?id ?iso_3166_2
+                   ?label_en ?label_mk ?label_sq
             WHERE {
               SERVICE <https://query.wikidata.org/sparql> {
-              # Using nested query to ensure there is only one ?id2 value
-              {SELECT
-              ?id
-              (SAMPLE(?id2) as ?id2)
-              (SAMPLE(?iso_3166_2) as ?iso_3166_2)
-              (SAMPLE(?label_en) as ?label_en)
-              (SAMPLE(?label_mk) as ?label_mk)
-              (SAMPLE(?label_sq) as ?label_sq)
-              WHERE {
-                # List of regions, whose sub-regions we want.
-                VALUES ?entity { wd:Q221 }
+                {
+                  SELECT ?id
+                         (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+                         (REPLACE(SAMPLE(?label_en), " Municipality", "") AS ?label_en)
+                         (REPLACE(SAMPLE(?label_mk), "Општина ", "")  AS ?label_mk)
+                         (REPLACE(SAMPLE(?label_sq), "Komuna e ", "")  AS ?label_sq)
+                  WHERE {
+                    # List of regions, whose sub-regions we want.
+                    VALUES ?entity { wd:Q221 }
 
-                # P150 = "contains administrative territorial entity"
-                ?entity wdt:P150* ?id .
-                ?id wdt:P300 ?iso_3166_2
-                
-                FILTER NOT EXISTS { ?id p:P300/pq:P582 ?end_time }
+                    # P150 = "contains administrative territorial entity"
+                    ?entity wdt:P150* ?id .
+                    ?id wdt:P300 ?iso_3166_2 .
 
+                    # Remove those deprecated
+                    FILTER NOT EXISTS { ?id p:P300/pq:P582 ?end_time }
+
+                    # Optional labels
                     OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
                     OPTIONAL { ?id rdfs:label ?label_mk . FILTER(LANG(?label_mk) = "mk") }
                     OPTIONAL { ?id rdfs:label ?label_sq . FILTER(LANG(?label_sq) = "sq") }
+                  }
+                  # remove possible ID duplicates
+                  GROUP BY ?id
+                }
               }
-              # remove possible ID duplicates
-              GROUP BY ?id
-              ORDER BY ?id}
             }
-            }
-
+            ORDER BY ?iso_3166_2
             '''
     }
     name: macedonia_municipalities
@@ -128,11 +127,11 @@
     }
     emsFormats: [{
       type: geojson
-      file: /* TBD */
+      file: macedonia_municipalities_v1.geo.json
       default: true
     }]
     ttl: 108000
     weight: 0
-    createdAt: /* TBD */
-    id: /* TBD */
+    createdAt: 2019-10-02T15:44:13.094107
+    id: 1570031053096626
 }
