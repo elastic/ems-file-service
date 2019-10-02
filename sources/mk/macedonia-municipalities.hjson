@@ -69,6 +69,8 @@
                 # P150 = "contains administrative territorial entity"
                 ?entity wdt:P150* ?id .
                 ?id wdt:P300 ?iso_3166_2
+                
+                FILTER NOT EXISTS { ?id p:P300/pq:P582 ?end_time }
 
                     OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
                     OPTIONAL { ?id rdfs:label ?label_mk . FILTER(LANG(?label_mk) = "mk") }
