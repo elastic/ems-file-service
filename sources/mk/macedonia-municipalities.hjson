@@ -51,7 +51,7 @@
             #defaultView:MapRegions
             SELECT
             (if(bound(?id2),?id2,?id) as ?id)
-            ?iso_3166_2 ?label_en ?label_mk ?label_sq ?wkidataOSM
+            ?iso_3166_2 ?label_en ?label_mk ?label_sq 
             WHERE {
               SERVICE <https://query.wikidata.org/sparql> {
               # Using nested query to ensure there is only one ?id2 value
