@@ -32,7 +32,7 @@
     }
     {
       type: id
-      name: istat
+      name: istat_id
       desc: ISTAT ID
     }
     {
