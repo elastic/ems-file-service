@@ -49,12 +49,14 @@
         sparql:
             '''
             #defaultView:MapRegions
-            SELECT ?id ?iso_3166_2
+            SELECT (if(bound(?id2),?id2,?id1) as ?id)
+                   ?iso_3166_2
                    ?label_en ?label_uk ?label_ru
             WHERE {
               SERVICE <https://query.wikidata.org/sparql> {
 
-                SELECT ?id
+                SELECT ?id1
+                       (SAMPLE(?id2) as ?id2)
                        (SAMPLE(?iso_3166_2) as ?iso_3166_2)
                        (SAMPLE(?label_en) as ?label_en)
                        (SAMPLE(?label_uk) as ?label_uk)
@@ -64,16 +66,18 @@
                     VALUES ?entity { wd:Q212 }
 
                     # P150 = "contains administrative territorial entity"
-                    ?entity wdt:P150 ?id .
-                    ?id wdt:P300 ?iso_3166_2
+                    ?entity wdt:P150 ?id1 .
+                    ?id1 wdt:P300 ?iso_3166_2
+
+                    BIND(if(?id1=wd:Q7525, wd:Q4456205, ?id1)  AS ?id2)
 
                     # Labels
-                    OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-                    OPTIONAL { ?id rdfs:label ?label_uk . FILTER(LANG(?label_uk) = "uk") }
-                    OPTIONAL { ?id rdfs:label ?label_ru . FILTER(LANG(?label_ru) = "ru") }
+                    OPTIONAL { ?id1 rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                    OPTIONAL { ?id1 rdfs:label ?label_uk . FILTER(LANG(?label_uk) = "uk") }
+                    OPTIONAL { ?id1 rdfs:label ?label_ru . FILTER(LANG(?label_ru) = "ru") }
                 }
                 # remove possible ID duplicates
-                GROUP BY ?id
+                GROUP BY ?id1
               }
             }
             ORDER BY ?iso_3166_2
