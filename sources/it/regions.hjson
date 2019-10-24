@@ -43,7 +43,7 @@
     {
       type: property
       name: label_it
-      desc: Province name (Italian)
+      desc: Region name (Italian)
     }
   ]
   query: {
