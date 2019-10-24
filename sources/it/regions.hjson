@@ -38,7 +38,7 @@
     {
       type: property
       name: label_en
-      desc: Province name (English)
+      desc: Region name (English)
     }
     {
       type: property
