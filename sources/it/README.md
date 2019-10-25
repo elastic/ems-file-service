@@ -58,4 +58,4 @@ The [Aosta Valley autonomous region](https://en.wikipedia.org/wiki/Aosta_Valley)
 * South Sardinia got the proper ISO code `IT-SD`
 * Several provinces changed their official name, for this reason this source will only be available after `8.0` release
 * Sicilian and Aosta provinces divisions remain as "special cases"
-* For some provinces the `istat` has changed
+* For some provinces the `istat` code has changed
