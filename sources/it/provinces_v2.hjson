@@ -217,7 +217,7 @@
   }
   emsFormats: [{
     type: geojson
-    file: italy_provinces_v2.geo.json
+    file: italy_provinces_v8.geo.json
     default: true
   }]
   ttl: 108000
