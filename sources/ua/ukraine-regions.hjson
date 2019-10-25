@@ -58,9 +58,9 @@
                 SELECT ?id1
                        (SAMPLE(?id2) as ?id2)
                        (SAMPLE(?iso_3166_2) as ?iso_3166_2)
-                       (SAMPLE(?label_en) as ?label_en)
-                       (SAMPLE(?label_uk) as ?label_uk)
-                       (SAMPLE(?label_ru) as ?label_ru)
+                       (SAMPLE(REPLACE(?label_en," Oblast","")) as ?label_en)
+                       (SAMPLE(REPLACE(?label_uk," область","")) as ?label_uk)
+                       (SAMPLE(REPLACE(?label_ru," область","")) as ?label_ru)
                 WHERE {
                     # List of regions, whose sub-regions we want.
                     VALUES ?entity { wd:Q212 }
@@ -94,7 +94,6 @@
       be-tarask: вобласьць Украіны
       bs: Oblasti u Ukrajini
       ca: Oblast d'Ucraïna
-      cs: Oblast
       da: Ukraines oblaster
       de: Oblast in der Ukraine
       el: Περιφέρεια της Ουκρανίας
@@ -108,7 +107,6 @@
       hsb: oblasć na Ukrainje
       id: Oblast di Ukraina
       it: Oblast' dell'Ucraina
-      ka: ოლქი
       lv: Ukrainas apgabals
       nb: Oblast i Ukraina
       nl: Oblast
@@ -118,7 +116,6 @@
       ru: область Украины
       sco: oblast o Ukraine
       sh: Oblasti u Ukrajini
-      sk: Oblasť
       sv: Ukrainas oblast
       tr: Ukrayna'da bölge
       uk: область/одиниця АТУ України першого рівня
