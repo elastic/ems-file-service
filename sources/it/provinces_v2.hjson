@@ -59,8 +59,8 @@
             (SAMPLE(?id2) AS ?id2)
             (SAMPLE(?iso_3166_2) AS ?iso_3166_2)
             (SAMPLE(?istat) AS ?istat)
-            (SAMPLE(REPLACE(?label_en, "Province of ", "")) as ?label_en)
-            (SAMPLE(REPLACE(?label_it, "provincia di ", "")) as ?label_it)
+            (SAMPLE(REPLACE(?label_en, "(Province of |Metropolitan City of |Libero consorzio comunale di )", "")) as ?label_en)
+            (SAMPLE(REPLACE(?label_it, "((P|p)rovincia( autonoma|) (di |del |dell'|della )|città metropolitana di |Libero consorzio comunale di )", "")) as ?label_it)
             WHERE { {
             VALUES (?entity) {
               (wd:Q38)
@@ -147,8 +147,9 @@
           GROUP BY ?id
         }
       }
-    }
-    '''
+      }
+      ORDER BY ?iso_3166_2
+      '''
   }
   name: italy_provinces
   legacyIds: [
