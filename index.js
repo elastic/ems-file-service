@@ -34,8 +34,6 @@ mkdirp.sync('./dist/catalogue');
 const vectorFiles = new Map();
 
 for (const version of constants.VERSIONS) {
-  mkdirp.sync(path.join('./dist/catalogue', version));
-  mkdirp.sync(path.join('./dist/vector', version));
   const catalogueManifest = generateCatalogueManifest({
     version: version,
     tileHostname: tileManifestHostname,
@@ -56,16 +54,21 @@ for (const version of constants.VERSIONS) {
     // Set key = destination path as it is unique across versions
     vectorFiles.set(file.dest, file.src);
   }
-  fs.writeFileSync(
-    path.join('./dist/catalogue', version, 'manifest'),
-    JSON.stringify(catalogueManifest)
-  );
-  fs.writeFileSync(
-    path.join('./dist/vector', version, 'manifest'),
-    JSON.stringify(vectorManifest)
-  );
+  if (catalogueManifest) {
+    mkdirp.sync(path.join('./dist/catalogue', version));
+    fs.writeFileSync(
+      path.join('./dist/catalogue', version, 'manifest'),
+      JSON.stringify(catalogueManifest)
+    );
+  }
+  if (vectorManifest) {
+    mkdirp.sync(path.join('./dist/vector', version));
+    fs.writeFileSync(
+      path.join('./dist/vector', version, 'manifest'),
+      JSON.stringify(vectorManifest)
+    );
+  }
 }
-
 for (const file of vectorFiles) {
   // file is an array of [dest, src]
   const vector = JSON.parse(fs.readFileSync(file[1]));
