@@ -518,7 +518,7 @@ const fieldInfoMissingNameExpected = {
   ],
 };
 
-tap('vector manifest tests v7', t => {
+tap('vector manifest tests <=7.2', t => {
   const staging = generateVectorManifest(sources, {
     version: 'v7.2',
     hostname: 'vector-staging.maps.elastic.co',
@@ -578,7 +578,7 @@ tap('vector manifest tests v7', t => {
 
 });
 
-tap('catalogue tests 7.2', t => {
+tap('catalogue tests <=7.2', t => {
   const stagingCatalogue = generateCatalogueManifest({
     version: 'v7.2',
     tileHostname: 'tiles.maps.elstc.co',
@@ -619,19 +619,4 @@ tap('catalogue tests 7.2', t => {
   t.end();
 });
 
-tap('catalogue tests >= 7.6', t => {
-  const stagingCatalogue = generateCatalogueManifest({
-    version: 'v7.6',
-    tileHostname: 'tiles.maps.elstc.co',
-    vectorHostname: 'vector-staging.maps.elastic.co',
-  });
-  t.false(stagingCatalogue, '7.6 staging catalogue should not exist');
 
-  const prodCatalogue = generateCatalogueManifest({
-    version: 'v7.6',
-    tileHostname: 'tiles.maps.elastic.co',
-    vectorHostname: 'vector.maps.elastic.co',
-  });
-  t.false(prodCatalogue, '7.6 production catalogue should not exist');
-  t.end();
-});
