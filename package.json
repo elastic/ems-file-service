@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "tap test/*.js --cov",
-    "build": "node index.js"
+    "build": "node index.js",
+    "docker": "node index.js && docker build -t ems-file-service ."
   },
   "keywords": [],
   "author": "Nick Peihl <nick.peihl@elastic.co>",
