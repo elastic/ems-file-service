@@ -33,7 +33,7 @@
         {
             type: property
             name: label_en
-            desc: Community/Province name (English)
+            desc: Community name (English)
         }
         {
             type: property
