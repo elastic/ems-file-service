@@ -1,5 +1,5 @@
 {
-    versions: '>=1'
+    versions: '1-7'
     type: http
     production: true
     countryCode: ES
