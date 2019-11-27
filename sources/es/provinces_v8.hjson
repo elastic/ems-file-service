@@ -44,48 +44,44 @@
     query: {
         sparql:
             '''
-#defaultView:MapRegions
-SELECT
-?id ?iso_3166_2 ?label_en ?label_es
-WHERE {
-  {
-    SELECT
-     ?id
-     (SAMPLE(?iso_3166_2) as ?iso_3166_2)
-     (SAMPLE(REPLACE(?label_en, "(Province of | Province)", "")) as ?label_en)
-     (SAMPLE(REPLACE(?label_es, "provincia de ", "")) as ?label_es)
-    WHERE
-     {
-       # Use the OSM Spain wikidata to find first the autonomous communities
-       # and then the provinces inside it
-        VALUES ?spain {wd:Q29}
-        ?rel osmt:wikidata ?spain;
-             osmm:type 'r';
-             osmt:admin_level '2';
-             osmm:has
-             [
-                osmm:type 'r';
-                osmt:admin_level '4';
-                osmm:has [
+            #defaultView:MapRegions
+            SELECT ?id ?iso_3166_2 ?label_en ?label_es
+            WHERE {
+              {
+                SELECT
+                ?id
+                (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+                (SAMPLE(REPLACE(?label_en, "(Province of | Province)", "")) as ?label_en)
+                (SAMPLE(REPLACE(?label_es, "provincia de ", "")) as ?label_es)
+                WHERE
+                {
+                  # Use the OSM Spain wikidata to find first the autonomous communities
+                  # and then the provinces inside it
+                  VALUES ?spain {wd:Q29}
+                  ?rel osmt:wikidata ?spain;
                     osmm:type 'r';
-                    osmt:admin_level '6';
-                    osmt:wikidata ?id;
-                    osmt:ISO3166-2 ?iso_3166_2
-                ]
-             ].
-
-       # Get the labels from Wikidata
-        SERVICE <https://query.wikidata.org/sparql> {
-            OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-            OPTIONAL { ?id rdfs:label ?label_es . FILTER(LANG(?label_es) = "es") }
-        }
-    }
-    GROUP BY ?id
-  }
-}
-ORDER BY ?iso_3166_2
-
-
+                    osmt:admin_level '2';
+                    osmm:has
+                    [
+                      osmm:type 'r';
+                      osmt:admin_level '4';
+                      osmm:has [
+                        osmm:type 'r';
+                        osmt:admin_level '6';
+                        osmt:wikidata ?id;
+                        osmt:ISO3166-2 ?iso_3166_2
+                      ]
+                    ].
+                  # Get the labels from Wikidata
+                  SERVICE <https://query.wikidata.org/sparql> {
+                    OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                    OPTIONAL { ?id rdfs:label ?label_es . FILTER(LANG(?label_es) = "es") }
+                  }
+                }
+                GROUP BY ?id
+              }
+            }
+            ORDER BY ?iso_3166_2
             '''
     }
     name: spain_provinces
