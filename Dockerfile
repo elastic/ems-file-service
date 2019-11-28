@@ -2,20 +2,12 @@ FROM nginx:alpine
 
 LABEL MAINTAINER "Jorge Sanz <jorge.sanz@elastic.co>"
 
-# Install requisites
-RUN apk add --no-cache nodejs npm
+ARG ARG_VECTOR_HOST="localhost"
+ENV VECTOR_HOST=${ARG_VECTOR_HOST}
 
 # Copy sources
-COPY . /tmp/ems/
-COPY ./templates/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./dist /usr/share/nginx/html/
+COPY ./templates/nginx.conf /etc/nginx/conf.d/template
 
-# Test and build the distribution
-RUN cd /tmp/ems &&\
-  npm install &&\
-  npm test &&\
-  npm run-script build &&\
-  rm -rf /usr/share/nginx/html/* &&\
-  cp -ar /tmp/ems/dist/* /usr/share/nginx/html/
-
-# Clean up
-RUN apk del nodejs npm && rm -rf /tmp/ems
+# Replace environment variables and run nginx
+CMD /bin/sh -c "envsubst < /etc/nginx/conf.d/template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"

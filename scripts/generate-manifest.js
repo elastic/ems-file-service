@@ -17,14 +17,22 @@ module.exports = {
  * Generate a catalogue manifest for a specific version of Elastic Maps Service
  * @param {Object} [opts]
  * @param {string} [opts.version='v0'] - Version of vector file manifest to link to
+ * @param {string} [opts.httpProtocol=`${constants.HTTP_PROTOCOL}`] - Protocol (http:// or https://)
  * @param {string} [opts.tileHostname=`${constants.TILE_STAGING_HOST}`] - Hostname for tile manifest
  * @param {string} [opts.vectorHostname=`${constants.VECTOR_STAGING_HOST}`] - Hostname for files manifest
+ * @param {number} [opts.httpPort=`${constants.HTTP_PORT}`] - HTTP port to use
+ * @param {string} [opts.tilePath=`${constants.TILE_PATH}`] - Path to the tiles folder
+ * @param {string} [opts.vectorPath=`${constants.VECTOR_PATH}`] - Path to the vector files folder
  */
 function generateCatalogueManifest(opts) {
   opts = {
     version: 'v0',
+    httpProtocol: constants.HTTP_PROTOCOL,
     tileHostname: constants.TILE_STAGING_HOST,
     vectorHostname: constants.VECTOR_STAGING_HOST,
+    httpPort: constants.HTTP_PORT,
+    tilePath: constants.TILE_PATH,
+    vectorPath: constants.VECTOR_PATH,
     ...opts,
   };
   const version = semver.coerce(opts.version);
@@ -38,16 +46,19 @@ function generateCatalogueManifest(opts) {
   const tilesManifest = semver.lt(version, '7.2.0')
     ? { id: 'tiles_v2', version: 'v2' }
     : { id: 'tiles', version: 'v7.2' };
+
+  const port = opts.httpPort == 80 ? '' : `:${opts.httpPort}`;
+
   const manifest = {
     services: [{
       id: tilesManifest.id,
       name: 'Elastic Maps Tile Service',
-      manifest: `https://${opts.tileHostname}/${tilesManifest.version}/manifest`,
+      manifest: `${opts.httpProtocol}${opts.tileHostname}${port}/${opts.tilePath}${tilesManifest.version}/manifest`,
       type: 'tms',
     }, {
       id: 'geo_layers',
       name: 'Elastic Maps Vector Service',
-      manifest: `https://${opts.vectorHostname}/${opts.version}/manifest`,
+      manifest: `${opts.httpProtocol}${opts.vectorHostname}${port}/${opts.vectorPath}${opts.version}/manifest`,
       type: 'file',
     }],
   };
@@ -60,14 +71,20 @@ function generateCatalogueManifest(opts) {
  * @param {Object} [opts]
  * @param {string} [opts.version='0'] - Only include layers that satisfy this semver version
  * @param {boolean} [opts.production=false] - If true, include only production layers
+ * @param {string} [opts.httpProtocol=`${constants.HTTP_PROTOCOL}`] - Hostname for files manifest
  * @param {string} [opts.hostname=`${constants.VECTOR_STAGING_HOST}`] - Hostname for files in manifest
+ * @param {number} [opts.httpPort=`${constants.HTTP_PORT}`] - Hostname for files manifest
+ * @param {string} [opts.vectorPath=`${constants.VECTOR_PATH}`] - Path to the vector files folder
  * @param {Object} [opts.fieldInfo=null] - Field metadata
  */
 function generateVectorManifest(sources, opts) {
   opts = {
     version: 'v0',
     production: false,
+    httpProtocol: constants.HTTP_PROTOCOL,
     hostname: constants.VECTOR_STAGING_HOST,
+    httpPort: constants.HTTP_PORT,
+    vectorPath: constants.VECTOR_PATH,
     fieldInfo: null,
     ...opts,
   };
@@ -75,6 +92,8 @@ function generateVectorManifest(sources, opts) {
     throw new Error('A valid version parameter must be defined');
   }
   const manifestVersion = semver.coerce(opts.version);
+  const port = opts.httpPort == 80 ? '' : `:${opts.httpPort}`;
+
   const layers = [];
   const uniqueProperties = [];
   for (const source of _.orderBy(sources, ['weight', 'name'], ['desc', 'asc'])) {
@@ -87,16 +106,16 @@ function generateVectorManifest(sources, opts) {
       switch (semver.major(manifestVersion)) {
         case 1:
           uniqueProperties.push('name', 'id');
-          layers.push(manifestLayerV1(source, opts.hostname));
+          layers.push(manifestLayerV1(source, opts.httpProtocol, opts.hostname, port, opts.vectorPath));
           break;
         case 2:
           uniqueProperties.push('name', 'id');
-          layers.push(manifestLayerV2(source, opts.hostname));
+          layers.push(manifestLayerV2(source, opts.httpProtocol, opts.hostname, port, opts.vectorPath));
           break;
         case 6:
         case 7: // v6 and v7 manifest schema are the same
           uniqueProperties.push('layer_id');
-          layers.push(manifestLayerV6(source, opts.hostname, { fieldInfo: opts.fieldInfo }));
+          layers.push(manifestLayerV6(source, opts.httpProtocol, opts.hostname, port, opts.vectorPath, { fieldInfo: opts.fieldInfo }));
           break;
         default:
           throw new Error(`Unable to get a manifest for version ${manifestVersion}`);
@@ -123,14 +142,14 @@ function throwIfDuplicates(array, prop) {
   return false;
 }
 
-function manifestLayerV1(data, hostname) {
+function manifestLayerV1(data, protocol, hostname, port, path) {
   const format = getDefaultFormat(data.emsFormats);
-  const urlPath = `blob/${data.id}`;
+  const urlPath = `${path}blob/${data.id}`;
   const layer = {
     attribution: data.attribution.map(getAttributionString).join('|'),
     weight: data.weight,
     name: data.humanReadableName.en,
-    url: `https://${hostname}/${urlPath}?elastic_tile_service_tos=agree`,
+    url: `${protocol}${hostname}${port}/${urlPath}?elastic_tile_service_tos=agree`,
     format: format.type,
     fields: data.fieldMapping.map(fieldMap => ({
       name: fieldMap.name,
@@ -143,8 +162,8 @@ function manifestLayerV1(data, hostname) {
   return layer;
 }
 
-function manifestLayerV2(data, hostname) {
-  const layer = manifestLayerV1(data, hostname);
+function manifestLayerV2(data, protocol, hostname, port, path) {
+  const layer = manifestLayerV1(data, protocol, hostname, port, path);
   const format = getDefaultFormat(data.emsFormats);
   if (format.type === 'topojson') {
     layer.meta = {
@@ -154,7 +173,7 @@ function manifestLayerV2(data, hostname) {
   return layer;
 }
 
-function manifestLayerV6(data, hostname, opts) {
+function manifestLayerV6(data, protocol, hostname, port, path, opts) {
   const fields = data.fieldMapping.map(fieldMap => ({
     type: fieldMap.type,
     id: fieldMap.name,
@@ -167,7 +186,7 @@ function manifestLayerV6(data, hostname, opts) {
     formats: data.emsFormats.map(format => {
       return { ...{
         type: format.type,
-        url: `https://${hostname}/files/${format.file}?elastic_tile_service_tos=agree`,
+        url: `${protocol}${hostname}${port}/${path}files/${format.file}?elastic_tile_service_tos=agree`,
         legacy_default: format.default || false,
       }, ...(format.meta && { meta: format.meta }) };
     }),

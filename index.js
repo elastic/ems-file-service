@@ -15,7 +15,11 @@ const generateVectors = require('./scripts/generate-vectors');
 const constants = require('./scripts/constants');
 
 const tileManifestHostname = process.env.TILE_HOST || constants.TILE_STAGING_HOST;
+const tileManifestPath = process.env.TILE_PATH || constants.TILE_PATH;
 const vectorManifestHostname = process.env.VECTOR_HOST || constants.VECTOR_STAGING_HOST;
+const vectorManifestPath = process.env.VECTOR_PATH || constants.VECTOR_PATH;
+const httpPort = process.env.HTTP_PORT || constants.HTTP_PORT;
+const httpProtocol = process.env.HTTP_PROTOCOL || constants.HTTP_PROTOCOL;
 const production = vectorManifestHostname === constants.VECTOR_PRODUCTION_HOST;
 
 const sources = glob.sync('sources/**/*.*json').map(source => {
@@ -36,13 +40,21 @@ const vectorFiles = new Map();
 for (const version of constants.VERSIONS) {
   const catalogueManifest = generateCatalogueManifest({
     version: version,
+    httpProtocol,
     tileHostname: tileManifestHostname,
     vectorHostname: vectorManifestHostname,
+    httpPort,
+    vectorPath: vectorManifestPath,
+    tilePath: tileManifestPath,
   });
+
   const vectorManifest = generateVectorManifest(sources, {
     version: version,
     production: production,
+    httpProtocol,
     hostname: vectorManifestHostname,
+    httpPort,
+    vectorPath: vectorManifestPath,
     fieldInfo: fieldInfo,
   });
   for (const file of generateVectors(sources, {

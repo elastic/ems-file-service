@@ -574,6 +574,30 @@ tap('vector manifest tests v7', t => {
   });
   t.deepEquals(fieldInfoMissingName, fieldInfoMissingNameExpected,
     'should fallback to source field `desc` if `fieldInfo.name.i18n` is not available');
+
+    const customProtocolPort = generateVectorManifest(sources, {
+      version: 'v7.2',
+      hostname: 'vector-staging.maps.elastic.co',
+      httpPort: 3000,
+      httpProtocol: "http://",
+      fieldInfo: fieldInfo,
+    });
+
+    const gondorUrlExpected = "http://vector-staging.maps.elastic.co:3000/files/gondor_v3.geo.json?elastic_tile_service_tos=agree"
+
+    t.equal(customProtocolPort.layers[0].formats[0].url, gondorUrlExpected, 'v7.2');
+
+    const customVectorPath = generateVectorManifest(sources, {
+      version: 'v7.2',
+      hostname: 'vector-staging.maps.elastic.co',
+      vectorPath: 'vectors/',
+      fieldInfo: fieldInfo,
+    });
+
+    const gondorUrlCustomPathExpected = "https://vector-staging.maps.elastic.co/vectors/files/gondor_v3.geo.json?elastic_tile_service_tos=agree"
+
+    t.equal(customVectorPath.layers[0].formats[0].url, gondorUrlCustomPathExpected, 'v7.2');
+
   t.end();
 
 });
@@ -616,6 +640,50 @@ tap('catalogue tests 7.2', t => {
       type: 'file',
     }],
   }, '7.2 production catalogue should exist');
+
+
+  const prodCatalogue3000 = generateCatalogueManifest({
+    version: 'v7.2',
+    tileHostname: 'tiles.maps.elastic.co',
+    vectorHostname: 'vector.maps.elastic.co',
+    httpProtocol: "http://",
+    httpPort:3000
+  });
+  t.deepEquals(prodCatalogue3000, {
+    services: [{
+      id: 'tiles',
+      name: 'Elastic Maps Tile Service',
+      manifest: 'http://tiles.maps.elastic.co:3000/v7.2/manifest',
+      type: 'tms',
+    }, {
+      id: 'geo_layers',
+      name: 'Elastic Maps Vector Service',
+      manifest: 'http://vector.maps.elastic.co:3000/v7.2/manifest',
+      type: 'file',
+    }],
+  }, '7.2 production catalogue should exist');
+
+  const prodCataloguePaths = generateCatalogueManifest({
+    version: 'v7.2',
+    tileHostname: 'tiles.maps.elastic.co',
+    vectorHostname: 'vector.maps.elastic.co',
+    vectorPath: 'vectors/',
+    tilePath: 'tilesets/'
+  });
+  t.deepEquals(prodCataloguePaths, {
+    services: [{
+      id: 'tiles',
+      name: 'Elastic Maps Tile Service',
+      manifest: 'https://tiles.maps.elastic.co/tilesets/v7.2/manifest',
+      type: 'tms',
+    }, {
+      id: 'geo_layers',
+      name: 'Elastic Maps Vector Service',
+      manifest: 'https://vector.maps.elastic.co/vectors/v7.2/manifest',
+      type: 'file',
+    }],
+  }, '7.2 production catalogue should exist');
+
   t.end();
 });
 

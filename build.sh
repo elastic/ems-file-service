@@ -36,55 +36,10 @@ if [[ -z "${TILE_HOST}" ]]; then
     echo "TILE_HOST is not set. Defaulting to '${TILE_HOST}'."
 fi
 
-if [[ "$1" != "nodocker" ]]; then
 
-    NODE_IMG="node:8"
+if [[ "$1" == "gcp" ]]; then
 
-    echo "Generating manifests and vector data files for all versions using ${NODE_IMG} docker image"
-    docker pull $NODE_IMG
-    docker run --rm -i \
-        --env VECTOR_HOST \
-        --env TILE_HOST \
-        --env GIT_COMMITTER_NAME=test \
-        --env GIT_COMMITTER_EMAIL=test \
-        --env HOME=/tmp \
-        --user=$(id -u):$(id -g) \
-        --volume $PWD:/app \
-        --workdir /app \
-        $NODE_IMG \
-        bash -c 'npm config set spin false && /opt/yarn*/bin/yarn && yarn test && yarn run build'
-
-    if [[ -n "${VECTOR_BUCKET}" && -n "${CATALOGUE_BUCKET}" ]]; then
-        # Run this script from inside the docker container, using google/cloud-sdk image
-        echo "Deploying vector files to ${VECTOR_HOST}"
-        docker run \
-            --rm -i \
-            --env GCE_ACCOUNT \
-            --env GPROJECT \
-            --env VECTOR_HOST \
-            --env TILE_HOST \
-            --env VECTOR_BUCKET \
-            --env CATALOGUE_BUCKET \
-            --env ARCHIVE_BUCKET \
-            --env EMS_PROJECT \
-            --env HOME=/tmp \
-            --volume $PWD:/app \
-            --user=$(id -u):$(id -g) \
-            --workdir /app \
-            'google/cloud-sdk:slim' \
-            /app/build.sh nodocker "$@"
-        unset GCE_ACCOUNT
-    else
-        echo "No data will be uploaded. The following bucket information is not set:"
-        if [[ -z "${VECTOR_BUCKET}" ]]; then
-          echo "VECTOR_BUCKET"
-        fi
-        if [[ -z "${CATALOGUE_BUCKET}" ]]; then
-          echo "CATALOGUE_BUCKET"
-        fi
-    fi
-
-else
+    echo "Deploying to GCP..."
 
     if [[ -z "${GCE_ACCOUNT}" ]]; then
         echo "GCE_ACCOUNT is not set. Expected google service account JSON blob."
@@ -138,4 +93,67 @@ else
     echo "Copying $PWD/dist/vector* to gs://$VECTOR_BUCKET"
     gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z $PWD/dist/vector/* "gs://$VECTOR_BUCKET"
 
+elif [[ "$1" == "docker" ]]; then
+    echo "Building  Docker image..."
+    export DOCKER_IMAGE="$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION"
+    docker build --build-arg ARG_VECTOR_HOST=${VECTOR_HOST} -t $DOCKER_IMAGE .
+    echo "Image ready to use on this host (${VECTOR_HOST}) for example running:"
+    echo "docker run --rm --name ems -p ${HTTP_PORT}:80 ${DOCKER_IMAGE}"
+
+else
+    NODE_IMG="node:8"
+
+    echo "Generating manifests and vector data files for all versions using ${NODE_IMG} docker image"
+    docker pull $NODE_IMG
+    docker run --rm -i \
+        --env VECTOR_HOST \
+        --env TILE_HOST \
+        --env VECTOR_PATH \
+        --env TILE_PATH \
+        --env HTTP_PORT \
+        --env HTTP_PROTOCOL \
+        --env GIT_COMMITTER_NAME=test \
+        --env GIT_COMMITTER_EMAIL=test \
+        --env HOME=/tmp \
+        --user=$(id -u):$(id -g) \
+        --volume $PWD:/app \
+        --workdir /app \
+        $NODE_IMG \
+        bash -c 'npm config set spin false && /opt/yarn*/bin/yarn && yarn test && yarn run build'
+
+    # Deployment for GCP
+    if [[ -n "${GCE_ACCOUNT}" ]]; then
+      if [[ -n "${VECTOR_BUCKET}" && -n "${CATALOGUE_BUCKET}" ]]; then
+          # Run this script from inside the docker container, using google/cloud-sdk image
+          echo "Deploying vector files to ${VECTOR_HOST}"
+            docker run \
+                --rm -i \
+                --env GCE_ACCOUNT \
+                --env GPROJECT \
+                --env VECTOR_HOST \
+                --env TILE_HOST \
+                --env VECTOR_BUCKET \
+                --env CATALOGUE_BUCKET \
+                --env ARCHIVE_BUCKET \
+                --env EMS_PROJECT \
+                --env HOME=/tmp \
+                --volume $PWD:/app \
+                --user=$(id -u):$(id -g) \
+                --workdir /app \
+                'google/cloud-sdk:slim' \
+                /app/build.sh gcp "$@"
+            unset GCE_ACCOUNT
+      else
+          echo "No data will be uploaded. The following bucket information is not set:"
+          if [[ -z "${VECTOR_BUCKET}" ]]; then
+            echo "VECTOR_BUCKET"
+          fi
+          if [[ -z "${CATALOGUE_BUCKET}" ]]; then
+            echo "CATALOGUE_BUCKET"
+          fi
+      fi
+  # Build a Docker Image
+  else
+    ./build.sh docker
+  fi
 fi
