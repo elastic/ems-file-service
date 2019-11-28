@@ -6,6 +6,7 @@ ARG ARG_VECTOR_HOST="localhost"
 ENV VECTOR_HOST=${ARG_VECTOR_HOST}
 
 # Copy sources
+RUN rm -rf /usr/share/nginx/html/*
 COPY ./dist /usr/share/nginx/html/
 COPY ./templates/nginx.conf /etc/nginx/conf.d/template
 
