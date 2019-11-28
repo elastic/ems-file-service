@@ -122,7 +122,7 @@ else
         bash -c 'npm config set spin false && /opt/yarn*/bin/yarn && yarn test && yarn run build'
 
     # Deployment for GCP
-    if [[ -n "${GCE_ACCOUNT}" ]]; then
+    if [[ -n "${CI}" ]]; then
       if [[ -n "${VECTOR_BUCKET}" && -n "${CATALOGUE_BUCKET}" ]]; then
           # Run this script from inside the docker container, using google/cloud-sdk image
           echo "Deploying vector files to ${VECTOR_HOST}"
