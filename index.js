@@ -31,9 +31,9 @@ const fieldInfo = Hjson.parse(fs.readFileSync('./schema/fields.hjson', 'utf8'));
 
 // Clean and recreate `./dist` directories
 rimraf.sync('./dist');
-mkdirp.sync('./dist/vector/blob');
-mkdirp.sync('./dist/vector/files');
 mkdirp.sync('./dist/catalogue');
+mkdirp.sync(path.join('./dist',vectorManifestPath,'/blob'));
+mkdirp.sync(path.join('./dist',vectorManifestPath,'/files'));
 
 const vectorFiles = new Map();
 
@@ -61,7 +61,7 @@ for (const version of constants.VERSIONS) {
     version: version,
     production: production,
     srcdir: 'data',
-    destdir: 'dist/vector',
+    destdir: 'dist/' + vectorManifestPath,
   })) {
     // Set key = destination path as it is unique across versions
     vectorFiles.set(file.dest, file.src);
@@ -74,9 +74,9 @@ for (const version of constants.VERSIONS) {
     );
   }
   if (vectorManifest) {
-    mkdirp.sync(path.join('./dist/vector', version));
+    mkdirp.sync(path.join('./dist', vectorManifestPath, version));
     fs.writeFileSync(
-      path.join('./dist/vector', version, 'manifest'),
+      path.join('./dist', vectorManifestPath, version, 'manifest'),
       JSON.stringify(vectorManifest)
     );
   }
