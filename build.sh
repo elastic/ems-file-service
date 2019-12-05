@@ -96,9 +96,18 @@ if [[ "$1" == "gcp" ]]; then
 elif [[ "$1" == "docker" ]]; then
     echo "Building  Docker image..."
     export DOCKER_IMAGE="$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION"
-    docker build --build-arg ARG_VECTOR_HOST=${VECTOR_HOST} -t $DOCKER_IMAGE .
+    docker build \
+      --build-arg ARG_HTTP_PROTOCOL=${HTTP_PROTOCOL} \
+      --build-arg ARG_TILE_HOST=${TILE_HOST} \
+      --build-arg ARG_VECTOR_HOST=${VECTOR_HOST} \
+      --build-arg ARG_HTTP_PORT=${HTTP_PORT} \
+      --build-arg ARG_TILE_PATH=${TILE_PATH} \
+      --build-arg ARG_VECTOR_PATH=${VECTOR_PATH} \
+      --build-arg ARG_DOCKER_IMAGE_NAME=${DOCKER_IMAGE_NAME} \
+      --build-arg ARG_DOCKER_IMAGE_VERSION=${DOCKER_IMAGE_VERSION} \
+      -t $DOCKER_IMAGE .
     echo "Image ready to use on this host (${VECTOR_HOST}) for example running:"
-    echo "docker run --rm --name ems -p ${HTTP_PORT}:80 ${DOCKER_IMAGE}"
+    echo "docker run --rm --name ems -p ${HTTP_PORT}:${HTTP_PORT} ${DOCKER_IMAGE}"
 
 else
     NODE_IMG="node:8"
