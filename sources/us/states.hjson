@@ -40,6 +40,11 @@
             name: name
             desc: State name
         }
+        {
+            type: property
+            name: label_en
+            desc: State name
+        }
     ]
     query: {
         sparql:

@@ -49,6 +49,11 @@
             name: label_ko
             desc: 시군구명칭 (한국어)
         }
+        {
+            type: property
+            name: base_year
+            desc: ''
+        }
     ]
     name: south_korea_municipalities
     legacyIds: [

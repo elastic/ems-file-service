@@ -229,8 +229,7 @@
   "properties": {
     "iso_3166_2": "LV-RIX",
     "label_en": "Riga",
-    "label_lv": "Rīga",
-    "nuts": "LV006"
+    "label_lv": "Rīga"
   },
   "id": "Q1773"
 },
