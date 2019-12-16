@@ -12,6 +12,12 @@ To validate data sources against the schema run
 npm test
 ```
 
+Setting the environment variable `EMS_STRICT_TEST` will perform an additional check to ensure all field definitions are present in all features:
+
+```node
+EMS_STRICT_TEST=ok npm test
+```
+
 To build manifests and vector data files for all versions run
 
 ```node

@@ -51,7 +51,7 @@ function testSourceFiles(source) {
   tap(`${source.name} formats (${source.versions})`, (t) => {
     for (const format of source.emsFormats) {
       t.ok(fs.existsSync(`./data/${format.file}`), `${source.name} filename fields must have a matching file in the data directory`);
-      const fieldNames = source.fieldMapping.map(f => f.name);
+      const fieldNames = source.fieldMapping.map(f => f.name).sort();
       if (format.type === 'geojson') {
         const geojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
         validateGeoJSON(geojson, fieldNames, t);
@@ -76,6 +76,16 @@ function validateObjectsMember(topojson, format, fieldsNames, t) {
     geom => Object.keys(geom.properties).every(
       p => fieldsNames.indexOf(p) > -1)
   ), 'All feature properties are in the field mapping');
+
+  if (process.env.EMS_STRICT_TEST) {
+    t.ok(geoms.every(
+      geom => {
+        const keys = Object.keys(geom.properties).sort();
+        return keys.every((p, i) => p === fieldsNames[i]);
+      }
+    ), 'Feature properties and field mapping are strictly aligned');
+  }
+
 }
 
 function validateGeoJSON(geojson, fieldsNames, t) {
@@ -91,4 +101,15 @@ function validateGeoJSON(geojson, fieldsNames, t) {
       feat => Object.keys(feat.properties).every(
         p => fieldsNames.indexOf(p) > -1)
     ), 'All feature properties are in the field mapping');
+
+
+  if (process.env.EMS_STRICT_TEST) {
+    t.ok(
+      fc.features.every(
+        feat => {
+          const keys = Object.keys(feat.properties).sort();
+          return keys.every((p, i) => p === fieldsNames[i]);
+        }
+      ), 'Feature properties and field mapping are strictly aligned');
+  }
 }
