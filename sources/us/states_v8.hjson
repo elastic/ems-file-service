@@ -1,5 +1,5 @@
 {
-    versions: '>=1'
+    versions: '>=8'
     production: true
     countryCode: US
     type: http
@@ -37,11 +37,6 @@
         }
         {
             type: property
-            name: name
-            desc: State name
-        }
-        {
-            type: property
             name: label_en
             desc: State name
         }
@@ -50,7 +45,7 @@
         sparql:
             '''
             #defaultView:MapRegions
-            SELECT  (if(bound(?id2),?id2,?id) as ?id)  ?iso_3166_2 ?postal ?name ?label_en
+            SELECT  (if(bound(?id2),?id2,?id) as ?id)  ?iso_3166_2 ?postal ?label_en
             WHERE {
             SERVICE <https://query.wikidata.org/sparql> {
             # Using nested query to ensure there is only one ?id2 value
@@ -59,7 +54,6 @@
                         (SAMPLE(?id2) as ?id2)
                         (SAMPLE(?iso_3166_2) as ?iso_3166_2)
                         (SAMPLE(?fips_5_2_alpha) as ?postal)
-                        (SAMPLE(?label_en) as ?name)
                         (SAMPLE(?label_en) as ?label_en)
                         WHERE {  # List of regions, whose sub-regions we want.
                         VALUES ?entity { wd:Q30 }  # P150 = "contains administrative territorial entity"
@@ -185,11 +179,11 @@
     }
     emsFormats: [{
         type: geojson
-        file: usa_states_v1.geo.json
+        file: usa_states_v8.geo.json
         default: true
     }]
     ttl: 108000
     weight: 0
-    createdAt: "2017-04-26T19:45:22.377820"
-    id: 5086441721823232
+    createdAt: 2019-12-16T12:10:35.424647
+    id: 1576498235425210
 }
