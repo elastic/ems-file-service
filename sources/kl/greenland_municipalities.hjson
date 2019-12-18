@@ -1,0 +1,105 @@
+{
+    versions: '>=1'
+    type: http
+    production: true
+    wikidata: 'Q16511251'
+    note: Greenland municipalities
+    data: https://sophox.org/regions/geojson.json
+    attribution: [
+      {
+        label: {
+          en: © OpenStreetMap contributors
+        }
+        url: {
+          en: https://www.openstreetmap.org/copyright
+        }
+      }
+      {
+        label: {
+          en: Elastic Maps Service
+        }
+        url: {
+          en: https://www.elastic.co/elastic-maps-service
+        }
+      }
+    ]
+    fieldMapping: [
+        {
+            type: id
+            name: iso_3166_2
+            desc: ISO-3166-2 identifier
+        }
+        {
+            type: property
+            name: label_en
+            desc: Subdivision name (English)
+        }
+        {
+            type: property
+            name: label_kl
+            desc: Subdivision name (Greenlandic)
+        }
+    ]
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            SELECT
+            (if(bound(?id2),?id2,?id) as ?id)
+            ?iso_3166_2 ?label_en ?label_kl
+            WHERE {
+            SERVICE <https://query.wikidata.org/sparql> {
+            # Using nested query to ensure there is only one ?id2 value
+            {SELECT
+            ?id
+            (SAMPLE(?id2) as ?id2)
+            (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+            (SAMPLE(?label_en) as ?label_en)
+            (SAMPLE(?label_kl) as ?label_kl)
+            WHERE {
+                # List of regions, whose sub-regions we want.
+                VALUES ?entity { wd:Q223 }
+
+                # P150 = "contains administrative territorial entity"
+                ?entity wdt:P150 ?id .
+                ?id wdt:P300 ?iso_3166_2
+
+                # Remove deprecated boundaries
+                MINUS {?id (wdt:P576|wdt:P582|wdt:P1366) ?end.}
+
+                OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                OPTIONAL { ?id rdfs:label ?label_kl . FILTER(LANG(?label_kl) = "kl") }
+            }
+            # remove possible ID duplicates
+            GROUP BY ?id}
+            }
+            }
+            '''
+    }
+    name: greenland_municipalities
+    legacyIds: [
+      Greenland Municipalities
+    ]
+    humanReadableName: {
+      da: Grønlandsk kommune
+      de: Kommune
+      en: Greenland municipality
+      es: Municipio de Groenlandia
+      fr: Municipalité du Groenland
+      nb: Kommune på Grønland
+      nl: Groenlandse gemeente
+      sv: Kommun i Grönland
+      ca: Municipalitat de Groenlàndia
+      it: Comunità in Groenlandia
+      zh: 社区在格陵兰岛
+    }
+    emsFormats: [{
+      type: geojson
+      file: greenland_municipalities_v1.geo.json
+      default: true
+    }]
+    ttl: 108000
+    weight: 0
+    createdAt: 2019-12-17T15:15:48.423143
+    id: 1576595748424334
+}
