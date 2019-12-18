@@ -38,7 +38,7 @@ fi
 
 if [[ "$1" != "nodocker" ]]; then
 
-    NODE_IMG="node:8"
+    NODE_IMG="node:lts"
 
     echo "Generating manifests and vector data files for all versions using ${NODE_IMG} docker image"
     docker pull $NODE_IMG
