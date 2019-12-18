@@ -27,10 +27,15 @@ function generateCatalogueManifest(opts) {
     vectorHostname: constants.VECTOR_STAGING_HOST,
     ...opts,
   };
-  if (!semver.valid(semver.coerce(opts.version))) {
+  const version = semver.coerce(opts.version);
+  if (!semver.valid(version)) {
     throw new Error('A valid version parameter must be defined');
   }
-  const tilesManifest = semver.lt(semver.coerce(opts.version), '7.2.0')
+  //Catalogue manifest was removed in 7.6+
+  if (semver.gte(version, '7.6.0')) {
+    return;
+  }
+  const tilesManifest = semver.lt(version, '7.2.0')
     ? { id: 'tiles_v2', version: 'v2' }
     : { id: 'tiles', version: 'v7.2' };
   const manifest = {
