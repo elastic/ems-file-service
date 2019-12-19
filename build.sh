@@ -110,7 +110,7 @@ elif [[ "$1" == "docker" ]]; then
     echo "docker run --rm --name ems -p ${HTTP_PORT}:${HTTP_PORT} ${DOCKER_IMAGE}"
 
 else
-    NODE_IMG="node:8"
+    NODE_IMG="node:lts"
 
     echo "Generating manifests and vector data files for all versions using ${NODE_IMG} docker image"
     docker pull $NODE_IMG
