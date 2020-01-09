@@ -1,5 +1,5 @@
 {
-  versions: '>=1'
+  versions: '>=8'
   type: http
   production: true
   countryCode: IT
@@ -50,10 +50,17 @@
     sparql:
     '''
     #defaultView:MapRegions
-    SELECT (IF(BOUND(?id2), ?id2, ?id) AS ?id) ?iso_3166_2 ?istat ?label_en ?label_it WHERE {
+    SELECT ?id ?iso_3166_2 ?istat ?label_en ?label_it
+    WHERE {
       SERVICE <https://query.wikidata.org/sparql> {
         {
-          SELECT ?id (SAMPLE(?id2) AS ?id2) (SAMPLE(?iso_3166_2) AS ?iso_3166_2) (SAMPLE(?istat) AS ?istat) (SAMPLE(?label_en) AS ?label_en) (SAMPLE(?label_it) AS ?label_it)
+          SELECT
+            ?id
+            (SAMPLE(?id2) AS ?id2)
+            (SAMPLE(?iso_3166_2) AS ?iso_3166_2)
+            (SAMPLE(?istat) AS ?istat)
+            (SAMPLE(REPLACE(?label_en, "(Province of |Metropolitan City of |Libero consorzio comunale di )", "")) as ?label_en)
+            (SAMPLE(REPLACE(?label_it, "((P|p)rovincia( autonoma|) (di |del |dell'|della )|città metropolitana di |Libero consorzio comunale di )", "")) as ?label_it)
             WHERE { {
             VALUES (?entity) {
               (wd:Q38)
@@ -89,11 +96,43 @@
             }
           } UNION {
             # ISO Code IT-AO refers to a province that no longer exists. The GeoLite2 IP database lists cities from the Aosta Valley
-            # region so we'll use the region boundaries for the IT-AO code.
+            # regiohn so we'll use the region boundaries for the IT-AO code.
             VALUES ?entity { wd:Q38 }
             ?entity wdt:P150 ?id .
             FILTER ( ?id = wd:Q1222 )
             VALUES ?iso_3166_2 { "IT-AO" }
+            OPTIONAL { ?id wdt:P635 ?istat. }
+            OPTIONAL {
+              ?id rdfs:label ?label_en.
+              FILTER((LANG(?label_en)) = "en")
+            }
+            OPTIONAL {
+              ?id rdfs:label ?label_it.
+              FILTER((LANG(?label_it)) = "it")
+            }
+          } UNION {
+            # Sicily comunes
+            ?id wdt:P31/wdt:P279*  wd:Q21190155.
+            ?id wdt:P300 ?iso_3166_2.
+
+            OPTIONAL { ?id wdt:P635 ?istat. }
+            OPTIONAL {
+              ?id rdfs:label ?label_en.
+              FILTER((LANG(?label_en)) = "en")
+            }
+            OPTIONAL {
+              ?id rdfs:label ?label_it.
+              FILTER((LANG(?label_it)) = "it")
+            }
+          } UNION {
+            # Sicily metropolitan cities
+            VALUES (?id) {
+              (wd:Q20795016)
+              (wd:Q20991250)
+              (wd:Q20991246)
+            }
+            ?id wdt:P300 ?iso_3166_2.
+
             OPTIONAL { ?id wdt:P635 ?istat. }
             OPTIONAL {
               ?id rdfs:label ?label_en.
@@ -108,8 +147,9 @@
           GROUP BY ?id
         }
       }
-    }
-    '''
+      }
+      ORDER BY ?iso_3166_2
+      '''
   }
   name: italy_provinces
   legacyIds: [
@@ -124,7 +164,7 @@
     be: Правінцыі Італіі
     bg: Провинции на Италия
     bn: ইতালির প্রদেশ
-    ca: província d'Itàlia
+    ca: Províncies d'Itàlia
     co: Pruvincie taliane
     cs: italské provincie
     da: Italiens provinser
@@ -134,20 +174,20 @@
     en: Italy Provinces
     en-ca: Provinces of Italy
     en-gb: Provinces of Italy
-    es: provincia de Italia
+    es: Provincias de Italia
     et: Itaalia provintsid
     eu: Italiako probintzia
     fi: Italian maakunnat
-    fr: province de l'Italie
+    fr: Province de l'Italie
     gl: Provincias de Italia
     gsw: Italienische Provinzen
     he: נפות איטליה
     hr: Talijanske pokrajine
     hu: Olaszország megyéi
     hy: Իտալիայի պրովինցիաներ
-    ia: provincia de Italia
+    ia: Provincia de Italia
     id: Provinsi di Italia
-    it: provincia d'Italia
+    it: Province d'Italia
     ja: イタリアの県
     ka: იტალიის პროვინცია
     ko: 이탈리아의 현
@@ -155,14 +195,14 @@
     lv: Itālijas province
     mk: покраина во Италија
     ms: Wilayah di Itali
-    mt: provinċja tal-Italja
-    nl: provincie van Italië
-    nn: provinsar i Italia
+    mt: Provinċja tal-Italja
+    nl: Provincie van Italië
+    nn: Provinsar i Italia
     oc: Província d'Itàlia
     pl: Prowincje Włoch
-    pt: província da Itália
+    pt: Província da Itália
     ru: провинция Италии
-    scn: pruvincia di l'Italia
+    scn: Pruvincia di l'Italia
     sh: Provincije Italije
     sk: Administratívne členenie Talianska
     sl: Pokrajine Italije
@@ -178,11 +218,11 @@
   }
   emsFormats: [{
     type: geojson
-    file: italy_provinces_v1.geo.json
+    file: italy_provinces_v8.geo.json
     default: true
   }]
   ttl: 108000
   weight: 0
-  createdAt: 2018-12-26T19:16:26.591102
-  id: 1545851805498134
+  createdAt: 2019-10-24T15:44:32.474994
+  id: 1571931872477760
 }

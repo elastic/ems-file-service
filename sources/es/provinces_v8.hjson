@@ -1,0 +1,189 @@
+{
+    versions: '>=8'
+    type: http
+    production: true
+    countryCode: ES
+    note: Spain communities and provinces. Some single-province communities are missing from the SPARQL query and have been manually added.
+    wikidata: Q162620
+    data: https://sophox.org/regions/geojson.json
+    attribution: [
+      {
+        label: {
+          en: © OpenStreetMap contributors
+        }
+        url: {
+          en: https://www.openstreetmap.org/copyright
+        }
+      }
+      {
+        label: {
+          en: Elastic Maps Service
+        }
+        url: {
+          en: https://www.elastic.co/elastic-maps-service
+        }
+      }
+    ]
+    fieldMapping: [
+        {
+            type: id
+            name: iso_3166_2
+            desc: ISO-3166-2 identifier
+        }
+        {
+            type: property
+            name: label_en
+            desc: Community/Province name (English)
+        }
+        {
+            type: property
+            name: label_es
+            desc: Community/Province name (Spanish)
+        }
+    ]
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            SELECT ?id ?iso_3166_2 ?label_en ?label_es
+            WHERE {
+              {
+                SELECT
+                ?id
+                (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+                (SAMPLE(REPLACE(?label_en, "(Province of | Province)", "")) as ?label_en)
+                (SAMPLE(REPLACE(?label_es, "provincia de ", "")) as ?label_es)
+                WHERE
+                {
+                  # Use the OSM Spain wikidata to find first the autonomous communities
+                  # and then the provinces inside it
+                  VALUES ?spain {wd:Q29}
+                  ?rel osmt:wikidata ?spain;
+                    osmm:type 'r';
+                    osmt:admin_level '2';
+                    osmm:has
+                    [
+                      osmm:type 'r';
+                      osmt:admin_level '4';
+                      osmm:has [
+                        osmm:type 'r';
+                        osmt:admin_level '6';
+                        osmt:wikidata ?id;
+                        osmt:ISO3166-2 ?iso_3166_2
+                      ]
+                    ].
+                  # Get the labels from Wikidata
+                  SERVICE <https://query.wikidata.org/sparql> {
+                    OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                    OPTIONAL { ?id rdfs:label ?label_es . FILTER(LANG(?label_es) = "es") }
+                  }
+                }
+                GROUP BY ?id
+              }
+            }
+            ORDER BY ?iso_3166_2
+            '''
+    }
+    name: spain_provinces
+    legacyIds: [
+      Spain Provinces
+    ]
+    humanReadableName: {
+      af: Provinsies van Spanje
+      an: Provincias d'Espanya
+      ar: مقاطعة في إسبانيا
+      ast: Provincia d'España
+      be: правінцыі Іспаніі
+      be-tarask: правінцыі Гішпаніі
+      bg: Провинции на Испания
+      bn: স্পেনের প্রশাসনিক অঞ্চল
+      br: Proviñsoù Spagn
+      bs: Španske provincije
+      ca: Província de España
+      cs: španělské provincie
+      de: Provinz in Spanien
+      diq: Eyaletê İspanya
+      el: Επαρχίες της Ισπανίας
+      en: Spain Provinces
+      en-gb: Spain Provinces
+      eo: Administra divido de Hispanio
+      es: provincia de España
+      et: Hispaania provintsid
+      eu: Espainiako probintzia
+      ext: Provincias d'España
+      fi: Espanjan maakunta
+      fr: Province d'Espagne
+      ga: Cúigí na Spáinne
+      gd: Roinnean na Spàinne
+      gl: Provincias de España
+      he: פרובינציות של ספרד
+      hr: Španjolske pokrajine
+      hu: Spanyolország közigazgatási beosztása
+      hy: Իսպանիայի պրովինցիաներ
+      ia: provincia de Espania
+      id: Daftar provinsi di Spanyol
+      it: province della Spagna
+      ja: スペインの県
+      jv: Daftar provinsi Spanyol
+      ka: ესპანეთის პროვინციები
+      kk: Испания провинциялары
+      kk-arab: ىيسپانىييا پروۆىينتسىييالارى
+      kk-cn: ىيسپانىييا پروۆىينتسىييالارى
+      kk-cyrl: Испания провинциялары
+      kk-kz: Испания провинциялары
+      kk-latn: Ïspanïya provïncïyaları
+      kk-tr: Ïspanïya provïncïyaları
+      ko: 스페인의 주
+      lad: Provinsias de Espanya
+      lb: Lëscht vun de Provënzen a Spuenien
+      lt: Ispanijos provincijos
+      lv: Spānijas province
+      mk: покраина во Шпанија
+      nb: Spanias provinser
+      nds: Provinzen in Spanien
+      nl: provincie van Spanje
+      nn: provinsar i Spania
+      oc: Província d'Espanha
+      pam: Ding Lalawigan ning Espanya
+      pl: prowincja Hiszpanii
+      pt: províncias da Espanha
+      roa-tara: Provinge d'a Spagne
+      ru: провинция Испании
+      se: Spánia eanangottit
+      sh: Španjolske provincije
+      sq: Provincat e Spanjës
+      sr: провинција Шпаније
+      sr-ec: Провинције Шпаније
+      sr-el: Provincije Španije
+      sv: Spaniens provinser
+      sw: Orodha ya mikoa ya Hispania
+      ta: எசுப்பானியாவின் மாநிலங்கள்
+      th: จังหวัดของประเทศสเปน
+      tl: Mga lalawigan ng Espanya
+      tr: İspanya'nın İlleri
+      uk: провінція Іспанії
+      ur: ہسپانیہ کے صوبے
+      uz: Ispaniya provinsiyalari
+      vec: Province spagnołe
+      vi: tỉnh Tây Ban Nha
+      vls: Spoansche provinsjes
+      war: Probinsya han Espanya
+      xmf: ესპანეთიშ პროვინციეფი
+      zh: 西班牙省份
+      zh-cn: 西班牙省份
+      zh-hans: 西班牙省份
+      zh-hant: 西班牙省份
+      zh-hk: 西班牙省份
+      zh-sg: 西班牙省份
+      zh-tw: 西班牙省份
+    }
+    emsFormats: [{
+        type: geojson
+        file: spain_provinces_v8.geo.json
+        default: true
+    }]
+    ttl: 108000
+    weight: 0
+    createdAt: 2019-11-26T13:42:16.256151
+    id: 1574775736259281
+}

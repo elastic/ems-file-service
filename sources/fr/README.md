@@ -22,3 +22,12 @@ map.regionmap:
           description: "name (fr)"
 
 ```
+
+## Update
+
+When addressing the [absence of Lyon region](https://github.com/elastic/ems-file-service/issues/133) and generating the new France departments GeoJSON file, the data retrieved from Sophox yielded invalid geometries that the current [cleaning script](https://github.com/elastic/ems-file-service/blob/master/scripts/clean-geom.js) is not able to resolve. A new script that uses [QGIS processing framework](https://docs.qgis.org/3.4/en/docs/training_manual/processing/index.html) and its native implementation to fix geometries has been added. To use it you need to have a recent version of PyQGIS correctly installed, add the plugins folder to your `PYTHONPATH` and run it:
+
+```
+$ PYTHONPATH=/usr/share/qgis/python/plugins python3 scripts/fixgeometries.py /tmp/in.geo.json /tmp/out.geo.json
+```
+

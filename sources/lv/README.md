@@ -1,0 +1,3 @@
+# Latvia 
+
+Latvia is subdivided into municipalties and republican cities. Several republican cities share a name with a separate municipality (ex. [Jelgava](https://en.wikipedia.org/wiki/Jelgava) and [Jelgava Municipality](https://en.wikipedia.org/wiki/Jelgava_Municipality)). To avoid conflation, labels of municipalties retain the qualifier (ex. Jelgava Municipality, Jelgava novads) while republican cities only contain the name (ex. Jelgava).
