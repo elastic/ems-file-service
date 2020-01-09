@@ -48,34 +48,68 @@ function testSourceSchema(source) {
 }
 
 function testSourceFiles(source) {
-  // TODO Test that source fields exist in vector files
-  tap(`${source.name} formats`, (t) => {
+  tap(`${source.name} formats (${source.versions})`, (t) => {
     for (const format of source.emsFormats) {
       t.ok(fs.existsSync(`./data/${format.file}`), `${source.name} filename fields must have a matching file in the data directory`);
+      const fieldNames = source.fieldMapping.map(f => f.name).sort();
       if (format.type === 'geojson') {
         const geojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
-        validateGeometry(geojson, t);
+        validateGeoJSON(geojson, fieldNames, t);
       } else if (format.type === 'topojson') {
         const topojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
-        validateObjectsMember(topojson, format, t);
+        validateObjectsMember(topojson, format, fieldNames, t);
       }
       t.end();
     }
   });
 }
 
-function validateObjectsMember(topojson, format, t) {
+function validateObjectsMember(topojson, format, fieldsNames, t) {
   const fc = JSON.parse(topojson);
   const fcPath = _.get(format, 'meta.feature_collection_path', 'data');
   t.ok(fc.objects.hasOwnProperty(fcPath));
   t.type(fc.objects[fcPath], 'object');
+
+  t.ok(fc.objects[fcPath].hasOwnProperty('geometries'));
+  const geoms = fc.objects[fcPath].geometries;
+  t.ok(geoms.every(
+    geom => Object.keys(geom.properties).every(
+      p => fieldsNames.indexOf(p) > -1)
+  ), 'All feature properties are in the field mapping');
+
+  if (process.env.EMS_STRICT_TEST) {
+    t.ok(geoms.every(
+      geom => {
+        const keys = Object.keys(geom.properties).sort();
+        return keys.every((p, i) => p === fieldsNames[i]);
+      }
+    ), 'Feature properties and field mapping are strictly aligned');
+  }
+
 }
 
-function validateGeometry(geojson, t) {
+function validateGeoJSON(geojson, fieldsNames, t) {
   const reader = new jsts.io.GeoJSONReader();
   const fc = reader.read(geojson);
   t.ok(fc.features.every(feat => feat.geometry.isSimple()
   ), 'All geometries must be simple');
   t.ok(fc.features.every(feat => feat.geometry.isValid()
   ), 'All geometries must be valid');
+
+  t.ok(
+    fc.features.every(
+      feat => Object.keys(feat.properties).every(
+        p => fieldsNames.indexOf(p) > -1)
+    ), 'All feature properties are in the field mapping');
+
+
+  if (process.env.EMS_STRICT_TEST) {
+    t.ok(
+      fc.features.every(
+        feat => {
+          const keys = Object.keys(feat.properties).sort();
+          return keys.every((p, i) => p === fieldsNames[i]);
+        }
+      ), 'Feature properties and field mapping are strictly aligned');
+  }
 }

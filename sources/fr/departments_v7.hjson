@@ -51,14 +51,14 @@
             '''
             #defaultView:MapRegions
             SELECT
-            (if(bound(?id2),?id2,?id) as ?id)
+            (if(bound(?id2),?id2,?id1) as ?id)
             ?iso_3166_2 ?insee ?label_en
             ?label_fr
             WHERE {
               SERVICE <https://query.wikidata.org/sparql> {
               # Using nested query to ensure there is only one ?id2 value
               {SELECT
-              ?id
+              ?id1
               (SAMPLE(?id2) as ?id2)
               (SAMPLE(?iso_3166_2) as ?iso_3166_2)
               (SAMPLE(?insee) as ?insee)
@@ -69,16 +69,25 @@
                 VALUES ?entity { wd:Q142 }
 
                 # P150 = "contains administrative territorial entity"
-                ?entity wdt:P150/wdt:P150 ?id .
-                ?id wdt:P300 ?iso_3166_2
-                    OPTIONAL { ?id wdt:P2586 ?insee }
-                    OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-                    OPTIONAL { ?id rdfs:label ?label_fr . FILTER(LANG(?label_fr) = "fr")}
+                ?entity wdt:P150/wdt:P150 ?id1 .
+                ?id1 wdt:P300 ?iso_3166_2;
+                     wdt:P31/wdt:P279* wd:Q6465.
+
+                # Replace Rhône boundary to include Lyon
+                BIND(if(?id1=wd:Q46130, wd:Q18914778, ?id1)  AS ?id2)
+
+                OPTIONAL { ?id1 wdt:P2586 ?insee }
+                OPTIONAL { ?id1 rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                OPTIONAL { ?id1 rdfs:label ?label_fr . FILTER(LANG(?label_fr) = "fr")}
+
               }
               # remove possible ID duplicates
-              GROUP BY ?id}
+              GROUP BY ?id1
+              }
             }
             }
+            ORDER BY ?iso_3166_2
+
             '''
     }
     name: france_departments

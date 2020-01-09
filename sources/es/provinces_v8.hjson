@@ -1,5 +1,5 @@
 {
-    versions: '>=1 <8'
+    versions: '>=8'
     type: http
     production: true
     countryCode: ES
@@ -45,34 +45,43 @@
         sparql:
             '''
             #defaultView:MapRegions
-            SELECT
-            (if(bound(?id2),?id2,?id) as ?id)
-            ?iso_3166_2 ?label_en ?label_es
+            SELECT ?id ?iso_3166_2 ?label_en ?label_es
             WHERE {
-            SERVICE <https://query.wikidata.org/sparql> {
-            # Using nested query to ensure there is only one ?id2 value
-            {SELECT
-            ?id
-            (SAMPLE(?id2) as ?id2)
-            (SAMPLE(?iso_3166_2) as ?iso_3166_2)
-            (SAMPLE(?label_en) as ?label_en)
-            (SAMPLE(?label_es) as ?label_es)
-            WHERE {
-                # List of regions, whose sub-regions we want.
-                VALUES ?entity { wd:Q29 }
-
-                # P150 = "contains administrative territorial entity"
-                ?entity wdt:P150* ?id .
-                ?id wdt:P300 ?iso_3166_2
-
+              {
+                SELECT
+                ?id
+                (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+                (SAMPLE(REPLACE(?label_en, "(Province of | Province)", "")) as ?label_en)
+                (SAMPLE(REPLACE(?label_es, "provincia de ", "")) as ?label_es)
+                WHERE
+                {
+                  # Use the OSM Spain wikidata to find first the autonomous communities
+                  # and then the provinces inside it
+                  VALUES ?spain {wd:Q29}
+                  ?rel osmt:wikidata ?spain;
+                    osmm:type 'r';
+                    osmt:admin_level '2';
+                    osmm:has
+                    [
+                      osmm:type 'r';
+                      osmt:admin_level '4';
+                      osmm:has [
+                        osmm:type 'r';
+                        osmt:admin_level '6';
+                        osmt:wikidata ?id;
+                        osmt:ISO3166-2 ?iso_3166_2
+                      ]
+                    ].
+                  # Get the labels from Wikidata
+                  SERVICE <https://query.wikidata.org/sparql> {
                     OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-                OPTIONAL { ?id rdfs:label ?label_es . FILTER(LANG(?label_es) = "es") }
-
+                    OPTIONAL { ?id rdfs:label ?label_es . FILTER(LANG(?label_es) = "es") }
+                  }
+                }
+                GROUP BY ?id
+              }
             }
-            # remove possible ID duplicates
-            GROUP BY ?id}
-            }
-            }
+            ORDER BY ?iso_3166_2
             '''
     }
     name: spain_provinces
@@ -83,14 +92,14 @@
       af: Provinsies van Spanje
       an: Provincias d'Espanya
       ar: مقاطعة في إسبانيا
-      ast: provincia d'España
+      ast: Provincia d'España
       be: правінцыі Іспаніі
       be-tarask: правінцыі Гішпаніі
       bg: Провинции на Испания
       bn: স্পেনের প্রশাসনিক অঞ্চল
       br: Proviñsoù Spagn
       bs: Španske provincije
-      ca: província de España
+      ca: Província de España
       cs: španělské provincie
       de: Provinz in Spanien
       diq: Eyaletê İspanya
@@ -170,11 +179,11 @@
     }
     emsFormats: [{
         type: geojson
-        file: spain_provinces_v1.geo.json
+        file: spain_provinces_v8.geo.json
         default: true
     }]
     ttl: 108000
     weight: 0
-    createdAt: "2018-08-28T20:33:57.226349"
-    id: 5636953047302144
+    createdAt: 2019-11-26T13:42:16.256151
+    id: 1574775736259281
 }
