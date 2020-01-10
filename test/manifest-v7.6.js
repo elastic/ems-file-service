@@ -5,201 +5,214 @@
  */
 
 const tap = require('tap').test;
-const { generateCatalogueManifest, generateVectorManifest } = require('../scripts/generate-manifest');
+const {
+  generateCatalogueManifest,
+  generateVectorManifest,
+} = require('../scripts/generate-manifest');
 
 const sources = require('./fixtures/valid-sources/sources.json');
-const duplicateNames = require('./fixtures/valid-sources/duplicateNames.json');
-const weightedSources = require('./fixtures/valid-sources/weighted-sources.json');
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
 const vectorExpected = {
-  'layers': [
+  layers: [
     {
-      'layer_id': 'gondor',
-      'created_at': '1200-02-28T17:13:39.288909',
-      'attribution': [{
-        'label': {
-          'en': 'The Silmarillion',
-          'fr': 'Le Silmarillion',
-        },
-        'url': {
-          'en': 'https://en.wikipedia.org/wiki/The_Silmarillion',
-          'fr': 'https://fr.wikipedia.org/wiki/Le_Silmarillion',
-        },
-      }, {
-        'label': {
-          'en': 'Elastic Maps Service',
-        },
-        'url': {
-          'en': 'https://www.elastic.co/elastic-maps-service',
-        },
-      }],
-      'formats': [
+      layer_id: 'gondor',
+      created_at: '1200-02-28T17:13:39.288909',
+      attribution: [
         {
-          'type': 'geojson',
-          'url': '/files/gondor_v3.geo.json',
-          'legacy_default': true,
-        },
-      ],
-      'fields': [
-        {
-          'type': 'id',
-          'id': 'wikidata',
-          'label': {
-            'de': 'Wikidata-Kennung',
-            'en': 'Wikidata identifier',
-            'zh': '维基数据标识符',
+          label: {
+            en: 'The Silmarillion',
+            fr: 'Le Silmarillion',
+          },
+          url: {
+            en: 'https://en.wikipedia.org/wiki/The_Silmarillion',
+            fr: 'https://fr.wikipedia.org/wiki/Le_Silmarillion',
           },
         },
         {
-          'type': 'property',
-          'id': 'label_en',
-          'label': {
-            'de': 'name (en)',
-            'en': 'name (en)',
-            'zh': '名称 (en)',
+          label: {
+            en: 'Elastic Maps Service',
+          },
+          url: {
+            en: 'https://www.elastic.co/elastic-maps-service',
           },
         },
       ],
-      'legacy_ids': [
-        'Gondor',
-        'Gondor Kingdoms',
+      formats: [
+        {
+          type: 'geojson',
+          url: '/files/gondor_v3.geo.json',
+          legacy_default: true,
+        },
       ],
-      'layer_name': {
-        'en': 'Gondor Kingdoms',
-        'de': 'Gondor',
-        'zh': '魔多',
+      fields: [
+        {
+          type: 'id',
+          id: 'wikidata',
+          label: {
+            de: 'Wikidata-Kennung',
+            en: 'Wikidata identifier',
+            zh: '维基数据标识符',
+          },
+        },
+        {
+          type: 'property',
+          id: 'label_en',
+          label: {
+            de: 'name (en)',
+            en: 'name (en)',
+            zh: '名称 (en)',
+          },
+        },
+      ],
+      legacy_ids: ['Gondor', 'Gondor Kingdoms'],
+      layer_name: {
+        en: 'Gondor Kingdoms',
+        de: 'Gondor',
+        zh: '魔多',
       },
-    }, {
-      'layer_id': 'rohan',
-      'created_at': '1200-02-28T17:13:39.456456',
-      'attribution': [{
-        'label': {
-          'en': 'The Silmarillion',
-        },
-      }],
-      'formats': [
+    },
+    {
+      layer_id: 'rohan',
+      created_at: '1200-02-28T17:13:39.456456',
+      attribution: [
         {
-          'type': 'geojson',
-          'url': '/files/rohan_v2.geo.json',
-          'legacy_default': false,
-        },
-        {
-          'type': 'topojson',
-          'url': '/files/rohan_v2.topo.json',
-          'legacy_default': true,
-          'meta': {
-            'feature_collection_path': 'regions',
+          label: {
+            en: 'The Silmarillion',
           },
         },
       ],
-      'fields': [
+      formats: [
         {
-          'type': 'id',
-          'id': 'wikidata',
-          'label': {
-            'de': 'Wikidata-Kennung',
-            'en': 'Wikidata identifier',
-            'zh': '维基数据标识符',
-          },
+          type: 'geojson',
+          url: '/files/rohan_v2.geo.json',
+          legacy_default: false,
         },
         {
-          'type': 'property',
-          'id': 'label_en',
-          'label': {
-            'de': 'name (en)',
-            'en': 'name (en)',
-            'zh': '名称 (en)',
+          type: 'topojson',
+          url: '/files/rohan_v2.topo.json',
+          legacy_default: true,
+          meta: {
+            feature_collection_path: 'regions',
           },
         },
       ],
-      'legacy_ids': [
-        'Rohan',
-        'Rohan Kingdoms',
+      fields: [
+        {
+          type: 'id',
+          id: 'wikidata',
+          label: {
+            de: 'Wikidata-Kennung',
+            en: 'Wikidata identifier',
+            zh: '维基数据标识符',
+          },
+        },
+        {
+          type: 'property',
+          id: 'label_en',
+          label: {
+            de: 'name (en)',
+            en: 'name (en)',
+            zh: '名称 (en)',
+          },
+        },
       ],
-      'layer_name': {
-        'en': 'Rohan Kingdoms',
-        'de': 'Rohan',
-        'zh': '洛汗',
+      legacy_ids: ['Rohan', 'Rohan Kingdoms'],
+      layer_name: {
+        en: 'Rohan Kingdoms',
+        de: 'Rohan',
+        zh: '洛汗',
       },
-    }, {
-      'layer_id': 'shire',
-      'created_at': '1532-12-25T18:45:32.389979',
-      'attribution': [{
-        'label': {
-          'en': 'The Silmarillion',
-        },
-      }],
-      'formats': [
+    },
+    {
+      layer_id: 'shire',
+      created_at: '1532-12-25T18:45:32.389979',
+      attribution: [
         {
-          'type': 'geojson',
-          'url': `/files/shire_v2.geo.json`,
-          'legacy_default': true,
-        },
-        {
-          'type': 'topojson',
-          'url': '/files/shire_v2.topo.json',
-          'legacy_default': false,
-
-        },
-      ],
-      'fields': [
-        {
-          'type': 'id',
-          'id': 'wikidata',
-          'label': {
-            'de': 'Wikidata-Kennung',
-            'en': 'Wikidata identifier',
-            'zh': '维基数据标识符',
-          },
-        },
-        {
-          'type': 'property',
-          'id': 'label_en',
-          'label': {
-            'de': 'name (en)',
-            'en': 'name (en)',
-            'zh': '名称 (en)',
-          },
-        },
-        {
-          'type': 'property',
-          'id': 'label_ws',
-          'label': {
-            'de': 'name (ws)',
-            'en': 'name (ws)',
-            'zh': '名称 (ws)',
+          label: {
+            en: 'The Silmarillion',
           },
         },
       ],
-      'legacy_ids': [
-        'Shire',
-        'Shire regions',
-        'Shire Regions',
+      formats: [
+        {
+          type: 'geojson',
+          url: `/files/shire_v2.geo.json`,
+          legacy_default: true,
+        },
+        {
+          type: 'topojson',
+          url: '/files/shire_v2.topo.json',
+          legacy_default: false,
+        },
       ],
-      'layer_name': {
-        'en': 'Shire regions',
-        'de': 'Auenland',
-        'zh': '夏爾',
+      fields: [
+        {
+          type: 'id',
+          id: 'wikidata',
+          label: {
+            de: 'Wikidata-Kennung',
+            en: 'Wikidata identifier',
+            zh: '维基数据标识符',
+          },
+        },
+        {
+          type: 'property',
+          id: 'label_en',
+          label: {
+            de: 'name (en)',
+            en: 'name (en)',
+            zh: '名称 (en)',
+          },
+        },
+        {
+          type: 'property',
+          id: 'label_ws',
+          label: {
+            de: 'name (ws)',
+            en: 'name (ws)',
+            zh: '名称 (ws)',
+          },
+        },
+      ],
+      legacy_ids: ['Shire', 'Shire regions', 'Shire Regions'],
+      layer_name: {
+        en: 'Shire regions',
+        de: 'Auenland',
+        zh: '夏爾',
       },
     },
   ],
 };
 
 tap('>=7.6 tests', t => {
-  const catalogue = generateCatalogueManifest({
-    version: 'v7.6',
-    tileHostname: 'tiles.maps.elstc.co',
-    vectorHostname: 'vector.maps.elastic.co',
-  });
-  t.false(catalogue, '7.6 catalogue should not exist');
+  ['v7.6', 'v7.7', 'v7.8','v7.9','v7.10'].forEach(version => {
+    const catalogue = generateCatalogueManifest({
+      version: version,
+      tileHostname: 'tiles.maps.elstc.co',
+      vectorHostname: 'vector.maps.elastic.co',
+    });
+    t.false(catalogue, '7.6 catalogue should not exist');
 
-  // It is not necessary to test different hostnames, since URLs in manifest are relative
-  const vector = generateVectorManifest(sources, {
-    version: 'v7.6',
-    hostname: 'vector.maps.elastic.co',
-    fieldInfo: fieldInfo,
+    // It is not necessary to test different hostnames, since URLs in manifest are relative
+    const vector = generateVectorManifest(sources, {
+      version: version,
+      hostname: 'vector.maps.elastic.co',
+      fieldInfo: fieldInfo,
+    });
+    t.deepEquals(vector, vectorExpected, 'v7.6 vector manifest');
   });
-  t.deepEquals(vector, vectorExpected, 'v7.6 vector manifest');
+  t.end();
+});
+
+//v8 vector manifest should fail - to be removed in EMS v8.0
+tap('Check that v8.0 fails', function (t) {
+  t.throws(function () {
+    generateVectorManifest(sources, {
+      version: 'v8.0',
+      hostname: 'vector.maps.elastic.co',
+      fieldInfo: fieldInfo,
+    });
+  }, new Error('Unable to get a manifest for version 8.0'), 'throws assert error');
   t.end();
 });
