@@ -87,16 +87,16 @@ function generateVectorManifest(sources, opts) {
       switch (semver.major(manifestVersion)) {
         case 1:
           uniqueProperties.push('name', 'id');
-          layers.push(manifestLayerV1(source, opts.hostname));
+          layers.push(manifestLayerV1(source, opts.hostname, { manifestVersion }));
           break;
         case 2:
           uniqueProperties.push('name', 'id');
-          layers.push(manifestLayerV2(source, opts.hostname));
+          layers.push(manifestLayerV2(source, opts.hostname, { manifestVersion }));
           break;
         case 6:
         case 7: // v6 and v7 manifest schema are the same
           uniqueProperties.push('layer_id');
-          layers.push(manifestLayerV6(source, opts.hostname, { fieldInfo: opts.fieldInfo }));
+          layers.push(manifestLayerV6(source, opts.hostname, { manifestVersion, fieldInfo: opts.fieldInfo }));
           break;
         default:
           throw new Error(`Unable to get a manifest for version ${manifestVersion}`);
@@ -123,14 +123,14 @@ function throwIfDuplicates(array, prop) {
   return false;
 }
 
-function manifestLayerV1(data, hostname) {
+function manifestLayerV1(data, hostname, opts) {
   const format = getDefaultFormat(data.emsFormats);
-  const urlPath = `blob/${data.id}`;
+  const pathname = `/blob/${data.id}`;
   const layer = {
     attribution: data.attribution.map(getAttributionString).join('|'),
     weight: data.weight,
     name: data.humanReadableName.en,
-    url: `https://${hostname}/${urlPath}?elastic_tile_service_tos=agree`,
+    url: getFileUrl(hostname, pathname, opts.manifestVersion),
     format: format.type,
     fields: data.fieldMapping.map(fieldMap => ({
       name: fieldMap.name,
@@ -143,8 +143,8 @@ function manifestLayerV1(data, hostname) {
   return layer;
 }
 
-function manifestLayerV2(data, hostname) {
-  const layer = manifestLayerV1(data, hostname);
+function manifestLayerV2(data, hostname, opts) {
+  const layer = manifestLayerV1(data, hostname, opts);
   const format = getDefaultFormat(data.emsFormats);
   if (format.type === 'topojson') {
     layer.meta = {
@@ -165,9 +165,10 @@ function manifestLayerV6(data, hostname, opts) {
     created_at: data.createdAt,
     attribution: data.attribution,
     formats: data.emsFormats.map(format => {
+      const pathname = `/files/${format.file}`;
       return { ...{
         type: format.type,
-        url: `https://${hostname}/files/${format.file}?elastic_tile_service_tos=agree`,
+        url: getFileUrl(hostname, pathname, opts.manifestVersion),
         legacy_default: format.default || false,
       }, ...(format.meta && { meta: format.meta }) };
     }),
@@ -224,4 +225,23 @@ function getAttributionString(attr) {
     throw new Error(`Attribution sources must have a 'label' property`);
   }
   return attr.url ? `[${attr.label.en}](${attr.url.en})` : `${attr.label.en}`;
+}
+
+/**
+ * Get a file url for a vector manifest.
+ * EMS versions <7.6 include the full URL and query string. At EMS v7.6,
+ * URLs are relative to the manifest hostname and the query string must be
+ * applied by the client.
+ * @private
+ * @param {string} hostname
+ * @param {string} pathname
+ * @param {string} manifestVersion
+ * @returns {string}
+ */
+function getFileUrl(hostname, pathname, manifestVersion) {
+  if (semver.lt(manifestVersion, '7.6.0')) {
+    return `https://${hostname}${pathname}?elastic_tile_service_tos=agree`;
+  } else {
+    return `${pathname}`
+  }
 }
