@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "tap test/*.js --cov",
-    "build": "node index.js"
+    "build": "node index.js",
+    "layerdiff": "node scripts/layerdiff.js"
   },
   "keywords": [],
   "author": "Nick Peihl <nick.peihl@elastic.co>",
@@ -18,6 +19,7 @@
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.2",
     "semver": "^5.5.0",
+    "turf-vincenty-inverse": "^1.0.1",
     "yargs": "^15.0.2"
   },
   "devDependencies": {
