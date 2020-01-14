@@ -56,15 +56,14 @@
             (SAMPLE(?id2) as ?id2)
             (SAMPLE(?iso_3166_2) as ?iso_3166_2)
             (SAMPLE(?label_en) as ?label_en)
-            (SAMPLE(?label_de) as ?label_de)
+            (SAMPLE(REPLACE(?label_de, "Freie Hansestadt ", "")) as ?label_de)
+
             WHERE {
             # List of regions, whose sub-regions we want.
             VALUES ?entity { wd:Q183 }
 
             # P150 = "contains administrative territorial entity"
             ?entity wdt:P150 ?id .
-
-
 
             OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
             OPTIONAL { ?id rdfs:label ?label_de . FILTER(LANG(?label_de) = "de") }
