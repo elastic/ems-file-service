@@ -329,7 +329,7 @@ try {
 
 } catch (error) {
   print(error);
-  print('Quiting ❌q');
+  print('Quiting ❌');
   yargs.exit(0);
 }
 
