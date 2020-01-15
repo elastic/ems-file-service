@@ -16,6 +16,7 @@ const badVersions = require('./fixtures/invalid-sources/bad-versions');
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
 const v2Expected = {
+  'version': '2.0',
   'layers': [
     {
       'attribution': '[The Silmarillion](https://en.wikipedia.org/wiki/The_Silmarillion)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)',
@@ -86,6 +87,7 @@ const v2Expected = {
 };
 
 const prodExpected = {
+  'version': '2.0',
   'layers': [
     {
       'attribution': '[The Silmarillion](https://en.wikipedia.org/wiki/The_Silmarillion)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)',
@@ -197,6 +199,7 @@ tap('v2 tests', t => {
     vectorHostname: 'vector-staging.maps.elastic.co',
   });
   t.deepEquals(v2Catalogue, {
+    version: '2.0',
     services: [{
       id: 'tiles_v2',
       name: 'Elastic Maps Tile Service',
@@ -216,6 +219,7 @@ tap('v2 tests', t => {
     vectorHostname: 'vector.maps.elastic.co',
   });
   t.deepEquals(prodCatalogue, {
+    version: '2.0',
     services: [{
       id: 'tiles_v2',
       name: 'Elastic Maps Tile Service',
