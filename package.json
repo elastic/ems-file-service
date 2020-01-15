@@ -6,8 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "tap test/*.js --cov",
-    "build": "node index.js",
-    "layerdiff": "node scripts/layerdiff.js"
+    "build": "node index.js"
   },
   "keywords": [],
   "author": "Nick Peihl <nick.peihl@elastic.co>",
