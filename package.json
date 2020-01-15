@@ -19,7 +19,6 @@
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.2",
     "semver": "^5.5.0",
-    "turf-vincenty-inverse": "^1.0.1",
     "yargs": "^15.0.2"
   },
   "devDependencies": {
@@ -34,6 +33,7 @@
     "eslint-plugin-prefer-object-spread": "^1.2.1",
     "eslint-plugin-react": "^7.1.0",
     "geojson-rewind": "^0.3.1",
+    "geolib": "^3.2.1",
     "jsts": "^2.0.2",
     "node-fetch": "^2.2.0",
     "tap": "^12.1.0"
