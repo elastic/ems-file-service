@@ -7,7 +7,7 @@
 const fs = require('fs');
 const _ = require('lodash');
 const jsts = require('jsts');
-const distance = require('turf-vincenty-inverse');
+const { getDistance, getAreaOfPolygon } = require('geolib');
 
 /* Command line options definition */
 const yargs = require('yargs')
@@ -17,9 +17,9 @@ const yargs = require('yargs')
   .alias('h', 'help')
   .option('verbose', {
     alias: 'v',
-    default: 0,
-    count: true,
-    describe: 'Verbosity (0 to 2), -vv for full output',
+    type: 'boolean',
+    default: false,
+    describe: 'More verbose output',
   })
   .option('field-id', {
     alias: 'i',
@@ -46,11 +46,11 @@ const yargs = require('yargs')
     default: 1000,
     describe: 'Distance in meters of the centroids that trigger an alert',
   })
-  .option('no-parts', {
-    alias: 'n',
+  .option('check-parts', {
+    alias: 'p',
     type: 'boolean',
     default: false,
-    describe: 'Disable to compare the number of parts on multipolygons',
+    describe: 'Enable to compare the number of parts on multipolygons',
   })
   .demandCommand(2)
   .example('$0 old.geojson new.geojson', 'Compare two files')
@@ -60,109 +60,156 @@ const yargs = require('yargs')
 const argv = yargs.argv;
 
 
+/* Logging function */
+function print() { console.log.apply(console, arguments); }
 
-/* Logging options */
-const VERBOSE_LEVEL = argv.verbose;
-function warn() { VERBOSE_LEVEL >= 0 && console.log.apply(console, arguments); }
-function info() { VERBOSE_LEVEL >= 1 && console.log.apply(console, arguments); }
-function debug() { VERBOSE_LEVEL >= 2 && console.log.apply(console, arguments); }
+const VERBOSE = argv.verbose;
+const FIELD_ID = argv.fieldId ? argv.fieldId.trim() : false;
+const CHECK_ID = argv.checkId;
+const AREA_DIFF = argv.areaDiff;
+const CENTROID_DIST = argv.centroidDist;
+const CHECK_PARTS = argv.checkParts;
 
-function warnTable() { VERBOSE_LEVEL >= 0 && console.table.apply(console, arguments); }
-// function infoTable() { VERBOSE_LEVEL >= 1 && console.table.apply(console, arguments); }
-function debugTable() { VERBOSE_LEVEL >= 2 && console.table.apply(console, arguments); }
 
-info('Comparing files...');
-
-const fieldId = argv.fieldId;
 const getId = function (f) {
-  return fieldId ? f.properties.id : f.id;
+  return FIELD_ID ? f.properties[FIELD_ID] : f.id;
 };
 
 const toFeaturePoint = function (geom) {
   const { x, y } = geom.getCoordinates()[0];
   return {
-    type: 'Feature',
-    properties: {},
-    geometry: {
-      type: 'Point',
-      coordinates: [x, y],
-    },
+    latitude: y,
+    longitude: x,
   };
+};
+
+const getAreaFromRing = function (ring) {
+  const points = ring.getCoordinates().map(c => [c.x, c.y]);
+  return getAreaOfPolygon(points);
+};
+
+const getArea = function (geom) {
+  let totalArea = 0;
+  for (let i = 0; i < geom.getNumGeometries(); i++) {
+    const part = geom.getGeometryN(i);
+    const ringArea = getAreaFromRing(part.getExteriorRing());
+
+    let holeArea = 0;
+    for (let j = 0; j < part.getNumInteriorRing(); j++) {
+      const hole = part.getInteriorRingN(j);
+      holeArea += getAreaFromRing(hole);
+    }
+
+    totalArea += ringArea - holeArea;
+  }
+  return totalArea;
 };
 
 /* Compare two features */
 const compareFeatures = function ({ id, left, right }) {
-  info(`${id}:`);
+  const diffs = {};
+  const details = {};
+
   // Deep comparison of properties using lodash
-  if (!_.isEqual(left.properties, right.properties)) {
-    warn('Properties are not equal');
-    warnTable([
-      { file: 'left', ...left.properties },
-      { file: 'right', ...right.properties },
-    ]);
-  } else {
-    if (VERBOSE_LEVEL >= 2) {
-      debugTable([
-        { file: 'left', ...left.properties },
-        { file: 'right', ...right.properties },
-      ]);
-    }
-  }
+  diffs.properties = !_.isEqual(left.properties, right.properties);
 
   // Geometry check
   const lGeom = left.geometry;
   const rGeom = right.geometry;
 
   // Area check
-  const lArea = lGeom.getArea();
-  const rArea = rGeom.getArea();
-  const areaDiff = Math.abs((1 - lArea / rArea) * 100);
+  const lArea = getArea(lGeom);
+  const rArea = getArea(rGeom);
+  const areaDiff = (1 - lArea / rArea) * 100;
 
-  if (areaDiff > argv.areaDiff) {
-    warn('Areas differ too much', areaDiff.toFixed(3), '%');
-  } else {
-    if (VERBOSE_LEVEL >= 2) {
-      debug('Area diff: ', areaDiff.toFixed(3), '%');
-    }
-  }
+  diffs.area = Math.abs(areaDiff) > AREA_DIFF;
+  details.area = areaDiff;
+  details.areas = {
+    left: Math.round(lArea / 1e6) + ' km²',
+    right: Math.round(rArea / 1e6) + ' km²',
+  };
 
   // Centroid check
-  const lCentroid = toFeaturePoint(lGeom.getCentroid());
-  const rCentroid = toFeaturePoint(rGeom.getCentroid());
-  const centroidDist = Math.floor(distance(lCentroid, rCentroid, 'radians'));
-  if (centroidDist > argv.centroidDist) {
-    warn('Distance between centroids is too high: ', centroidDist, 'm');
+  const lCentroid = lGeom.getCentroid();
+  const rCentroid = rGeom.getCentroid();
+
+  const centroidDist = Math.floor(getDistance(
+    toFeaturePoint(lCentroid),
+    toFeaturePoint(rGeom.getCentroid()), 'radians'));
+
+  diffs.centroid = centroidDist > CENTROID_DIST;
+  details.centroid = centroidDist;
+
+  details.centroids = { left: lCentroid.toText(), right: rCentroid.toText() };
+
+  // Check parts
+
+  const lParts = lGeom.getNumGeometries();
+  const rParts = rGeom.getNumGeometries();
+  details.parts = {
+    left: lParts,
+    right: rParts,
+  };
+  diffs.parts = CHECK_PARTS && lParts !== rParts;
+
+  return {
+    id,
+    left,
+    right,
+    diffs,
+    details,
+  };
+};
+
+const reportDiffs = function ({ id, left, right, diffs, details }) {
+  const numErrors = _.compact(_.values(diffs)).length;
+
+  if (numErrors === 0 && !VERBOSE) {
+    print(`Feature ${id} is OK ✔️`);
+    return;
   } else {
-    if (VERBOSE_LEVEL >= 2) {
-      debug('Distance between centroids: ', centroidDist, 'm');
+    print(`\n---------------------------------- Feature ${id}`);
+  }
+
+  if (diffs.properties) {
+    print('❌ Properties differ:');
+    console.table({ left: left.properties, right: right.properties });
+  } else if (VERBOSE) {
+    print('✔️ Properties are OK');
+    console.table([left.properties]);
+  }
+
+  if (diffs.area || VERBOSE) {
+    const mark = diffs.area ? '❌' : '✔️';
+    print(`${mark} Area difference: `, details.area.toFixed(2) + '%');
+    if (VERBOSE > 0) {
+      console.table(details.areas);
     }
   }
 
-  // Parts check
-  // TO DO
+  if (diffs.centroid || VERBOSE) {
+    const mark = diffs.centroid ? '❌' : '✔️';
+    print(`${mark} Centroid distance:`, Math.round(details.centroid) + 'm');
+    if (VERBOSE > 0) {
+      console.table(details.centroids);
+    }
+  }
 
-  // TO DO: gather all the checks in a single report for better control of the output
+  if (diffs.parts || VERBOSE) {
+    const mark = diffs.parts ? '❌' : '✔️';
+    print(`${mark} Geometry parts: left: ${details.parts.left} right: ${details.parts.right}`);
+  }
 
 };
-const leftPath = argv._[0];
-const rightPath = argv._[1];
 
-try {
 
-  const reader = new jsts.io.GeoJSONReader();
-
-  const leftJson = reader.read(fs.readFileSync(leftPath, 'utf-8'));
-  const rightJson = reader.read(fs.readFileSync(rightPath, 'utf-8'));
-
-  debug(leftPath, leftJson.features.length, 'features');
-  debug(rightPath, rightJson.features.length, 'features');
-
+const splitFeatures = function (leftJson, rightJson) {
   let features = [];
   const notLeft = [];
 
-  if (argv.checkId) {
+  if (CHECK_ID) {
     // Find the elements directly  by the provided ID
-    const id = argv.checkId;
+    const id = CHECK_ID;
     const left = leftJson.features.find(f => getId(f) === id);
     const right = rightJson.features.find(f => getId(f) === id);
 
@@ -170,10 +217,10 @@ try {
       features.push({ id, left, right });
     } else {
       if (!left) {
-        warn('ID not found in the left GeoJSON');
+        print('❌ ID not found in the left GeoJSON');
       }
       if (!right) {
-        warn('ID not found in the right GeoJSON');
+        print('❌ ID not found in the right GeoJSON');
       }
       yargs.exit(0);
     }
@@ -202,30 +249,87 @@ try {
     });
   }
 
-
-
   // Find if there are any features from the left
   // without the right side
   const notRight = features.filter(f => !'right' in f);
 
-  if (notRight.length > 0) {
-    const ids = notRight.map(getId);
-    warn('Missing IDs on the right file:', ids.join(', '));
-  }
-  if (notLeft.length > 0) {
-    const ids = notLeft.map(getId);
-    warn('Missing IDs on the left file:', ids.join(', '));
+  // Work only with features that are on both sides
+  const finalFeatures = features.filter(f => 'right' in f);
+
+  return {
+    notLeft,
+    notRight,
+    features: finalFeatures,
+  };
+};
+
+/* https://stackoverflow.com/a/39835908/3647833 */
+const pluralize = (count, noun, suffix = 's') =>
+  `${count} ${noun}${count !== 1 ? suffix : ''}`;
+
+// Execution starts here
+try {
+  // Report given parameters
+  if (VERBOSE) {
+    const fieldId = FIELD_ID ? 'property ' + FIELD_ID : 'default feature id';
+    const checkId = CHECK_ID || 'none';
+    print('================================== Parameters');
+    print(`Identifier: ${fieldId}`);
+    print(`Check a single feature id: ${checkId}`);
+    print(`Area difference: ${AREA_DIFF}`);
+    print(`Centroid distance: ${CENTROID_DIST}`);
+    print(`Check parts: ${CHECK_PARTS}`);
   }
 
-  // Remove from features any
-  const finalFeatures = features.filter(f => 'right' in f);
-  debug('Features to compare: ', finalFeatures.length);
-  finalFeatures.forEach(compareFeatures);
-  info('================================== Done!');
+  const leftPath = argv._[0];
+  const rightPath = argv._[1];
+
+  const reader = new jsts.io.GeoJSONReader();
+
+  // Load GeoJSON files
+  print(`================================== Loading files...`);
+  const leftJson = reader.read(fs.readFileSync(leftPath, 'utf-8'));
+  const rightJson = reader.read(fs.readFileSync(rightPath, 'utf-8'));
+
+  if (VERBOSE) {
+    console.table([
+      { 'file': 'left', 'path': leftPath, 'features': leftJson.features.length },
+      { 'file': 'right', 'path': rightPath, 'features': rightJson.features.length },
+    ]);
+  }
+
+  // Check for IDs on both sides
+  const { notLeft, notRight, features } = splitFeatures(leftJson, rightJson);
+
+  print(`================================== IDs checked`);
+  if (notRight.length > 0 || notLeft.length > 0) {
+    print('The files don\'t have exactly the same number of features');
+    if (notRight.length > 0) {
+      const ids = notRight.map(getId);
+      print('❌ Missing IDs on the right file:', ids.join(', '));
+    }
+    if (notLeft.length > 0) {
+      const ids = notLeft.map(getId);
+      print('❌ Missing IDs on the left file:', ids.join(', '));
+    }
+  } else {
+    print(`✔️ All good`);
+  }
+
+  // Run the comparison checks
+  print(`================================== Comparing ${pluralize(features.length, 'feature')}...`);
+  const featuresWithDiffs = features.map(compareFeatures);
+  const warnings = featuresWithDiffs.filter(f => _.compact(_.values(f.diffs)).length > 0);
+  print(`${pluralize(warnings.length, 'difference')} detected`);
+
+  // Report differences
+  warnings.forEach(reportDiffs);
+
+  print('================================== Done! ✔️');
 
 } catch (error) {
-  warn(error);
-  warn('Quiting');
+  print(error);
+  print('Quiting ❌q');
   yargs.exit(0);
 }
 
