@@ -263,9 +263,9 @@ const splitFeatures = function (leftJson, rightJson) {
   };
 };
 
-/* https://stackoverflow.com/a/39835908/3647833 */
-const pluralize = (count, noun, suffix = 's') =>
-  `${count} ${noun}${count !== 1 ? suffix : ''}`;
+const pluralize = function (count, noun) {
+  return `${count} ${noun}` + (count > 1 ? 's' : '');
+};
 
 // Execution starts here
 try {
