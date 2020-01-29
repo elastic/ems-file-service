@@ -14,6 +14,7 @@ const weightedSources = require('./fixtures/valid-sources/weighted-sources.json'
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
 const v1Expected = {
+  'version': '1.0',
   'layers': [{
     'attribution': '[The Silmarillion](https://en.wikipedia.org/wiki/The_Silmarillion)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)',
     'weight': 0,
@@ -56,6 +57,7 @@ const v1Expected = {
 };
 
 const prodExpected = {
+  'version': '1.0',
   'layers': [
     {
       'attribution': '[The Silmarillion](https://en.wikipedia.org/wiki/The_Silmarillion)|[Elastic Maps Service](https://www.elastic.co/elastic-maps-service)',
@@ -81,6 +83,7 @@ const prodExpected = {
 };
 
 const safeDuplicatesExpected = {
+  'version': '1.0',
   'layers': [{
     'attribution': 'The Silmarillion',
     'weight': 0,
@@ -152,6 +155,7 @@ tap('v1 tests', t => {
     vectorHostname: 'vector-staging.maps.elastic.co',
   });
   t.deepEquals(v1Catalogue, {
+    version: '1.0',
     services: [{
       id: 'tiles_v2',
       name: 'Elastic Maps Tile Service',
@@ -171,6 +175,7 @@ tap('v1 tests', t => {
     vectorHostname: 'vector.maps.elastic.co',
   });
   t.deepEquals(prodCatalogue, {
+    version: '1.0',
     services: [{
       id: 'tiles_v2',
       name: 'Elastic Maps Tile Service',

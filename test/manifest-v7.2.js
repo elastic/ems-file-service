@@ -13,6 +13,7 @@ const weightedSources = require('./fixtures/valid-sources/weighted-sources.json'
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
 const stagingExpected = {
+  'version': '7.2',
   'layers': [
     {
       'layer_id': 'gondor',
@@ -187,6 +188,7 @@ const stagingExpected = {
 };
 
 const prodExpected = {
+  'version': '7.2',
   'layers': [
     {
       'layer_id': 'gondor',
@@ -301,6 +303,7 @@ const prodExpected = {
 };
 
 const fieldInfoFallbackExpected = {
+  'version': '7.2',
   'layers': [
     {
       'layer_id': 'gondor',
@@ -408,6 +411,7 @@ const fieldInfoFallbackExpected = {
 };
 
 const fieldInfoMissingNameExpected = {
+  'version': '7.2',
   'layers': [
     {
       'layer_id': 'gondor',
@@ -585,6 +589,7 @@ tap('catalogue tests <=7.2', t => {
     vectorHostname: 'vector-staging.maps.elastic.co',
   });
   t.deepEquals(stagingCatalogue, {
+    version: '7.2',
     services: [{
       id: 'tiles',
       name: 'Elastic Maps Tile Service',
@@ -604,6 +609,7 @@ tap('catalogue tests <=7.2', t => {
     vectorHostname: 'vector.maps.elastic.co',
   });
   t.deepEquals(prodCatalogue, {
+    version: '7.2',
     services: [{
       id: 'tiles',
       name: 'Elastic Maps Tile Service',

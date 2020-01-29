@@ -39,6 +39,7 @@ function generateCatalogueManifest(opts) {
     ? { id: 'tiles_v2', version: 'v2' }
     : { id: 'tiles', version: 'v7.2' };
   const manifest = {
+    version: `${version.major}.${version.minor}`,
     services: [{
       id: tilesManifest.id,
       name: 'Elastic Maps Tile Service',
@@ -108,6 +109,7 @@ function generateVectorManifest(sources, opts) {
   }
 
   const manifest = {
+    version: `${semver.major(manifestVersion)}.${semver.minor(manifestVersion)}`,
     layers: layers,
   };
   return manifest;

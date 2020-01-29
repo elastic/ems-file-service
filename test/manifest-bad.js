@@ -12,7 +12,7 @@ const sources = require('./fixtures/valid-sources/sources.json');
 tap('Bad manifests', t => {
 
   const noVersion = generateVectorManifest(sources);
-  t.deepEquals(noVersion, { layers: [] }, 'no layers when version 0');
+  t.deepEquals(noVersion, { version: '0.0', layers: [] }, 'no layers when version 0');
 
   t.throws(function () {
     generateVectorManifest(sources, {
