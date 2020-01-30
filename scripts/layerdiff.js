@@ -288,8 +288,14 @@ try {
 
   // Load GeoJSON files
   print(`================================== Loading files...`);
-  const leftJson = reader.read(fs.readFileSync(leftPath, 'utf-8'));
-  const rightJson = reader.read(fs.readFileSync(rightPath, 'utf-8'));
+
+  const [leftJson, rightJson] = [leftPath, rightPath].map(path =>{
+    if (path === '-') {
+      return reader.read(fs.readFileSync(0, 'utf-8'));
+    } else {
+      return reader.read(fs.readFileSync(path, 'utf-8'));
+    }
+  });
 
   if (VERBOSE) {
     console.table([
