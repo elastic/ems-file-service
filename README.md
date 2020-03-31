@@ -9,19 +9,19 @@ Create a new JSON or [Hjson](http://hjson.org) file in the appropriate folder in
 To validate data sources against the schema run
 
 ```node
-npm test
+yarn test
 ```
 
 Setting the environment variable `EMS_STRICT_TEST` will perform an additional check to ensure all field definitions are present in all features:
 
 ```node
-EMS_STRICT_TEST=ok npm test
+EMS_STRICT_TEST=ok yarn test
 ```
 
 To build manifests and vector data files for all versions run
 
 ```node
-npm run build
+yarn build
 ```
 
 ## Continuous Integration and Deployment
@@ -60,6 +60,6 @@ Whenever possible new vector layers should be created using a SPARQL query in [S
 1. Generate a 17 digit number for the `id` field. A timestamp using the following bash command is suitable. Use `gdate` On Mac OSX. 
 `date +%s%6N` 
 1. The `filename` field in the source file should match the name of the file you added to the `data` directory.
-1. Run `npm test` to test for errors.
+1. Run `yarn test` to test for errors.
 1. Invalid or non-simple geometry errors that occur during testing can usually be fixed by running the `clean-geom.js` script against the GeoJSON file (e.g. `node scripts/clean-geom.js data/usa_states_v1.geo.json`).
 1. Run `./build.sh` to build the manifest and blob files locally.
