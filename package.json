@@ -9,6 +9,9 @@
     "build": "node index.js"
   },
   "keywords": [],
+  "engines": {
+    "node": ">= 12"
+  },
   "author": "Nick Peihl <nick.peihl@elastic.co>",
   "license": "Elastic-License",
   "dependencies": {
