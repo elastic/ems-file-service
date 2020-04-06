@@ -29,8 +29,7 @@
         basedir: ''
         wipe-workspace: 'True'
     vault:
-      # auth/approle/role/bekitzur-ci/role-id
-      role_id: 3a72c576-4f45-3b41-b698-d371dc717227
+      role_name: bekitzur-emsfiles
     wrappers:
     - workspace-cleanup
     - ansicolor

@@ -12,7 +12,7 @@
         set +x
 
         export GPROJECT=elastic-bekitzur
-        VAULT_ACCOUNT=secret/gce/$GPROJECT/service-account/jenkins
+        VAULT_ACCOUNT=secret/gce/$GPROJECT/service-account/emsfiles
 
         VAULT_TOKEN=$(vault write -field=token auth/approle/login role_id="$VAULT_ROLE_ID" secret_id="$VAULT_SECRET_ID")
         export VAULT_TOKEN
