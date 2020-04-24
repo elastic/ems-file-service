@@ -8,6 +8,7 @@ Examples of disputed areas (not comprehensive)
 - Kashmir region
 - Crimea
 
+Download the [shapefile](https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces.zip), unzip, and process using MapShaper [command-line tool](https://github.com/mbloch/mapshaper/wiki/Introduction-to-the-Command-Line-Tool):
 
 ```
 mapshaper-xl ne_10m_admin_1_states_provinces.shp snap \
