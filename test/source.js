@@ -59,8 +59,8 @@ function testSourceFiles(source) {
         const topojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
         validateObjectsMember(topojson, format, fieldNames, t);
       }
-      t.end();
     }
+    t.end();
   });
 }
 
