@@ -1,0 +1,166 @@
+{
+    versions: '1'
+    type: http
+    production: true
+    wikidata: Q56061
+    note: 'Administrative regions of countries collected from Natural Earth and OpenStreetMap'
+    data: ''
+    attribution: [
+      {
+        label: {
+          en: Made with NaturalEarth
+        }
+        url: {
+          en: http://www.naturalearthdata.com/about/terms-of-use
+        }
+      }
+      {
+        label: {
+          en: © OpenStreetMap contributors
+        }
+        url: {
+          en: https://www.openstreetmap.org/copyright
+        }
+      }
+      {
+        label: {
+          en: Elastic Maps Service
+        }
+        url: {
+          en: https://www.elastic.co/elastic-maps-service
+        }
+      }
+    ]
+    fieldMapping: [
+        {
+          type: id
+          name: region_iso_code
+          desc: Region ISO code
+        }
+        {
+          type: property
+          name: region_name
+          desc: Region name
+        }
+    ]
+    name: 'administrative_regions'
+    legacyIds: [
+      Administrative regions
+    ]
+    humanReadableName: {
+      ar: تقسيم إداري
+      arz: تقسيم ادارى
+      ast: división alministrativa
+      az: inzibati-ərazi vahidi
+      ba: административ-территориаль берәмек
+      bar: Vawoitungseihheit
+      be: адміністрацыйна-тэрытарыяльная адзінка
+      be-tarask: адміністрацыйная адзінка
+      bg: административна единица
+      bn: প্রশাসনিক বিভাগ
+      br: Melestradurezh tiriadel
+      bs: Entitet
+      ca: entitat territorial administrativa
+      cs: administrativní jednotka
+      cy: endid tiriogaethol gweinyddol
+      da: administrativt område
+      de: administrativ-territoriale Entität
+      diq: Mıntıqay letey idareyi
+      el: διοικητική διαίρεση
+      en: Administrative regions
+      en-ca: Administrative regions
+      en-gb: Administrative regions
+      eo: administra teritoria unuo
+      es: entidad territorial administrativa
+      et: haldusüksus
+      eu: lurraldeko administrazio-erakunde
+      fa: تقسیمات کشوری
+      fi: hallinnollinen alue
+      fr: entité territoriale administrative
+      ga: limistéar riaracháin
+      gl: división administrativa
+      gsw: Verwaltigseinheit
+      hak: Hàng-chṳn khî-va̍k
+      he: חלוקה מנהלית
+      hi: प्रशासनिक प्रभाग
+      hr: administrativni teritorijalni entitet
+      hsb: administratiwno-teritorialna jednotka
+      ht: Kolektivite tèritoryal
+      hu: közigazgatási egység
+      hy: վարչատարածքային միավոր
+      ia: entitate territorial administrative
+      id: pembagian administratif
+      is: Stjórnsýslueining
+      it: suddivisione amministrativa
+      ja: 行政区画
+      ka: ადმინისტრაციული ერთეული
+      kk: Әкімшілік-аумақтық бөлініс
+      kn: ಆಡಳಿತ ಕೇಂದ್ರ
+      ko: 행정 구역
+      ky: Административдик-аймактык түзүлүш
+      la: divisio administrativa
+      lb: administrativ-territorial Eenheet
+      lmo: circoscriziù
+      lt: Administracinis vienetas
+      lv: administratīvi teritoriāla vienība
+      mk: управна единица
+      mr: प्रशासकीय विभाग
+      ms: entiti wilayah pentadbiran
+      nan: Hêng-chèng-khu
+      nb: forvaltningsenhet
+      nds-nl: bestuurlike indaeling
+      nl: bestuurlijk gebied
+      nn: administrativ eining
+      oc: subdivision
+      pl: jednostka administracyjna
+      pt: entidade territorial administrativa
+      pt-br: entidade territorial administrativa
+      ro: Diviziune administrativă
+      ru: административно-территориальная единица
+      scn: entità tirrituriali amministrativa
+      sco: admeenistrative diveesion
+      sd: انتظامي ورھاست
+      sh: Entitet
+      sk: administratívny územný celok
+      sl: administrativna območna enota
+      sq: Ndarja administrative
+      sr: управна јединица
+      sr-ec: управна јединица
+      sr-el: upravna jedinica
+      sv: administrativ territoriell enhet
+      sw: Eneo la utawala
+      te: పరిపాలనా ప్రాంతం
+      tg: Воҳиди марзиву маъмурӣ
+      tg-cyrl: воҳиди марзию маъмурӣ
+      th: เขตการปกครอง
+      tr: idari bölünüş
+      tt: административ-территориаль берәмлек
+      tt-cyrl: административ-территориаль берәмлек
+      tt-latn: administrativ-territorial' berämleq
+      uk: адміністративно-територіальна одиниця
+      ur: انتظامی علاقائی اکائی
+      uz: Maʼmuriy-hududiy tuzilish
+      vi: đơn vị hành chính
+      vro: Valitsõmisütsüs
+      wuu: 行政区划
+      yue: 行政區
+      zh: 行政領土實體
+      zh-cn: 行政领土实体
+      zh-hans: 行政领土实体
+      zh-hant: 行政領土實體
+      zh-hk: 行政領土實體
+      zh-mo: 行政領土實體
+      zh-my: 行政领土实体
+      zh-sg: 行政领土实体
+      zh-tw: 行政領土實體
+    }
+    emsFormats: [{
+      type: geojson
+      file: 'admin_regions_v1.geo.json'
+      default: true,
+    }]
+    ttl: 108000
+    weight: 1
+    createdAt: '2020-07-06T22:19:49.290894'
+    id: 1594073968647139
+}
