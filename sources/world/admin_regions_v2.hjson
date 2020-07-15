@@ -155,9 +155,6 @@
       zh-tw: 行政領土實體
     }
     emsFormats: [{
-      type: geojson
-      file: 'admin_regions_v2.geo.json'
-    }, {
       type: topojson
       file: 'admin_regions_v2.topo.json'
       default: true,

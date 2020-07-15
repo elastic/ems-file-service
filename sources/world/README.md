@@ -20,17 +20,6 @@ mapshaper -i 10m_cultural/ne_10m_admin_1_states_provinces.shp \
 -o format=topojson prettify admin_regions_v2.topo.json
 ```
 
-* Convert to GeoJSON (EMS v2)
-```
-mapshaper -i 10m_cultural/ne_10m_admin_1_states_provinces.shp \
--filter "this.properties.iso_3166_2 !== ''" \
--filter-fields "name,iso_3166_2" \
--rename-fields "region_iso_code=iso_3166_2,region_name=name" \
--simplify visvalingam interval=300 keep-shapes \
--sort this.properties.region_iso_code \
--o rfc7946 format=geojson prettify admin_regions_v2.geo.json
-```
-
 * Convert to GeoJSON (EMS v1)
 ```
 mapshaper -i 10m_cultural/ne_10m_admin_1_states_provinces.shp \
