@@ -1376,11 +1376,6 @@ geolib@^3.2.1:
   resolved "https://registry.yarnpkg.com/geolib/-/geolib-3.2.1.tgz#1d7c6e7106eddc10445ba2038550aab63d6e4fa4"
   integrity sha512-O9nD8iSD4VimupKak8bKySLkkWI5VWetxIXsU7jmJRXxBFRR9LxSXGfTomtcHJLSRiznx+YHXHTOIVq4qgQmPw==
 
-geolib@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/geolib/-/geolib-3.2.1.tgz#1d7c6e7106eddc10445ba2038550aab63d6e4fa4"
-  integrity sha512-O9nD8iSD4VimupKak8bKySLkkWI5VWetxIXsU7jmJRXxBFRR9LxSXGfTomtcHJLSRiznx+YHXHTOIVq4qgQmPw==
-
 get-caller-file@^2.0.1:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
@@ -1923,10 +1918,10 @@ lodash.throttle@^4.1.1:
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
 
-lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19:
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 log-driver@^1.2.7:
   version "1.2.7"
