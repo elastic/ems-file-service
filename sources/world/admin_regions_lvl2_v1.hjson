@@ -1,9 +1,9 @@
 {
-    versions: '>=2'
+    versions: '1'
     type: http
     production: true
     wikidata: Q56061
-    note: 'Administrative regions of countries collected from Natural Earth and OpenStreetMap'
+    note: 'Second level administrative regions of countries collected from Natural Earth and OpenStreetMap'
     data: ''
     attribution: [
       {
@@ -43,7 +43,7 @@
           desc: Region name
         }
     ]
-    name: 'administrative_regions'
+    name: 'administrative_regions_lvl2'
     legacyIds: [
       Administrative regions
     ]
@@ -155,15 +155,12 @@
       zh-tw: 行政領土實體
     }
     emsFormats: [{
-      type: topojson
-      file: 'admin_regions_v2.topo.json'
+      type: geojson
+      file: 'admin_regions_lvl2_v1.geo.json'
       default: true,
-      meta: {
-        feature_collection_path: 'data'
-      }
     }]
     ttl: 108000
     weight: 1
     createdAt: '2020-07-06T22:19:49.290894'
-    id: 1594147964141356
+    id: 1594073968647139
 }
