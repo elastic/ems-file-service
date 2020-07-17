@@ -8,25 +8,38 @@ Maps of world countries and administrative divisions are known to have biases an
 
 ## Mapshaper scripts used
 
-* Convert to TopoJSON
+* Additional China Provinces (e.g. Taiwan)
 ```
 mapshaper -i 10m_cultural/ne_10m_admin_1_states_provinces.shp \
+-filter "['TW'].indexOf(iso_a2) > -1" \
+-dissolve copy-fields="iso_3166_2,name" \
+-each "iso_3166_2='CN-TW',name='Taiwan'" \
+-o china_states.shp
+```
+
+* Convert to TopoJSON
+```
+mapshaper -i combine-files 10m_cultural/ne_10m_admin_1_states_provinces.shp \
+china_states.shp \
+-merge-layers force \
 -filter "this.properties.iso_3166_2 !== ''" \
 -filter-fields "name,iso_3166_2" \
 -rename-fields "region_iso_code=iso_3166_2,region_name=name" \
 -simplify visvalingam interval=300 keep-shapes \
 -rename-layers data \
 -sort this.properties.region_iso_code \
--o format=topojson prettify admin_regions_v2.topo.json
+-o format=topojson prettify admin_regions_lvl2_v2.topo.json
 ```
 
 * Convert to GeoJSON (EMS v1)
 ```
-mapshaper -i 10m_cultural/ne_10m_admin_1_states_provinces.shp \
+mapshaper -i combine-files 10m_cultural/ne_10m_admin_1_states_provinces.shp \
+china_states.shp \
+-merge-layers force \
 -filter "this.properties.iso_3166_2 !== ''" \
 -filter-fields "name,iso_3166_2" \
 -rename-fields "region_iso_code=iso_3166_2,region_name=name" \
 -simplify visvalingam interval=1000 keep-shapes \
 -sort this.properties.region_iso_code \
--o rfc7946 format=geojson prettify admin_regions_v1.geo.json
+-o rfc7946 format=geojson prettify admin_regions_lvl2_v1.geo.json
 ```
