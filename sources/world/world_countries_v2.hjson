@@ -1,0 +1,224 @@
+{
+  versions: '1-6'
+  production: true
+  type: http
+  note: Administrative map units from Natural Earth Data. URLs listed at http://geojson.xyz
+  wikidata: Q6256
+  data: https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_map_units.geojson
+  attribution: [
+    {
+      label: {
+        en: Made with NaturalEarth
+      }
+      url: {
+        en: http://www.naturalearthdata.com/about/terms-of-use
+      }
+    }
+    {
+      label: {
+        en: Wikidata
+      }
+      url: {
+        en: https://www.wikidata.org/
+      }
+    }
+    {
+      label: {
+        en: Elastic Maps Service
+      }
+      url: {
+        en: https://www.elastic.co/elastic-maps-service
+      }
+    }
+  ]
+  fieldMapping: [
+    {
+      type: id
+      name: iso2
+      desc: Two letter abbreviation
+    }
+    {
+      type: id
+      name: iso3
+      desc: Three letter abbreviation
+    }
+    {
+      type: property
+      name: name
+      desc: Country name
+    }
+    {
+      type: property
+      name: pop
+      desc: Population
+    }
+    {
+      type: property
+      name: area
+      desc: Area
+    }
+  ]
+  website: http://naturalearthdata.comhttp://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-details/
+  license:
+  {
+    url: http://www.naturalearthdata.com/about/terms-of-use/
+    text: Made with Natural Earth
+  }
+  name: world_countries
+  legacyIds: [
+    World Countries
+  ]
+  humanReadableName: {
+    aeb-arab: البلاد
+    af: land
+    an: país
+    ar: البلد
+    ast: país
+    ba: дәүләт
+    bar: Stoot
+    be: краіна
+    be-tarask: краіна
+    bg: държава
+    bn: রাষ্ট্র
+    br: Stad
+    bs: država
+    ca: estat
+    ce: пачхьалкх
+    ckb: وڵات
+    co: paese
+    cs: stát`
+    cy: gwladwriaeth
+    da: land
+    de: Staat
+    de-at: Staat
+    de-ch: Land
+    el: χώρα
+    en: World Countries
+    en-ca: World Countries
+    en-gb: World Countries
+    eo: lando
+    es: país
+    et: riik
+    eu: herrialdea
+    fa: کشور
+    fi: valtio
+    fo: land
+    fr: pays
+    frr: Stoot
+    fy: lân
+    ga: tír
+    gd: dùthaich
+    gl: país
+    gsw: Staat
+    gu: દેશ
+    ha: ƙasa
+    he: מדינה
+    hi: देश
+    hr: zemlja
+    hsb: stat
+    hu: ország
+    hy: երկիր
+    ia: pais
+    id: negara
+    ilo: pagilian
+    io: lando
+    is: land
+    it: Paese
+    ja: 国
+    jbo: gugde
+    ka: ქვეყანა
+    kn: ದೇಶ
+    ko: 다음 나라의 것임
+    ksh: Schtaht
+    ku-latn: welat
+    ky: өлкөсү
+    la: civitas
+    lb: Land
+    lfn: pais
+    lmo: Stàt
+    lt: valstybė
+    lv: valsts
+    mai: देश
+    mg: Firenena
+    mhr: мланде
+    min: nagara
+    mk: земја
+    ml: രാജ്യം
+    mr: देश
+    ms: negara
+    mt: pajjiż
+    my: နိုင်ငံ
+    myv: мастор
+    nb: land
+    nds: Land
+    nds-nl: laand
+    ne: देश
+    nl: land
+    nn: land
+    nso: Naga
+    oc: país
+    olo: Mua
+    or: ଦେଶ
+    pa: ਦੇਸ਼
+    pam: bangsa
+    pcd: pays
+    pl: państwo
+    ps: هېواد
+    pt: país
+    pt-br: país
+    rm: stadi
+    ro: țară
+    roa-tara: State
+    ru: государство
+    scn: paìsi
+    sco: kintra
+    se: riika
+    sh: zemlja
+    si: රට
+    sk: štát
+    sl: država
+    sq: shteti
+    sr: држава
+    sr-ec: држава
+    sr-el: država
+    stq: Lound
+    sv: land
+    ta: நாடு
+    te: దేశం
+    tg: мамлакат
+    tg-cyrl: давлат
+    th: ประเทศ
+    tl: bansa
+    tr: ülkesi
+    ts: Tiko
+    tt: дәүләт
+    tt-cyrl: дәүләт
+    tt-latn: däwlät
+    uk: держава
+    ur: ملک
+    uz: davlat
+    vi: quốc gia
+    vo: län
+    yi: מדינה
+    yo: orílè-èdè
+    yue: 國
+    zh: 国家
+    zh-cn: 国家
+    zh-hans: 国家
+    zh-hant: 國家
+    zh-hk: 國家
+    zh-mo: 國家
+    zh-my: 国家
+    zh-sg: 国家
+    zh-tw: 國家
+  }
+  emsFormats:[{
+    type: geojson
+    file: world_countries_v1.geo.json
+    default: true
+  }]
+  ttl: 108000
+  weight: 2
+  createdAt: "2017-04-26T17:12:15.978370"
+  id: 5659313586569216
+}
