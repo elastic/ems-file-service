@@ -83,15 +83,38 @@ GROUP BY ?iso2
 ORDER BY ?iso2
 ```
 
+### Getting metrics from the World Bank database
+
+* Getting the total population
+```
+export METRIC="SP.POP.TOTL" &&\
+echo "iso,measure" > ${METRIC}.csv &&\
+  curl -s "http://api.worldbank.org/v2/country/all/indicator/${METRIC}?format=json&per_page=300&date=2018" |\
+  jq -cr '.[1][] | select(.countryiso3code != "") | select(.value > 0) | .countryiso3code + "," + (.value | tostring)' |\
+  sort >> ${METRIC}.csv
+```
+
+* Getting the area in square kilometers
+```
+export METRIC="AG.LND.TOTL.K2" &&\
+echo "iso,measure" > ${METRIC}.csv &&\
+  curl -s "http://api.worldbank.org/v2/country/all/indicator/${METRIC}?format=json&per_page=300&date=2018" |\
+  jq -cr '.[1][] | select(.countryiso3code != "") | select(.value > 0) | .countryiso3code + "," + (.value | tostring)' |\
+  sort >> ${METRIC}.csv
+```
+
 ### Mapshaper
 
-Dissolve the regions dataset by `country_iso2_code` and join with the Wikidata CSV to generate both the GeoJSON and TopoJSON outputs, each with different simplification thresholds to generate around 2MB datasets.
+Dissolve the regions dataset by `country_iso2_code` and join with the World Bank CSVs to generate both the GeoJSON and TopoJSON outputs, each with different simplification thresholds to generate around 2MB datasets.
 
 ```
-mapshaper -i ../../data/admin_regions_lvl2_v2.geo.json \
+mapshaper -i ../../data/admin_regions_lvl2_v1.geo.json \
 -dissolve 'country_iso2_code' 'copy-fields=country_iso3_code,country_name' \
 -rename-fields "iso2=country_iso2_code,iso3=country_iso3_code,name=country_name" \
--join wikidata.csv 'keys=iso2,iso2' 'fields=pop,area' \
+-join AG.LND.TOTL.K2.csv 'keys=iso3,iso' 'fields=measure' \
+-rename-fields "area=measure" \
+-join SP.POP.TOTL.csv 'keys=iso3,iso' 'fields=measure' \
+-rename-fields "population=measure" \
 -simplify visvalingam interval=3000 keep-shapes \
 -sort this.properties.region_iso_code \
 -o rfc7946 format=geojson prettify ../../data/world_countries_v1.geo.json
@@ -101,7 +124,10 @@ mapshaper -i ../../data/admin_regions_lvl2_v2.geo.json \
 mapshaper -i ../../data/admin_regions_lvl2_v1.geo.json \
 -dissolve 'country_iso2_code' 'copy-fields=country_iso3_code,country_name' \
 -rename-fields "iso2=country_iso2_code,iso3=country_iso3_code,name=country_name" \
--join wikidata.csv 'keys=iso2,iso2' 'fields=pop,area' \
+-join AG.LND.TOTL.K2.csv 'keys=iso3,iso' 'fields=measure' \
+-rename-fields "area=measure" \
+-join SP.POP.TOTL.csv 'keys=iso3,iso' 'fields=measure' \
+-rename-fields "population=measure" \
 -simplify visvalingam interval=1000 keep-shapes \
 -rename-layers data \
 -sort this.properties.iso2 \
