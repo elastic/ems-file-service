@@ -1,30 +1,35 @@
 .DEFAULT_GOAL := ../../data/world_countries_v1.geo.json
 
 clean: ## Remove output files
-	rm -f ../../data/admin_regions_lvl2_v1.geo.json \
-	 ../../data/admin_regions_lvl2_v2.topo.json \
-	 ../../data/world_countries_v1.geo.json \
-	 ../../data/world_countries_v7.topo.json \
+	rm -f ne_10m_admin_1_states_provinces.topo.json \
+  ../../data/admin_regions_lvl2_v1.geo.json \
+  ../../data/admin_regions_lvl2_v2.topo.json \
+  ../../data/world_countries_v1.geo.json \
+  ../../data/world_countries_v7.topo.json \
    /tmp/wikidata.csv /tmp/area.csv /tmp/population.csv \
    /tmp/missing-area.csv /tmp/missing-population.csv
 
-../../data/admin_regions_lvl2_v2.topo.json: ## Regions GeoJSON
-	mapshaper -i naturalearth/10m_cultural/ne_10m_admin_1_states_provinces.shp \
+ne_10m_admin_1_states_provinces.topo.json: ## Uncompress the NE regions dataset
+	gunzip --keep ./ne_10m_admin_1_states_provinces.topo.json.gz
+
+
+../../data/admin_regions_lvl2_v2.topo.json: ne_10m_admin_1_states_provinces.topo.json## Regions GeoJSON
+	mapshaper -i ne_10m_admin_1_states_provinces.topo.json \
   -filter "['TW'].indexOf(iso_a2) > -1" \
   -dissolve copy-fields="iso_3166_2,name,iso_a2,adm0_a3,admin" \
   -each "iso_3166_2='CN-TW',name='Taiwan'" \
   -o /tmp/china_states.shp
-	mapshaper -i combine-files naturalearth/10m_cultural/ne_10m_admin_1_states_provinces.shp \
+	mapshaper -i combine-files ne_10m_admin_1_states_provinces.topo.json \
   /tmp/china_states.shp \
   -merge-layers force \
   -filter "this.properties.iso_3166_2 !== ''" \
   -filter "this.properties.iso_a2 !== '-1'" \
-  -filter-fields "name,iso_3166_2,iso_a2,adm0_a3,admin" \
   -rename-fields "region_iso_code=iso_3166_2,region_name=name,country_iso2_code=iso_a2,country_iso3_code=adm0_a3,country_name=admin" \
   -simplify visvalingam interval=300 keep-shapes \
   -rename-layers data \
   -sort this.properties.region_iso_code \
   -o format=topojson prettify ../../data/admin_regions_lvl2_v2.topo.json
+	rm ne_10m_admin_1_states_provinces.topo.json
 
 ../../data/admin_regions_lvl2_v1.geo.json: ../../data/admin_regions_lvl2_v2.topo.json ## Regions TopoJSON
 	mapshaper -i combine-files ../../data/admin_regions_lvl2_v2.topo.json \
