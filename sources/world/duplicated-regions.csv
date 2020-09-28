@@ -1,0 +1,38 @@
+in_region_iso,out_region_name,out_region_iso2,out_country_name,out_country_iso2,out_country_iso3
+TW-TAO,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-HSQ,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-HSZ,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-MIA,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-TXG,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-CHA,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-YUN,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-CYQ,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-TNN,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-KHH,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-PIF,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-TTT,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-HUA,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-ILA,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-NWT,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-KEE,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-KIN,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-PEN,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-LIE,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-NAN,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-TPE,Taiwan Sheng,CN-TW,China,CN,CHN
+TW-CYI,Taiwan Sheng,CN-TW,China,CN,CHN
+FI-01,Åland Islands,AX-01,Åland Islands,AX,ALA
+BQ-BO,Bonaire,NL-BQ1,"Bonaire, Sint Eustatius and Saba",BQ,BES
+BQ-SA,Saba,NL-BQ2,"Bonaire, Sint Eustatius and Saba",BQ,BES
+BQ-SE,Sint Eustatius,NL-BQ3,"Bonaire, Sint Eustatius and Saba",BQ,BES
+NL-SX,Sint Maarten,SX-SX,"Sint Maarten",SX,SXM
+NO-X01~,Bouvet Island,BV,Bouvet Island,BV,BVT
+-99-X15~,Cocos (Keeling) Islands,-99-X15~,Cocos (Keeling) Islands,CC,CCK
+-99-X14~,Christmas Island,-99-X14~,Christmas Island,CX,CXR
+FR-GF,French Guiana,GF-GF,French Guiana,GF,GUF
+FR-GP,Guadeloupe,GP-GP,Guadeloupe,GP,GLP
+FR-MQ,Martinique,MQ-MQ,Martinique,MQ,MQT
+FR-RE,Réunion,RE-RE,Réunion,RE,REU
+FR-YT,Mayotte,YT-YT,Mayotte,YT,MYT
+NO-21,Svalbard,SJ-21,Svalbard and Jan Mayen,SJ,SJM
+NO-22,Jan Mayen,SJ-22,Svalbard and Jan Mayen,SJ,SJM
