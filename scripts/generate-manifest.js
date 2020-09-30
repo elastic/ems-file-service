@@ -134,10 +134,12 @@ function manifestLayerV1(data, hostname, opts) {
     name: data.humanReadableName.en,
     url: getFileUrl(hostname, pathname, opts.manifestVersion),
     format: format.type,
-    fields: data.fieldMapping.map(fieldMap => ({
-      name: fieldMap.name,
-      description: fieldMap.desc,
-    })),
+    fields: data.fieldMapping
+      .filter(fieldMap => ['id', 'property'].includes(fieldMap.type))
+      .map(fieldMap => ({
+        name: fieldMap.name,
+        description: fieldMap.desc,
+      })),
     created_at: data.createdAt,
     tags: [],
     id: data.id,
@@ -157,11 +159,13 @@ function manifestLayerV2(data, hostname, opts) {
 }
 
 function manifestLayerV6(data, hostname, opts) {
-  const fields = data.fieldMapping.map(fieldMap => ({
-    type: fieldMap.type,
-    id: fieldMap.name,
-    label: { ...{ en: fieldMap.desc }, ...getFieldLabels(fieldMap.name, opts.fieldInfo) },
-  }));
+  const fields = data.fieldMapping
+    .filter(fieldMap => ['id', 'property'].includes(fieldMap.type))
+    .map(fieldMap => ({
+      type: fieldMap.type,
+      id: fieldMap.name,
+      label: { ...{ en: fieldMap.desc }, ...getFieldLabels(fieldMap.name, opts.fieldInfo) },
+    }));
   const layer = {
     layer_id: data.name,
     created_at: data.createdAt,
