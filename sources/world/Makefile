@@ -1,3 +1,4 @@
+DATA_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../../data)
 .DEFAULT_GOAL := ../../data/world_countries_v1.geo.json
 
 clean: ## Remove output files
@@ -36,7 +37,7 @@ clean: ## Remove output files
   -simplify visvalingam interval=300 keep-shapes \
   -rename-layers data \
   -sort this.properties.region_iso_code \
-  -o format=topojson prettify ../../data/admin_regions_lvl2_v2.topo.json
+  -o format=topojson prettify $(DATA_DIR)/admin_regions_lvl2_v2.topo.json
 
 ../../data/admin_regions_lvl2_v1.geo.json: ../../data/admin_regions_lvl2_v2.topo.json ## Regions TopoJSON
 	mapshaper -i ../../data/admin_regions_lvl2_v2.topo.json \

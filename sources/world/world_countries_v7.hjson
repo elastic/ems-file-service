@@ -56,12 +56,12 @@
       desc: Country name
     }
     {
-      type: property
+      type: metric
       name: population
       desc: Population
     }
     {
-      type: property
+      type: metric
       name: area
       desc: Area
     }
