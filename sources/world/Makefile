@@ -42,8 +42,10 @@ clean: ## Remove output files
 	mapshaper -i ../../data/admin_regions_lvl2_v2.topo.json \
   -simplify visvalingam interval=1000 keep-shapes \
   -sort this.properties.region_iso_code \
+  -o rfc7946 force format=geojson /tmp/admin_regions_lvl2_v1.geo.json
+	node ../../scripts/clean-geom.js -v /tmp/admin_regions_lvl2_v1.geo.json
+	mapshaper -i /tmp/admin_regions_lvl2_v1.geo.json \
   -o rfc7946 format=geojson prettify ../../data/admin_regions_lvl2_v1.geo.json
-	node ../../scripts/clean-geom.js -v ../../data/admin_regions_lvl2_v1.geo.json
 
 /tmp/population.csv: ## Population data from the World Bank API
 	echo "iso,measure" > /tmp/population.csv &&\
@@ -92,5 +94,7 @@ clean: ## Remove output files
 	mapshaper -i ../../data/world_countries_v7.topo.json \
   -simplify visvalingam interval=3000 keep-shapes \
   -sort this.properties.region_iso_code \
-  -o rfc7946 format=geojson prettify ../../data/world_countries_v1.geo.json
-	node ../../scripts/clean-geom.js -v ../../data/world_countries_v1.geo.json
+  -o rfc7946 force format=geojson /tmp/world_countries_v1.geo.json
+	node ../../scripts/clean-geom.js -v /tmp/world_countries_v1.geo.json
+	mapshaper -i /tmp/world_countries_v1.geo.json \
+  -o rfc7946 format=geojson prettify  ../../data/world_countries_v7.topo.json \
