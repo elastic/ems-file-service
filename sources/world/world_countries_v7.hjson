@@ -61,7 +61,7 @@
       desc: Population
     }
     {
-      type: property
+      type: metric
       name: area
       desc: Area
     }
