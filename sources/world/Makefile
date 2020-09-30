@@ -94,8 +94,9 @@ clean: ## Remove output files
 ../../data/world_countries_v1.geo.json: ../../data/world_countries_v7.topo.json ## World Countries GeoJSON
 	mapshaper -i ../../data/world_countries_v7.topo.json \
   -simplify visvalingam interval=3000 keep-shapes \
+  -filter-fields "iso2,iso3,name" \
   -sort this.properties.region_iso_code \
   -o rfc7946 force format=geojson /tmp/world_countries_v1.geo.json
 	node ../../scripts/clean-geom.js -v /tmp/world_countries_v1.geo.json
 	mapshaper -i /tmp/world_countries_v1.geo.json \
-  -o rfc7946 format=geojson prettify  ../../data/world_countries_v7.topo.json \
+  -o rfc7946 format=geojson prettify  ../../data/world_countries_v1.geo.json
