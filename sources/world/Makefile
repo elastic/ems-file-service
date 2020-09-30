@@ -1,3 +1,4 @@
+DATA_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../../data)
 .DEFAULT_GOAL := ../../data/world_countries_v1.geo.json
 
 clean: ## Remove output files
