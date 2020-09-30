@@ -176,7 +176,7 @@
         "type": {
           "description": "Type of field.",
           "type": "string",
-          "enum": ["id", "property"]
+          "enum": ["id", "property", "metric"]
         },
         "name": {
           "type": "string",
