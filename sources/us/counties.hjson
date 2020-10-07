@@ -80,13 +80,18 @@
         zh-hk: 县 (美国)
         zh-tw: 县 (美国)
     }
-    emsFormats: [{
+    emsFormats: [
+    {
         type: topojson
         file: usa_counties_v2.topo.json
         default: true
         meta: {
           feature_collection_path: data
         }
+    },
+    {
+        type: geojson
+        file: usa_counties_v2.geo.json
     }]
     ttl: 108000
     weight: 0

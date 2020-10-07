@@ -16,22 +16,6 @@
     }
     {
       label: {
-        en: World Bank
-      }
-      url: {
-        en: https://data.worldbank.org/
-      }
-    }
-    {
-      label: {
-        en: Wikidata
-      }
-      url: {
-        en: https://www.wikidata.org/
-      }
-    }
-    {
-      label: {
         en: Elastic Maps Service
       }
       url: {

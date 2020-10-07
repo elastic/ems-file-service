@@ -220,13 +220,18 @@
     zh-sg: 国家
     zh-tw: 國家
   }
-  emsFormats: [{
+  emsFormats: [
+  {
     type: topojson
     file: 'world_countries_v7.topo.json'
     default: true,
     meta: {
       feature_collection_path: 'data'
     }
+  },
+  {
+    type: geojson
+    file: 'world_countries_v7.geo.json'
   }]
   ttl: 108000
   weight: 2

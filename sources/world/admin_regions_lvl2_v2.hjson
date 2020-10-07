@@ -169,13 +169,19 @@
       zh-sg: 行政领土实体
       zh-tw: 行政領土實體
     }
-    emsFormats: [{
+    emsFormats: [
+    {
       type: topojson
       file: 'admin_regions_lvl2_v2.topo.json'
       default: true,
       meta: {
         feature_collection_path: 'data'
       }
+    },
+    {
+      type: geojson
+      file: 'admin_regions_lvl2_v2.geo.json'
+      default: false
     }]
     ttl: 108000
     weight: 1

@@ -52,13 +52,18 @@
     yi: זיפ קאד
     zh: 美國郵區編號
   }
-  emsFormats: [{
+  emsFormats: [
+  {
     type: topojson
     file: usa_zip_codes_v7.topo.json
     default: true
     meta: {
       feature_collection_path: data
     }
+  },
+  {
+    type: geojson
+    file: usa_zip_codes_v7.geo.json
   }]
   attribution: [
     {
