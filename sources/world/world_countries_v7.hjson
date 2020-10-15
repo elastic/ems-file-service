@@ -1,5 +1,5 @@
 {
-  versions: '>=7'
+  versions: '>= 7.10'
   production: true
   type: http
   note: Administrative map units from Natural Earth Data. URLs listed at http://geojson.xyz
