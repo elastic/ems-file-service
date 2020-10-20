@@ -1,5 +1,5 @@
 {
-  versions: '>=7'
+  versions: '>= 7.10'
   production: true
   type: http
   note: Administrative map units from Natural Earth Data. URLs listed at http://geojson.xyz
@@ -220,13 +220,18 @@
     zh-sg: 国家
     zh-tw: 國家
   }
-  emsFormats: [{
+  emsFormats: [
+  {
     type: topojson
     file: 'world_countries_v7.topo.json'
     default: true,
     meta: {
       feature_collection_path: 'data'
     }
+  },
+  {
+    type: geojson
+    file: 'world_countries_v7.geo.json'
   }]
   ttl: 108000
   weight: 2
