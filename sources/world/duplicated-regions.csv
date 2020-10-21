@@ -26,9 +26,9 @@ BQ-BO,Bonaire,NL-BQ1,"Bonaire, Sint Eustatius and Saba",BQ,BES,false
 BQ-SA,Saba,NL-BQ2,"Bonaire, Sint Eustatius and Saba",BQ,BES,false
 BQ-SE,Sint Eustatius,NL-BQ3,"Bonaire, Sint Eustatius and Saba",BQ,BES,false
 NL-SX,Sint Maarten,SX-SX,"Sint Maarten",SX,SXM,false
-NO-X01~,Bouvet Island,BV,Bouvet Island,BV,BVT,false
--99-X15~,Cocos (Keeling) Islands,-99-X15~,Cocos (Keeling) Islands,CC,CCK,false
--99-X14~,Christmas Island,-99-X14~,Christmas Island,CX,CXR,false
+NO-X01~,Bouvet Island,BV-BV,Bouvet Island,BV,BVT,false
+-99-X15~,Cocos (Keeling) Islands,CC-CC,Cocos (Keeling) Islands,CC,CCK,false
+-99-X14~,Christmas Island,CX-CX,Christmas Island,CX,CXR,false
 FR-GF,French Guiana,GF-GF,French Guiana,GF,GUF,false
 FR-GP,Guadeloupe,GP-GP,Guadeloupe,GP,GLP,false
 FR-MQ,Martinique,MQ-MQ,Martinique,MQ,MQT,false
@@ -36,5 +36,5 @@ FR-RE,Réunion,RE-RE,Réunion,RE,REU,false
 FR-YT,Mayotte,YT-YT,Mayotte,YT,MYT,false
 NO-21,Svalbard,SJ-21,Svalbard and Jan Mayen,SJ,SJM,false
 NO-22,Jan Mayen,SJ-22,Svalbard and Jan Mayen,SJ,SJM,false
-CN-MO,Macau,MO,Macau S.A.R,MO,MAC,false
-CN-HK,Hong Kong,HK,Hong Kong S.A.R.,HK,HKG,false
+CN-MO,Macau,MO-MO,Macau S.A.R,MO,MAC,false
+CN-HK,Hong Kong,HK-HK,Hong Kong S.A.R.,HK,HKG,false
