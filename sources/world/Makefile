@@ -31,7 +31,7 @@ clean: ## Remove output files
     /tmp/ne_10m_admin_1_states_provinces.geo.json \
     /tmp/additional-regions.geo.json
 
-../../data/admin_regions_lvl2_v2.topo.json: /tmp/ne_10m_admin_1_states_provinces.topo.json /tmp/additional-regions.geo.json ## Regions GeoJSON
+../../data/admin_regions_lvl2_v2.topo.json: /tmp/ne_10m_admin_1_states_provinces.topo.json /tmp/additional-regions.geo.json ## Regions TopoJSON
 	mapshaper -i   combine-files \
   /tmp/ne_10m_admin_1_states_provinces.topo.json /tmp/additional-regions.geo.json \
   -merge-layers force \
@@ -53,7 +53,7 @@ clean: ## Remove output files
   -filter-fields "region_iso_code,region_name,country_iso2_code,country_iso3_code,country_name" \
   -o rfc7946 id-field=region_iso_code format=geojson prettify $(DATA_DIR)/admin_regions_lvl2_v2.geo.json
 
-../../data/admin_regions_lvl2_v1.geo.json: ../../data/admin_regions_lvl2_v2.topo.json ## Regions TopoJSON
+../../data/admin_regions_lvl2_v1.geo.json: ../../data/admin_regions_lvl2_v2.topo.json ## Regions GeoJSON simplified
 	mapshaper -i $(DATA_DIR)/admin_regions_lvl2_v2.topo.json \
   -simplify visvalingam interval=1000 keep-shapes \
   -sort this.properties.region_iso_code \
