@@ -42,6 +42,21 @@
           name: region_name
           desc: Region name
         }
+        {
+          type: property
+          name: country_iso2_code
+          desc: Country ISO2 code
+        }
+        {
+          type: property
+          name: country_iso3_code
+          desc: Country ISO3 code
+        }
+        {
+          type: property
+          name: country_name
+          desc: Country name
+        }
     ]
     name: 'administrative_regions_lvl2'
     legacyIds: [
