@@ -15,9 +15,7 @@
           "properties": {
             "iso2": "AD",
             "iso3": "AND",
-            "name": "Andorra",
-            "area": 470,
-            "population": 77006
+            "name": "Andorra"
           },
           "id": "AD"
         },
@@ -27,9 +25,7 @@
           "properties": {
             "iso2": "AE",
             "iso3": "ARE",
-            "name": "United Arab Emirates",
-            "area": 71020,
-            "population": 9630959
+            "name": "United Arab Emirates"
           },
           "id": "AE"
         },
@@ -39,9 +35,7 @@
           "properties": {
             "iso2": "AF",
             "iso3": "AFG",
-            "name": "Afghanistan",
-            "area": 652860,
-            "population": 37172386
+            "name": "Afghanistan"
           },
           "id": "AF"
         },
@@ -51,9 +45,7 @@
           "properties": {
             "iso2": "AG",
             "iso3": "ATG",
-            "name": "Antigua and Barbuda",
-            "area": 440,
-            "population": 96286
+            "name": "Antigua and Barbuda"
           },
           "id": "AG"
         },
@@ -63,9 +55,7 @@
           "properties": {
             "iso2": "AI",
             "iso3": "AIA",
-            "name": "Anguilla",
-            "area": 91,
-            "population": 16086
+            "name": "Anguilla"
           },
           "id": "AI"
         },
@@ -75,9 +65,7 @@
           "properties": {
             "iso2": "AL",
             "iso3": "ALB",
-            "name": "Albania",
-            "area": 27400,
-            "population": 2866376
+            "name": "Albania"
           },
           "id": "AL"
         },
@@ -87,9 +75,7 @@
           "properties": {
             "iso2": "AM",
             "iso3": "ARM",
-            "name": "Armenia",
-            "area": 28470,
-            "population": 2951776
+            "name": "Armenia"
           },
           "id": "AM"
         },
@@ -99,9 +85,7 @@
           "properties": {
             "iso2": "AO",
             "iso3": "AGO",
-            "name": "Angola",
-            "area": 1246700,
-            "population": 30809762
+            "name": "Angola"
           },
           "id": "AO"
         },
@@ -111,9 +95,7 @@
           "properties": {
             "iso2": "AQ",
             "iso3": "ATA",
-            "name": "Antarctica",
-            "area": null,
-            "population": null
+            "name": "Antarctica"
           },
           "id": "AQ"
         },
@@ -123,9 +105,7 @@
           "properties": {
             "iso2": "AR",
             "iso3": "ARG",
-            "name": "Argentina",
-            "area": 2736690,
-            "population": 44494502
+            "name": "Argentina"
           },
           "id": "AR"
         },
@@ -135,9 +115,7 @@
           "properties": {
             "iso2": "AS",
             "iso3": "ASM",
-            "name": "American Samoa",
-            "area": 200,
-            "population": 55465
+            "name": "American Samoa"
           },
           "id": "AS"
         },
@@ -147,9 +125,7 @@
           "properties": {
             "iso2": "AT",
             "iso3": "AUT",
-            "name": "Austria",
-            "area": 82522.998046875,
-            "population": 8840521
+            "name": "Austria"
           },
           "id": "AT"
         },
@@ -159,9 +135,7 @@
           "properties": {
             "iso2": "AU",
             "iso3": "AUS",
-            "name": "Australia",
-            "area": 7692024,
-            "population": 24511800
+            "name": "Australia"
           },
           "id": "AU"
         },
@@ -171,9 +145,7 @@
           "properties": {
             "iso2": "AW",
             "iso3": "ABW",
-            "name": "Aruba",
-            "area": 180,
-            "population": 105845
+            "name": "Aruba"
           },
           "id": "AW"
         },
@@ -183,9 +155,7 @@
           "properties": {
             "iso2": "AX",
             "iso3": "ALA",
-            "name": "Åland Islands",
-            "area": 1580,
-            "population": 28983
+            "name": "Åland Islands"
           },
           "id": "AX"
         },
@@ -195,9 +165,7 @@
           "properties": {
             "iso2": "AZ",
             "iso3": "AZE",
-            "name": "Azerbaijan",
-            "area": 82670,
-            "population": 9939771
+            "name": "Azerbaijan"
           },
           "id": "AZ"
         },
@@ -207,9 +175,7 @@
           "properties": {
             "iso2": "BA",
             "iso3": "BIH",
-            "name": "Bosnia and Herzegovina",
-            "area": 51200,
-            "population": 3323929
+            "name": "Bosnia and Herzegovina"
           },
           "id": "BA"
         },
@@ -219,9 +185,7 @@
           "properties": {
             "iso2": "BB",
             "iso3": "BRB",
-            "name": "Barbados",
-            "area": 430,
-            "population": 286641
+            "name": "Barbados"
           },
           "id": "BB"
         },
@@ -231,9 +195,7 @@
           "properties": {
             "iso2": "BD",
             "iso3": "BGD",
-            "name": "Bangladesh",
-            "area": 130170,
-            "population": 161356039
+            "name": "Bangladesh"
           },
           "id": "BD"
         },
@@ -243,9 +205,7 @@
           "properties": {
             "iso2": "BE",
             "iso3": "BEL",
-            "name": "Belgium",
-            "area": 30280,
-            "population": 11427054
+            "name": "Belgium"
           },
           "id": "BE"
         },
@@ -255,9 +215,7 @@
           "properties": {
             "iso2": "BF",
             "iso3": "BFA",
-            "name": "Burkina Faso",
-            "area": 273600,
-            "population": 19751535
+            "name": "Burkina Faso"
           },
           "id": "BF"
         },
@@ -267,9 +225,7 @@
           "properties": {
             "iso2": "BG",
             "iso3": "BGR",
-            "name": "Bulgaria",
-            "area": 108560,
-            "population": 7025037
+            "name": "Bulgaria"
           },
           "id": "BG"
         },
@@ -279,9 +235,7 @@
           "properties": {
             "iso2": "BH",
             "iso3": "BHR",
-            "name": "Bahrain",
-            "area": 778.000030517578,
-            "population": 1569439
+            "name": "Bahrain"
           },
           "id": "BH"
         },
@@ -291,9 +245,7 @@
           "properties": {
             "iso2": "BI",
             "iso3": "BDI",
-            "name": "Burundi",
-            "area": 25680,
-            "population": 11175378
+            "name": "Burundi"
           },
           "id": "BI"
         },
@@ -303,9 +255,7 @@
           "properties": {
             "iso2": "BJ",
             "iso3": "BEN",
-            "name": "Benin",
-            "area": 112760,
-            "population": 11485048
+            "name": "Benin"
           },
           "id": "BJ"
         },
@@ -315,9 +265,7 @@
           "properties": {
             "iso2": "BL",
             "iso3": "BLM",
-            "name": "Saint Barthelemy",
-            "area": 25,
-            "population": 9625
+            "name": "Saint Barthelemy"
           },
           "id": "BL"
         },
@@ -327,9 +275,7 @@
           "properties": {
             "iso2": "BM",
             "iso3": "BMU",
-            "name": "Bermuda",
-            "area": 54.0000009536743,
-            "population": 63920
+            "name": "Bermuda"
           },
           "id": "BM"
         },
@@ -339,9 +285,7 @@
           "properties": {
             "iso2": "BN",
             "iso3": "BRN",
-            "name": "Brunei",
-            "area": 5270,
-            "population": 428962
+            "name": "Brunei"
           },
           "id": "BN"
         },
@@ -351,9 +295,7 @@
           "properties": {
             "iso2": "BO",
             "iso3": "BOL",
-            "name": "Bolivia",
-            "area": 1083300,
-            "population": 11353142
+            "name": "Bolivia"
           },
           "id": "BO"
         },
@@ -363,9 +305,7 @@
           "properties": {
             "iso2": "BQ",
             "iso3": "BES",
-            "name": "Bonaire, Sint Eustatius and Saba",
-            "area": 322,
-            "population": 25019
+            "name": "Bonaire, Sint Eustatius and Saba"
           },
           "id": "BQ"
         },
@@ -375,9 +315,7 @@
           "properties": {
             "iso2": "BR",
             "iso3": "BRA",
-            "name": "Brazil",
-            "area": 8358140,
-            "population": 209469333
+            "name": "Brazil"
           },
           "id": "BR"
         },
@@ -387,9 +325,7 @@
           "properties": {
             "iso2": "BS",
             "iso3": "BHS",
-            "name": "The Bahamas",
-            "area": 10010,
-            "population": 385640
+            "name": "The Bahamas"
           },
           "id": "BS"
         },
@@ -399,9 +335,7 @@
           "properties": {
             "iso2": "BT",
             "iso3": "BTN",
-            "name": "Bhutan",
-            "area": 38143.9990234375,
-            "population": 754394
+            "name": "Bhutan"
           },
           "id": "BT"
         },
@@ -411,9 +345,7 @@
           "properties": {
             "iso2": "BV",
             "iso3": "BVT",
-            "name": "Bouvet Island",
-            "area": 49,
-            "population": 0
+            "name": "Bouvet Island"
           },
           "id": "BV"
         },
@@ -423,9 +355,7 @@
           "properties": {
             "iso2": "BW",
             "iso3": "BWA",
-            "name": "Botswana",
-            "area": 566730,
-            "population": 2254126
+            "name": "Botswana"
           },
           "id": "BW"
         },
@@ -435,9 +365,7 @@
           "properties": {
             "iso2": "BY",
             "iso3": "BLR",
-            "name": "Belarus",
-            "area": 202988.0078125,
-            "population": 9483499
+            "name": "Belarus"
           },
           "id": "BY"
         },
@@ -447,9 +375,7 @@
           "properties": {
             "iso2": "BZ",
             "iso3": "BLZ",
-            "name": "Belize",
-            "area": 22810,
-            "population": 383071
+            "name": "Belize"
           },
           "id": "BZ"
         },
@@ -459,9 +385,7 @@
           "properties": {
             "iso2": "CA",
             "iso3": "CAN",
-            "name": "Canada",
-            "area": 9093510,
-            "population": 37057765
+            "name": "Canada"
           },
           "id": "CA"
         },
@@ -471,9 +395,7 @@
           "properties": {
             "iso2": "CC",
             "iso3": "CCK",
-            "name": "Cocos (Keeling) Islands",
-            "area": 14,
-            "population": 596
+            "name": "Cocos (Keeling) Islands"
           },
           "id": "CC"
         },
@@ -483,9 +405,7 @@
           "properties": {
             "iso2": "CD",
             "iso3": "COD",
-            "name": "Democratic Republic of the Congo",
-            "area": 2267050,
-            "population": 84068091
+            "name": "Democratic Republic of the Congo"
           },
           "id": "CD"
         },
@@ -495,9 +415,7 @@
           "properties": {
             "iso2": "CF",
             "iso3": "CAF",
-            "name": "Central African Republic",
-            "area": 622980,
-            "population": 4666377
+            "name": "Central African Republic"
           },
           "id": "CF"
         },
@@ -507,9 +425,7 @@
           "properties": {
             "iso2": "CG",
             "iso3": "COG",
-            "name": "Republic of the Congo",
-            "area": 341500,
-            "population": 5244363
+            "name": "Republic of the Congo"
           },
           "id": "CG"
         },
@@ -519,9 +435,7 @@
           "properties": {
             "iso2": "CH",
             "iso3": "CHE",
-            "name": "Switzerland",
-            "area": 39516.0009765625,
-            "population": 8514329
+            "name": "Switzerland"
           },
           "id": "CH"
         },
@@ -531,9 +445,7 @@
           "properties": {
             "iso2": "CI",
             "iso3": "CIV",
-            "name": "Ivory Coast",
-            "area": 318000,
-            "population": 25069229
+            "name": "Ivory Coast"
           },
           "id": "CI"
         },
@@ -543,9 +455,7 @@
           "properties": {
             "iso2": "CK",
             "iso3": "COK",
-            "name": "Cook Islands",
-            "area": 240,
-            "population": 17434
+            "name": "Cook Islands"
           },
           "id": "CK"
         },
@@ -555,9 +465,7 @@
           "properties": {
             "iso2": "CL",
             "iso3": "CHL",
-            "name": "Chile",
-            "area": 743532.03125,
-            "population": 18729160
+            "name": "Chile"
           },
           "id": "CL"
         },
@@ -567,9 +475,7 @@
           "properties": {
             "iso2": "CM",
             "iso3": "CMR",
-            "name": "Cameroon",
-            "area": 472710,
-            "population": 25216237
+            "name": "Cameroon"
           },
           "id": "CM"
         },
@@ -579,9 +485,7 @@
           "properties": {
             "iso2": "CN",
             "iso3": "CHN",
-            "name": "China",
-            "area": 9596961,
-            "population": 1409517397
+            "name": "China"
           },
           "id": "CN"
         },
@@ -591,9 +495,7 @@
           "properties": {
             "iso2": "CO",
             "iso3": "COL",
-            "name": "Colombia",
-            "area": 1109500,
-            "population": 49648685
+            "name": "Colombia"
           },
           "id": "CO"
         },
@@ -603,9 +505,7 @@
           "properties": {
             "iso2": "CR",
             "iso3": "CRI",
-            "name": "Costa Rica",
-            "area": 51060,
-            "population": 4999441
+            "name": "Costa Rica"
           },
           "id": "CR"
         },
@@ -615,9 +515,7 @@
           "properties": {
             "iso2": "CU",
             "iso3": "CUB",
-            "name": "Cuba",
-            "area": 104020,
-            "population": 11338138
+            "name": "Cuba"
           },
           "id": "CU"
         },
@@ -627,9 +525,7 @@
           "properties": {
             "iso2": "CV",
             "iso3": "CPV",
-            "name": "Cape Verde",
-            "area": 4030,
-            "population": 543767
+            "name": "Cape Verde"
           },
           "id": "CV"
         },
@@ -639,9 +535,7 @@
           "properties": {
             "iso2": "CW",
             "iso3": "CUW",
-            "name": "Curaçao",
-            "area": 444,
-            "population": 160337
+            "name": "Curaçao"
           },
           "id": "CW"
         },
@@ -651,9 +545,7 @@
           "properties": {
             "iso2": "CX",
             "iso3": "CXR",
-            "name": "Christmas Island",
-            "area": 135,
-            "population": 1843
+            "name": "Christmas Island"
           },
           "id": "CX"
         },
@@ -663,9 +555,7 @@
           "properties": {
             "iso2": "CY",
             "iso3": "CYP",
-            "name": "Cyprus",
-            "area": 9240,
-            "population": 1189265
+            "name": "Cyprus"
           },
           "id": "CY"
         },
@@ -675,9 +565,7 @@
           "properties": {
             "iso2": "CZ",
             "iso3": "CZE",
-            "name": "Czechia",
-            "area": 77220,
-            "population": 10629928
+            "name": "Czechia"
           },
           "id": "CZ"
         },
@@ -687,9 +575,7 @@
           "properties": {
             "iso2": "DE",
             "iso3": "DEU",
-            "name": "Germany",
-            "area": 349360,
-            "population": 82905782
+            "name": "Germany"
           },
           "id": "DE"
         },
@@ -699,9 +585,7 @@
           "properties": {
             "iso2": "DJ",
             "iso3": "DJI",
-            "name": "Djibouti",
-            "area": 23180,
-            "population": 958920
+            "name": "Djibouti"
           },
           "id": "DJ"
         },
@@ -711,9 +595,7 @@
           "properties": {
             "iso2": "DK",
             "iso3": "DNK",
-            "name": "Denmark",
-            "area": 41990,
-            "population": 5793636
+            "name": "Denmark"
           },
           "id": "DK"
         },
@@ -723,9 +605,7 @@
           "properties": {
             "iso2": "DM",
             "iso3": "DMA",
-            "name": "Dominica",
-            "area": 750,
-            "population": 71625
+            "name": "Dominica"
           },
           "id": "DM"
         },
@@ -735,9 +615,7 @@
           "properties": {
             "iso2": "DO",
             "iso3": "DOM",
-            "name": "Dominican Republic",
-            "area": 48310,
-            "population": 10627165
+            "name": "Dominican Republic"
           },
           "id": "DO"
         },
@@ -747,9 +625,7 @@
           "properties": {
             "iso2": "DZ",
             "iso3": "DZA",
-            "name": "Algeria",
-            "area": 2381740,
-            "population": 42228429
+            "name": "Algeria"
           },
           "id": "DZ"
         },
@@ -759,9 +635,7 @@
           "properties": {
             "iso2": "EC",
             "iso3": "ECU",
-            "name": "Ecuador",
-            "area": 248360,
-            "population": 17084357
+            "name": "Ecuador"
           },
           "id": "EC"
         },
@@ -771,9 +645,7 @@
           "properties": {
             "iso2": "EE",
             "iso3": "EST",
-            "name": "Estonia",
-            "area": 43470,
-            "population": 1321977
+            "name": "Estonia"
           },
           "id": "EE"
         },
@@ -783,9 +655,7 @@
           "properties": {
             "iso2": "EG",
             "iso3": "EGY",
-            "name": "Egypt",
-            "area": 995450,
-            "population": 98423595
+            "name": "Egypt"
           },
           "id": "EG"
         },
@@ -795,9 +665,7 @@
           "properties": {
             "iso2": "EH",
             "iso3": "SAH",
-            "name": "Western Sahara",
-            "area": 266000,
-            "population": 582000
+            "name": "Western Sahara"
           },
           "id": "EH"
         },
@@ -807,9 +675,7 @@
           "properties": {
             "iso2": "ER",
             "iso3": "ERI",
-            "name": "Eritrea",
-            "area": 117600,
-            "population": 3497000
+            "name": "Eritrea"
           },
           "id": "ER"
         },
@@ -819,9 +685,7 @@
           "properties": {
             "iso2": "ES",
             "iso3": "ESP",
-            "name": "Spain",
-            "area": 499563.984375,
-            "population": 46797754
+            "name": "Spain"
           },
           "id": "ES"
         },
@@ -831,9 +695,7 @@
           "properties": {
             "iso2": "ET",
             "iso3": "ETH",
-            "name": "Ethiopia",
-            "area": 1000000,
-            "population": 109224559
+            "name": "Ethiopia"
           },
           "id": "ET"
         },
@@ -843,9 +705,7 @@
           "properties": {
             "iso2": "FI",
             "iso3": "FIN",
-            "name": "Finland",
-            "area": 303910,
-            "population": 5515525
+            "name": "Finland"
           },
           "id": "FI"
         },
@@ -855,9 +715,7 @@
           "properties": {
             "iso2": "FJ",
             "iso3": "FJI",
-            "name": "Fiji",
-            "area": 18270,
-            "population": 883483
+            "name": "Fiji"
           },
           "id": "FJ"
         },
@@ -867,9 +725,7 @@
           "properties": {
             "iso2": "FK",
             "iso3": "FLK",
-            "name": "Falkland Islands",
-            "area": 12200,
-            "population": 4550
+            "name": "Falkland Islands"
           },
           "id": "FK"
         },
@@ -879,9 +735,7 @@
           "properties": {
             "iso2": "FM",
             "iso3": "FSM",
-            "name": "Federated States of Micronesia",
-            "area": 700,
-            "population": 112640
+            "name": "Federated States of Micronesia"
           },
           "id": "FM"
         },
@@ -891,9 +745,7 @@
           "properties": {
             "iso2": "FO",
             "iso3": "FRO",
-            "name": "Faroe Islands",
-            "area": 1396.00006103516,
-            "population": 48497
+            "name": "Faroe Islands"
           },
           "id": "FO"
         },
@@ -903,9 +755,7 @@
           "properties": {
             "iso2": "FR",
             "iso3": "FRA",
-            "name": "France",
-            "area": 547556.9921875,
-            "population": 66965912
+            "name": "France"
           },
           "id": "FR"
         },
@@ -915,9 +765,7 @@
           "properties": {
             "iso2": "GA",
             "iso3": "GAB",
-            "name": "Gabon",
-            "area": 257670,
-            "population": 2119275
+            "name": "Gabon"
           },
           "id": "GA"
         },
@@ -927,9 +775,7 @@
           "properties": {
             "iso2": "GB",
             "iso3": "GBR",
-            "name": "United Kingdom",
-            "area": 241930,
-            "population": 66460344
+            "name": "United Kingdom"
           },
           "id": "GB"
         },
@@ -939,9 +785,7 @@
           "properties": {
             "iso2": "GD",
             "iso3": "GRD",
-            "name": "Grenada",
-            "area": 340,
-            "population": 111454
+            "name": "Grenada"
           },
           "id": "GD"
         },
@@ -951,9 +795,7 @@
           "properties": {
             "iso2": "GE",
             "iso3": "GEO",
-            "name": "Georgia",
-            "area": 69490,
-            "population": 3726549
+            "name": "Georgia"
           },
           "id": "GE"
         },
@@ -963,9 +805,7 @@
           "properties": {
             "iso2": "GF",
             "iso3": "GUF",
-            "name": "French Guiana",
-            "area": 83534,
-            "population": 268700
+            "name": "French Guiana"
           },
           "id": "GF"
         },
@@ -975,9 +815,7 @@
           "properties": {
             "iso2": "GG",
             "iso3": "GGY",
-            "name": "Guernsey",
-            "area": 78,
-            "population": 65345
+            "name": "Guernsey"
           },
           "id": "GG"
         },
@@ -987,9 +825,7 @@
           "properties": {
             "iso2": "GH",
             "iso3": "GHA",
-            "name": "Ghana",
-            "area": 227540,
-            "population": 29767108
+            "name": "Ghana"
           },
           "id": "GH"
         },
@@ -999,9 +835,7 @@
           "properties": {
             "iso2": "GI",
             "iso3": "GIB",
-            "name": "Gibraltar",
-            "area": 10,
-            "population": 33718
+            "name": "Gibraltar"
           },
           "id": "GI"
         },
@@ -1011,9 +845,7 @@
           "properties": {
             "iso2": "GL",
             "iso3": "GRL",
-            "name": "Greenland",
-            "area": 410450,
-            "population": 56023
+            "name": "Greenland"
           },
           "id": "GL"
         },
@@ -1023,9 +855,7 @@
           "properties": {
             "iso2": "GM",
             "iso3": "GMB",
-            "name": "Gambia",
-            "area": 10120,
-            "population": 2280102
+            "name": "Gambia"
           },
           "id": "GM"
         },
@@ -1035,9 +865,7 @@
           "properties": {
             "iso2": "GN",
             "iso3": "GIN",
-            "name": "Guinea",
-            "area": 245720,
-            "population": 12414318
+            "name": "Guinea"
           },
           "id": "GN"
         },
@@ -1047,9 +875,7 @@
           "properties": {
             "iso2": "GP",
             "iso3": "GLP",
-            "name": "Guadeloupe",
-            "area": 1628,
-            "population": 390253
+            "name": "Guadeloupe"
           },
           "id": "GP"
         },
@@ -1059,9 +885,7 @@
           "properties": {
             "iso2": "GQ",
             "iso3": "GNQ",
-            "name": "Equatorial Guinea",
-            "area": 28050,
-            "population": 1308974
+            "name": "Equatorial Guinea"
           },
           "id": "GQ"
         },
@@ -1071,9 +895,7 @@
           "properties": {
             "iso2": "GR",
             "iso3": "GRC",
-            "name": "Greece",
-            "area": 128900,
-            "population": 10732882
+            "name": "Greece"
           },
           "id": "GR"
         },
@@ -1083,9 +905,7 @@
           "properties": {
             "iso2": "GS",
             "iso3": "SGS",
-            "name": "South Georgia and the Islands",
-            "area": 3718,
-            "population": 30
+            "name": "South Georgia and the Islands"
           },
           "id": "GS"
         },
@@ -1095,9 +915,7 @@
           "properties": {
             "iso2": "GT",
             "iso3": "GTM",
-            "name": "Guatemala",
-            "area": 107160,
-            "population": 16346950
+            "name": "Guatemala"
           },
           "id": "GT"
         },
@@ -1107,9 +925,7 @@
           "properties": {
             "iso2": "GU",
             "iso3": "GUM",
-            "name": "Guam",
-            "area": 540,
-            "population": 165768
+            "name": "Guam"
           },
           "id": "GU"
         },
@@ -1119,9 +935,7 @@
           "properties": {
             "iso2": "GW",
             "iso3": "GNB",
-            "name": "Guinea Bissau",
-            "area": 28120,
-            "population": 1874309
+            "name": "Guinea Bissau"
           },
           "id": "GW"
         },
@@ -1131,9 +945,7 @@
           "properties": {
             "iso2": "GY",
             "iso3": "GUY",
-            "name": "Guyana",
-            "area": 196850,
-            "population": 779004
+            "name": "Guyana"
           },
           "id": "GY"
         },
@@ -1143,9 +955,7 @@
           "properties": {
             "iso2": "HK",
             "iso3": "HKG",
-            "name": "Hong Kong S.A.R.",
-            "area": 1050,
-            "population": 7451000
+            "name": "Hong Kong S.A.R."
           },
           "id": "HK"
         },
@@ -1155,9 +965,7 @@
           "properties": {
             "iso2": "HM",
             "iso3": "HMD",
-            "name": "Heard Island and McDonald Islands",
-            "area": 658903,
-            "population": 0
+            "name": "Heard Island and McDonald Islands"
           },
           "id": "HM"
         },
@@ -1167,9 +975,7 @@
           "properties": {
             "iso2": "HN",
             "iso3": "HND",
-            "name": "Honduras",
-            "area": 111890,
-            "population": 9587522
+            "name": "Honduras"
           },
           "id": "HN"
         },
@@ -1179,9 +985,7 @@
           "properties": {
             "iso2": "HR",
             "iso3": "HRV",
-            "name": "Croatia",
-            "area": 55960,
-            "population": 4087843
+            "name": "Croatia"
           },
           "id": "HR"
         },
@@ -1191,9 +995,7 @@
           "properties": {
             "iso2": "HT",
             "iso3": "HTI",
-            "name": "Haiti",
-            "area": 27560,
-            "population": 11123176
+            "name": "Haiti"
           },
           "id": "HT"
         },
@@ -1203,9 +1005,7 @@
           "properties": {
             "iso2": "HU",
             "iso3": "HUN",
-            "name": "Hungary",
-            "area": 90530,
-            "population": 9775564
+            "name": "Hungary"
           },
           "id": "HU"
         },
@@ -1215,9 +1015,7 @@
           "properties": {
             "iso2": "ID",
             "iso3": "IDN",
-            "name": "Indonesia",
-            "area": 1811570,
-            "population": 267663435
+            "name": "Indonesia"
           },
           "id": "ID"
         },
@@ -1227,9 +1025,7 @@
           "properties": {
             "iso2": "IE",
             "iso3": "IRL",
-            "name": "Ireland",
-            "area": 68890,
-            "population": 4867316
+            "name": "Ireland"
           },
           "id": "IE"
         },
@@ -1239,9 +1035,7 @@
           "properties": {
             "iso2": "IL",
             "iso3": "ISR",
-            "name": "Israel",
-            "area": 21640,
-            "population": 8882800
+            "name": "Israel"
           },
           "id": "IL"
         },
@@ -1251,9 +1045,7 @@
           "properties": {
             "iso2": "IM",
             "iso3": "IMN",
-            "name": "Isle of Man",
-            "area": 570,
-            "population": 84077
+            "name": "Isle of Man"
           },
           "id": "IM"
         },
@@ -1263,9 +1055,7 @@
           "properties": {
             "iso2": "IN",
             "iso3": "IND",
-            "name": "India",
-            "area": 2973190,
-            "population": 1352617328
+            "name": "India"
           },
           "id": "IN"
         },
@@ -1275,9 +1065,7 @@
           "properties": {
             "iso2": "IO",
             "iso3": "IOT",
-            "name": "British Indian Ocean Territory",
-            "area": null,
-            "population": null
+            "name": "British Indian Ocean Territory"
           },
           "id": "IO"
         },
@@ -1287,9 +1075,7 @@
           "properties": {
             "iso2": "IQ",
             "iso3": "IRQ",
-            "name": "Iraq",
-            "area": 434128.0078125,
-            "population": 38433600
+            "name": "Iraq"
           },
           "id": "IQ"
         },
@@ -1299,9 +1085,7 @@
           "properties": {
             "iso2": "IR",
             "iso3": "IRN",
-            "name": "Iran",
-            "area": 1628760,
-            "population": 81800269
+            "name": "Iran"
           },
           "id": "IR"
         },
@@ -1311,9 +1095,7 @@
           "properties": {
             "iso2": "IS",
             "iso3": "ISL",
-            "name": "Iceland",
-            "area": 100250,
-            "population": 352721
+            "name": "Iceland"
           },
           "id": "IS"
         },
@@ -1323,9 +1105,7 @@
           "properties": {
             "iso2": "IT",
             "iso3": "ITA",
-            "name": "Italy",
-            "area": 294140,
-            "population": 60421760
+            "name": "Italy"
           },
           "id": "IT"
         },
@@ -1335,9 +1115,7 @@
           "properties": {
             "iso2": "JE",
             "iso3": "JEY",
-            "name": "Jersey",
-            "area": 118.2,
-            "population": 105500
+            "name": "Jersey"
           },
           "id": "JE"
         },
@@ -1347,9 +1125,7 @@
           "properties": {
             "iso2": "JM",
             "iso3": "JAM",
-            "name": "Jamaica",
-            "area": 10830,
-            "population": 2934855
+            "name": "Jamaica"
           },
           "id": "JM"
         },
@@ -1359,9 +1135,7 @@
           "properties": {
             "iso2": "JO",
             "iso3": "JOR",
-            "name": "Jordan",
-            "area": 88780,
-            "population": 9956011
+            "name": "Jordan"
           },
           "id": "JO"
         },
@@ -1371,9 +1145,7 @@
           "properties": {
             "iso2": "JP",
             "iso3": "JPN",
-            "name": "Japan",
-            "area": 364560,
-            "population": 126529100
+            "name": "Japan"
           },
           "id": "JP"
         },
@@ -1383,9 +1155,7 @@
           "properties": {
             "iso2": "KE",
             "iso3": "KEN",
-            "name": "Kenya",
-            "area": 569140,
-            "population": 51393010
+            "name": "Kenya"
           },
           "id": "KE"
         },
@@ -1395,9 +1165,7 @@
           "properties": {
             "iso2": "KG",
             "iso3": "KGZ",
-            "name": "Kyrgyzstan",
-            "area": 191800,
-            "population": 6322800
+            "name": "Kyrgyzstan"
           },
           "id": "KG"
         },
@@ -1407,9 +1175,7 @@
           "properties": {
             "iso2": "KH",
             "iso3": "KHM",
-            "name": "Cambodia",
-            "area": 176520,
-            "population": 16249798
+            "name": "Cambodia"
           },
           "id": "KH"
         },
@@ -1419,9 +1185,7 @@
           "properties": {
             "iso2": "KI",
             "iso3": "KIR",
-            "name": "Kiribati",
-            "area": 810,
-            "population": 115847
+            "name": "Kiribati"
           },
           "id": "KI"
         },
@@ -1431,9 +1195,7 @@
           "properties": {
             "iso2": "KM",
             "iso3": "COM",
-            "name": "Comoros",
-            "area": 1861.00006103516,
-            "population": 832322
+            "name": "Comoros"
           },
           "id": "KM"
         },
@@ -1443,9 +1205,7 @@
           "properties": {
             "iso2": "KN",
             "iso3": "KNA",
-            "name": "Saint Kitts and Nevis",
-            "area": 260,
-            "population": 52441
+            "name": "Saint Kitts and Nevis"
           },
           "id": "KN"
         },
@@ -1455,9 +1215,7 @@
           "properties": {
             "iso2": "KP",
             "iso3": "PRK",
-            "name": "North Korea",
-            "area": 120410,
-            "population": 25549819
+            "name": "North Korea"
           },
           "id": "KP"
         },
@@ -1467,9 +1225,7 @@
           "properties": {
             "iso2": "KR",
             "iso3": "KOR",
-            "name": "South Korea",
-            "area": 97489.00390625,
-            "population": 51606633
+            "name": "South Korea"
           },
           "id": "KR"
         },
@@ -1479,9 +1235,7 @@
           "properties": {
             "iso2": "KW",
             "iso3": "KWT",
-            "name": "Kuwait",
-            "area": 17820,
-            "population": 4137312
+            "name": "Kuwait"
           },
           "id": "KW"
         },
@@ -1491,9 +1245,7 @@
           "properties": {
             "iso2": "KY",
             "iso3": "CYM",
-            "name": "Cayman Islands",
-            "area": 240,
-            "population": 64174
+            "name": "Cayman Islands"
           },
           "id": "KY"
         },
@@ -1503,9 +1255,7 @@
           "properties": {
             "iso2": "KZ",
             "iso3": "KAZ",
-            "name": "Kazakhstan",
-            "area": 2699700,
-            "population": 18276498.5
+            "name": "Kazakhstan"
           },
           "id": "KZ"
         },
@@ -1515,9 +1265,7 @@
           "properties": {
             "iso2": "LA",
             "iso3": "LAO",
-            "name": "Laos",
-            "area": 230800,
-            "population": 7061507
+            "name": "Laos"
           },
           "id": "LA"
         },
@@ -1527,9 +1275,7 @@
           "properties": {
             "iso2": "LB",
             "iso3": "LBN",
-            "name": "Lebanon",
-            "area": 10230,
-            "population": 6848925
+            "name": "Lebanon"
           },
           "id": "LB"
         },
@@ -1539,9 +1285,7 @@
           "properties": {
             "iso2": "LC",
             "iso3": "LCA",
-            "name": "Saint Lucia",
-            "area": 610,
-            "population": 181889
+            "name": "Saint Lucia"
           },
           "id": "LC"
         },
@@ -1551,9 +1295,7 @@
           "properties": {
             "iso2": "LI",
             "iso3": "LIE",
-            "name": "Liechtenstein",
-            "area": 160,
-            "population": 37910
+            "name": "Liechtenstein"
           },
           "id": "LI"
         },
@@ -1563,9 +1305,7 @@
           "properties": {
             "iso2": "LK",
             "iso3": "LKA",
-            "name": "Sri Lanka",
-            "area": 62710,
-            "population": 21670000
+            "name": "Sri Lanka"
           },
           "id": "LK"
         },
@@ -1575,9 +1315,7 @@
           "properties": {
             "iso2": "LR",
             "iso3": "LBR",
-            "name": "Liberia",
-            "area": 96320,
-            "population": 4818977
+            "name": "Liberia"
           },
           "id": "LR"
         },
@@ -1587,9 +1325,7 @@
           "properties": {
             "iso2": "LS",
             "iso3": "LSO",
-            "name": "Lesotho",
-            "area": 30360,
-            "population": 2108132
+            "name": "Lesotho"
           },
           "id": "LS"
         },
@@ -1599,9 +1335,7 @@
           "properties": {
             "iso2": "LT",
             "iso3": "",
-            "name": "",
-            "area": 65300,
-            "population": 2790842
+            "name": ""
           },
           "id": "LT"
         },
@@ -1611,9 +1345,7 @@
           "properties": {
             "iso2": "LU",
             "iso3": "LUX",
-            "name": "Luxembourg",
-            "area": 2430,
-            "population": 607950
+            "name": "Luxembourg"
           },
           "id": "LU"
         },
@@ -1623,9 +1355,7 @@
           "properties": {
             "iso2": "LV",
             "iso3": "LVA",
-            "name": "Latvia",
-            "area": 62180,
-            "population": 1927174
+            "name": "Latvia"
           },
           "id": "LV"
         },
@@ -1635,9 +1365,7 @@
           "properties": {
             "iso2": "LY",
             "iso3": "LBY",
-            "name": "Libya",
-            "area": 1759540,
-            "population": 6678567
+            "name": "Libya"
           },
           "id": "LY"
         },
@@ -1647,9 +1375,7 @@
           "properties": {
             "iso2": "MA",
             "iso3": "MAR",
-            "name": "Morocco",
-            "area": 446300,
-            "population": 36029138
+            "name": "Morocco"
           },
           "id": "MA"
         },
@@ -1659,9 +1385,7 @@
           "properties": {
             "iso2": "MC",
             "iso3": "MCO",
-            "name": "Monaco",
-            "area": 2.02,
-            "population": 38695
+            "name": "Monaco"
           },
           "id": "MC"
         },
@@ -1671,9 +1395,7 @@
           "properties": {
             "iso2": "MD",
             "iso3": "MDA",
-            "name": "Moldova",
-            "area": 32890,
-            "population": 2706049
+            "name": "Moldova"
           },
           "id": "MD"
         },
@@ -1683,9 +1405,7 @@
           "properties": {
             "iso2": "ME",
             "iso3": "MNE",
-            "name": "Montenegro",
-            "area": 13450,
-            "population": 622227
+            "name": "Montenegro"
           },
           "id": "ME"
         },
@@ -1695,9 +1415,7 @@
           "properties": {
             "iso2": "MF",
             "iso3": "MAF",
-            "name": "Saint Martin",
-            "area": 53.2,
-            "population": 35684
+            "name": "Saint Martin"
           },
           "id": "MF"
         },
@@ -1707,9 +1425,7 @@
           "properties": {
             "iso2": "MG",
             "iso3": "MDG",
-            "name": "Madagascar",
-            "area": 581800,
-            "population": 26262368
+            "name": "Madagascar"
           },
           "id": "MG"
         },
@@ -1719,9 +1435,7 @@
           "properties": {
             "iso2": "MH",
             "iso3": "MHL",
-            "name": "Marshall Islands",
-            "area": 180,
-            "population": 58413
+            "name": "Marshall Islands"
           },
           "id": "MH"
         },
@@ -1731,9 +1445,7 @@
           "properties": {
             "iso2": "MK",
             "iso3": "MKD",
-            "name": "Macedonia",
-            "area": 25220,
-            "population": 2082958
+            "name": "Macedonia"
           },
           "id": "MK"
         },
@@ -1743,9 +1455,7 @@
           "properties": {
             "iso2": "ML",
             "iso3": "MLI",
-            "name": "Mali",
-            "area": 1220190,
-            "population": 19077690
+            "name": "Mali"
           },
           "id": "ML"
         },
@@ -1755,9 +1465,7 @@
           "properties": {
             "iso2": "MM",
             "iso3": "MMR",
-            "name": "Myanmar",
-            "area": 653080,
-            "population": 53708395
+            "name": "Myanmar"
           },
           "id": "MM"
         },
@@ -1767,9 +1475,7 @@
           "properties": {
             "iso2": "MN",
             "iso3": "MNG",
-            "name": "Mongolia",
-            "area": 1553560,
-            "population": 3170208
+            "name": "Mongolia"
           },
           "id": "MN"
         },
@@ -1779,9 +1485,7 @@
           "properties": {
             "iso2": "MO",
             "iso3": "MAC",
-            "name": "Macau S.A.R",
-            "area": 30.3999996185303,
-            "population": 631636
+            "name": "Macau S.A.R"
           },
           "id": "MO"
         },
@@ -1791,9 +1495,7 @@
           "properties": {
             "iso2": "MP",
             "iso3": "MNP",
-            "name": "Northern Mariana Islands",
-            "area": 460,
-            "population": 56882
+            "name": "Northern Mariana Islands"
           },
           "id": "MP"
         },
@@ -1803,9 +1505,7 @@
           "properties": {
             "iso2": "MQ",
             "iso3": "MQT",
-            "name": "Martinique",
-            "area": 1128,
-            "population": 372594
+            "name": "Martinique"
           },
           "id": "MQ"
         },
@@ -1815,9 +1515,7 @@
           "properties": {
             "iso2": "MR",
             "iso3": "MRT",
-            "name": "Mauritania",
-            "area": 1030700,
-            "population": 4403319
+            "name": "Mauritania"
           },
           "id": "MR"
         },
@@ -1827,9 +1525,7 @@
           "properties": {
             "iso2": "MS",
             "iso3": "MSR",
-            "name": "Montserrat",
-            "area": 102,
-            "population": 5215
+            "name": "Montserrat"
           },
           "id": "MS"
         },
@@ -1839,9 +1535,7 @@
           "properties": {
             "iso2": "MT",
             "iso3": "MLT",
-            "name": "Malta",
-            "area": 320,
-            "population": 484630
+            "name": "Malta"
           },
           "id": "MT"
         },
@@ -1851,9 +1545,7 @@
           "properties": {
             "iso2": "MU",
             "iso3": "MUS",
-            "name": "Mauritius",
-            "area": 2030,
-            "population": 1265303
+            "name": "Mauritius"
           },
           "id": "MU"
         },
@@ -1863,9 +1555,7 @@
           "properties": {
             "iso2": "MV",
             "iso3": "MDV",
-            "name": "Maldives",
-            "area": 300,
-            "population": 515696
+            "name": "Maldives"
           },
           "id": "MV"
         },
@@ -1875,9 +1565,7 @@
           "properties": {
             "iso2": "MW",
             "iso3": "MWI",
-            "name": "Malawi",
-            "area": 94280,
-            "population": 18143315
+            "name": "Malawi"
           },
           "id": "MW"
         },
@@ -1887,9 +1575,7 @@
           "properties": {
             "iso2": "MX",
             "iso3": "MEX",
-            "name": "Mexico",
-            "area": 1943950,
-            "population": 126190788
+            "name": "Mexico"
           },
           "id": "MX"
         },
@@ -1899,9 +1585,7 @@
           "properties": {
             "iso2": "MY",
             "iso3": "MYS",
-            "name": "Malaysia",
-            "area": 328550,
-            "population": 31528585
+            "name": "Malaysia"
           },
           "id": "MY"
         },
@@ -1911,9 +1595,7 @@
           "properties": {
             "iso2": "MZ",
             "iso3": "MOZ",
-            "name": "Mozambique",
-            "area": 786380,
-            "population": 29495962
+            "name": "Mozambique"
           },
           "id": "MZ"
         },
@@ -1923,9 +1605,7 @@
           "properties": {
             "iso2": "NA",
             "iso3": "NAM",
-            "name": "Namibia",
-            "area": 823290,
-            "population": 2448255
+            "name": "Namibia"
           },
           "id": "NA"
         },
@@ -1935,9 +1615,7 @@
           "properties": {
             "iso2": "NC",
             "iso3": "NCL",
-            "name": "New Caledonia",
-            "area": 18280,
-            "population": 284060
+            "name": "New Caledonia"
           },
           "id": "NC"
         },
@@ -1947,9 +1625,7 @@
           "properties": {
             "iso2": "NE",
             "iso3": "NER",
-            "name": "Niger",
-            "area": 1266700,
-            "population": 22442948
+            "name": "Niger"
           },
           "id": "NE"
         },
@@ -1959,9 +1635,7 @@
           "properties": {
             "iso2": "NF",
             "iso3": "NFK",
-            "name": "Norfolk Island",
-            "area": 34.6,
-            "population": 1748
+            "name": "Norfolk Island"
           },
           "id": "NF"
         },
@@ -1971,9 +1645,7 @@
           "properties": {
             "iso2": "NG",
             "iso3": "NGA",
-            "name": "Nigeria",
-            "area": 910770,
-            "population": 195874740
+            "name": "Nigeria"
           },
           "id": "NG"
         },
@@ -1983,9 +1655,7 @@
           "properties": {
             "iso2": "NI",
             "iso3": "NIC",
-            "name": "Nicaragua",
-            "area": 120340,
-            "population": 6465513
+            "name": "Nicaragua"
           },
           "id": "NI"
         },
@@ -1995,9 +1665,7 @@
           "properties": {
             "iso2": "NL",
             "iso3": "NLD",
-            "name": "Netherlands",
-            "area": 33690,
-            "population": 17231624
+            "name": "Netherlands"
           },
           "id": "NL"
         },
@@ -2007,9 +1675,7 @@
           "properties": {
             "iso2": "NO",
             "iso3": "NOR",
-            "name": "Norway",
-            "area": 365123.0078125,
-            "population": 5311916
+            "name": "Norway"
           },
           "id": "NO"
         },
@@ -2019,9 +1685,7 @@
           "properties": {
             "iso2": "NP",
             "iso3": "NPL",
-            "name": "Nepal",
-            "area": 143350,
-            "population": 28087871
+            "name": "Nepal"
           },
           "id": "NP"
         },
@@ -2031,9 +1695,7 @@
           "properties": {
             "iso2": "NR",
             "iso3": "NRU",
-            "name": "Nauru",
-            "area": 20,
-            "population": 12704
+            "name": "Nauru"
           },
           "id": "NR"
         },
@@ -2043,9 +1705,7 @@
           "properties": {
             "iso2": "NU",
             "iso3": "NIU",
-            "name": "Niue",
-            "area": 260,
-            "population": 1612
+            "name": "Niue"
           },
           "id": "NU"
         },
@@ -2055,9 +1715,7 @@
           "properties": {
             "iso2": "NZ",
             "iso3": "NZL",
-            "name": "New Zealand",
-            "area": 263310,
-            "population": 4841000
+            "name": "New Zealand"
           },
           "id": "NZ"
         },
@@ -2067,9 +1725,7 @@
           "properties": {
             "iso2": "OM",
             "iso3": "OMN",
-            "name": "Oman",
-            "area": 309500,
-            "population": 4829483
+            "name": "Oman"
           },
           "id": "OM"
         },
@@ -2079,9 +1735,7 @@
           "properties": {
             "iso2": "PA",
             "iso3": "PAN",
-            "name": "Panama",
-            "area": 74340,
-            "population": 4176873
+            "name": "Panama"
           },
           "id": "PA"
         },
@@ -2091,9 +1745,7 @@
           "properties": {
             "iso2": "PE",
             "iso3": "PER",
-            "name": "Peru",
-            "area": 1280000,
-            "population": 31989256
+            "name": "Peru"
           },
           "id": "PE"
         },
@@ -2103,9 +1755,7 @@
           "properties": {
             "iso2": "PF",
             "iso3": "PYF",
-            "name": "French Polynesia",
-            "area": 3660,
-            "population": 277679
+            "name": "French Polynesia"
           },
           "id": "PF"
         },
@@ -2115,9 +1765,7 @@
           "properties": {
             "iso2": "PG",
             "iso3": "PNG",
-            "name": "Papua New Guinea",
-            "area": 452860,
-            "population": 8606316
+            "name": "Papua New Guinea"
           },
           "id": "PG"
         },
@@ -2127,9 +1775,7 @@
           "properties": {
             "iso2": "PH",
             "iso3": "PHL",
-            "name": "Philippines",
-            "area": 298170,
-            "population": 106651922
+            "name": "Philippines"
           },
           "id": "PH"
         },
@@ -2139,9 +1785,7 @@
           "properties": {
             "iso2": "PK",
             "iso3": "PAK",
-            "name": "Pakistan",
-            "area": 770880,
-            "population": 212215030
+            "name": "Pakistan"
           },
           "id": "PK"
         },
@@ -2151,9 +1795,7 @@
           "properties": {
             "iso2": "PL",
             "iso3": "POL",
-            "name": "Poland",
-            "area": 306190,
-            "population": 37974750
+            "name": "Poland"
           },
           "id": "PL"
         },
@@ -2163,9 +1805,7 @@
           "properties": {
             "iso2": "PM",
             "iso3": "SPM",
-            "name": "Saint Pierre and Miquelon",
-            "area": 242,
-            "population": 6057
+            "name": "Saint Pierre and Miquelon"
           },
           "id": "PM"
         },
@@ -2175,9 +1815,7 @@
           "properties": {
             "iso2": "PN",
             "iso3": "PCN",
-            "name": "Pitcairn Islands",
-            "area": 47,
-            "population": 50
+            "name": "Pitcairn Islands"
           },
           "id": "PN"
         },
@@ -2187,9 +1825,7 @@
           "properties": {
             "iso2": "PR",
             "iso3": "PRI",
-            "name": "Puerto Rico",
-            "area": 8870,
-            "population": 3193354
+            "name": "Puerto Rico"
           },
           "id": "PR"
         },
@@ -2199,9 +1835,7 @@
           "properties": {
             "iso2": "PS",
             "iso3": "PSE",
-            "name": "Palestine",
-            "area": 6020,
-            "population": 4569087
+            "name": "Palestine"
           },
           "id": "PS"
         },
@@ -2211,9 +1845,7 @@
           "properties": {
             "iso2": "PT",
             "iso3": "PRT",
-            "name": "Portugal",
-            "area": 91605.595703125,
-            "population": 10283822
+            "name": "Portugal"
           },
           "id": "PT"
         },
@@ -2223,9 +1855,7 @@
           "properties": {
             "iso2": "PW",
             "iso3": "PLW",
-            "name": "Palau",
-            "area": 460,
-            "population": 17907
+            "name": "Palau"
           },
           "id": "PW"
         },
@@ -2235,9 +1865,7 @@
           "properties": {
             "iso2": "PY",
             "iso3": "PRY",
-            "name": "Paraguay",
-            "area": 397300,
-            "population": 6956071
+            "name": "Paraguay"
           },
           "id": "PY"
         },
@@ -2247,9 +1875,7 @@
           "properties": {
             "iso2": "QA",
             "iso3": "QAT",
-            "name": "Qatar",
-            "area": 11610,
-            "population": 2781677
+            "name": "Qatar"
           },
           "id": "QA"
         },
@@ -2259,9 +1885,7 @@
           "properties": {
             "iso2": "RE",
             "iso3": "REU",
-            "name": "Réunion",
-            "area": 2512,
-            "population": 853659
+            "name": "Réunion"
           },
           "id": "RE"
         },
@@ -2271,9 +1895,7 @@
           "properties": {
             "iso2": "RO",
             "iso3": "ROU",
-            "name": "Romania",
-            "area": 230080,
-            "population": 19472545
+            "name": "Romania"
           },
           "id": "RO"
         },
@@ -2283,9 +1905,7 @@
           "properties": {
             "iso2": "RS",
             "iso3": "SRB",
-            "name": "Republic of Serbia",
-            "area": 87460,
-            "population": 6982604
+            "name": "Republic of Serbia"
           },
           "id": "RS"
         },
@@ -2295,9 +1915,7 @@
           "properties": {
             "iso2": "RU",
             "iso3": "RUS",
-            "name": "Russia",
-            "area": 16376870,
-            "population": 144477860
+            "name": "Russia"
           },
           "id": "RU"
         },
@@ -2307,9 +1925,7 @@
           "properties": {
             "iso2": "RW",
             "iso3": "RWA",
-            "name": "Rwanda",
-            "area": 24670,
-            "population": 12301939
+            "name": "Rwanda"
           },
           "id": "RW"
         },
@@ -2319,9 +1935,7 @@
           "properties": {
             "iso2": "SA",
             "iso3": "SAU",
-            "name": "Saudi Arabia",
-            "area": 2149690,
-            "population": 33699947
+            "name": "Saudi Arabia"
           },
           "id": "SA"
         },
@@ -2331,9 +1945,7 @@
           "properties": {
             "iso2": "SB",
             "iso3": "SLB",
-            "name": "Solomon Islands",
-            "area": 27990,
-            "population": 652858
+            "name": "Solomon Islands"
           },
           "id": "SB"
         },
@@ -2343,9 +1955,7 @@
           "properties": {
             "iso2": "SC",
             "iso3": "SYC",
-            "name": "Seychelles",
-            "area": 460,
-            "population": 96762
+            "name": "Seychelles"
           },
           "id": "SC"
         },
@@ -2355,9 +1965,7 @@
           "properties": {
             "iso2": "SD",
             "iso3": "SDN",
-            "name": "Sudan",
-            "area": 1886068,
-            "population": 40533330
+            "name": "Sudan"
           },
           "id": "SD"
         },
@@ -2367,9 +1975,7 @@
           "properties": {
             "iso2": "SE",
             "iso3": "SWE",
-            "name": "Sweden",
-            "area": 407310,
-            "population": 10175214
+            "name": "Sweden"
           },
           "id": "SE"
         },
@@ -2379,9 +1985,7 @@
           "properties": {
             "iso2": "SG",
             "iso3": "SGP",
-            "name": "Singapore",
-            "area": 709.000015258789,
-            "population": 5638676
+            "name": "Singapore"
           },
           "id": "SG"
         },
@@ -2391,9 +1995,7 @@
           "properties": {
             "iso2": "SH",
             "iso3": "SHN",
-            "name": "Saint Helena",
-            "area": 394,
-            "population": 4534
+            "name": "Saint Helena"
           },
           "id": "SH"
         },
@@ -2403,9 +2005,7 @@
           "properties": {
             "iso2": "SI",
             "iso3": "SVN",
-            "name": "Slovenia",
-            "area": 20141.9995117188,
-            "population": 2073894
+            "name": "Slovenia"
           },
           "id": "SI"
         },
@@ -2415,9 +2015,7 @@
           "properties": {
             "iso2": "SJ",
             "iso3": "SJM",
-            "name": "Svalbard and Jan Mayen",
-            "area": null,
-            "population": null
+            "name": "Svalbard and Jan Mayen"
           },
           "id": "SJ"
         },
@@ -2427,9 +2025,7 @@
           "properties": {
             "iso2": "SK",
             "iso3": "SVK",
-            "name": "Slovakia",
-            "area": 48080,
-            "population": 5446771
+            "name": "Slovakia"
           },
           "id": "SK"
         },
@@ -2439,9 +2035,7 @@
           "properties": {
             "iso2": "SL",
             "iso3": "SLE",
-            "name": "Sierra Leone",
-            "area": 72180,
-            "population": 7650154
+            "name": "Sierra Leone"
           },
           "id": "SL"
         },
@@ -2451,9 +2045,7 @@
           "properties": {
             "iso2": "SM",
             "iso3": "SMR",
-            "name": "San Marino",
-            "area": 60,
-            "population": 33785
+            "name": "San Marino"
           },
           "id": "SM"
         },
@@ -2463,9 +2055,7 @@
           "properties": {
             "iso2": "SN",
             "iso3": "SEN",
-            "name": "Senegal",
-            "area": 192530,
-            "population": 15854360
+            "name": "Senegal"
           },
           "id": "SN"
         },
@@ -2475,9 +2065,7 @@
           "properties": {
             "iso2": "SO",
             "iso3": "SOM",
-            "name": "Somalia",
-            "area": 627340,
-            "population": 15008154
+            "name": "Somalia"
           },
           "id": "SO"
         },
@@ -2487,9 +2075,7 @@
           "properties": {
             "iso2": "SR",
             "iso3": "SUR",
-            "name": "Suriname",
-            "area": 156000,
-            "population": 575991
+            "name": "Suriname"
           },
           "id": "SR"
         },
@@ -2499,9 +2085,7 @@
           "properties": {
             "iso2": "SS",
             "iso3": "SSD",
-            "name": "South Sudan",
-            "area": 619745.304981,
-            "population": 12575714
+            "name": "South Sudan"
           },
           "id": "SS"
         },
@@ -2511,9 +2095,7 @@
           "properties": {
             "iso2": "ST",
             "iso3": "STP",
-            "name": "Sao Tome and Principe",
-            "area": 960,
-            "population": 211028
+            "name": "Sao Tome and Principe"
           },
           "id": "ST"
         },
@@ -2523,9 +2105,7 @@
           "properties": {
             "iso2": "SV",
             "iso3": "SLV",
-            "name": "El Salvador",
-            "area": 20720,
-            "population": 6420744
+            "name": "El Salvador"
           },
           "id": "SV"
         },
@@ -2535,9 +2115,7 @@
           "properties": {
             "iso2": "SX",
             "iso3": "SXM",
-            "name": "Sint Maarten",
-            "area": 34,
-            "population": 37132
+            "name": "Sint Maarten"
           },
           "id": "SX"
         },
@@ -2547,9 +2125,7 @@
           "properties": {
             "iso2": "SY",
             "iso3": "SYR",
-            "name": "Syria",
-            "area": 183630,
-            "population": 16906283
+            "name": "Syria"
           },
           "id": "SY"
         },
@@ -2559,9 +2135,7 @@
           "properties": {
             "iso2": "SZ",
             "iso3": "SWZ",
-            "name": "Swaziland",
-            "area": 17200,
-            "population": 1136191
+            "name": "Swaziland"
           },
           "id": "SZ"
         },
@@ -2571,9 +2145,7 @@
           "properties": {
             "iso2": "TC",
             "iso3": "TCA",
-            "name": "Turks and Caicos Islands",
-            "area": 950,
-            "population": 37665
+            "name": "Turks and Caicos Islands"
           },
           "id": "TC"
         },
@@ -2583,9 +2155,7 @@
           "properties": {
             "iso2": "TD",
             "iso3": "TCD",
-            "name": "Chad",
-            "area": 1259200,
-            "population": 15477751
+            "name": "Chad"
           },
           "id": "TD"
         },
@@ -2595,9 +2165,7 @@
           "properties": {
             "iso2": "TF",
             "iso3": "ATF",
-            "name": "French Southern and Antarctic Lands",
-            "area": 7829,
-            "population": 196
+            "name": "French Southern and Antarctic Lands"
           },
           "id": "TF"
         },
@@ -2607,9 +2175,7 @@
           "properties": {
             "iso2": "TG",
             "iso3": "TGO",
-            "name": "Togo",
-            "area": 54390,
-            "population": 7889094
+            "name": "Togo"
           },
           "id": "TG"
         },
@@ -2619,9 +2185,7 @@
           "properties": {
             "iso2": "TH",
             "iso3": "THA",
-            "name": "Thailand",
-            "area": 510890,
-            "population": 69428524
+            "name": "Thailand"
           },
           "id": "TH"
         },
@@ -2631,9 +2195,7 @@
           "properties": {
             "iso2": "TJ",
             "iso3": "TJK",
-            "name": "Tajikistan",
-            "area": 138790,
-            "population": 9100837
+            "name": "Tajikistan"
           },
           "id": "TJ"
         },
@@ -2643,9 +2205,7 @@
           "properties": {
             "iso2": "TK",
             "iso3": "NZL",
-            "name": "New Zealand",
-            "area": 263310,
-            "population": 4841000
+            "name": "New Zealand"
           },
           "id": "TK"
         },
@@ -2655,9 +2215,7 @@
           "properties": {
             "iso2": "TL",
             "iso3": "TLS",
-            "name": "East Timor",
-            "area": 14870,
-            "population": 1267972
+            "name": "East Timor"
           },
           "id": "TL"
         },
@@ -2667,9 +2225,7 @@
           "properties": {
             "iso2": "TM",
             "iso3": "TKM",
-            "name": "Turkmenistan",
-            "area": 469930,
-            "population": 5850908
+            "name": "Turkmenistan"
           },
           "id": "TM"
         },
@@ -2679,9 +2235,7 @@
           "properties": {
             "iso2": "TN",
             "iso3": "TUN",
-            "name": "Tunisia",
-            "area": 155360,
-            "population": 11565204
+            "name": "Tunisia"
           },
           "id": "TN"
         },
@@ -2691,9 +2245,7 @@
           "properties": {
             "iso2": "TO",
             "iso3": "TON",
-            "name": "Tonga",
-            "area": 720,
-            "population": 103197
+            "name": "Tonga"
           },
           "id": "TO"
         },
@@ -2703,9 +2255,7 @@
           "properties": {
             "iso2": "TR",
             "iso3": "TUR",
-            "name": "Turkey",
-            "area": 769630,
-            "population": 82319724
+            "name": "Turkey"
           },
           "id": "TR"
         },
@@ -2715,9 +2265,7 @@
           "properties": {
             "iso2": "TT",
             "iso3": "TTO",
-            "name": "Trinidad and Tobago",
-            "area": 5130,
-            "population": 1389858
+            "name": "Trinidad and Tobago"
           },
           "id": "TT"
         },
@@ -2727,9 +2275,7 @@
           "properties": {
             "iso2": "TV",
             "iso3": "TUV",
-            "name": "Tuvalu",
-            "area": 30,
-            "population": 11508
+            "name": "Tuvalu"
           },
           "id": "TV"
         },
@@ -2739,9 +2285,7 @@
           "properties": {
             "iso2": "TW",
             "iso3": "TWN",
-            "name": "Taiwan",
-            "area": 36193,
-            "population": 23593794
+            "name": "Taiwan"
           },
           "id": "TW"
         },
@@ -2751,9 +2295,7 @@
           "properties": {
             "iso2": "TZ",
             "iso3": "TZA",
-            "name": "United Republic of Tanzania",
-            "area": 885800,
-            "population": 56318348
+            "name": "United Republic of Tanzania"
           },
           "id": "TZ"
         },
@@ -2763,9 +2305,7 @@
           "properties": {
             "iso2": "UA",
             "iso3": "UKR",
-            "name": "Ukraine",
-            "area": 579290,
-            "population": 44622518
+            "name": "Ukraine"
           },
           "id": "UA"
         },
@@ -2775,9 +2315,7 @@
           "properties": {
             "iso2": "UG",
             "iso3": "UGA",
-            "name": "Uganda",
-            "area": 200520,
-            "population": 42723139
+            "name": "Uganda"
           },
           "id": "UG"
         },
@@ -2787,9 +2325,7 @@
           "properties": {
             "iso2": "UM",
             "iso3": "UMI",
-            "name": "United States Minor Outlying Islands",
-            "area": 34.2,
-            "population": 300
+            "name": "United States Minor Outlying Islands"
           },
           "id": "UM"
         },
@@ -2799,9 +2335,7 @@
           "properties": {
             "iso2": "US",
             "iso3": "USA",
-            "name": "United States of America",
-            "area": 9147420,
-            "population": 326687501
+            "name": "United States of America"
           },
           "id": "US"
         },
@@ -2811,9 +2345,7 @@
           "properties": {
             "iso2": "UY",
             "iso3": "URY",
-            "name": "Uruguay",
-            "area": 175020,
-            "population": 3449299
+            "name": "Uruguay"
           },
           "id": "UY"
         },
@@ -2823,9 +2355,7 @@
           "properties": {
             "iso2": "UZ",
             "iso3": "UZB",
-            "name": "Uzbekistan",
-            "area": 425400,
-            "population": 32956100
+            "name": "Uzbekistan"
           },
           "id": "UZ"
         },
@@ -2835,9 +2365,7 @@
           "properties": {
             "iso2": "VA",
             "iso3": "VAT",
-            "name": "Vatican",
-            "area": 0.440297,
-            "population": 1000
+            "name": "Vatican"
           },
           "id": "VA"
         },
@@ -2847,9 +2375,7 @@
           "properties": {
             "iso2": "VC",
             "iso3": "VCT",
-            "name": "Saint Vincent and the Grenadines",
-            "area": 390,
-            "population": 110210
+            "name": "Saint Vincent and the Grenadines"
           },
           "id": "VC"
         },
@@ -2859,9 +2385,7 @@
           "properties": {
             "iso2": "VE",
             "iso3": "VEN",
-            "name": "Venezuela",
-            "area": 882050,
-            "population": 28870195
+            "name": "Venezuela"
           },
           "id": "VE"
         },
@@ -2871,9 +2395,7 @@
           "properties": {
             "iso2": "VG",
             "iso3": "VGB",
-            "name": "British Virgin Islands",
-            "area": 150,
-            "population": 29802
+            "name": "British Virgin Islands"
           },
           "id": "VG"
         },
@@ -2883,9 +2405,7 @@
           "properties": {
             "iso2": "VI",
             "iso3": "VIR",
-            "name": "United States Virgin Islands",
-            "area": 350,
-            "population": 106977
+            "name": "United States Virgin Islands"
           },
           "id": "VI"
         },
@@ -2895,9 +2415,7 @@
           "properties": {
             "iso2": "VN",
             "iso3": "VNM",
-            "name": "Vietnam",
-            "area": 310070,
-            "population": 95540395
+            "name": "Vietnam"
           },
           "id": "VN"
         },
@@ -2907,9 +2425,7 @@
           "properties": {
             "iso2": "VU",
             "iso3": "VUT",
-            "name": "Vanuatu",
-            "area": 12190,
-            "population": 292680
+            "name": "Vanuatu"
           },
           "id": "VU"
         },
@@ -2919,9 +2435,7 @@
           "properties": {
             "iso2": "WF",
             "iso3": "WLF",
-            "name": "Wallis and Futuna",
-            "area": 274,
-            "population": 12197
+            "name": "Wallis and Futuna"
           },
           "id": "WF"
         },
@@ -2931,9 +2445,7 @@
           "properties": {
             "iso2": "WS",
             "iso3": "WSM",
-            "name": "Samoa",
-            "area": 2830,
-            "population": 196130
+            "name": "Samoa"
           },
           "id": "WS"
         },
@@ -2943,9 +2455,7 @@
           "properties": {
             "iso2": "XK",
             "iso3": "KOS",
-            "name": "Kosovo",
-            "area": 10909.02992,
-            "population": 1883018
+            "name": "Kosovo"
           },
           "id": "XK"
         },
@@ -2955,9 +2465,7 @@
           "properties": {
             "iso2": "YE",
             "iso3": "YEM",
-            "name": "Yemen",
-            "area": 527970,
-            "population": 28498687
+            "name": "Yemen"
           },
           "id": "YE"
         },
@@ -2967,9 +2475,7 @@
           "properties": {
             "iso2": "YT",
             "iso3": "MYT",
-            "name": "Mayotte",
-            "area": 374,
-            "population": 256518
+            "name": "Mayotte"
           },
           "id": "YT"
         },
@@ -2979,9 +2485,7 @@
           "properties": {
             "iso2": "ZA",
             "iso3": "ZAF",
-            "name": "South Africa",
-            "area": 1213090,
-            "population": 57779622
+            "name": "South Africa"
           },
           "id": "ZA"
         },
@@ -2991,9 +2495,7 @@
           "properties": {
             "iso2": "ZM",
             "iso3": "ZMB",
-            "name": "Zambia",
-            "area": 743390,
-            "population": 17351822
+            "name": "Zambia"
           },
           "id": "ZM"
         },
@@ -3003,9 +2505,7 @@
           "properties": {
             "iso2": "ZW",
             "iso3": "ZWE",
-            "name": "Zimbabwe",
-            "area": 386850,
-            "population": 14439018
+            "name": "Zimbabwe"
           },
           "id": "ZW"
         }
