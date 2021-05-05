@@ -15,6 +15,7 @@
           "properties": {
             "iso2": "AD",
             "iso3": "AND",
+            "iso_numeric": 20,
             "name": "Andorra"
           },
           "id": "AD"
@@ -25,6 +26,7 @@
           "properties": {
             "iso2": "AE",
             "iso3": "ARE",
+            "iso_numeric": 784,
             "name": "United Arab Emirates"
           },
           "id": "AE"
@@ -35,6 +37,7 @@
           "properties": {
             "iso2": "AF",
             "iso3": "AFG",
+            "iso_numeric": 4,
             "name": "Afghanistan"
           },
           "id": "AF"
@@ -45,6 +48,7 @@
           "properties": {
             "iso2": "AG",
             "iso3": "ATG",
+            "iso_numeric": 28,
             "name": "Antigua and Barbuda"
           },
           "id": "AG"
@@ -55,6 +59,7 @@
           "properties": {
             "iso2": "AI",
             "iso3": "AIA",
+            "iso_numeric": 660,
             "name": "Anguilla"
           },
           "id": "AI"
@@ -65,6 +70,7 @@
           "properties": {
             "iso2": "AL",
             "iso3": "ALB",
+            "iso_numeric": 8,
             "name": "Albania"
           },
           "id": "AL"
@@ -75,6 +81,7 @@
           "properties": {
             "iso2": "AM",
             "iso3": "ARM",
+            "iso_numeric": 51,
             "name": "Armenia"
           },
           "id": "AM"
@@ -85,6 +92,7 @@
           "properties": {
             "iso2": "AO",
             "iso3": "AGO",
+            "iso_numeric": 24,
             "name": "Angola"
           },
           "id": "AO"
@@ -95,6 +103,7 @@
           "properties": {
             "iso2": "AQ",
             "iso3": "ATA",
+            "iso_numeric": 10,
             "name": "Antarctica"
           },
           "id": "AQ"
@@ -105,6 +114,7 @@
           "properties": {
             "iso2": "AR",
             "iso3": "ARG",
+            "iso_numeric": 32,
             "name": "Argentina"
           },
           "id": "AR"
@@ -115,6 +125,7 @@
           "properties": {
             "iso2": "AS",
             "iso3": "ASM",
+            "iso_numeric": 16,
             "name": "American Samoa"
           },
           "id": "AS"
@@ -125,6 +136,7 @@
           "properties": {
             "iso2": "AT",
             "iso3": "AUT",
+            "iso_numeric": 40,
             "name": "Austria"
           },
           "id": "AT"
@@ -135,6 +147,7 @@
           "properties": {
             "iso2": "AU",
             "iso3": "AUS",
+            "iso_numeric": 36,
             "name": "Australia"
           },
           "id": "AU"
@@ -145,6 +158,7 @@
           "properties": {
             "iso2": "AW",
             "iso3": "ABW",
+            "iso_numeric": 533,
             "name": "Aruba"
           },
           "id": "AW"
@@ -155,6 +169,7 @@
           "properties": {
             "iso2": "AX",
             "iso3": "ALA",
+            "iso_numeric": 248,
             "name": "Åland Islands"
           },
           "id": "AX"
@@ -165,6 +180,7 @@
           "properties": {
             "iso2": "AZ",
             "iso3": "AZE",
+            "iso_numeric": 31,
             "name": "Azerbaijan"
           },
           "id": "AZ"
@@ -175,6 +191,7 @@
           "properties": {
             "iso2": "BA",
             "iso3": "BIH",
+            "iso_numeric": 70,
             "name": "Bosnia and Herzegovina"
           },
           "id": "BA"
@@ -185,6 +202,7 @@
           "properties": {
             "iso2": "BB",
             "iso3": "BRB",
+            "iso_numeric": 52,
             "name": "Barbados"
           },
           "id": "BB"
@@ -195,6 +213,7 @@
           "properties": {
             "iso2": "BD",
             "iso3": "BGD",
+            "iso_numeric": 50,
             "name": "Bangladesh"
           },
           "id": "BD"
@@ -205,6 +224,7 @@
           "properties": {
             "iso2": "BE",
             "iso3": "BEL",
+            "iso_numeric": 56,
             "name": "Belgium"
           },
           "id": "BE"
@@ -215,6 +235,7 @@
           "properties": {
             "iso2": "BF",
             "iso3": "BFA",
+            "iso_numeric": 854,
             "name": "Burkina Faso"
           },
           "id": "BF"
@@ -225,6 +246,7 @@
           "properties": {
             "iso2": "BG",
             "iso3": "BGR",
+            "iso_numeric": 100,
             "name": "Bulgaria"
           },
           "id": "BG"
@@ -235,6 +257,7 @@
           "properties": {
             "iso2": "BH",
             "iso3": "BHR",
+            "iso_numeric": 48,
             "name": "Bahrain"
           },
           "id": "BH"
@@ -245,6 +268,7 @@
           "properties": {
             "iso2": "BI",
             "iso3": "BDI",
+            "iso_numeric": 108,
             "name": "Burundi"
           },
           "id": "BI"
@@ -255,6 +279,7 @@
           "properties": {
             "iso2": "BJ",
             "iso3": "BEN",
+            "iso_numeric": 204,
             "name": "Benin"
           },
           "id": "BJ"
@@ -265,6 +290,7 @@
           "properties": {
             "iso2": "BL",
             "iso3": "BLM",
+            "iso_numeric": 652,
             "name": "Saint Barthelemy"
           },
           "id": "BL"
@@ -275,6 +301,7 @@
           "properties": {
             "iso2": "BM",
             "iso3": "BMU",
+            "iso_numeric": 60,
             "name": "Bermuda"
           },
           "id": "BM"
@@ -285,6 +312,7 @@
           "properties": {
             "iso2": "BN",
             "iso3": "BRN",
+            "iso_numeric": 96,
             "name": "Brunei"
           },
           "id": "BN"
@@ -295,6 +323,7 @@
           "properties": {
             "iso2": "BO",
             "iso3": "BOL",
+            "iso_numeric": 68,
             "name": "Bolivia"
           },
           "id": "BO"
@@ -305,6 +334,7 @@
           "properties": {
             "iso2": "BQ",
             "iso3": "BES",
+            "iso_numeric": 535,
             "name": "Bonaire, Sint Eustatius and Saba"
           },
           "id": "BQ"
@@ -315,6 +345,7 @@
           "properties": {
             "iso2": "BR",
             "iso3": "BRA",
+            "iso_numeric": 76,
             "name": "Brazil"
           },
           "id": "BR"
@@ -325,6 +356,7 @@
           "properties": {
             "iso2": "BS",
             "iso3": "BHS",
+            "iso_numeric": 44,
             "name": "The Bahamas"
           },
           "id": "BS"
@@ -335,6 +367,7 @@
           "properties": {
             "iso2": "BT",
             "iso3": "BTN",
+            "iso_numeric": 64,
             "name": "Bhutan"
           },
           "id": "BT"
@@ -345,6 +378,7 @@
           "properties": {
             "iso2": "BV",
             "iso3": "BVT",
+            "iso_numeric": 74,
             "name": "Bouvet Island"
           },
           "id": "BV"
@@ -355,6 +389,7 @@
           "properties": {
             "iso2": "BW",
             "iso3": "BWA",
+            "iso_numeric": 72,
             "name": "Botswana"
           },
           "id": "BW"
@@ -365,6 +400,7 @@
           "properties": {
             "iso2": "BY",
             "iso3": "BLR",
+            "iso_numeric": 112,
             "name": "Belarus"
           },
           "id": "BY"
@@ -375,6 +411,7 @@
           "properties": {
             "iso2": "BZ",
             "iso3": "BLZ",
+            "iso_numeric": 84,
             "name": "Belize"
           },
           "id": "BZ"
@@ -385,6 +422,7 @@
           "properties": {
             "iso2": "CA",
             "iso3": "CAN",
+            "iso_numeric": 124,
             "name": "Canada"
           },
           "id": "CA"
@@ -395,6 +433,7 @@
           "properties": {
             "iso2": "CC",
             "iso3": "CCK",
+            "iso_numeric": 166,
             "name": "Cocos (Keeling) Islands"
           },
           "id": "CC"
@@ -405,6 +444,7 @@
           "properties": {
             "iso2": "CD",
             "iso3": "COD",
+            "iso_numeric": 180,
             "name": "Democratic Republic of the Congo"
           },
           "id": "CD"
@@ -415,6 +455,7 @@
           "properties": {
             "iso2": "CF",
             "iso3": "CAF",
+            "iso_numeric": 140,
             "name": "Central African Republic"
           },
           "id": "CF"
@@ -425,6 +466,7 @@
           "properties": {
             "iso2": "CG",
             "iso3": "COG",
+            "iso_numeric": 178,
             "name": "Republic of the Congo"
           },
           "id": "CG"
@@ -435,6 +477,7 @@
           "properties": {
             "iso2": "CH",
             "iso3": "CHE",
+            "iso_numeric": 756,
             "name": "Switzerland"
           },
           "id": "CH"
@@ -445,6 +488,7 @@
           "properties": {
             "iso2": "CI",
             "iso3": "CIV",
+            "iso_numeric": 384,
             "name": "Ivory Coast"
           },
           "id": "CI"
@@ -455,6 +499,7 @@
           "properties": {
             "iso2": "CK",
             "iso3": "COK",
+            "iso_numeric": 184,
             "name": "Cook Islands"
           },
           "id": "CK"
@@ -465,6 +510,7 @@
           "properties": {
             "iso2": "CL",
             "iso3": "CHL",
+            "iso_numeric": 152,
             "name": "Chile"
           },
           "id": "CL"
@@ -475,6 +521,7 @@
           "properties": {
             "iso2": "CM",
             "iso3": "CMR",
+            "iso_numeric": 120,
             "name": "Cameroon"
           },
           "id": "CM"
@@ -485,6 +532,7 @@
           "properties": {
             "iso2": "CN",
             "iso3": "CHN",
+            "iso_numeric": 156,
             "name": "China"
           },
           "id": "CN"
@@ -495,6 +543,7 @@
           "properties": {
             "iso2": "CO",
             "iso3": "COL",
+            "iso_numeric": 170,
             "name": "Colombia"
           },
           "id": "CO"
@@ -505,6 +554,7 @@
           "properties": {
             "iso2": "CR",
             "iso3": "CRI",
+            "iso_numeric": 188,
             "name": "Costa Rica"
           },
           "id": "CR"
@@ -515,6 +565,7 @@
           "properties": {
             "iso2": "CU",
             "iso3": "CUB",
+            "iso_numeric": 192,
             "name": "Cuba"
           },
           "id": "CU"
@@ -525,6 +576,7 @@
           "properties": {
             "iso2": "CV",
             "iso3": "CPV",
+            "iso_numeric": 132,
             "name": "Cape Verde"
           },
           "id": "CV"
@@ -535,6 +587,7 @@
           "properties": {
             "iso2": "CW",
             "iso3": "CUW",
+            "iso_numeric": 531,
             "name": "Curaçao"
           },
           "id": "CW"
@@ -545,6 +598,7 @@
           "properties": {
             "iso2": "CX",
             "iso3": "CXR",
+            "iso_numeric": 162,
             "name": "Christmas Island"
           },
           "id": "CX"
@@ -555,6 +609,7 @@
           "properties": {
             "iso2": "CY",
             "iso3": "CYP",
+            "iso_numeric": 196,
             "name": "Cyprus"
           },
           "id": "CY"
@@ -565,6 +620,7 @@
           "properties": {
             "iso2": "CZ",
             "iso3": "CZE",
+            "iso_numeric": 203,
             "name": "Czechia"
           },
           "id": "CZ"
@@ -575,6 +631,7 @@
           "properties": {
             "iso2": "DE",
             "iso3": "DEU",
+            "iso_numeric": 276,
             "name": "Germany"
           },
           "id": "DE"
@@ -585,6 +642,7 @@
           "properties": {
             "iso2": "DJ",
             "iso3": "DJI",
+            "iso_numeric": 262,
             "name": "Djibouti"
           },
           "id": "DJ"
@@ -595,6 +653,7 @@
           "properties": {
             "iso2": "DK",
             "iso3": "DNK",
+            "iso_numeric": 208,
             "name": "Denmark"
           },
           "id": "DK"
@@ -605,6 +664,7 @@
           "properties": {
             "iso2": "DM",
             "iso3": "DMA",
+            "iso_numeric": 212,
             "name": "Dominica"
           },
           "id": "DM"
@@ -615,6 +675,7 @@
           "properties": {
             "iso2": "DO",
             "iso3": "DOM",
+            "iso_numeric": 214,
             "name": "Dominican Republic"
           },
           "id": "DO"
@@ -625,6 +686,7 @@
           "properties": {
             "iso2": "DZ",
             "iso3": "DZA",
+            "iso_numeric": 12,
             "name": "Algeria"
           },
           "id": "DZ"
@@ -635,6 +697,7 @@
           "properties": {
             "iso2": "EC",
             "iso3": "ECU",
+            "iso_numeric": 218,
             "name": "Ecuador"
           },
           "id": "EC"
@@ -645,6 +708,7 @@
           "properties": {
             "iso2": "EE",
             "iso3": "EST",
+            "iso_numeric": 233,
             "name": "Estonia"
           },
           "id": "EE"
@@ -655,6 +719,7 @@
           "properties": {
             "iso2": "EG",
             "iso3": "EGY",
+            "iso_numeric": 818,
             "name": "Egypt"
           },
           "id": "EG"
@@ -665,6 +730,7 @@
           "properties": {
             "iso2": "EH",
             "iso3": "SAH",
+            "iso_numeric": 732,
             "name": "Western Sahara"
           },
           "id": "EH"
@@ -675,6 +741,7 @@
           "properties": {
             "iso2": "ER",
             "iso3": "ERI",
+            "iso_numeric": 232,
             "name": "Eritrea"
           },
           "id": "ER"
@@ -685,6 +752,7 @@
           "properties": {
             "iso2": "ES",
             "iso3": "ESP",
+            "iso_numeric": 724,
             "name": "Spain"
           },
           "id": "ES"
@@ -695,6 +763,7 @@
           "properties": {
             "iso2": "ET",
             "iso3": "ETH",
+            "iso_numeric": 231,
             "name": "Ethiopia"
           },
           "id": "ET"
@@ -705,6 +774,7 @@
           "properties": {
             "iso2": "FI",
             "iso3": "FIN",
+            "iso_numeric": 246,
             "name": "Finland"
           },
           "id": "FI"
@@ -715,6 +785,7 @@
           "properties": {
             "iso2": "FJ",
             "iso3": "FJI",
+            "iso_numeric": 242,
             "name": "Fiji"
           },
           "id": "FJ"
@@ -725,6 +796,7 @@
           "properties": {
             "iso2": "FK",
             "iso3": "FLK",
+            "iso_numeric": 238,
             "name": "Falkland Islands"
           },
           "id": "FK"
@@ -735,6 +807,7 @@
           "properties": {
             "iso2": "FM",
             "iso3": "FSM",
+            "iso_numeric": 583,
             "name": "Federated States of Micronesia"
           },
           "id": "FM"
@@ -745,6 +818,7 @@
           "properties": {
             "iso2": "FO",
             "iso3": "FRO",
+            "iso_numeric": 234,
             "name": "Faroe Islands"
           },
           "id": "FO"
@@ -755,6 +829,7 @@
           "properties": {
             "iso2": "FR",
             "iso3": "FRA",
+            "iso_numeric": 250,
             "name": "France"
           },
           "id": "FR"
@@ -765,6 +840,7 @@
           "properties": {
             "iso2": "GA",
             "iso3": "GAB",
+            "iso_numeric": 266,
             "name": "Gabon"
           },
           "id": "GA"
@@ -775,6 +851,7 @@
           "properties": {
             "iso2": "GB",
             "iso3": "GBR",
+            "iso_numeric": 826,
             "name": "United Kingdom"
           },
           "id": "GB"
@@ -785,6 +862,7 @@
           "properties": {
             "iso2": "GD",
             "iso3": "GRD",
+            "iso_numeric": 308,
             "name": "Grenada"
           },
           "id": "GD"
@@ -795,6 +873,7 @@
           "properties": {
             "iso2": "GE",
             "iso3": "GEO",
+            "iso_numeric": 268,
             "name": "Georgia"
           },
           "id": "GE"
@@ -805,6 +884,7 @@
           "properties": {
             "iso2": "GF",
             "iso3": "GUF",
+            "iso_numeric": 254,
             "name": "French Guiana"
           },
           "id": "GF"
@@ -815,6 +895,7 @@
           "properties": {
             "iso2": "GG",
             "iso3": "GGY",
+            "iso_numeric": 831,
             "name": "Guernsey"
           },
           "id": "GG"
@@ -825,6 +906,7 @@
           "properties": {
             "iso2": "GH",
             "iso3": "GHA",
+            "iso_numeric": 288,
             "name": "Ghana"
           },
           "id": "GH"
@@ -835,6 +917,7 @@
           "properties": {
             "iso2": "GI",
             "iso3": "GIB",
+            "iso_numeric": 292,
             "name": "Gibraltar"
           },
           "id": "GI"
@@ -845,6 +928,7 @@
           "properties": {
             "iso2": "GL",
             "iso3": "GRL",
+            "iso_numeric": 304,
             "name": "Greenland"
           },
           "id": "GL"
@@ -855,6 +939,7 @@
           "properties": {
             "iso2": "GM",
             "iso3": "GMB",
+            "iso_numeric": 270,
             "name": "Gambia"
           },
           "id": "GM"
@@ -865,6 +950,7 @@
           "properties": {
             "iso2": "GN",
             "iso3": "GIN",
+            "iso_numeric": 324,
             "name": "Guinea"
           },
           "id": "GN"
@@ -875,6 +961,7 @@
           "properties": {
             "iso2": "GP",
             "iso3": "GLP",
+            "iso_numeric": 312,
             "name": "Guadeloupe"
           },
           "id": "GP"
@@ -885,6 +972,7 @@
           "properties": {
             "iso2": "GQ",
             "iso3": "GNQ",
+            "iso_numeric": 226,
             "name": "Equatorial Guinea"
           },
           "id": "GQ"
@@ -895,6 +983,7 @@
           "properties": {
             "iso2": "GR",
             "iso3": "GRC",
+            "iso_numeric": 300,
             "name": "Greece"
           },
           "id": "GR"
@@ -905,6 +994,7 @@
           "properties": {
             "iso2": "GS",
             "iso3": "SGS",
+            "iso_numeric": 239,
             "name": "South Georgia and the Islands"
           },
           "id": "GS"
@@ -915,6 +1005,7 @@
           "properties": {
             "iso2": "GT",
             "iso3": "GTM",
+            "iso_numeric": 320,
             "name": "Guatemala"
           },
           "id": "GT"
@@ -925,6 +1016,7 @@
           "properties": {
             "iso2": "GU",
             "iso3": "GUM",
+            "iso_numeric": 316,
             "name": "Guam"
           },
           "id": "GU"
@@ -935,6 +1027,7 @@
           "properties": {
             "iso2": "GW",
             "iso3": "GNB",
+            "iso_numeric": 624,
             "name": "Guinea Bissau"
           },
           "id": "GW"
@@ -945,6 +1038,7 @@
           "properties": {
             "iso2": "GY",
             "iso3": "GUY",
+            "iso_numeric": 328,
             "name": "Guyana"
           },
           "id": "GY"
@@ -955,6 +1049,7 @@
           "properties": {
             "iso2": "HK",
             "iso3": "HKG",
+            "iso_numeric": 344,
             "name": "Hong Kong S.A.R."
           },
           "id": "HK"
@@ -965,6 +1060,7 @@
           "properties": {
             "iso2": "HM",
             "iso3": "HMD",
+            "iso_numeric": 334,
             "name": "Heard Island and McDonald Islands"
           },
           "id": "HM"
@@ -975,6 +1071,7 @@
           "properties": {
             "iso2": "HN",
             "iso3": "HND",
+            "iso_numeric": 340,
             "name": "Honduras"
           },
           "id": "HN"
@@ -985,6 +1082,7 @@
           "properties": {
             "iso2": "HR",
             "iso3": "HRV",
+            "iso_numeric": 191,
             "name": "Croatia"
           },
           "id": "HR"
@@ -995,6 +1093,7 @@
           "properties": {
             "iso2": "HT",
             "iso3": "HTI",
+            "iso_numeric": 332,
             "name": "Haiti"
           },
           "id": "HT"
@@ -1005,6 +1104,7 @@
           "properties": {
             "iso2": "HU",
             "iso3": "HUN",
+            "iso_numeric": 348,
             "name": "Hungary"
           },
           "id": "HU"
@@ -1015,6 +1115,7 @@
           "properties": {
             "iso2": "ID",
             "iso3": "IDN",
+            "iso_numeric": 360,
             "name": "Indonesia"
           },
           "id": "ID"
@@ -1025,6 +1126,7 @@
           "properties": {
             "iso2": "IE",
             "iso3": "IRL",
+            "iso_numeric": 372,
             "name": "Ireland"
           },
           "id": "IE"
@@ -1035,6 +1137,7 @@
           "properties": {
             "iso2": "IL",
             "iso3": "ISR",
+            "iso_numeric": 376,
             "name": "Israel"
           },
           "id": "IL"
@@ -1045,6 +1148,7 @@
           "properties": {
             "iso2": "IM",
             "iso3": "IMN",
+            "iso_numeric": 833,
             "name": "Isle of Man"
           },
           "id": "IM"
@@ -1055,6 +1159,7 @@
           "properties": {
             "iso2": "IN",
             "iso3": "IND",
+            "iso_numeric": 356,
             "name": "India"
           },
           "id": "IN"
@@ -1065,6 +1170,7 @@
           "properties": {
             "iso2": "IO",
             "iso3": "IOT",
+            "iso_numeric": 86,
             "name": "British Indian Ocean Territory"
           },
           "id": "IO"
@@ -1075,6 +1181,7 @@
           "properties": {
             "iso2": "IQ",
             "iso3": "IRQ",
+            "iso_numeric": 368,
             "name": "Iraq"
           },
           "id": "IQ"
@@ -1085,6 +1192,7 @@
           "properties": {
             "iso2": "IR",
             "iso3": "IRN",
+            "iso_numeric": 364,
             "name": "Iran"
           },
           "id": "IR"
@@ -1095,6 +1203,7 @@
           "properties": {
             "iso2": "IS",
             "iso3": "ISL",
+            "iso_numeric": 352,
             "name": "Iceland"
           },
           "id": "IS"
@@ -1105,6 +1214,7 @@
           "properties": {
             "iso2": "IT",
             "iso3": "ITA",
+            "iso_numeric": 380,
             "name": "Italy"
           },
           "id": "IT"
@@ -1115,6 +1225,7 @@
           "properties": {
             "iso2": "JE",
             "iso3": "JEY",
+            "iso_numeric": 832,
             "name": "Jersey"
           },
           "id": "JE"
@@ -1125,6 +1236,7 @@
           "properties": {
             "iso2": "JM",
             "iso3": "JAM",
+            "iso_numeric": 388,
             "name": "Jamaica"
           },
           "id": "JM"
@@ -1135,6 +1247,7 @@
           "properties": {
             "iso2": "JO",
             "iso3": "JOR",
+            "iso_numeric": 400,
             "name": "Jordan"
           },
           "id": "JO"
@@ -1145,6 +1258,7 @@
           "properties": {
             "iso2": "JP",
             "iso3": "JPN",
+            "iso_numeric": 392,
             "name": "Japan"
           },
           "id": "JP"
@@ -1155,6 +1269,7 @@
           "properties": {
             "iso2": "KE",
             "iso3": "KEN",
+            "iso_numeric": 404,
             "name": "Kenya"
           },
           "id": "KE"
@@ -1165,6 +1280,7 @@
           "properties": {
             "iso2": "KG",
             "iso3": "KGZ",
+            "iso_numeric": 417,
             "name": "Kyrgyzstan"
           },
           "id": "KG"
@@ -1175,6 +1291,7 @@
           "properties": {
             "iso2": "KH",
             "iso3": "KHM",
+            "iso_numeric": 116,
             "name": "Cambodia"
           },
           "id": "KH"
@@ -1185,6 +1302,7 @@
           "properties": {
             "iso2": "KI",
             "iso3": "KIR",
+            "iso_numeric": 296,
             "name": "Kiribati"
           },
           "id": "KI"
@@ -1195,6 +1313,7 @@
           "properties": {
             "iso2": "KM",
             "iso3": "COM",
+            "iso_numeric": 174,
             "name": "Comoros"
           },
           "id": "KM"
@@ -1205,6 +1324,7 @@
           "properties": {
             "iso2": "KN",
             "iso3": "KNA",
+            "iso_numeric": 659,
             "name": "Saint Kitts and Nevis"
           },
           "id": "KN"
@@ -1215,6 +1335,7 @@
           "properties": {
             "iso2": "KP",
             "iso3": "PRK",
+            "iso_numeric": 408,
             "name": "North Korea"
           },
           "id": "KP"
@@ -1225,6 +1346,7 @@
           "properties": {
             "iso2": "KR",
             "iso3": "KOR",
+            "iso_numeric": 410,
             "name": "South Korea"
           },
           "id": "KR"
@@ -1235,6 +1357,7 @@
           "properties": {
             "iso2": "KW",
             "iso3": "KWT",
+            "iso_numeric": 414,
             "name": "Kuwait"
           },
           "id": "KW"
@@ -1245,6 +1368,7 @@
           "properties": {
             "iso2": "KY",
             "iso3": "CYM",
+            "iso_numeric": 136,
             "name": "Cayman Islands"
           },
           "id": "KY"
@@ -1255,6 +1379,7 @@
           "properties": {
             "iso2": "KZ",
             "iso3": "KAZ",
+            "iso_numeric": 398,
             "name": "Kazakhstan"
           },
           "id": "KZ"
@@ -1265,6 +1390,7 @@
           "properties": {
             "iso2": "LA",
             "iso3": "LAO",
+            "iso_numeric": 418,
             "name": "Laos"
           },
           "id": "LA"
@@ -1275,6 +1401,7 @@
           "properties": {
             "iso2": "LB",
             "iso3": "LBN",
+            "iso_numeric": 422,
             "name": "Lebanon"
           },
           "id": "LB"
@@ -1285,6 +1412,7 @@
           "properties": {
             "iso2": "LC",
             "iso3": "LCA",
+            "iso_numeric": 662,
             "name": "Saint Lucia"
           },
           "id": "LC"
@@ -1295,6 +1423,7 @@
           "properties": {
             "iso2": "LI",
             "iso3": "LIE",
+            "iso_numeric": 438,
             "name": "Liechtenstein"
           },
           "id": "LI"
@@ -1305,6 +1434,7 @@
           "properties": {
             "iso2": "LK",
             "iso3": "LKA",
+            "iso_numeric": 144,
             "name": "Sri Lanka"
           },
           "id": "LK"
@@ -1315,6 +1445,7 @@
           "properties": {
             "iso2": "LR",
             "iso3": "LBR",
+            "iso_numeric": 430,
             "name": "Liberia"
           },
           "id": "LR"
@@ -1325,6 +1456,7 @@
           "properties": {
             "iso2": "LS",
             "iso3": "LSO",
+            "iso_numeric": 426,
             "name": "Lesotho"
           },
           "id": "LS"
@@ -1335,6 +1467,7 @@
           "properties": {
             "iso2": "LT",
             "iso3": "LTU",
+            "iso_numeric": 440,
             "name": "Lithuania"
           },
           "id": "LT"
@@ -1345,6 +1478,7 @@
           "properties": {
             "iso2": "LU",
             "iso3": "LUX",
+            "iso_numeric": 442,
             "name": "Luxembourg"
           },
           "id": "LU"
@@ -1355,6 +1489,7 @@
           "properties": {
             "iso2": "LV",
             "iso3": "LVA",
+            "iso_numeric": 428,
             "name": "Latvia"
           },
           "id": "LV"
@@ -1365,6 +1500,7 @@
           "properties": {
             "iso2": "LY",
             "iso3": "LBY",
+            "iso_numeric": 434,
             "name": "Libya"
           },
           "id": "LY"
@@ -1375,6 +1511,7 @@
           "properties": {
             "iso2": "MA",
             "iso3": "MAR",
+            "iso_numeric": 504,
             "name": "Morocco"
           },
           "id": "MA"
@@ -1385,6 +1522,7 @@
           "properties": {
             "iso2": "MC",
             "iso3": "MCO",
+            "iso_numeric": 492,
             "name": "Monaco"
           },
           "id": "MC"
@@ -1395,6 +1533,7 @@
           "properties": {
             "iso2": "MD",
             "iso3": "MDA",
+            "iso_numeric": 498,
             "name": "Moldova"
           },
           "id": "MD"
@@ -1405,6 +1544,7 @@
           "properties": {
             "iso2": "ME",
             "iso3": "MNE",
+            "iso_numeric": 499,
             "name": "Montenegro"
           },
           "id": "ME"
@@ -1415,6 +1555,7 @@
           "properties": {
             "iso2": "MF",
             "iso3": "MAF",
+            "iso_numeric": 663,
             "name": "Saint Martin"
           },
           "id": "MF"
@@ -1425,6 +1566,7 @@
           "properties": {
             "iso2": "MG",
             "iso3": "MDG",
+            "iso_numeric": 450,
             "name": "Madagascar"
           },
           "id": "MG"
@@ -1435,6 +1577,7 @@
           "properties": {
             "iso2": "MH",
             "iso3": "MHL",
+            "iso_numeric": 584,
             "name": "Marshall Islands"
           },
           "id": "MH"
@@ -1445,6 +1588,7 @@
           "properties": {
             "iso2": "MK",
             "iso3": "MKD",
+            "iso_numeric": 807,
             "name": "Macedonia"
           },
           "id": "MK"
@@ -1455,6 +1599,7 @@
           "properties": {
             "iso2": "ML",
             "iso3": "MLI",
+            "iso_numeric": 466,
             "name": "Mali"
           },
           "id": "ML"
@@ -1465,6 +1610,7 @@
           "properties": {
             "iso2": "MM",
             "iso3": "MMR",
+            "iso_numeric": 104,
             "name": "Myanmar"
           },
           "id": "MM"
@@ -1475,6 +1621,7 @@
           "properties": {
             "iso2": "MN",
             "iso3": "MNG",
+            "iso_numeric": 496,
             "name": "Mongolia"
           },
           "id": "MN"
@@ -1485,6 +1632,7 @@
           "properties": {
             "iso2": "MO",
             "iso3": "MAC",
+            "iso_numeric": 446,
             "name": "Macau S.A.R"
           },
           "id": "MO"
@@ -1495,6 +1643,7 @@
           "properties": {
             "iso2": "MP",
             "iso3": "MNP",
+            "iso_numeric": 580,
             "name": "Northern Mariana Islands"
           },
           "id": "MP"
@@ -1505,6 +1654,7 @@
           "properties": {
             "iso2": "MQ",
             "iso3": "MQT",
+            "iso_numeric": 474,
             "name": "Martinique"
           },
           "id": "MQ"
@@ -1515,6 +1665,7 @@
           "properties": {
             "iso2": "MR",
             "iso3": "MRT",
+            "iso_numeric": 478,
             "name": "Mauritania"
           },
           "id": "MR"
@@ -1525,6 +1676,7 @@
           "properties": {
             "iso2": "MS",
             "iso3": "MSR",
+            "iso_numeric": 500,
             "name": "Montserrat"
           },
           "id": "MS"
@@ -1535,6 +1687,7 @@
           "properties": {
             "iso2": "MT",
             "iso3": "MLT",
+            "iso_numeric": 470,
             "name": "Malta"
           },
           "id": "MT"
@@ -1545,6 +1698,7 @@
           "properties": {
             "iso2": "MU",
             "iso3": "MUS",
+            "iso_numeric": 480,
             "name": "Mauritius"
           },
           "id": "MU"
@@ -1555,6 +1709,7 @@
           "properties": {
             "iso2": "MV",
             "iso3": "MDV",
+            "iso_numeric": 462,
             "name": "Maldives"
           },
           "id": "MV"
@@ -1565,6 +1720,7 @@
           "properties": {
             "iso2": "MW",
             "iso3": "MWI",
+            "iso_numeric": 454,
             "name": "Malawi"
           },
           "id": "MW"
@@ -1575,6 +1731,7 @@
           "properties": {
             "iso2": "MX",
             "iso3": "MEX",
+            "iso_numeric": 484,
             "name": "Mexico"
           },
           "id": "MX"
@@ -1585,6 +1742,7 @@
           "properties": {
             "iso2": "MY",
             "iso3": "MYS",
+            "iso_numeric": 458,
             "name": "Malaysia"
           },
           "id": "MY"
@@ -1595,6 +1753,7 @@
           "properties": {
             "iso2": "MZ",
             "iso3": "MOZ",
+            "iso_numeric": 508,
             "name": "Mozambique"
           },
           "id": "MZ"
@@ -1605,6 +1764,7 @@
           "properties": {
             "iso2": "NA",
             "iso3": "NAM",
+            "iso_numeric": 516,
             "name": "Namibia"
           },
           "id": "NA"
@@ -1615,6 +1775,7 @@
           "properties": {
             "iso2": "NC",
             "iso3": "NCL",
+            "iso_numeric": 540,
             "name": "New Caledonia"
           },
           "id": "NC"
@@ -1625,6 +1786,7 @@
           "properties": {
             "iso2": "NE",
             "iso3": "NER",
+            "iso_numeric": 562,
             "name": "Niger"
           },
           "id": "NE"
@@ -1635,6 +1797,7 @@
           "properties": {
             "iso2": "NF",
             "iso3": "NFK",
+            "iso_numeric": 574,
             "name": "Norfolk Island"
           },
           "id": "NF"
@@ -1645,6 +1808,7 @@
           "properties": {
             "iso2": "NG",
             "iso3": "NGA",
+            "iso_numeric": 566,
             "name": "Nigeria"
           },
           "id": "NG"
@@ -1655,6 +1819,7 @@
           "properties": {
             "iso2": "NI",
             "iso3": "NIC",
+            "iso_numeric": 558,
             "name": "Nicaragua"
           },
           "id": "NI"
@@ -1665,6 +1830,7 @@
           "properties": {
             "iso2": "NL",
             "iso3": "NLD",
+            "iso_numeric": 528,
             "name": "Netherlands"
           },
           "id": "NL"
@@ -1675,6 +1841,7 @@
           "properties": {
             "iso2": "NO",
             "iso3": "NOR",
+            "iso_numeric": 578,
             "name": "Norway"
           },
           "id": "NO"
@@ -1685,6 +1852,7 @@
           "properties": {
             "iso2": "NP",
             "iso3": "NPL",
+            "iso_numeric": 524,
             "name": "Nepal"
           },
           "id": "NP"
@@ -1695,6 +1863,7 @@
           "properties": {
             "iso2": "NR",
             "iso3": "NRU",
+            "iso_numeric": 520,
             "name": "Nauru"
           },
           "id": "NR"
@@ -1705,6 +1874,7 @@
           "properties": {
             "iso2": "NU",
             "iso3": "NIU",
+            "iso_numeric": 570,
             "name": "Niue"
           },
           "id": "NU"
@@ -1715,6 +1885,7 @@
           "properties": {
             "iso2": "NZ",
             "iso3": "NZL",
+            "iso_numeric": 554,
             "name": "New Zealand"
           },
           "id": "NZ"
@@ -1725,6 +1896,7 @@
           "properties": {
             "iso2": "OM",
             "iso3": "OMN",
+            "iso_numeric": 512,
             "name": "Oman"
           },
           "id": "OM"
@@ -1735,6 +1907,7 @@
           "properties": {
             "iso2": "PA",
             "iso3": "PAN",
+            "iso_numeric": 591,
             "name": "Panama"
           },
           "id": "PA"
@@ -1745,6 +1918,7 @@
           "properties": {
             "iso2": "PE",
             "iso3": "PER",
+            "iso_numeric": 604,
             "name": "Peru"
           },
           "id": "PE"
@@ -1755,6 +1929,7 @@
           "properties": {
             "iso2": "PF",
             "iso3": "PYF",
+            "iso_numeric": 258,
             "name": "French Polynesia"
           },
           "id": "PF"
@@ -1765,6 +1940,7 @@
           "properties": {
             "iso2": "PG",
             "iso3": "PNG",
+            "iso_numeric": 598,
             "name": "Papua New Guinea"
           },
           "id": "PG"
@@ -1775,6 +1951,7 @@
           "properties": {
             "iso2": "PH",
             "iso3": "PHL",
+            "iso_numeric": 608,
             "name": "Philippines"
           },
           "id": "PH"
@@ -1785,6 +1962,7 @@
           "properties": {
             "iso2": "PK",
             "iso3": "PAK",
+            "iso_numeric": 586,
             "name": "Pakistan"
           },
           "id": "PK"
@@ -1795,6 +1973,7 @@
           "properties": {
             "iso2": "PL",
             "iso3": "POL",
+            "iso_numeric": 616,
             "name": "Poland"
           },
           "id": "PL"
@@ -1805,6 +1984,7 @@
           "properties": {
             "iso2": "PM",
             "iso3": "SPM",
+            "iso_numeric": 666,
             "name": "Saint Pierre and Miquelon"
           },
           "id": "PM"
@@ -1815,6 +1995,7 @@
           "properties": {
             "iso2": "PN",
             "iso3": "PCN",
+            "iso_numeric": 612,
             "name": "Pitcairn Islands"
           },
           "id": "PN"
@@ -1825,6 +2006,7 @@
           "properties": {
             "iso2": "PR",
             "iso3": "PRI",
+            "iso_numeric": 630,
             "name": "Puerto Rico"
           },
           "id": "PR"
@@ -1835,6 +2017,7 @@
           "properties": {
             "iso2": "PS",
             "iso3": "PSE",
+            "iso_numeric": 275,
             "name": "Palestine"
           },
           "id": "PS"
@@ -1845,6 +2028,7 @@
           "properties": {
             "iso2": "PT",
             "iso3": "PRT",
+            "iso_numeric": 620,
             "name": "Portugal"
           },
           "id": "PT"
@@ -1855,6 +2039,7 @@
           "properties": {
             "iso2": "PW",
             "iso3": "PLW",
+            "iso_numeric": 585,
             "name": "Palau"
           },
           "id": "PW"
@@ -1865,6 +2050,7 @@
           "properties": {
             "iso2": "PY",
             "iso3": "PRY",
+            "iso_numeric": 600,
             "name": "Paraguay"
           },
           "id": "PY"
@@ -1875,6 +2061,7 @@
           "properties": {
             "iso2": "QA",
             "iso3": "QAT",
+            "iso_numeric": 634,
             "name": "Qatar"
           },
           "id": "QA"
@@ -1885,6 +2072,7 @@
           "properties": {
             "iso2": "RE",
             "iso3": "REU",
+            "iso_numeric": 638,
             "name": "Réunion"
           },
           "id": "RE"
@@ -1895,6 +2083,7 @@
           "properties": {
             "iso2": "RO",
             "iso3": "ROU",
+            "iso_numeric": 642,
             "name": "Romania"
           },
           "id": "RO"
@@ -1905,6 +2094,7 @@
           "properties": {
             "iso2": "RS",
             "iso3": "SRB",
+            "iso_numeric": 688,
             "name": "Republic of Serbia"
           },
           "id": "RS"
@@ -1915,6 +2105,7 @@
           "properties": {
             "iso2": "RU",
             "iso3": "RUS",
+            "iso_numeric": 643,
             "name": "Russia"
           },
           "id": "RU"
@@ -1925,6 +2116,7 @@
           "properties": {
             "iso2": "RW",
             "iso3": "RWA",
+            "iso_numeric": 646,
             "name": "Rwanda"
           },
           "id": "RW"
@@ -1935,6 +2127,7 @@
           "properties": {
             "iso2": "SA",
             "iso3": "SAU",
+            "iso_numeric": 682,
             "name": "Saudi Arabia"
           },
           "id": "SA"
@@ -1945,6 +2138,7 @@
           "properties": {
             "iso2": "SB",
             "iso3": "SLB",
+            "iso_numeric": 90,
             "name": "Solomon Islands"
           },
           "id": "SB"
@@ -1955,6 +2149,7 @@
           "properties": {
             "iso2": "SC",
             "iso3": "SYC",
+            "iso_numeric": 690,
             "name": "Seychelles"
           },
           "id": "SC"
@@ -1965,6 +2160,7 @@
           "properties": {
             "iso2": "SD",
             "iso3": "SDN",
+            "iso_numeric": 729,
             "name": "Sudan"
           },
           "id": "SD"
@@ -1975,6 +2171,7 @@
           "properties": {
             "iso2": "SE",
             "iso3": "SWE",
+            "iso_numeric": 752,
             "name": "Sweden"
           },
           "id": "SE"
@@ -1985,6 +2182,7 @@
           "properties": {
             "iso2": "SG",
             "iso3": "SGP",
+            "iso_numeric": 702,
             "name": "Singapore"
           },
           "id": "SG"
@@ -1995,6 +2193,7 @@
           "properties": {
             "iso2": "SH",
             "iso3": "SHN",
+            "iso_numeric": 654,
             "name": "Saint Helena"
           },
           "id": "SH"
@@ -2005,6 +2204,7 @@
           "properties": {
             "iso2": "SI",
             "iso3": "SVN",
+            "iso_numeric": 705,
             "name": "Slovenia"
           },
           "id": "SI"
@@ -2015,6 +2215,7 @@
           "properties": {
             "iso2": "SJ",
             "iso3": "SJM",
+            "iso_numeric": 744,
             "name": "Svalbard and Jan Mayen"
           },
           "id": "SJ"
@@ -2025,6 +2226,7 @@
           "properties": {
             "iso2": "SK",
             "iso3": "SVK",
+            "iso_numeric": 703,
             "name": "Slovakia"
           },
           "id": "SK"
@@ -2035,6 +2237,7 @@
           "properties": {
             "iso2": "SL",
             "iso3": "SLE",
+            "iso_numeric": 694,
             "name": "Sierra Leone"
           },
           "id": "SL"
@@ -2045,6 +2248,7 @@
           "properties": {
             "iso2": "SM",
             "iso3": "SMR",
+            "iso_numeric": 674,
             "name": "San Marino"
           },
           "id": "SM"
@@ -2055,6 +2259,7 @@
           "properties": {
             "iso2": "SN",
             "iso3": "SEN",
+            "iso_numeric": 686,
             "name": "Senegal"
           },
           "id": "SN"
@@ -2065,6 +2270,7 @@
           "properties": {
             "iso2": "SO",
             "iso3": "SOM",
+            "iso_numeric": 706,
             "name": "Somalia"
           },
           "id": "SO"
@@ -2075,6 +2281,7 @@
           "properties": {
             "iso2": "SR",
             "iso3": "SUR",
+            "iso_numeric": 740,
             "name": "Suriname"
           },
           "id": "SR"
@@ -2085,6 +2292,7 @@
           "properties": {
             "iso2": "SS",
             "iso3": "SSD",
+            "iso_numeric": 728,
             "name": "South Sudan"
           },
           "id": "SS"
@@ -2095,6 +2303,7 @@
           "properties": {
             "iso2": "ST",
             "iso3": "STP",
+            "iso_numeric": 678,
             "name": "Sao Tome and Principe"
           },
           "id": "ST"
@@ -2105,6 +2314,7 @@
           "properties": {
             "iso2": "SV",
             "iso3": "SLV",
+            "iso_numeric": 222,
             "name": "El Salvador"
           },
           "id": "SV"
@@ -2115,6 +2325,7 @@
           "properties": {
             "iso2": "SX",
             "iso3": "SXM",
+            "iso_numeric": 534,
             "name": "Sint Maarten"
           },
           "id": "SX"
@@ -2125,6 +2336,7 @@
           "properties": {
             "iso2": "SY",
             "iso3": "SYR",
+            "iso_numeric": 760,
             "name": "Syria"
           },
           "id": "SY"
@@ -2135,6 +2347,7 @@
           "properties": {
             "iso2": "SZ",
             "iso3": "SWZ",
+            "iso_numeric": 748,
             "name": "Swaziland"
           },
           "id": "SZ"
@@ -2145,6 +2358,7 @@
           "properties": {
             "iso2": "TC",
             "iso3": "TCA",
+            "iso_numeric": 796,
             "name": "Turks and Caicos Islands"
           },
           "id": "TC"
@@ -2155,6 +2369,7 @@
           "properties": {
             "iso2": "TD",
             "iso3": "TCD",
+            "iso_numeric": 148,
             "name": "Chad"
           },
           "id": "TD"
@@ -2165,6 +2380,7 @@
           "properties": {
             "iso2": "TF",
             "iso3": "ATF",
+            "iso_numeric": 260,
             "name": "French Southern and Antarctic Lands"
           },
           "id": "TF"
@@ -2175,6 +2391,7 @@
           "properties": {
             "iso2": "TG",
             "iso3": "TGO",
+            "iso_numeric": 768,
             "name": "Togo"
           },
           "id": "TG"
@@ -2185,6 +2402,7 @@
           "properties": {
             "iso2": "TH",
             "iso3": "THA",
+            "iso_numeric": 764,
             "name": "Thailand"
           },
           "id": "TH"
@@ -2195,6 +2413,7 @@
           "properties": {
             "iso2": "TJ",
             "iso3": "TJK",
+            "iso_numeric": 762,
             "name": "Tajikistan"
           },
           "id": "TJ"
@@ -2205,6 +2424,7 @@
           "properties": {
             "iso2": "TK",
             "iso3": "NZL",
+            "iso_numeric": 772,
             "name": "New Zealand"
           },
           "id": "TK"
@@ -2215,6 +2435,7 @@
           "properties": {
             "iso2": "TL",
             "iso3": "TLS",
+            "iso_numeric": 626,
             "name": "East Timor"
           },
           "id": "TL"
@@ -2225,6 +2446,7 @@
           "properties": {
             "iso2": "TM",
             "iso3": "TKM",
+            "iso_numeric": 795,
             "name": "Turkmenistan"
           },
           "id": "TM"
@@ -2235,6 +2457,7 @@
           "properties": {
             "iso2": "TN",
             "iso3": "TUN",
+            "iso_numeric": 788,
             "name": "Tunisia"
           },
           "id": "TN"
@@ -2245,6 +2468,7 @@
           "properties": {
             "iso2": "TO",
             "iso3": "TON",
+            "iso_numeric": 776,
             "name": "Tonga"
           },
           "id": "TO"
@@ -2255,6 +2479,7 @@
           "properties": {
             "iso2": "TR",
             "iso3": "TUR",
+            "iso_numeric": 792,
             "name": "Turkey"
           },
           "id": "TR"
@@ -2265,6 +2490,7 @@
           "properties": {
             "iso2": "TT",
             "iso3": "TTO",
+            "iso_numeric": 780,
             "name": "Trinidad and Tobago"
           },
           "id": "TT"
@@ -2275,6 +2501,7 @@
           "properties": {
             "iso2": "TV",
             "iso3": "TUV",
+            "iso_numeric": 798,
             "name": "Tuvalu"
           },
           "id": "TV"
@@ -2285,6 +2512,7 @@
           "properties": {
             "iso2": "TW",
             "iso3": "TWN",
+            "iso_numeric": 158,
             "name": "Taiwan"
           },
           "id": "TW"
@@ -2295,6 +2523,7 @@
           "properties": {
             "iso2": "TZ",
             "iso3": "TZA",
+            "iso_numeric": 834,
             "name": "United Republic of Tanzania"
           },
           "id": "TZ"
@@ -2305,6 +2534,7 @@
           "properties": {
             "iso2": "UA",
             "iso3": "UKR",
+            "iso_numeric": 804,
             "name": "Ukraine"
           },
           "id": "UA"
@@ -2315,6 +2545,7 @@
           "properties": {
             "iso2": "UG",
             "iso3": "UGA",
+            "iso_numeric": 800,
             "name": "Uganda"
           },
           "id": "UG"
@@ -2325,6 +2556,7 @@
           "properties": {
             "iso2": "UM",
             "iso3": "UMI",
+            "iso_numeric": 581,
             "name": "United States Minor Outlying Islands"
           },
           "id": "UM"
@@ -2335,6 +2567,7 @@
           "properties": {
             "iso2": "US",
             "iso3": "USA",
+            "iso_numeric": 840,
             "name": "United States of America"
           },
           "id": "US"
@@ -2345,6 +2578,7 @@
           "properties": {
             "iso2": "UY",
             "iso3": "URY",
+            "iso_numeric": 858,
             "name": "Uruguay"
           },
           "id": "UY"
@@ -2355,6 +2589,7 @@
           "properties": {
             "iso2": "UZ",
             "iso3": "UZB",
+            "iso_numeric": 860,
             "name": "Uzbekistan"
           },
           "id": "UZ"
@@ -2365,6 +2600,7 @@
           "properties": {
             "iso2": "VA",
             "iso3": "VAT",
+            "iso_numeric": 336,
             "name": "Vatican"
           },
           "id": "VA"
@@ -2375,6 +2611,7 @@
           "properties": {
             "iso2": "VC",
             "iso3": "VCT",
+            "iso_numeric": 670,
             "name": "Saint Vincent and the Grenadines"
           },
           "id": "VC"
@@ -2385,6 +2622,7 @@
           "properties": {
             "iso2": "VE",
             "iso3": "VEN",
+            "iso_numeric": 862,
             "name": "Venezuela"
           },
           "id": "VE"
@@ -2395,6 +2633,7 @@
           "properties": {
             "iso2": "VG",
             "iso3": "VGB",
+            "iso_numeric": 92,
             "name": "British Virgin Islands"
           },
           "id": "VG"
@@ -2405,6 +2644,7 @@
           "properties": {
             "iso2": "VI",
             "iso3": "VIR",
+            "iso_numeric": 850,
             "name": "United States Virgin Islands"
           },
           "id": "VI"
@@ -2415,6 +2655,7 @@
           "properties": {
             "iso2": "VN",
             "iso3": "VNM",
+            "iso_numeric": 704,
             "name": "Vietnam"
           },
           "id": "VN"
@@ -2425,6 +2666,7 @@
           "properties": {
             "iso2": "VU",
             "iso3": "VUT",
+            "iso_numeric": 548,
             "name": "Vanuatu"
           },
           "id": "VU"
@@ -2435,6 +2677,7 @@
           "properties": {
             "iso2": "WF",
             "iso3": "WLF",
+            "iso_numeric": 876,
             "name": "Wallis and Futuna"
           },
           "id": "WF"
@@ -2445,6 +2688,7 @@
           "properties": {
             "iso2": "WS",
             "iso3": "WSM",
+            "iso_numeric": 882,
             "name": "Samoa"
           },
           "id": "WS"
@@ -2455,6 +2699,7 @@
           "properties": {
             "iso2": "XK",
             "iso3": "KOS",
+            "iso_numeric": null,
             "name": "Kosovo"
           },
           "id": "XK"
@@ -2465,6 +2710,7 @@
           "properties": {
             "iso2": "YE",
             "iso3": "YEM",
+            "iso_numeric": 887,
             "name": "Yemen"
           },
           "id": "YE"
@@ -2475,6 +2721,7 @@
           "properties": {
             "iso2": "YT",
             "iso3": "MYT",
+            "iso_numeric": 175,
             "name": "Mayotte"
           },
           "id": "YT"
@@ -2485,6 +2732,7 @@
           "properties": {
             "iso2": "ZA",
             "iso3": "ZAF",
+            "iso_numeric": 710,
             "name": "South Africa"
           },
           "id": "ZA"
@@ -2495,6 +2743,7 @@
           "properties": {
             "iso2": "ZM",
             "iso3": "ZMB",
+            "iso_numeric": 894,
             "name": "Zambia"
           },
           "id": "ZM"
@@ -2505,6 +2754,7 @@
           "properties": {
             "iso2": "ZW",
             "iso3": "ZWE",
+            "iso_numeric": 716,
             "name": "Zimbabwe"
           },
           "id": "ZW"
