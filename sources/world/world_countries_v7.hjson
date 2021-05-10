@@ -16,6 +16,14 @@
     }
     {
       label: {
+        en: © OpenStreetMap contributors
+      }
+      url: {
+        en: https://www.openstreetmap.org/copyright
+      }
+    }
+    {
+      label: {
         en: Elastic Maps Service
       }
       url: {
