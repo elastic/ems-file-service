@@ -158,14 +158,8 @@ function manifestLayerV2(data, hostname, opts) {
   return layer;
 }
 
-function manifestLayerV6(data, hostname, opts) {
-  const fields = data.fieldMapping
-    .filter(fieldMap => ['id', 'property'].includes(fieldMap.type))
-    .map(fieldMap => ({
-      type: fieldMap.type,
-      id: fieldMap.name,
-      label: { ...{ en: fieldMap.desc }, ...getFieldLabels(fieldMap.name, opts.fieldInfo) },
-    }));
+function manifestLayerV6(data, hostname, { manifestVersion, fieldInfo }) {
+  const fields = getFieldMapping(data.fieldMapping, manifestVersion, fieldInfo)
   const layer = {
     layer_id: data.name,
     created_at: data.createdAt,
@@ -174,7 +168,7 @@ function manifestLayerV6(data, hostname, opts) {
       const pathname = `/files/${format.file}`;
       return { ...{
         type: format.type,
-        url: getFileUrl(hostname, pathname, opts.manifestVersion),
+        url: getFileUrl(hostname, pathname, manifestVersion),
         legacy_default: format.default || false,
       }, ...(format.meta && { meta: format.meta }) };
     }),
@@ -250,4 +244,20 @@ function getFileUrl(hostname, pathname, manifestVersion) {
   } else {
     return `${pathname}`
   }
+}
+
+function getFieldMapping(sourceFieldsMap, manifestVersion, fieldInfo) {
+  const supportsFieldRegex = () => semver.gte(manifestVersion, '7.14.0');
+  return sourceFieldsMap
+    .filter(sourceFieldMap => ['id', 'property'].includes(sourceFieldMap.type))
+    .map(sourceFieldMap => {
+      const { type, name, desc, regex, alias } = sourceFieldMap;
+      return {
+        type,
+        id: name,
+        label: { ...{ en: desc }, ...getFieldLabels(name, fieldInfo) },
+        ...(supportsFieldRegex() && regex && ({ regex })),
+        ...(supportsFieldRegex() && alias && ({ alias })),
+      }
+  });
 }

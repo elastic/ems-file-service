@@ -6,6 +6,7 @@
 
 const tap = require('tap').test;
 const Ajv = require('ajv');
+const addFormats = require('ajv-formats');
 const Hjson = require('hjson');
 const schema = require('../schema/source_schema.json');
 const glob = require('glob');
@@ -14,7 +15,7 @@ const jsts = require('jsts');
 const _ = require('lodash');
 
 const ajv = new Ajv();
-ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
+addFormats(ajv);
 const validate = ajv.compile(schema);
 
 // Validate EMS source metadata and files
@@ -54,7 +55,7 @@ function testSourceFiles(source) {
       const fieldNames = source.fieldMapping.map(f => f.name).sort();
       if (format.type === 'geojson') {
         const geojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
-        validateGeoJSON(geojson, fieldNames, t);
+        validateGeoJSON(geojson, source.fieldMapping, t);
       } else if (format.type === 'topojson') {
         const topojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
         validateObjectsMember(topojson, format, fieldNames, t);
@@ -88,9 +89,10 @@ function validateObjectsMember(topojson, format, fieldsNames, t) {
 
 }
 
-function validateGeoJSON(geojson, fieldsNames, t) {
+function validateGeoJSON(geojson, fieldMap, t) {
   const reader = new jsts.io.GeoJSONReader();
   const fc = reader.read(geojson);
+  const fieldsNames = fieldMap.map(f => f.name).sort();
   t.ok(fc.features.every(feat => feat.geometry.isSimple()
   ), 'All geometries must be simple');
   t.ok(fc.features.every(feat => feat.geometry.isValid()
@@ -101,6 +103,13 @@ function validateGeoJSON(geojson, fieldsNames, t) {
       feat => Object.keys(feat.properties).every(
         p => fieldsNames.indexOf(p) > -1)
     ), 'All feature properties are in the field mapping');
+
+  t.ok(fieldMap.filter(f => f.regex).every(f => {
+    const re = new RegExp(f.regex);
+    return fc.features.every(feat => {
+      return re.test(feat.properties[f.name]);
+    });
+  }), 'All fields with regular expressions match feature properties');
 
 
   if (process.env.EMS_STRICT_TEST) {

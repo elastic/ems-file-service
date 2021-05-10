@@ -30,11 +30,13 @@
       {
         "type": "id",
         "name": "wikidata",
+        "regex": "^Q[1-9]\\d*",
         "desc": "Wikidata identifier"
       },
       {
         "type": "property",
         "name": "label_en",
+        "alias": [ "(geo\\.){0,}region_name" ],
         "desc": "Region name (English)"
       }
     ],

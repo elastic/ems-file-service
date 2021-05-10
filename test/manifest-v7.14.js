@@ -51,6 +51,7 @@ function getExpectedVector(version) {
           {
             type: 'id',
             id: 'wikidata',
+            regex: '^Q[1-9]\\d*',
             label: {
               de: 'Wikidata-Kennung',
               en: 'Wikidata identifier',
@@ -60,6 +61,7 @@ function getExpectedVector(version) {
           {
             type: 'property',
             id: 'label_en',
+            alias: [ "(geo\\.){0,}region_name" ],
             label: {
               de: 'name (en)',
               en: 'name (en)',
@@ -103,6 +105,7 @@ function getExpectedVector(version) {
           {
             type: 'id',
             id: 'wikidata',
+            regex: '^Q[1-9]\\d*',
             label: {
               de: 'Wikidata-Kennung',
               en: 'Wikidata identifier',
@@ -112,6 +115,7 @@ function getExpectedVector(version) {
           {
             type: 'property',
             id: 'label_en',
+            alias: [ "(geo\\.){0,}region_name" ],
             label: {
               de: 'name (en)',
               en: 'name (en)',
@@ -152,6 +156,7 @@ function getExpectedVector(version) {
           {
             type: 'id',
             id: 'wikidata',
+            regex: '^Q[1-9]\\d*',
             label: {
               de: 'Wikidata-Kennung',
               en: 'Wikidata identifier',
@@ -161,6 +166,7 @@ function getExpectedVector(version) {
           {
             type: 'property',
             id: 'label_en',
+            alias: [ "(geo\\.){0,}region_name" ],
             label: {
               de: 'name (en)',
               en: 'name (en)',
@@ -188,14 +194,14 @@ function getExpectedVector(version) {
   };
 };
 
-tap('>=7.6 tests', t => {
-  ['7.6', '7.7', '7.8', '7.9', '7.10'].forEach(version => {
+tap('>=7.14 tests', t => {
+  ['7.14', '7.15', '7.16'].forEach(version => {
     const catalogue = generateCatalogueManifest({
       version: `v${version}`,
       tileHostname: 'tiles.maps.elstc.co',
       vectorHostname: 'vector.maps.elastic.co',
     });
-    t.false(catalogue, '7.6 catalogue should not exist');
+    t.false(catalogue, `v${version} catalogue should not exist`);
 
     // It is not necessary to test different hostnames, since URLs in manifest are relative
     const vector = generateVectorManifest(sources, {
@@ -203,7 +209,23 @@ tap('>=7.6 tests', t => {
       hostname: 'vector.maps.elastic.co',
       fieldInfo: fieldInfo,
     });
-    t.deepEquals(vector, getExpectedVector(version), 'v7.6 vector manifest');
+    t.deepEquals(vector, getExpectedVector(version), `v${version} vector manifest`);
   });
+  t.end();
+});
+
+//v8 vector manifest should fail - to be removed in EMS v8.0
+tap('Check that v8.0 fails', function(t) {
+  t.throws(
+    function() {
+      generateVectorManifest(sources, {
+        version: 'v8.0',
+        hostname: 'vector.maps.elastic.co',
+        fieldInfo: fieldInfo,
+      });
+    },
+    new Error('Unable to get a manifest for version 8.0'),
+    'throws assert error'
+  );
   t.end();
 });

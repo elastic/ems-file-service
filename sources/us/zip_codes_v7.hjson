@@ -10,6 +10,7 @@
     {
       type: id
       name: zip
+      regex: ^\d{5}$
       desc: 5-digit zip code
     }
   ]

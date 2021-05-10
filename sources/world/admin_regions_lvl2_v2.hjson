@@ -36,6 +36,10 @@
           type: id
           name: region_iso_code
           desc: Region ISO code
+          regex: ^[A-Z]{2}-[A-Z0-9]{1,3}~?$
+          alias: [
+            (geo\.){0,}region_iso_code
+          ]
         }
         {
           type: property
