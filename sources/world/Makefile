@@ -128,7 +128,7 @@ clean: ## Remove output files
   -filter "[$${codesA},$${codesB}].indexOf(region_iso_code) == -1" \
   -dissolve 'country_iso2_code' 'copy-fields=country_iso3_code,country_name' \
   -rename-fields "iso2=country_iso2_code,iso3=country_iso3_code,name=country_name" \
-  -join ./country-codes.csv "keys=iso2,iso2" "fields=iso_numeric" \
+  -join ./country-codes.csv "keys=iso2,iso2" "string-fields=iso_numeric" \
   -rename-layers data \
   -sort this.properties.iso2 \
   -clean \
