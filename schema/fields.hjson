@@ -428,6 +428,83 @@
       zh-tw: ISO 3166-1三字母代碼
     }
   }
+  iso_numeric: {
+    wikidata: P299
+    i18n:{
+      af: landkode (ISO 3166-1 numeries)
+      ar: رمز إيزو الرقمي 3166-1
+      be: код краіны (ISO 3166-1 лічбавы)
+      be-tarask: код краіны (ISO 3166-1 лічбавы)
+      bn: রাষ্ট্রীয় কোড (আইএসও ৩১৬৬-১ সংখ্যা)
+      br: kod ar vro (ISO 3166-1 niverennel)
+      bs: ISO 3166-1 numerički kod
+      ca: codi ISO 3166-1 numèric
+      cs: kód země (ISO 3166-1 numeric)
+      da: landekoder 3166-1, numerisk
+      de: Ländercode (ISO 3166-1 numerisch)
+      el: αριθμητικός κωδικός ISO 3166-1
+      en: ISO 3166-1 numeric code
+      en-gb: ISO 3166-1 numeric code
+      eo: landokodo (ISO 3166-1 numera)
+      es: código ISO 3166-1 numérico
+      et: ISO 3166-1 numbriline maakood
+      eu: ISO 3166-1
+      fa: کد کشور (ایزو ۳۱۶۶-۱)
+      fi: valtion koodi (ISO 3166-1 numeerinen)
+      fr: ISO 3166-1 numérique
+      gl: código ISO 3166-1 numérico
+      gu: ISO 3166-1 આંકડાકિય
+      he: קוד מדינה לפי ISO 3166-1 numeric
+      hi: आईएसओ 3166-1 सांख्यिक
+      hu: országkód (ISO 3166-1 numerikus)
+      ia: ISO 3166-1 numeric
+      id: kode negara (ISO 3166-1 angka)
+      ilo: kodigo ti pagilian (numeriko nga ISO 3166-1)
+      is: ISO 3166-1 talnakóði
+      it: ISO 3166-1 numerico
+      ja: ISO 3166-1 numeric
+      ka: ქვეყნის კოდი (ISO 3166-1 რიცხვობრივი)
+      ko: ISO 3166-1 코드 (숫자)
+      la: siglum civitatis (ISO 3166-1 no.)
+      lb: Lännercode (ISO 3166-1 numeresch)
+      lv: valsts kods (ISO 3166-1 numeric)
+      mg: ISO 3166-1 arak'isa
+      min: kode nagara (ISO 3166-1 angko)
+      mk: ISO 3166-1 бројчен
+      ms: kod negara (ISO 3166-1 angka)
+      nb: landskode (ISO 3166-1 numerisk)
+      nds: Lännerkood (ISO 3166-1 numerisch)
+      nl: ISO 3166-1-landcode (numeriek)
+      nn: landkode (ISO 3166-1 numerisk)
+      oc: ISO 3166-1 numeric
+      pl: kod ISO 3166-1 (numeryczny)
+      pt: ISO 3166-1 numérico
+      pt-br: ISO 3166-1 numérico
+      ro: cod de țară (ISO 3166-1 numeric)
+      ru: ISO 3166-1 цифровой
+      scn: còdici ISO 3166-1 numeric
+      sco: ISO 3166-1 numeric
+      sk: kód krajiny (ISO 3166-1 numeric)
+      sl: numerični kod ISO 3166-1
+      sq: kodi numerik ISO 3166-1
+      sr: ISO 3166-1 нумерички код
+      sv: ISO 3166-1, numerisk
+      te: ISO 3166-1 సాంఖ్యిక
+      tr: ISO 3166-1 sayısal kodu
+      tt: ISO 3166-1 (санлы)
+      uk: цифровий код ISO 3166-1
+      uz: davlat kodi (ISO 3166-1 raqamli)
+      vi: mã quốc gia (số ISO 3166-1)
+      zh: ISO 3166-1数字代码
+      zh-cn: ISO 3166-1数字代码
+      zh-hans: ISO 3166-1数字代码
+      zh-hant: ISO 3166-1數字代碼
+      zh-hk: ISO 3166-1數字代碼
+      zh-mo: ISO 3166-1數字代碼
+      zh-sg: ISO 3166-1数字代码
+      zh-tw: ISO 3166-1數字代碼
+    }
+  }
   iso_3166_2: {
     wikidata: P300
     i18n: {

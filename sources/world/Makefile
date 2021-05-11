@@ -123,24 +123,25 @@ clean: ## Remove output files
 
 
 # Data without metrics
-../../data/world_countries_v7.geo.json: ../../data/admin_regions_lvl2_v2.geo.json /tmp/additional-regions.geo.json ## World Countries GeoJSON full size
+../../data/world_countries_v7.geo.json: ../../data/admin_regions_lvl2_v2.geo.json /tmp/additional-regions.geo.json ./country-codes.csv ## World Countries GeoJSON full size
 	codesA=$$(csvsql --query 'select distinct in_region_iso from "duplicated-regions" where not keep' duplicated-regions.csv | tail +2 | sed -e 's/^/"/g' -e 's/$$/"/g' | paste -sd "," -) && codesB=$$(csvsql --query 'select distinct out_region_iso2 as iso from "duplicated-regions" where keep' duplicated-regions.csv | tail +2 | sed -e 's/^/"/g' -e 's/$$/"/g' | paste -sd "," -) && mapshaper -i $(DATA_DIR)/admin_regions_lvl2_v2.geo.json \
   -filter "[$${codesA},$${codesB}].indexOf(region_iso_code) == -1" \
   -dissolve 'country_iso2_code' 'copy-fields=country_iso3_code,country_name' \
   -rename-fields "iso2=country_iso2_code,iso3=country_iso3_code,name=country_name" \
+  -join ./country-codes.csv "keys=iso2,iso2" "string-fields=iso_numeric" \
   -rename-layers data \
   -sort this.properties.iso2 \
   -clean \
   -o rfc7946 id-field=iso2 format=geojson force /tmp/world_countries_v7.geo.json
 	node ../../scripts/clean-geom.js -v /tmp/world_countries_v7.geo.json
 	mapshaper -i /tmp/world_countries_v7.geo.json \
-  -filter-fields "iso2,iso3,name" \
+  -filter-fields "iso2,iso3,iso_numeric,name" \
   -o rfc7946 id-field=iso2 format=geojson prettify $(DATA_DIR)/world_countries_v7.geo.json
 
 ../../data/world_countries_v7.topo.json: ../../data/world_countries_v7.geo.json ## World Countries TopoJSON
 	mapshaper -i $(DATA_DIR)/world_countries_v7.geo.json \
   -simplify visvalingam interval=1000 keep-shapes \
-  -filter-fields "iso2,iso3,name" \
+  -filter-fields "iso2,iso3,iso_numeric,name" \
   -rename-layers data \
   -sort this.properties.iso2 \
   -clean \
