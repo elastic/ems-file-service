@@ -52,22 +52,22 @@ function testSourceFiles(source) {
   tap(`${source.name} formats (${source.versions})`, (t) => {
     for (const format of source.emsFormats) {
       t.ok(fs.existsSync(`./data/${format.file}`), `${source.name} filename fields must have a matching file in the data directory`);
-      const fieldNames = source.fieldMapping.map(f => f.name).sort();
       if (format.type === 'geojson') {
         const geojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
         validateGeoJSON(geojson, source.fieldMapping, t);
       } else if (format.type === 'topojson') {
         const topojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
-        validateObjectsMember(topojson, format, fieldNames, t);
+        validateObjectsMember(topojson, format, source.fieldMapping, t);
       }
     }
     t.end();
   });
 }
 
-function validateObjectsMember(topojson, format, fieldsNames, t) {
+function validateObjectsMember(topojson, format, fieldMap, t) {
   const fc = JSON.parse(topojson);
   const fcPath = _.get(format, 'meta.feature_collection_path', 'data');
+  const fieldsNames = fieldMap.map(f => f.name).sort();
   t.ok(fc.objects.hasOwnProperty(fcPath));
   t.type(fc.objects[fcPath], 'object');
 
@@ -77,6 +77,14 @@ function validateObjectsMember(topojson, format, fieldsNames, t) {
     geom => Object.keys(geom.properties).every(
       p => fieldsNames.indexOf(p) > -1)
   ), 'All feature properties are in the field mapping');
+
+  t.ok(fieldMap.filter(f => f.regex).every(f => {
+    const re = new RegExp(f.regex);
+    return fc.objects[fcPath].geometries.every(feat => {
+      return re.test(feat.properties[f.name]);
+    });
+  }), 'All fields with regular expressions match feature properties');
+
 
   if (process.env.EMS_STRICT_TEST) {
     t.ok(geoms.every(
