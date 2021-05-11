@@ -34,6 +34,10 @@
             type: id
             name: logainm
             desc: Logainm identifier
+            regex: ^[1-9]\d*$
+            alias: [
+              logainm
+            ]
         }
         {
             type: property
