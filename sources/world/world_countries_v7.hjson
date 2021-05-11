@@ -47,6 +47,7 @@
       regex: ^[A-Z]{2}$
       alias: [
         (geo\.){0,}country_iso_code$
+        (country|countries)
       ]
     }
     {
@@ -60,7 +61,7 @@
       name: name
       desc: Country name
       alias: [
-        ^country
+        (country|countries)
       ]
     }
     {
