@@ -52,6 +52,7 @@
       type: id
       name: iso_numeric
       desc: ISO numeric code
+      regex: ^(?:\d{3}|null)$
     }
     {
       type: property
