@@ -6,6 +6,7 @@
 
 const semver = require('semver');
 const _ = require('lodash');
+const { readFileSync } = require('fs');
 const constants = require('./constants');
 
 module.exports = {
@@ -159,19 +160,23 @@ function manifestLayerV2(data, hostname, opts) {
 }
 
 function manifestLayerV6(data, hostname, { manifestVersion, fieldInfo }) {
-  const fields = getFieldMapping(data.fieldMapping, manifestVersion, fieldInfo)
+  const formats = data.emsFormats.map(format => {
+    const pathname = `/files/${format.file}`;
+    return { ...{
+      type: format.type,
+      url: getFileUrl(hostname, pathname, manifestVersion),
+      legacy_default: format.default || false,
+    }, ...(format.meta && { meta: format.meta }) };
+  });
+  const idFields = data.fieldMapping.filter(field => field.type === 'id');
+  const { file } = getDefaultFormat(data.emsFormats);
+  const idInfos = getIdsFromFile(file, idFields);
+  const fields = getFieldMapping(data.fieldMapping, manifestVersion, idInfos, fieldInfo)
   const layer = {
     layer_id: data.name,
     created_at: data.createdAt,
     attribution: data.attribution,
-    formats: data.emsFormats.map(format => {
-      const pathname = `/files/${format.file}`;
-      return { ...{
-        type: format.type,
-        url: getFileUrl(hostname, pathname, manifestVersion),
-        legacy_default: format.default || false,
-      }, ...(format.meta && { meta: format.meta }) };
-    }),
+    formats,
     fields: fields,
     legacy_ids: data.legacyIds,
     layer_name: data.humanReadableName,
@@ -180,7 +185,23 @@ function manifestLayerV6(data, hostname, { manifestVersion, fieldInfo }) {
 }
 
 function getDefaultFormat(emsFormats) {
-  return emsFormats.filter(format => format.default)[0];
+  return emsFormats.find(format => format.default);
+}
+
+function getIdsFromFile(file, fields) {
+  const json = JSON.parse(readFileSync(`data/${file}`, 'utf8'));
+  const features = json.features || json.objects.data.geometries;
+  const fieldMap = {};
+  for (const {name} of fields) {
+    fieldMap[name] = new Set(); // Probably unnecessary but ensures unique ids
+  };
+  for (const feature of features) {
+    const { properties } = feature;
+    for (const {name} of fields) {
+      fieldMap[name].add(properties[name])
+    }
+  }
+  return fieldMap;
 }
 
 /**
@@ -246,18 +267,20 @@ function getFileUrl(hostname, pathname, manifestVersion) {
   }
 }
 
-function getFieldMapping(sourceFieldsMap, manifestVersion, fieldInfo) {
+function getFieldMapping(sourceFieldsMap, manifestVersion, idInfos, fieldInfo) {
   const supportsFieldRegex = () => semver.gte(manifestVersion, '7.14.0');
   return sourceFieldsMap
     .filter(sourceFieldMap => ['id', 'property'].includes(sourceFieldMap.type))
     .map(sourceFieldMap => {
       const { type, name, desc, regex, alias } = sourceFieldMap;
+      const values = type === 'id' ? [...idInfos[name]] : undefined;
       return {
         type,
         id: name,
         label: { ...{ en: desc }, ...getFieldLabels(name, fieldInfo) },
         ...(supportsFieldRegex() && regex && ({ regex })),
         ...(supportsFieldRegex() && alias && ({ alias })),
+        ...(values) && values && ({ values }),
       }
   });
 }
