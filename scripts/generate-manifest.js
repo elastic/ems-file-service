@@ -71,6 +71,7 @@ function generateVectorManifest(sources, opts) {
     production: false,
     hostname: constants.VECTOR_STAGING_HOST,
     fieldInfo: null,
+    dataDir: 'data',
     ...opts,
   };
   if (!semver.valid(semver.coerce(opts.version))) {
@@ -98,7 +99,7 @@ function generateVectorManifest(sources, opts) {
         case 6:
         case 7: // v6 and v7 manifest schema are the same
           uniqueProperties.push('layer_id');
-          layers.push(manifestLayerV6(source, opts.hostname, { manifestVersion, fieldInfo: opts.fieldInfo }));
+          layers.push(manifestLayerV6(source, opts.hostname, { manifestVersion, fieldInfo: opts.fieldInfo, dataDir: opts.dataDir }));
           break;
         default:
           throw new Error(`Unable to get a manifest for version ${manifestVersion}`);
@@ -159,7 +160,7 @@ function manifestLayerV2(data, hostname, opts) {
   return layer;
 }
 
-function manifestLayerV6(data, hostname, { manifestVersion, fieldInfo }) {
+function manifestLayerV6(data, hostname, { manifestVersion, fieldInfo, dataDir }) {
   const formats = data.emsFormats.map(format => {
     const pathname = `/files/${format.file}`;
     return { ...{
@@ -170,7 +171,7 @@ function manifestLayerV6(data, hostname, { manifestVersion, fieldInfo }) {
   });
   const idFields = data.fieldMapping.filter(field => field.type === 'id');
   const { file } = getDefaultFormat(data.emsFormats);
-  const idInfos = getIdsFromFile(file, idFields);
+  const idInfos = getIdsFromFile(dataDir, file, idFields);
   const fields = getFieldMapping(data.fieldMapping, manifestVersion, idInfos, fieldInfo)
   const layer = {
     layer_id: data.name,
@@ -188,8 +189,8 @@ function getDefaultFormat(emsFormats) {
   return emsFormats.find(format => format.default);
 }
 
-function getIdsFromFile(file, fields) {
-  const json = JSON.parse(readFileSync(`data/${file}`, 'utf8'));
+function getIdsFromFile(dataDir, file, fields) {
+  const json = JSON.parse(readFileSync(`${dataDir}/${file}`, 'utf8'));
   const features = json.features || json.objects.data.geometries;
   const fieldMap = {};
   for (const {name} of fields) {
@@ -268,7 +269,7 @@ function getFileUrl(hostname, pathname, manifestVersion) {
 }
 
 function getFieldMapping(sourceFieldsMap, manifestVersion, idInfos, fieldInfo) {
-  const supportsFieldRegex = () => semver.gte(manifestVersion, '7.14.0');
+  const supportsFieldMeta = semver.gte(manifestVersion, '7.14.0');
   return sourceFieldsMap
     .filter(sourceFieldMap => ['id', 'property'].includes(sourceFieldMap.type))
     .map(sourceFieldMap => {
@@ -278,9 +279,9 @@ function getFieldMapping(sourceFieldsMap, manifestVersion, idInfos, fieldInfo) {
         type,
         id: name,
         label: { ...{ en: desc }, ...getFieldLabels(name, fieldInfo) },
-        ...(supportsFieldRegex() && regex && ({ regex })),
-        ...(supportsFieldRegex() && alias && ({ alias })),
-        ...(values) && values && ({ values }),
+        ...(supportsFieldMeta && regex && ({ regex })),
+        ...(supportsFieldMeta && alias && ({ alias })),
+        ...(supportsFieldMeta && values && ({ values })),
       }
   });
 }

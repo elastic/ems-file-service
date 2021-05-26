@@ -52,6 +52,12 @@ function getExpectedVector(version) {
             type: 'id',
             id: 'wikidata',
             regex: '^Q[1-9]\\d*',
+            values: [
+              "Q2261070",
+              "Q2533118",
+              "Q2271279",
+              "Q2267079",
+            ],
             label: {
               de: 'Wikidata-Kennung',
               en: 'Wikidata identifier',
@@ -106,6 +112,14 @@ function getExpectedVector(version) {
             type: 'id',
             id: 'wikidata',
             regex: '^Q[1-9]\\d*',
+            values: [
+              "Q81908708",
+              "Q81908913",
+              "Q16585595",
+              "Q81908582",
+              "Q81907591",
+              "Q81908441",
+            ],
             label: {
               de: 'Wikidata-Kennung',
               en: 'Wikidata identifier',
@@ -157,6 +171,12 @@ function getExpectedVector(version) {
             type: 'id',
             id: 'wikidata',
             regex: '^Q[1-9]\\d*',
+            values: [
+              "Q82024809",
+              "Q82025054",
+              "Q82025065",
+              "Q82025079",
+            ],
             label: {
               de: 'Wikidata-Kennung',
               en: 'Wikidata identifier',
@@ -208,6 +228,7 @@ tap('>=7.14 tests', t => {
       version: `v${version}`,
       hostname: 'vector.maps.elastic.co',
       fieldInfo: fieldInfo,
+      dataDir: 'test/fixtures/data',
     });
     t.deepEquals(vector, getExpectedVector(version), `v${version} vector manifest`);
   });

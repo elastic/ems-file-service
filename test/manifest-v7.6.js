@@ -13,6 +13,8 @@ const {
 const sources = require('./fixtures/valid-sources/sources.json');
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
+const dataDir = 'test/fixtures/data';
+
 function getExpectedVector(version) {
   return {
     version: version,
@@ -202,6 +204,7 @@ tap('>=7.6 tests', t => {
       version: `v${version}`,
       hostname: 'vector.maps.elastic.co',
       fieldInfo: fieldInfo,
+      dataDir,
     });
     t.deepEquals(vector, getExpectedVector(version), 'v7.6 vector manifest');
   });

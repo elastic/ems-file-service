@@ -12,6 +12,8 @@ const duplicateNames = require('./fixtures/valid-sources/duplicateNames.json');
 const weightedSources = require('./fixtures/valid-sources/weighted-sources.json');
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
+const dataDir = 'test/fixtures/data';
+
 const stagingExpected = {
   'version': '7.2',
   'layers': [
@@ -527,6 +529,7 @@ tap('vector manifest tests <=7.2', t => {
     version: 'v7.2',
     hostname: 'vector-staging.maps.elastic.co',
     fieldInfo: fieldInfo,
+    dataDir,
   });
   t.deepEquals(staging, stagingExpected, 'v7.2');
 
@@ -535,6 +538,7 @@ tap('vector manifest tests <=7.2', t => {
     production: true,
     hostname: 'vector.maps.elastic.co',
     fieldInfo: fieldInfo,
+    dataDir,
   });
   t.deepEquals(prod, prodExpected, 'production');
 
@@ -543,12 +547,14 @@ tap('vector manifest tests <=7.2', t => {
       version: 'v7.2',
       hostname: 'vector-staging.maps.elastic.co',
       fieldInfo: fieldInfo,
+      dataDir,
     });
   };
   t.throws(unsafeDuplicateNames, 'Source names cannot be duplicate in manifests');
 
   const weightedOrder = generateVectorManifest(weightedSources, {
     version: 'v7.2',
+    dataDir,
   }).layers.map(layer => layer.layer_id);
   t.deepEquals(weightedOrder, ['rohan', 'gondor', 'mordor_regions', 'shire']);
 
@@ -557,6 +563,7 @@ tap('vector manifest tests <=7.2', t => {
     version: 'v7.2',
     hostname: 'vector-staging.maps.elastic.co',
     production: true,
+    dataDir,
   });
   t.deepEquals(fieldInfoFallback, fieldInfoFallbackExpected,
     'should fallback to source field `desc` if fieldInfos is not available');
@@ -575,6 +582,7 @@ tap('vector manifest tests <=7.2', t => {
         },
       },
     },
+    dataDir,
   });
   t.deepEquals(fieldInfoMissingName, fieldInfoMissingNameExpected,
     'should fallback to source field `desc` if `fieldInfo.name.i18n` is not available');
