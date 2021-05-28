@@ -34,6 +34,11 @@
           type: id
           name: cut
           desc: CUT code
+          regex: ^\d{2}$
+          alias: [
+            código.*región
+            código.*territorial
+          ]
         }
         {
           type: property

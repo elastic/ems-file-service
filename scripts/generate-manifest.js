@@ -6,6 +6,7 @@
 
 const semver = require('semver');
 const _ = require('lodash');
+const { readFileSync } = require('fs');
 const constants = require('./constants');
 
 module.exports = {
@@ -70,6 +71,7 @@ function generateVectorManifest(sources, opts) {
     production: false,
     hostname: constants.VECTOR_STAGING_HOST,
     fieldInfo: null,
+    dataDir: 'data',
     ...opts,
   };
   if (!semver.valid(semver.coerce(opts.version))) {
@@ -97,7 +99,7 @@ function generateVectorManifest(sources, opts) {
         case 6:
         case 7: // v6 and v7 manifest schema are the same
           uniqueProperties.push('layer_id');
-          layers.push(manifestLayerV6(source, opts.hostname, { manifestVersion, fieldInfo: opts.fieldInfo }));
+          layers.push(manifestLayerV6(source, opts.hostname, { manifestVersion, fieldInfo: opts.fieldInfo, dataDir: opts.dataDir }));
           break;
         default:
           throw new Error(`Unable to get a manifest for version ${manifestVersion}`);
@@ -158,26 +160,24 @@ function manifestLayerV2(data, hostname, opts) {
   return layer;
 }
 
-function manifestLayerV6(data, hostname, opts) {
-  const fields = data.fieldMapping
-    .filter(fieldMap => ['id', 'property'].includes(fieldMap.type))
-    .map(fieldMap => ({
-      type: fieldMap.type,
-      id: fieldMap.name,
-      label: { ...{ en: fieldMap.desc }, ...getFieldLabels(fieldMap.name, opts.fieldInfo) },
-    }));
+function manifestLayerV6(data, hostname, { manifestVersion, fieldInfo, dataDir }) {
+  const formats = data.emsFormats.map(format => {
+    const pathname = `/files/${format.file}`;
+    return { ...{
+      type: format.type,
+      url: getFileUrl(hostname, pathname, manifestVersion),
+      legacy_default: format.default || false,
+    }, ...(format.meta && { meta: format.meta }) };
+  });
+  const idFields = data.fieldMapping.filter(field => field.type === 'id');
+  const { file } = getDefaultFormat(data.emsFormats);
+  const idInfos = getIdsFromFile(dataDir, file, idFields);
+  const fields = getFieldMapping(data.fieldMapping, manifestVersion, idInfos, fieldInfo)
   const layer = {
     layer_id: data.name,
     created_at: data.createdAt,
     attribution: data.attribution,
-    formats: data.emsFormats.map(format => {
-      const pathname = `/files/${format.file}`;
-      return { ...{
-        type: format.type,
-        url: getFileUrl(hostname, pathname, opts.manifestVersion),
-        legacy_default: format.default || false,
-      }, ...(format.meta && { meta: format.meta }) };
-    }),
+    formats,
     fields: fields,
     legacy_ids: data.legacyIds,
     layer_name: data.humanReadableName,
@@ -186,7 +186,22 @@ function manifestLayerV6(data, hostname, opts) {
 }
 
 function getDefaultFormat(emsFormats) {
-  return emsFormats.filter(format => format.default)[0];
+  return emsFormats.find(format => format.default);
+}
+
+function getIdsFromFile(dataDir, file, fields) {
+  const json = JSON.parse(readFileSync(`${dataDir}/${file}`, 'utf8'));
+  const features = json.features || json.objects.data.geometries;
+  const fieldMap = {};
+  for (const { name } of fields) {
+    fieldMap[name] = new Set(); // Probably unnecessary but ensures unique ids
+  };
+  for (const feature of features) {
+    for (const { name } of fields) {
+      fieldMap[name].add(feature.properties[name])
+    }
+  }
+  return fieldMap;
 }
 
 /**
@@ -250,4 +265,22 @@ function getFileUrl(hostname, pathname, manifestVersion) {
   } else {
     return `${pathname}`
   }
+}
+
+function getFieldMapping(sourceFieldsMap, manifestVersion, idInfos, fieldInfo) {
+  const supportsFieldMeta = semver.gte(manifestVersion, '7.14.0');
+  return sourceFieldsMap
+    .filter(sourceFieldMap => ['id', 'property'].includes(sourceFieldMap.type))
+    .map(sourceFieldMap => {
+      const { type, name, desc, regex, alias } = sourceFieldMap;
+      const values = type === 'id' ? [...idInfos[name]] : undefined;
+      return {
+        type,
+        id: name,
+        label: { ...{ en: desc }, ...getFieldLabels(name, fieldInfo) },
+        ...(supportsFieldMeta && regex && ({ regex })),
+        ...(supportsFieldMeta && alias && ({ alias })),
+        ...(supportsFieldMeta && values && ({ values })),
+      }
+  });
 }

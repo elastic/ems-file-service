@@ -1,0 +1,92 @@
+{
+  "type": "Topology",
+  "arcs": [
+    [
+      [196, 97],
+      [-69, -17]
+    ],
+    [
+      [127, 80],
+      [-24, 117]
+    ],
+    [
+      [103, 197],
+      [93, 0],
+      [0, -100]
+    ],
+    [
+      [107, 46],
+      [20, 34]
+    ],
+    [
+      [196, 97],
+      [0, -93]
+    ],
+    [
+      [196, 4],
+      [-89, 42]
+    ],
+    [
+      [107, 46],
+      [-56, -46]
+    ],
+    [
+      [51, 0],
+      [-51, 0],
+      [0, 197],
+      [103, 0]
+    ],
+    [
+      [196, 4],
+      [0, -4],
+      [-145, 0]
+    ]
+  ],
+  "transform": {
+    "scale": [0.0006250575051065748, 0.0004217359138994807],
+    "translate": [-0.454280315718421, 39.41951564546062]
+  },
+  "objects": {
+    "data": {
+      "type": "GeometryCollection",
+      "geometries": [
+        {
+          "arcs": [[0, 1, 2]],
+          "type": "Polygon",
+          "properties": {
+            "wikidata": "Q82024809",
+            "label_en": "Northfarthing",
+            "label_ws": "Northfarthing"
+          }
+        },
+        {
+          "arcs": [[3, -1, 4, 5]],
+          "type": "Polygon",
+          "properties": {
+            "wikidata": "Q82025054",
+            "label_en": "Eastfarthing",
+            "label_ws": "Eastfarthing"
+          }
+        },
+        {
+          "arcs": [[-2, -4, 6, 7]],
+          "type": "Polygon",
+          "properties": {
+            "wikidata": "Q82025065",
+            "label_en": "Westfarthing",
+            "label_ws": "Westfarthing"
+          }
+        },
+        {
+          "arcs": [[-7, -6, 8]],
+          "type": "Polygon",
+          "properties": {
+            "wikidata": "Q82025079",
+            "label_en": "Southfarthing",
+            "label_ws": "Southfarthing"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -6,6 +6,7 @@
 
 const tap = require('tap').test;
 const Ajv = require('ajv');
+const addFormats = require('ajv-formats');
 const Hjson = require('hjson');
 const schema = require('../schema/source_schema.json');
 const glob = require('glob');
@@ -14,7 +15,7 @@ const jsts = require('jsts');
 const _ = require('lodash');
 
 const ajv = new Ajv();
-ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
+addFormats(ajv);
 const validate = ajv.compile(schema);
 
 // Validate EMS source metadata and files
@@ -51,22 +52,22 @@ function testSourceFiles(source) {
   tap(`${source.name} formats (${source.versions})`, (t) => {
     for (const format of source.emsFormats) {
       t.ok(fs.existsSync(`./data/${format.file}`), `${source.name} filename fields must have a matching file in the data directory`);
-      const fieldNames = source.fieldMapping.map(f => f.name).sort();
       if (format.type === 'geojson') {
         const geojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
-        validateGeoJSON(geojson, fieldNames, t);
+        validateGeoJSON(geojson, source.fieldMapping, t);
       } else if (format.type === 'topojson') {
         const topojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
-        validateObjectsMember(topojson, format, fieldNames, t);
+        validateObjectsMember(topojson, format, source.fieldMapping, t);
       }
     }
     t.end();
   });
 }
 
-function validateObjectsMember(topojson, format, fieldsNames, t) {
+function validateObjectsMember(topojson, format, fieldMap, t) {
   const fc = JSON.parse(topojson);
   const fcPath = _.get(format, 'meta.feature_collection_path', 'data');
+  const fieldsNames = fieldMap.map(f => f.name).sort();
   t.ok(fc.objects.hasOwnProperty(fcPath));
   t.type(fc.objects[fcPath], 'object');
 
@@ -76,6 +77,14 @@ function validateObjectsMember(topojson, format, fieldsNames, t) {
     geom => Object.keys(geom.properties).every(
       p => fieldsNames.indexOf(p) > -1)
   ), 'All feature properties are in the field mapping');
+
+  t.ok(fieldMap.filter(f => f.regex).every(f => {
+    const re = new RegExp(f.regex);
+    return fc.objects[fcPath].geometries.every(feat => {
+      return re.test(feat.properties[f.name]);
+    });
+  }), 'All fields with regular expressions match feature properties');
+
 
   if (process.env.EMS_STRICT_TEST) {
     t.ok(geoms.every(
@@ -88,9 +97,10 @@ function validateObjectsMember(topojson, format, fieldsNames, t) {
 
 }
 
-function validateGeoJSON(geojson, fieldsNames, t) {
+function validateGeoJSON(geojson, fieldMap, t) {
   const reader = new jsts.io.GeoJSONReader();
   const fc = reader.read(geojson);
+  const fieldsNames = fieldMap.map(f => f.name).sort();
   t.ok(fc.features.every(feat => feat.geometry.isSimple()
   ), 'All geometries must be simple');
   t.ok(fc.features.every(feat => feat.geometry.isValid()
@@ -102,6 +112,13 @@ function validateGeoJSON(geojson, fieldsNames, t) {
         p => fieldsNames.indexOf(p) > -1)
     ), 'All feature properties are in the field mapping');
 
+  t.ok(fieldMap.filter(f => f.regex).every(f => {
+    const re = new RegExp(f.regex);
+    return fc.features.every(feat => {
+      return re.test(feat.properties[f.name]);
+    });
+  }), 'All fields with regular expressions match feature properties');
+
 
   if (process.env.EMS_STRICT_TEST) {
     t.ok(
@@ -111,5 +128,17 @@ function validateGeoJSON(geojson, fieldsNames, t) {
           return keys.every((p, i) => p === fieldsNames[i]);
         }
       ), 'Feature properties and field mapping are strictly aligned');
+
+      t.ok(fieldMap.filter(f => f.type === 'id').every(f => {
+        const values = new Set();
+        return fc.features.every(feat => {
+          const value = feat.properties[f.name];
+          if (!values.has(value)) {
+            values.add(value)
+            return true;
+          };
+          return false;
+        });
+      }), 'All id fields have distinct values');
   }
 }

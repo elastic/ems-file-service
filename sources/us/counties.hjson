@@ -26,11 +26,21 @@
             type: id
             name: fips
             desc: FIPS code
+            regex: ^\d{5}$
+            alias: [
+              fips
+              (county|counties)
+            ]
         }
         {
             type: id
             name: gnis
             desc: GNIS ID
+            regex: "^[1-9][0-9]{0,7}$"
+            alias: [
+              gnis
+              (county|counties)
+            ]
         }
         {
             type: property

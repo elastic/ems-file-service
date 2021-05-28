@@ -13,8 +13,6 @@ const {
 const sources = require('./fixtures/valid-sources/sources.json');
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
-const dataDir = 'test/fixtures/data';
-
 function getExpectedVector(version) {
   return {
     version: version,
@@ -53,6 +51,13 @@ function getExpectedVector(version) {
           {
             type: 'id',
             id: 'wikidata',
+            regex: '^Q[1-9]\\d*',
+            values: [
+              "Q2261070",
+              "Q2533118",
+              "Q2271279",
+              "Q2267079",
+            ],
             label: {
               de: 'Wikidata-Kennung',
               en: 'Wikidata identifier',
@@ -62,6 +67,7 @@ function getExpectedVector(version) {
           {
             type: 'property',
             id: 'label_en',
+            alias: [ "(geo\\.){0,}region_name" ],
             label: {
               de: 'name (en)',
               en: 'name (en)',
@@ -105,6 +111,15 @@ function getExpectedVector(version) {
           {
             type: 'id',
             id: 'wikidata',
+            regex: '^Q[1-9]\\d*',
+            values: [
+              "Q81908708",
+              "Q81908913",
+              "Q16585595",
+              "Q81908582",
+              "Q81907591",
+              "Q81908441",
+            ],
             label: {
               de: 'Wikidata-Kennung',
               en: 'Wikidata identifier',
@@ -114,6 +129,7 @@ function getExpectedVector(version) {
           {
             type: 'property',
             id: 'label_en',
+            alias: [ "(geo\\.){0,}region_name" ],
             label: {
               de: 'name (en)',
               en: 'name (en)',
@@ -154,6 +170,13 @@ function getExpectedVector(version) {
           {
             type: 'id',
             id: 'wikidata',
+            regex: '^Q[1-9]\\d*',
+            values: [
+              "Q82024809",
+              "Q82025054",
+              "Q82025065",
+              "Q82025079",
+            ],
             label: {
               de: 'Wikidata-Kennung',
               en: 'Wikidata identifier',
@@ -163,6 +186,7 @@ function getExpectedVector(version) {
           {
             type: 'property',
             id: 'label_en',
+            alias: [ "(geo\\.){0,}region_name" ],
             label: {
               de: 'name (en)',
               en: 'name (en)',
@@ -190,23 +214,39 @@ function getExpectedVector(version) {
   };
 };
 
-tap('>=7.6 tests', t => {
-  ['7.6', '7.7', '7.8', '7.9', '7.10'].forEach(version => {
+tap('>=7.14 tests', t => {
+  ['7.14', '7.15', '7.16'].forEach(version => {
     const catalogue = generateCatalogueManifest({
       version: `v${version}`,
       tileHostname: 'tiles.maps.elstc.co',
       vectorHostname: 'vector.maps.elastic.co',
     });
-    t.false(catalogue, '7.6 catalogue should not exist');
+    t.false(catalogue, `v${version} catalogue should not exist`);
 
     // It is not necessary to test different hostnames, since URLs in manifest are relative
     const vector = generateVectorManifest(sources, {
       version: `v${version}`,
       hostname: 'vector.maps.elastic.co',
       fieldInfo: fieldInfo,
-      dataDir,
+      dataDir: 'test/fixtures/data',
     });
-    t.deepEquals(vector, getExpectedVector(version), 'v7.6 vector manifest');
+    t.deepEquals(vector, getExpectedVector(version), `v${version} vector manifest`);
   });
+  t.end();
+});
+
+//v8 vector manifest should fail - to be removed in EMS v8.0
+tap('Check that v8.0 fails', function(t) {
+  t.throws(
+    function() {
+      generateVectorManifest(sources, {
+        version: 'v8.0',
+        hostname: 'vector.maps.elastic.co',
+        fieldInfo: fieldInfo,
+      });
+    },
+    new Error('Unable to get a manifest for version 8.0'),
+    'throws assert error'
+  );
   t.end();
 });

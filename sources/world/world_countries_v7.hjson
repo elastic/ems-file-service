@@ -36,21 +36,31 @@
       type: id
       name: iso2
       desc: Two letter abbreviation
+      regex: ^[A-Z]{2}$
+      alias: [
+        (geo\.){0,}country_iso_code$
+        (country|countries)
+      ]
     }
     {
       type: id
       name: iso3
+      regex: ^[A-Z]{3}$
       desc: Three letter abbreviation
     }
     {
       type: id
       name: iso_numeric
       desc: ISO numeric code
+      regex: ^(?:\d{3}|null)$
     }
     {
       type: property
       name: name
       desc: Country name
+      alias: [
+        (country|countries)
+      ]
     }
   ]
   website: http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-details/

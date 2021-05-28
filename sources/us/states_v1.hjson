@@ -34,6 +34,12 @@
             type: id
             name: postal
             desc: Two letter abbreviation
+            regex: ^[A-Z]{2}$
+            alias: [
+              state
+              fips
+              postal
+            ]
         }
         {
             type: property

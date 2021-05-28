@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Source",
   "description": "Elastic Map Service data source",
   "type": "object",
@@ -185,6 +185,19 @@
         "desc": {
           "type": "string",
           "description": "Human readable field name"
+        },
+        "regex": {
+          "type": "string",
+          "description": "Regular expression that may match the field contents.",
+          "format": "regex"
+        },
+        "alias": {
+          "type": "array",
+          "items": {
+            "description": "Regular expressions that may match the field.",
+            "type": "string",
+            "format": "regex"
+          }
         }
       }
     },
