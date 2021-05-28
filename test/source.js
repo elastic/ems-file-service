@@ -128,5 +128,17 @@ function validateGeoJSON(geojson, fieldMap, t) {
           return keys.every((p, i) => p === fieldsNames[i]);
         }
       ), 'Feature properties and field mapping are strictly aligned');
+
+      t.ok(fieldMap.filter(f => f.type === 'id').every(f => {
+        const values = new Set();
+        return fc.features.every(feat => {
+          const value = feat.properties[f.name];
+          if (!values.has(value)) {
+            values.add(value)
+            return true;
+          };
+          return false;
+        });
+      }), 'All id fields have distinct values');
   }
 }

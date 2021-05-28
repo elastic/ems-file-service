@@ -193,13 +193,12 @@ function getIdsFromFile(dataDir, file, fields) {
   const json = JSON.parse(readFileSync(`${dataDir}/${file}`, 'utf8'));
   const features = json.features || json.objects.data.geometries;
   const fieldMap = {};
-  for (const {name} of fields) {
+  for (const { name } of fields) {
     fieldMap[name] = new Set(); // Probably unnecessary but ensures unique ids
   };
   for (const feature of features) {
-    const { properties } = feature;
-    for (const {name} of fields) {
-      fieldMap[name].add(properties[name])
+    for (const { name } of fields) {
+      fieldMap[name].add(feature.properties[name])
     }
   }
   return fieldMap;
