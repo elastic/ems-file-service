@@ -1,0 +1,77 @@
+{
+    versions: '>=1'
+    type: http
+    production: true
+    wikidata: 'Q15728204'
+    note: Provinces of Saudi Arabia
+    data: 'Natural Earth Data'
+    attribution: [
+      {
+        label: {
+          en: Made with NaturalEarth
+        }
+        url: {
+          en: http://www.naturalearthdata.com/about/terms-of-use
+        }
+      }
+      {
+        label: {
+          en: © OpenStreetMap contributors
+        }
+        url: {
+          en: https://www.openstreetmap.org/copyright
+        }
+      }
+      {
+        label: {
+          en: Elastic Maps Service
+        }
+        url: {
+          en: https://www.elastic.co/elastic-maps-service
+        }
+      }
+    ]
+    fieldMapping: [
+        {
+            type: id
+            name: iso_3166_2
+            desc: ISO-3166-2 identifier
+        }
+        {
+            type: property
+            name: label_en
+            desc: Province name (English)
+        }
+        {
+            type: property
+            name: label_ar
+            desc: Province name (Arabic)
+        }
+    ]
+    query: {}
+    name: 'saudi_arabia_provinces'
+    legacyIds: [
+      'Saudi Arabia Provinces'
+    ]
+    humanReadableName: {
+      ar: منطقة سعودية
+      bn: সৌদি আরবের প্রদেশসমূহ
+      en: Saudi Arabia Provinces
+      it: provincia dell'Arabia Saudita
+      ms: Wilayah di Arab Saudi
+      pl: Prowincja
+      ru: провинция Саудовской Аравии
+      tr: Suudi Arabistan'ın illeri
+      ur: صوبجات سعودی عرب
+      zh: 沙特阿拉伯省区列表
+    }
+    emsFormats: [{
+      type: geojson
+      file: 'saudi_arabia_provinces_v1.geo.json'
+      default: true
+    }]
+    ttl: 108000
+    weight: 0
+    createdAt: '2021-09-20T21:50:13.768940'
+    id: 1632174626812380
+}
