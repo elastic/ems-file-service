@@ -1,1 +1,5 @@
-mapshaper data/admin_regions_lvl2_v2.geo.json -filter 'YE.indexOf(country_iso2_code) > -1' -filter-fields region_iso_code,region_name -rename-fields iso_3166_2=region_iso_code,label_en=region_name -o format=geojson yemen_governorates_v1.geo.json
+# Yemen
+
+Running `make` in this directory combines boundaries and attributes from the Administrative regions layer with Arabic names from `ye.csv`.
+
+When not available in Natural Earth, Arabic names come from Wikidata.
