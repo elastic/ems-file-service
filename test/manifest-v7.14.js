@@ -235,17 +235,16 @@ tap('>=7.14 tests', t => {
   t.end();
 });
 
-//v8 vector manifest should fail - to be removed in EMS v8.0
-tap('Check that v8.0 fails', function(t) {
+tap('Check that unavailable manifest version fails', function(t) {
   t.throws(
     function() {
       generateVectorManifest(sources, {
-        version: 'v8.0',
+        version: 'v9999.0',
         hostname: 'vector.maps.elastic.co',
         fieldInfo: fieldInfo,
       });
     },
-    new Error('Unable to get a manifest for version 8.0'),
+    new Error('Unable to get a manifest for version 9999.0'),
     'throws assert error'
   );
   t.end();
