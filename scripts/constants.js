@@ -8,7 +8,7 @@ module.exports = Object.freeze({
   VECTOR_PRODUCTION_HOST: "vector.maps.elastic.co",
   VECTOR_STAGING_HOST: "vector-staging.maps.elastic.co",
   TILE_PRODUCTION_HOST: "tiles.maps.elastic.co",
-  TILE_STAGING_HOST: "tiles.maps.elstc.co",
+  TILE_STAGING_HOST: "tiles.maps.elastic.co",
   VERSIONS: [
     "v1",
     "v2",
@@ -26,5 +26,13 @@ module.exports = Object.freeze({
     "v7.14",
     "v7.15",
     "v7.16",
+    "v8.0",
+    "v8.1",
+    "v8.2",
+    "v8.3",
+    "v8.4",
+    "v8.5",
+    "v8.6",
+    "v8.7",
   ],
 });

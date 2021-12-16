@@ -1,5 +1,5 @@
 {
-    versions: '1 - 7'
+    versions: '1 - 8'
     production: true
     countryCode: US
     type: http
@@ -9,7 +9,7 @@
     attribution: [
       {
         label: {
-          en: © OpenStreetMap contributors
+          en: OpenStreetMap contributors
         }
         url: {
           en: https://www.openstreetmap.org/copyright

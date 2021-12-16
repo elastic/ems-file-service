@@ -1,6 +1,7 @@
 {
-    versions: '>=8'
-    production: true
+    // TODO Layer is disabled until we have proper migrations in kibana
+    versions: '>=9'
+    production: false
     countryCode: US
     type: http
     note:  States of United States
@@ -9,7 +10,7 @@
     attribution: [
       {
         label: {
-          en: © OpenStreetMap contributors
+          en: OpenStreetMap contributors
         }
         url: {
           en: https://www.openstreetmap.org/copyright

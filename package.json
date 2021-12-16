@@ -5,7 +5,7 @@
   "description": "Data sources, vector data, and manifest generation for Elastic Maps Service",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js --cov",
+    "test": "tap test/*.js --cov --reporter base",
     "build": "node index.js"
   },
   "keywords": [],
@@ -17,7 +17,7 @@
   "dependencies": {
     "glob": "^7.1.6",
     "hjson": "^3.2.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "mkdirp": "^1.0.3",
     "rimraf": "^3.0.2",
     "semver": "^7.1.3",
