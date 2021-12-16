@@ -215,7 +215,7 @@ function getExpectedVector(version) {
 };
 
 tap('>=7.14 tests', t => {
-  ['7.14', '7.15', '7.16'].forEach(version => {
+  ['7.14', '7.15', '7.16', '7.17'].forEach(version => {
     const catalogue = generateCatalogueManifest({
       version: `v${version}`,
       tileHostname: 'tiles.maps.elstc.co',
