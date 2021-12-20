@@ -5,12 +5,12 @@
   "description": "Data sources, vector data, and manifest generation for Elastic Maps Service",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js --cov --reporter base",
+    "test": "tap test/*.js --cov",
     "build": "node index.js"
   },
   "keywords": [],
   "engines": {
-    "node": ">= 12"
+    "node": ">= 14"
   },
   "author": "Nick Peihl <nick.peihl@elastic.co>",
   "license": "Elastic-License",
@@ -41,6 +41,6 @@
     "geolib": "^3.2.1",
     "jsts": "^2.1.2",
     "node-fetch": "^2.6.1",
-    "tap": "^14.10.7"
+    "tap": "15.1.5"
   }
 }

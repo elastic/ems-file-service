@@ -111,26 +111,26 @@ tap('v1 tests', t => {
     version: 'v1',
     hostname: 'vector-staging.maps.elastic.co',
   });
-  t.deepEquals(v1, v1Expected, 'v1');
+  t.same(v1, v1Expected, 'v1');
 
   const prod = generateVectorManifest(sources, {
     version: 'v1',
     production: true,
     hostname: 'vector.maps.elastic.co',
   });
-  t.deepEquals(prod, prodExpected, 'production');
+  t.same(prod, prodExpected, 'production');
 
   const fieldInfoTest = generateVectorManifest(sources, {
     version: 'v1',
     hostname: 'vector-staging.maps.elastic.co',
     opts: { fieldInfo: fieldInfo },
   });
-  t.deepEquals(fieldInfoTest, v1Expected, 'fieldInfos not used in v1');
+  t.same(fieldInfoTest, v1Expected, 'fieldInfos not used in v1');
 
   const weightedOrder = generateVectorManifest(weightedSources, {
     version: 'v1',
   }).layers.map(layer => layer.name);
-  t.deepEquals(weightedOrder, ['Rohan Kingdoms', 'Gondor Kingdoms', 'Mordor Regions', 'Shire regions']);
+  t.same(weightedOrder, ['Rohan Kingdoms', 'Gondor Kingdoms', 'Mordor Regions', 'Shire regions']);
 
   const safeDuplicateIds = function () {
     return generateVectorManifest(duplicateIds, {
@@ -146,15 +146,15 @@ tap('v1 tests', t => {
     });
   };
 
-  t.deepEquals(safeDuplicateIds(), safeDuplicatesExpected, 'Source ids can be duplicate in non-intersecting versions');
-  t.deepEquals(safeDuplicateHumanNames(), safeDuplicatesExpected, 'Source human names can be duplicate in non-intersecting versions');
+  t.same(safeDuplicateIds(), safeDuplicatesExpected, 'Source ids can be duplicate in non-intersecting versions');
+  t.same(safeDuplicateHumanNames(), safeDuplicatesExpected, 'Source human names can be duplicate in non-intersecting versions');
 
   const v1Catalogue = generateCatalogueManifest({
     version: 'v1',
     tileHostname: 'tiles.maps.elstc.co',
     vectorHostname: 'vector-staging.maps.elastic.co',
   });
-  t.deepEquals(v1Catalogue, {
+  t.same(v1Catalogue, {
     version: '1.0',
     services: [{
       id: 'tiles_v2',
@@ -174,7 +174,7 @@ tap('v1 tests', t => {
     tileHostname: 'tiles.maps.elastic.co',
     vectorHostname: 'vector.maps.elastic.co',
   });
-  t.deepEquals(prodCatalogue, {
+  t.same(prodCatalogue, {
     version: '1.0',
     services: [{
       id: 'tiles_v2',

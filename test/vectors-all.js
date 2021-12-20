@@ -116,27 +116,27 @@ tap('vector tests', t => {
   const v1 = generateVectors(sources, {
     version: 'v1',
   });
-  t.deepEquals(v1, v1Expected, 'Version v1 (default: staging)');
+  t.same(v1, v1Expected, 'Version v1 (default: staging)');
 
   const v2 = generateVectors(sources, {
     version: 'v2',
   });
-  t.deepEquals(v2, v2Expected, 'Version v2 (default: staging)');
+  t.same(v2, v2Expected, 'Version v2 (default: staging)');
 
   const prod = generateVectors(sources, {
     version: 'v2',
     production: true,
   });
-  t.deepEquals(prod, prodExpected, 'Version v2 (production');
+  t.same(prod, prodExpected, 'Version v2 (production');
 
   const v3 = generateVectors(sources, {
     version: 'v3',
   });
-  t.deepEquals(v3, v3Expected, 'Version v3');
+  t.same(v3, v3Expected, 'Version v3');
 
   const v6 = generateVectors(sources, {
     version: 'v6.6',
   });
-  t.deepEquals(v6, v6Expected, 'Version 6.6');
+  t.same(v6, v6Expected, 'Version 6.6');
   t.end();
 });
