@@ -531,7 +531,7 @@ tap('vector manifest tests <=7.2', t => {
     fieldInfo: fieldInfo,
     dataDir,
   });
-  t.deepEquals(staging, stagingExpected, 'v7.2');
+  t.same(staging, stagingExpected, 'v7.2');
 
   const prod = generateVectorManifest(sources, {
     version: 'v7.2',
@@ -540,7 +540,7 @@ tap('vector manifest tests <=7.2', t => {
     fieldInfo: fieldInfo,
     dataDir,
   });
-  t.deepEquals(prod, prodExpected, 'production');
+  t.same(prod, prodExpected, 'production');
 
   const unsafeDuplicateNames = function () {
     return generateVectorManifest(duplicateNames, {
@@ -556,7 +556,7 @@ tap('vector manifest tests <=7.2', t => {
     version: 'v7.2',
     dataDir,
   }).layers.map(layer => layer.layer_id);
-  t.deepEquals(weightedOrder, ['rohan', 'gondor', 'mordor_regions', 'shire']);
+  t.same(weightedOrder, ['rohan', 'gondor', 'mordor_regions', 'shire']);
 
 
   const fieldInfoFallback = generateVectorManifest(sources, {
@@ -565,7 +565,7 @@ tap('vector manifest tests <=7.2', t => {
     production: true,
     dataDir,
   });
-  t.deepEquals(fieldInfoFallback, fieldInfoFallbackExpected,
+  t.same(fieldInfoFallback, fieldInfoFallbackExpected,
     'should fallback to source field `desc` if fieldInfos is not available');
 
   const fieldInfoMissingName = generateVectorManifest(sources, {
@@ -584,7 +584,7 @@ tap('vector manifest tests <=7.2', t => {
     },
     dataDir,
   });
-  t.deepEquals(fieldInfoMissingName, fieldInfoMissingNameExpected,
+  t.same(fieldInfoMissingName, fieldInfoMissingNameExpected,
     'should fallback to source field `desc` if `fieldInfo.name.i18n` is not available');
   t.end();
 
@@ -596,7 +596,7 @@ tap('catalogue tests <=7.2', t => {
     tileHostname: 'tiles.maps.elstc.co',
     vectorHostname: 'vector-staging.maps.elastic.co',
   });
-  t.deepEquals(stagingCatalogue, {
+  t.same(stagingCatalogue, {
     version: '7.2',
     services: [{
       id: 'tiles',
@@ -616,7 +616,7 @@ tap('catalogue tests <=7.2', t => {
     tileHostname: 'tiles.maps.elastic.co',
     vectorHostname: 'vector.maps.elastic.co',
   });
-  t.deepEquals(prodCatalogue, {
+  t.same(prodCatalogue, {
     version: '7.2',
     services: [{
       id: 'tiles',

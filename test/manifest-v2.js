@@ -139,14 +139,14 @@ tap('v2 tests', t => {
     version: 'v2',
     hostname: 'vector-staging.maps.elastic.co',
   });
-  t.deepEquals(v2, v2Expected, 'v2');
+  t.same(v2, v2Expected, 'v2');
 
   const prod = generateVectorManifest(sources, {
     version: 'v2',
     production: true,
     hostname: 'vector.maps.elastic.co',
   });
-  t.deepEquals(prod, prodExpected, 'production');
+  t.same(prod, prodExpected, 'production');
 
   const unsafeDuplicateIds = function () {
     return generateVectorManifest(duplicateIds, {
@@ -177,7 +177,7 @@ tap('v2 tests', t => {
   const weightedOrder = generateVectorManifest(weightedSources, {
     version: 'v2',
   }).layers.map(layer => layer.name);
-  t.deepEquals(weightedOrder, ['Rohan Kingdoms', 'Gondor Kingdoms', 'Mordor Regions', 'Shire regions']);
+  t.same(weightedOrder, ['Rohan Kingdoms', 'Gondor Kingdoms', 'Mordor Regions', 'Shire regions']);
 
 
   const fieldInfoTest = generateVectorManifest(sources, {
@@ -185,7 +185,7 @@ tap('v2 tests', t => {
     hostname: 'vector-staging.maps.elastic.co',
     opts: { fieldInfo: fieldInfo },
   });
-  t.deepEquals(fieldInfoTest, v2Expected, 'fieldInfos not used in v2');
+  t.same(fieldInfoTest, v2Expected, 'fieldInfos not used in v2');
 
 
   t.throws(unsafeDuplicateIds, 'Source ids cannot be duplicate in intersecting versions');
@@ -198,7 +198,7 @@ tap('v2 tests', t => {
     tileHostname: 'tiles.maps.elstc.co',
     vectorHostname: 'vector-staging.maps.elastic.co',
   });
-  t.deepEquals(v2Catalogue, {
+  t.same(v2Catalogue, {
     version: '2.0',
     services: [{
       id: 'tiles_v2',
@@ -218,7 +218,7 @@ tap('v2 tests', t => {
     tileHostname: 'tiles.maps.elastic.co',
     vectorHostname: 'vector.maps.elastic.co',
   });
-  t.deepEquals(prodCatalogue, {
+  t.same(prodCatalogue, {
     version: '2.0',
     services: [{
       id: 'tiles_v2',
