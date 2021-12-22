@@ -173,7 +173,7 @@ function manifestLayerV6(data, hostname, { manifestVersion, fieldInfo, dataDir }
   const idFields = data.fieldMapping.filter(field => field.type === 'id');
   const { file } = getDefaultFormat(data.emsFormats);
   const idInfos = getIdsFromFile(dataDir, file, idFields);
-  const fields = getFieldMapping(data.fieldMapping, manifestVersion, idInfos, fieldInfo)
+  const fields = getFieldMapping(data.fieldMapping, manifestVersion, idInfos, fieldInfo);
   const layer = {
     layer_id: data.name,
     created_at: data.createdAt,
@@ -196,10 +196,10 @@ function getIdsFromFile(dataDir, file, fields) {
   const fieldMap = {};
   for (const { name } of fields) {
     fieldMap[name] = new Set(); // Probably unnecessary but ensures unique ids
-  };
+  }
   for (const feature of features) {
     for (const { name } of fields) {
-      fieldMap[name].add(feature.properties[name])
+      fieldMap[name].add(feature.properties[name]);
     }
   }
   return fieldMap;
@@ -264,7 +264,7 @@ function getFileUrl(hostname, pathname, manifestVersion) {
   if (semver.lt(manifestVersion, '7.6.0')) {
     return `https://${hostname}${pathname}?elastic_tile_service_tos=agree`;
   } else {
-    return `${pathname}`
+    return `${pathname}`;
   }
 }
 
@@ -282,6 +282,6 @@ function getFieldMapping(sourceFieldsMap, manifestVersion, idInfos, fieldInfo) {
         ...(supportsFieldMeta && regex && ({ regex })),
         ...(supportsFieldMeta && alias && ({ alias })),
         ...(supportsFieldMeta && values && ({ values })),
-      }
-  });
+      };
+    });
 }

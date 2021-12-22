@@ -14,12 +14,12 @@ const argv = require('yargs')
     alias: 'v',
     default: false,
     type: 'boolean',
-    describe: 'Log about the process'
+    describe: 'Log about the process',
   })
   .option('output', {
     alias: 'o',
     type: 'string',
-    describe: 'Write the output GeoJSON in a different path'
+    describe: 'Write the output GeoJSON in a different path',
   })
   .demandCommand(1)
   .epilog('Elastic, 2019')
@@ -76,7 +76,7 @@ try {
   const fc = fs.readFileSync(filePath, 'utf8');
   const gj = reader.read(fc);
 
-  log(`Checking ${gj.features.length} features`)
+  log(`Checking ${gj.features.length} features`);
   const features = gj.features.map(makeValid);
 
   // JSTS does not enforce winding order, so we pass the features through `geojson-rewind`
@@ -86,8 +86,8 @@ try {
     features: features,
   }, true);
 
-  const outputPath = argv.output || filePath
-  log(`Writing results to: ${outputPath}`)
+  const outputPath = argv.output || filePath;
+  log(`Writing results to: ${outputPath}`);
   fs.writeFileSync(outputPath, JSON.stringify(fixed));
 } catch (error) {
   log('Error processing your file');
