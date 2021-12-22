@@ -221,7 +221,7 @@ tap('>=7.14 tests', t => {
       tileHostname: 'tiles.maps.elstc.co',
       vectorHostname: 'vector.maps.elastic.co',
     });
-    t.false(catalogue, `v${version} catalogue should not exist`);
+    t.notOk(catalogue, `v${version} catalogue should not exist`);
 
     // It is not necessary to test different hostnames, since URLs in manifest are relative
     const vector = generateVectorManifest(sources, {
@@ -230,7 +230,7 @@ tap('>=7.14 tests', t => {
       fieldInfo: fieldInfo,
       dataDir: 'test/fixtures/data',
     });
-    t.deepEquals(vector, getExpectedVector(version), `v${version} vector manifest`);
+    t.same(vector, getExpectedVector(version), `v${version} vector manifest`);
   });
   t.end();
 });
