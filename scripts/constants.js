@@ -26,6 +26,7 @@ module.exports = Object.freeze({
     "v7.14",
     "v7.15",
     "v7.16",
+    "v7.17",
     "v8.0",
     "v8.1",
     "v8.2",
