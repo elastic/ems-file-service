@@ -188,7 +188,7 @@ function getExpectedVector(version) {
       },
     ],
   };
-};
+}
 
 tap('>=7.6 tests', t => {
   ['7.6', '7.7', '7.8', '7.9', '7.10'].forEach(version => {
