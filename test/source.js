@@ -13,6 +13,7 @@ const glob = require('glob');
 const fs = require('fs');
 const jsts = require('jsts');
 const _ = require('lodash');
+const constants = require('../scripts/constants');
 
 const ajv = new Ajv();
 addFormats(ajv);
@@ -54,7 +55,7 @@ function testSourceFiles(source) {
       t.ok(fs.existsSync(`./data/${format.file}`), `${source.name} filename fields must have a matching file in the data directory`);
       if (format.type === 'geojson') {
         const geojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
-        validateGeoJSON(geojson, source.fieldMapping, t);
+        validateGeoJSON(geojson, source.fieldMapping, t, format.file);
       } else if (format.type === 'topojson') {
         const topojson = fs.readFileSync(`./data/${format.file}`, 'utf8');
         validateObjectsMember(topojson, format, source.fieldMapping, t);
@@ -97,27 +98,27 @@ function validateObjectsMember(topojson, format, fieldMap, t) {
 
 }
 
-function validateGeoJSON(geojson, fieldMap, t) {
+function validateGeoJSON(geojson, fieldMap, t, fileName) {
   const reader = new jsts.io.GeoJSONReader();
   const fc = reader.read(geojson);
   const fieldsNames = fieldMap.map(f => f.name).sort();
   t.ok(fc.features.every(feat => feat.geometry.isSimple()
-  ), 'All geometries must be simple');
+  ), `All geometries from ${fileName} must be simple`);
   t.ok(fc.features.every(feat => feat.geometry.isValid()
-  ), 'All geometries must be valid');
+  ), `All geometries from ${fileName} must be valid`);
 
   t.ok(
     fc.features.every(
       feat => Object.keys(feat.properties).every(
         p => fieldsNames.indexOf(p) > -1)
-    ), 'All feature properties are in the field mapping');
+    ), `All feature properties from ${fileName} are in the field mapping`);
 
   t.ok(fieldMap.filter(f => f.regex).every(f => {
     const re = new RegExp(f.regex);
     return fc.features.every(feat => {
       return re.test(feat.properties[f.name]);
     });
-  }), 'All fields with regular expressions match feature properties');
+  }), `All fields with regular expressions from ${fileName} match feature properties`);
 
 
   if (process.env.EMS_STRICT_TEST) {
@@ -127,7 +128,7 @@ function validateGeoJSON(geojson, fieldMap, t) {
           const keys = Object.keys(feat.properties).sort();
           return keys.every((p, i) => p === fieldsNames[i]);
         }
-      ), 'Feature properties and field mapping are strictly aligned');
+      ), `Feature properties and field mapping from ${fileName} are strictly aligned`);
 
     t.ok(fieldMap.filter(f => f.type === 'id').every(f => {
       const values = new Set();
@@ -139,6 +140,21 @@ function validateGeoJSON(geojson, fieldMap, t) {
         }
         return false;
       });
-    }), 'All id fields have distinct values');
+    }), `All id fields from ${fileName} have distinct values`);
+
+    if (constants.GEOJSON_RFC7946 !== undefined) {
+      // Check if the GeoJSON follows the enforcement or neglection of RFC7946
+      const enforceRfc = constants.GEOJSON_RFC7946 === true;
+      const isCCW = jsts.algorithm.Orientation.isCCW;
+      const getCoords = f => {
+        const ring = f.geometry.getGeometryN(0).getExteriorRing();
+        return ring._points._coordinates;
+      };
+
+      t.ok(
+        fc.features.every(
+          feat =>  isCCW(getCoords(feat)) === enforceRfc
+        ), `Features from ${fileName} ${enforceRfc ? 'enforce' : 'neglect'} RFC7946`);
+    }
   }
 }
