@@ -11,5 +11,10 @@
         "functions": "never"
       }
     ]
+  },
+  "settings": {
+    "react": {
+      "version": "defect"
+    }
   }
 }

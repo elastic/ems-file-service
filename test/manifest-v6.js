@@ -531,7 +531,7 @@ tap('v6 tests', t => {
     fieldInfo: fieldInfo,
     dataDir,
   });
-  t.deepEquals(v6, v6Expected, 'v6.6');
+  t.same(v6, v6Expected, 'v6.6');
 
   const prod = generateVectorManifest(sources, {
     version: 'v6.6',
@@ -540,7 +540,7 @@ tap('v6 tests', t => {
     fieldInfo: fieldInfo,
     dataDir,
   });
-  t.deepEquals(prod, prodExpected, 'production');
+  t.same(prod, prodExpected, 'production');
 
   const unsafeDuplicateNames = function () {
     return generateVectorManifest(duplicateNames, {
@@ -556,7 +556,7 @@ tap('v6 tests', t => {
     version: 'v6.6',
     dataDir,
   }).layers.map(layer => layer.layer_id);
-  t.deepEquals(weightedOrder, ['rohan', 'gondor', 'mordor_regions', 'shire']);
+  t.same(weightedOrder, ['rohan', 'gondor', 'mordor_regions', 'shire']);
 
 
   const fieldInfoFallback = generateVectorManifest(sources, {
@@ -565,7 +565,7 @@ tap('v6 tests', t => {
     production: true,
     dataDir,
   });
-  t.deepEquals(fieldInfoFallback, fieldInfoFallbackExpected,
+  t.same(fieldInfoFallback, fieldInfoFallbackExpected,
     'should fallback to source field `desc` if fieldInfos is not available');
 
   const fieldInfoMissingName = generateVectorManifest(sources, {
@@ -584,7 +584,7 @@ tap('v6 tests', t => {
     },
     dataDir,
   });
-  t.deepEquals(fieldInfoMissingName, fieldInfoMissingNameExpected,
+  t.same(fieldInfoMissingName, fieldInfoMissingNameExpected,
     'should fallback to source field `desc` if `fieldInfo.name.i18n` is not available');
 
   const v6Catalogue = generateCatalogueManifest({
@@ -592,7 +592,7 @@ tap('v6 tests', t => {
     tileHostname: 'tiles.maps.elstc.co',
     vectorHostname: 'vector-staging.maps.elastic.co',
   });
-  t.deepEquals(v6Catalogue, {
+  t.same(v6Catalogue, {
     version: '6.6',
     services: [{
       id: 'tiles_v2',
@@ -612,7 +612,7 @@ tap('v6 tests', t => {
     tileHostname: 'tiles.maps.elastic.co',
     vectorHostname: 'vector.maps.elastic.co',
   });
-  t.deepEquals(prodCatalogue, {
+  t.same(prodCatalogue, {
     version: '6.6',
     services: [{
       id: 'tiles_v2',

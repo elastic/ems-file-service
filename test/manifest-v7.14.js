@@ -53,10 +53,10 @@ function getExpectedVector(version) {
             id: 'wikidata',
             regex: '^Q[1-9]\\d*',
             values: [
-              "Q2261070",
-              "Q2533118",
-              "Q2271279",
-              "Q2267079",
+              'Q2261070',
+              'Q2533118',
+              'Q2271279',
+              'Q2267079',
             ],
             label: {
               de: 'Wikidata-Kennung',
@@ -67,7 +67,7 @@ function getExpectedVector(version) {
           {
             type: 'property',
             id: 'label_en',
-            alias: [ "(geo\\.){0,}region_name" ],
+            alias: [ '(geo\\.){0,}region_name' ],
             label: {
               de: 'name (en)',
               en: 'name (en)',
@@ -113,12 +113,12 @@ function getExpectedVector(version) {
             id: 'wikidata',
             regex: '^Q[1-9]\\d*',
             values: [
-              "Q81908708",
-              "Q81908913",
-              "Q16585595",
-              "Q81908582",
-              "Q81907591",
-              "Q81908441",
+              'Q81908708',
+              'Q81908913',
+              'Q16585595',
+              'Q81908582',
+              'Q81907591',
+              'Q81908441',
             ],
             label: {
               de: 'Wikidata-Kennung',
@@ -129,7 +129,7 @@ function getExpectedVector(version) {
           {
             type: 'property',
             id: 'label_en',
-            alias: [ "(geo\\.){0,}region_name" ],
+            alias: [ '(geo\\.){0,}region_name' ],
             label: {
               de: 'name (en)',
               en: 'name (en)',
@@ -172,10 +172,10 @@ function getExpectedVector(version) {
             id: 'wikidata',
             regex: '^Q[1-9]\\d*',
             values: [
-              "Q82024809",
-              "Q82025054",
-              "Q82025065",
-              "Q82025079",
+              'Q82024809',
+              'Q82025054',
+              'Q82025065',
+              'Q82025079',
             ],
             label: {
               de: 'Wikidata-Kennung',
@@ -186,7 +186,7 @@ function getExpectedVector(version) {
           {
             type: 'property',
             id: 'label_en',
-            alias: [ "(geo\\.){0,}region_name" ],
+            alias: [ '(geo\\.){0,}region_name' ],
             label: {
               de: 'name (en)',
               en: 'name (en)',
@@ -212,16 +212,16 @@ function getExpectedVector(version) {
       },
     ],
   };
-};
+}
 
 tap('>=7.14 tests', t => {
-  ['7.14', '7.15', '7.16'].forEach(version => {
+  ['7.14', '7.15', '7.16', '7.17'].forEach(version => {
     const catalogue = generateCatalogueManifest({
       version: `v${version}`,
       tileHostname: 'tiles.maps.elstc.co',
       vectorHostname: 'vector.maps.elastic.co',
     });
-    t.false(catalogue, `v${version} catalogue should not exist`);
+    t.notOk(catalogue, `v${version} catalogue should not exist`);
 
     // It is not necessary to test different hostnames, since URLs in manifest are relative
     const vector = generateVectorManifest(sources, {
@@ -230,14 +230,14 @@ tap('>=7.14 tests', t => {
       fieldInfo: fieldInfo,
       dataDir: 'test/fixtures/data',
     });
-    t.deepEquals(vector, getExpectedVector(version), `v${version} vector manifest`);
+    t.same(vector, getExpectedVector(version), `v${version} vector manifest`);
   });
   t.end();
 });
 
-tap('Check that unavailable manifest version fails', function(t) {
+tap('Check that unavailable manifest version fails', function (t) {
   t.throws(
-    function() {
+    function () {
       generateVectorManifest(sources, {
         version: 'v9999.0',
         hostname: 'vector.maps.elastic.co',
