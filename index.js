@@ -10,6 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
+const rewind = require('geojson-rewind');
 const { generateVectorManifest, generateCatalogueManifest } = require('./scripts/generate-manifest');
 const generateVectors = require('./scripts/generate-vectors');
 const constants = require('./scripts/constants');
@@ -72,5 +73,10 @@ for (const version of constants.VERSIONS) {
 for (const file of vectorFiles) {
   // file is an array of [dest, src]
   const vector = JSON.parse(fs.readFileSync(file[1]));
-  fs.writeFileSync(file[0], JSON.stringify(vector), 'utf8');
+  const vectorToWrite = vector.hasOwnProperty('type')
+      && vector.type === 'FeatureCollection'
+      && constants.GEOJSON_RFC7946 !== undefined
+    ? rewind(vector, constants.GEOJSON_RFC7946 === false)
+    : vector;
+  fs.writeFileSync(file[0], JSON.stringify(vectorToWrite), 'utf8');
 }
