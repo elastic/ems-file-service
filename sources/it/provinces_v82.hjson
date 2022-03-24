@@ -1,5 +1,5 @@
 {
-  versions: '>=8 <8.2'
+  versions: '>=8.2'
   type: http
   production: true
   countryCode: IT
@@ -34,7 +34,7 @@
       type: id
       name: istat
       desc: ISTAT ID
-      regex: ^\d{2}|\d{3}$
+      skipCopy: true
       alias: [
         istat
       ]

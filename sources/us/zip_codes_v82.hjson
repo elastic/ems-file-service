@@ -1,5 +1,5 @@
 {
-  versions: '>=7 <8.2'
+  versions: '>=8.2'
   production: true
   type: http
   note: Zip Code Tabulation Areas from the 2018 Census TIGERWEB
@@ -10,7 +10,7 @@
     {
       type: id
       name: zip
-      regex: ^\d{5}$
+      skipCopy: true
       desc: 5-digit zip code
       alias: [
         zip

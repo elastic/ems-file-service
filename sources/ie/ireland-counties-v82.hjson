@@ -1,5 +1,5 @@
 {
-    versions: '>=1'
+    versions: '>=8.2'
     production: true
     countryCode: IE
     type: http
@@ -34,7 +34,7 @@
             type: id
             name: logainm
             desc: Logainm identifier
-            regex: ^[1-9]\d*$
+            skipCopy: true
             alias: [
               logainm
             ]
