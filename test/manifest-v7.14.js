@@ -210,6 +210,66 @@ function getExpectedVector(version) {
           zh: '夏爾',
         },
       },
+      {
+        layer_id: 'shireWithoutIds',
+        created_at: '1532-12-25T18:45:32.389979',
+        attribution: [
+          {
+            label: {
+              en: 'The Silmarillion',
+            },
+          },
+        ],
+        formats: [
+          {
+            type: 'geojson',
+            url: `/files/shire_v2.geo.json`,
+            legacy_default: true,
+          },
+          {
+            type: 'topojson',
+            url: '/files/shire_v2.topo.json',
+            legacy_default: false,
+          },
+        ],
+        fields: [
+          {
+            type: 'id',
+            id: 'wikidata',
+            values: [],
+            label: {
+              de: 'Wikidata-Kennung',
+              en: 'Wikidata identifier',
+              zh: '维基数据标识符',
+            },
+          },
+          {
+            type: 'property',
+            id: 'label_en',
+            alias: [ '(geo\\.){0,}region_name' ],
+            label: {
+              de: 'name (en)',
+              en: 'name (en)',
+              zh: '名称 (en)',
+            },
+          },
+          {
+            type: 'property',
+            id: 'label_ws',
+            label: {
+              de: 'name (ws)',
+              en: 'name (ws)',
+              zh: '名称 (ws)',
+            },
+          },
+        ],
+        legacy_ids: ['Shire', 'Shire regions', 'Shire Regions'],
+        layer_name: {
+          en: 'Shire regions',
+          de: 'Auenland',
+          zh: '夏爾',
+        },
+      },
     ],
   };
 }

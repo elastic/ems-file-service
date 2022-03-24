@@ -198,7 +198,7 @@ function getIdsFromFile(dataDir, file, fields) {
     fieldMap[name] = new Set(); // Probably unnecessary but ensures unique ids
   }
   for (const feature of features) {
-    for (const { name } of fields) {
+    for (const { name } of fields.filter( field => ! field.skipCopy)) {
       fieldMap[name].add(feature.properties[name]);
     }
   }
