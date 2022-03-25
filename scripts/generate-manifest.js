@@ -191,14 +191,19 @@ function getDefaultFormat(emsFormats) {
 }
 
 function getIdsFromFile(dataDir, file, fields) {
+  const fieldMap = {};
+  const fieldsWithIds = fields.filter(field => !field.skipCopy);
+
+  if (fieldsWithIds.length == 0) return fieldMap;
+
+  // Only read the dataset if there are identfiers to return
   const json = JSON.parse(readFileSync(`${dataDir}/${file}`, 'utf8'));
   const features = json.features || json.objects.data.geometries;
-  const fieldMap = {};
-  for (const { name } of fields) {
+  for (const { name } of fieldsWithIds) {
     fieldMap[name] = new Set(); // Probably unnecessary but ensures unique ids
   }
   for (const feature of features) {
-    for (const { name } of fields.filter( field => ! field.skipCopy)) {
+    for (const { name } of fieldsWithIds) {
       fieldMap[name].add(feature.properties[name]);
     }
   }
@@ -273,8 +278,8 @@ function getFieldMapping(sourceFieldsMap, manifestVersion, idInfos, fieldInfo) {
   return sourceFieldsMap
     .filter(sourceFieldMap => ['id', 'property'].includes(sourceFieldMap.type))
     .map(sourceFieldMap => {
-      const { type, name, desc, regex, alias } = sourceFieldMap;
-      const values = type === 'id' ? [...idInfos[name]] : undefined;
+      const { type, name, desc, regex, alias, skipCopy } = sourceFieldMap;
+      const values = type === 'id' && !skipCopy ? [...idInfos[name]] : undefined;
       return {
         type,
         id: name,

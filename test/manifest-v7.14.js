@@ -236,7 +236,6 @@ function getExpectedVector(version) {
           {
             type: 'id',
             id: 'wikidata',
-            values: [],
             label: {
               de: 'Wikidata-Kennung',
               en: 'Wikidata identifier',
