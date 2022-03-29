@@ -1,5 +1,5 @@
 {
-    versions: '>=2'
+    versions: '>=8.2'
     production: true
     countryCode: US
     type: http
@@ -26,7 +26,7 @@
             type: id
             name: fips
             desc: FIPS code
-            regex: ^\d{5}$
+            skipCopy: true
             alias: [
               fips
               (county|counties)
@@ -36,7 +36,7 @@
             type: id
             name: gnis
             desc: GNIS ID
-            regex: "^[1-9][0-9]{0,7}$"
+            skipCopy: true
             alias: [
               gnis
               (county|counties)

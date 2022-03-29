@@ -1,5 +1,5 @@
 {
-    versions: '>=7 <8.2'
+    versions: '>=8.2'
     production: true
     countryCode: FR
     type: http
@@ -34,10 +34,7 @@
           type: id
           name: insee
           desc: INSEE department identifier
-          regex: ^(\d{2}|2[AB]|9[78]\d)D?$
-          alias: [
-            insee
-          ]
+          skipCopy: true
         }
         {
           type: property

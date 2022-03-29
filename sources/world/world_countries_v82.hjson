@@ -1,5 +1,5 @@
 {
-  versions: '>= 7.10 <8.2'
+  versions: '>= 8.2'
   production: true
   type: http
   note: Administrative map units from Natural Earth Data. URLs listed at http://geojson.xyz
@@ -52,7 +52,7 @@
       type: id
       name: iso_numeric
       desc: ISO numeric code
-      regex: ^(?:\d{3}|null)$
+      skipCopy: true
     }
     {
       type: property

@@ -1,5 +1,5 @@
 {
-    versions: '>=1'
+    versions: '>=1 <8.2'
     type: http
     production: true
     countryCode: CL

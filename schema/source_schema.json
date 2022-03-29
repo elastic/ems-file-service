@@ -198,6 +198,10 @@
             "type": "string",
             "format": "regex"
           }
+        },
+        "skipCopy": {
+          "type": "boolean",
+          "description": "Should the values of this field to be copied to the manifest (default false for identifiers)"
         }
       }
     },
