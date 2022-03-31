@@ -244,5 +244,56 @@
       "default": false
     }],
     "createdAt": "1532-12-25T18:45:32.389979"
+  },
+  {
+    "versions": ">=7.14",
+    "production": false,
+    "attribution": [
+      {
+        "label": {
+          "en": "The Silmarillion"
+        }
+      }
+    ],
+    "type": "http",
+    "data": "http://example.com",
+    "name": "shireWithoutIds",
+    "legacyIds": [ "Shire", "Shire regions", "Shire Regions" ],
+    "humanReadableName": {
+      "en": "Shire regions",
+      "de": "Auenland",
+      "zh": "夏爾"
+    },
+    "fieldMapping": [
+      {
+        "type": "id",
+        "name": "wikidata",
+        "desc": "Wikidata identifier",
+        "skipCopy": true
+      },
+      {
+        "type": "property",
+        "name": "label_en",
+        "alias": [ "(geo\\.){0,}region_name" ],
+        "desc": "Region name (English)"
+      },
+      {
+        "type": "property",
+        "name": "label_ws",
+        "desc": "Region name (Westron)"
+      }
+    ],
+    "weight": 0,
+    "id": 333333333333,
+    "emsFormats": [{
+      "type": "geojson",
+      "file": "shire_v2.geo.json",
+      "default": true
+    }, {
+      "type": "topojson",
+      "file": "shire_v2.topo.json",
+      "default": false
+    }],
+    "createdAt": "1532-12-25T18:45:32.389979"
   }
 ]
