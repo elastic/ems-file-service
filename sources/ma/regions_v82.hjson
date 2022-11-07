@@ -35,14 +35,32 @@
             name: label_en
             desc: Subdivision name (English)
         }
-    ]
+        {
+          type: property
+          name: label_fr
+          desc: Province name (French)
+        }
+        {
+          type: property
+          name: label_ar
+          desc: Province name (Arabic)
+        }
+        {
+          type: property
+          name: label_ary
+          desc: Province name (Morrocan Arabic)
+        }
+    ],
     query: {
         sparql:
             '''
-            #defaultView:MapRegions
+            #defaultView:MapRegions,
             SELECT
             (if(bound(?id2),?id2,?id) as ?id)
             ?iso_3166_2 ?label_en
+            ?label_fr
+            ?label_ar
+            ?label_ary
             WHERE {
               SERVICE <https://query.wikidata.org/sparql> {
               # Using nested query to ensure there is only one ?id2 value
@@ -51,19 +69,24 @@
               (SAMPLE(?id2) as ?id2)
               (SAMPLE(?iso_3166_2) as ?iso_3166_2)
               (SAMPLE(?label_en) as ?label_en)
+              (SAMPLE(?label_fr) as ?label_fr)
+              (SAMPLE(?label_ar) as ?label_ar)
+              (SAMPLE(?label_ary) as ?label_ary)
               WHERE {
                 # List of regions, whose sub-regions we want.
                 VALUES ?entity { wd:Q1028 }
 
                 # P150 = "contains administrative territorial entity"
-                ?entity wdt:P150* ?id .
+                ?entity wdt:P150 ?id .
                 ?id wdt:P300 ?iso_3166_2
 
                     OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                    OPTIONAL { ?id rdfs:label ?label_fr . FILTER(LANG(?label_fr) = "fr")}
+                    OPTIONAL { ?id rdfs:label ?label_ar . FILTER(LANG(?label_ar) = "ar")}
+                    OPTIONAL { ?id rdfs:label ?label_ary . FILTER(LANG(?label_ary) = "ary")}
               }
               # remove possible ID duplicates
-              GROUP BY ?id
-              ORDER BY ?id}
+              GROUP BY ?id}
             }
             }
             '''
@@ -73,7 +96,7 @@
       Morocco Regions
     ]
     humanReadableName: {
-      ar: المغرب جهات
+      ar: جهات المغرب
       ary: جيهات لمغريب
       ast: rexón de Marruecos
       bn: মরক্কোর প্রশাসনিক অঞ্চল
@@ -120,6 +143,6 @@
     }]
     ttl: 108000
     weight: 0
-    createdAt: 2022-11-03T17:31:56.852724
+    createdAt: 2022-11-04T16:46:02.651735
     id: 1667410356412442
 }
