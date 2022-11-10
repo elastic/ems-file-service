@@ -1,5 +1,5 @@
 {
-    versions: '>=8.2',
+    versions: '>=1',
     type: http
     production: true,
     countryCode: MA,
