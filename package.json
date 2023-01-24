@@ -11,7 +11,7 @@
   },
   "keywords": [],
   "engines": {
-    "node": ">= 12 <= 16"
+    "node": ">= 16 <= 18"
   },
   "author": "Nick Peihl <nick.peihl@elastic.co>",
   "license": "Elastic-License",
