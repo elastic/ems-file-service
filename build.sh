@@ -38,7 +38,7 @@ fi
 
 if [[ "$1" != "nodocker" ]]; then
 
-    NODE_IMG="node:gallium"
+    NODE_IMG="node:hydrogen"
 
     echo "Generating manifests and vector data files for all versions using ${NODE_IMG} docker image"
     docker pull $NODE_IMG
@@ -52,7 +52,7 @@ if [[ "$1" != "nodocker" ]]; then
         --volume $PWD:/app \
         --workdir /app \
         $NODE_IMG \
-        bash -c 'npm config set spin false && /opt/yarn*/bin/yarn && yarn test && yarn run build'
+        bash -c '/opt/yarn*/bin/yarn && yarn test && yarn run build'
 
     if [[ -n "${VECTOR_BUCKET}" && -n "${CATALOGUE_BUCKET}" ]]; then
         # Run this script from inside the docker container, using google/cloud-sdk image

@@ -67,7 +67,7 @@ function getExpectedVector(version) {
           {
             type: 'property',
             id: 'label_en',
-            alias: [ '(geo\\.){0,}region_name' ],
+            alias: ['(geo\\.){0,}region_name'],
             label: {
               de: 'name (en)',
               en: 'name (en)',
@@ -129,7 +129,7 @@ function getExpectedVector(version) {
           {
             type: 'property',
             id: 'label_en',
-            alias: [ '(geo\\.){0,}region_name' ],
+            alias: ['(geo\\.){0,}region_name'],
             label: {
               de: 'name (en)',
               en: 'name (en)',
@@ -186,7 +186,7 @@ function getExpectedVector(version) {
           {
             type: 'property',
             id: 'label_en',
-            alias: [ '(geo\\.){0,}region_name' ],
+            alias: ['(geo\\.){0,}region_name'],
             label: {
               de: 'name (en)',
               en: 'name (en)',
@@ -245,7 +245,7 @@ function getExpectedVector(version) {
           {
             type: 'property',
             id: 'label_en',
-            alias: [ '(geo\\.){0,}region_name' ],
+            alias: ['(geo\\.){0,}region_name'],
             label: {
               de: 'name (en)',
               en: 'name (en)',
@@ -274,7 +274,7 @@ function getExpectedVector(version) {
 }
 
 tap('>=7.14 tests', t => {
-  ['7.14', '7.15', '7.16', '7.17'].forEach(version => {
+  ['7.14', '7.17', '8.6', '8.7'].forEach(version => {
     const catalogue = generateCatalogueManifest({
       version: `v${version}`,
       tileHostname: 'tiles.maps.elstc.co',
