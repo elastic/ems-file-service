@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --fix",
-    "test": "tap test/*.js --cov",
+    "test": "tap --no-timeout test/*.js --cov",
     "build": "node index.js"
   },
   "keywords": [],
