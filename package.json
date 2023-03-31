@@ -2,7 +2,7 @@
   "name": "ems-file-service",
   "private": true,
   "version": "0.0.1",
-  "description": "Data sources, vector data, and manifest generation for Elastic Maps Service",
+  "description": "Data sources, vector data, and manifest generation for Elastic Maps Service - just a dummy change",
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --fix",
