@@ -1,0 +1,30 @@
+{
+    "jobs": [
+        {
+            "repoOwner": "elastic",
+            "repoName": "ems-file-service",
+            "enabled": true,
+            "pipeline_slug": "ems-file-service",
+            "allow_org_users": true,
+            "allowed_repo_permissions": [
+                "admin",
+                "write"
+            ],
+            "allowed_list": [
+                "dependabot"
+            ],
+            "build_on_commit": true,
+            "build_on_comment": true,
+            "trigger_comment_regex": "^(?:(?:buildkite\\W+)?(?:build|test)\\W+(?:this|it))",
+            "always_trigger_comment_regex": "^(?:(?:buildkite\\W+)?(?:build|test)\\W+(?:this|it))",
+            "skip_ci_labels": [
+                "skip-ci"
+            ],
+            "skip_ci_on_only_changed": [
+                "\\.md$",
+                "^.ci/.+\\.yml$",
+                "^\\.buildkite/pull_requests\\.json$"
+            ]
+        }
+    ]
+}
