@@ -2,8 +2,26 @@ agents:
   image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent:latest"
 
 steps:
-  - label: ":hammer_and_wrench: Test and build"
+  - key: test
+    label: ":hammer_and_wrench: Test and build"
     commands: 
       - "yarn install"
       - "yarn test"
-      - "yarn build"
+    artifact_paths: "dist/*"
+
+  - wait:
+      allow_dependency_failure: false
+
+  - key: deploy-dev
+    label: ":rocket: Deploy to dev"
+    # branches: "feature-layers"
+    depends_on: test
+    command: ".buildkite/deploy.sh"
+    env:
+      GPROJECT: "elastic-ems-dev"
+      GCS_VAULT_SECRET_PATH: "secret/ci/elastic-ems-file-service/testing/gcs_acount"
+      TILE_HOST: "tiles.maps.elastic.co"
+      CATALOGUE_BUCKET: "elastic-ems-dev-emsfiles-catalogue-dev"
+      VECTOR_BUCKET: "elastic-ems-dev-emsfiles-vector-dev"
+      VECTOR_HOST: "storage.googleapis.com/elastic-ems-dev-emsfiles-vector-dev"
+

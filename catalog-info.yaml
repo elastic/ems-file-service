@@ -48,7 +48,7 @@ spec:
     kind: Pipeline
     metadata:
       name: EMS File Service
-      description: Pipeline to run the EMS File Service tests suite
+      description: Pipeline to run the EMS File Service tests suite and deployment
     spec:
       repository: elastic/ems-file-service
       pipeline_file: ".buildkite/pipeline.yml"
