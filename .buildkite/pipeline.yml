@@ -1,0 +1,9 @@
+agents:
+  image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent:latest"
+
+steps:
+  - label: ":hammer_and_wrench: Test and build"
+    commands: 
+      - "yarn install"
+      - "yarn test"
+      - "yarn build"
