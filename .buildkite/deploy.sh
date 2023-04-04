@@ -43,6 +43,10 @@ function retry {
 }
 
 
+# Download build from "test" step
+buildkite-agent artifact download "dist.tar.gz" dist --step test
+tar xf dist.tar
+
 if [[ -z "${VECTOR_HOST}" ]]; then
     VECTOR_HOST="vector-staging.maps.elastic.co"
     echo "VECTOR_HOST is not set. Defaulting to '${VECTOR_HOST}'."
@@ -75,10 +79,6 @@ fi
 # Login to the cloud with the service account
 gcloud auth activate-service-account --key-file <(echo "$GCE_ACCOUNT_SECRET")
 unset GCE_ACCOUNT_SECRET
-
-# Download build from "test" step
-mkdir -p $PWD/dist
-buildkite-agent artifact download "dist/*" dist --step test
 
 if [[ -n "${ARCHIVE_BUCKET}" ]]; then
     TIMESTAMP=`date +"%Y-%m-%d_%H-%M-%S"`
