@@ -11,19 +11,16 @@ steps:
       - "tar cf dist.tar dist"
     artifact_paths: "dist.tar"
 
-  - wait:
-      allow_dependency_failure: false
-
   - key: deploy-dev
-    label: ":rocket: Deploy to dev"
+    label: ":rocket: Deploy to the development environment"
     # branches: "feature-layers"
     depends_on: test
     command: ".buildkite/deploy.sh"
     env:
-      GPROJECT: "elastic-ems-dev"
       GCS_VAULT_SECRET_PATH: "secret/ci/elastic-ems-file-service/testing/gcs_acount"
       TILE_HOST: "tiles.maps.elastic.co"
+      VECTOR_HOST: "storage.googleapis.com/elastic-ems-dev-emsfiles-vector-dev"
       CATALOGUE_BUCKET: "elastic-ems-dev-emsfiles-catalogue-dev"
       VECTOR_BUCKET: "elastic-ems-dev-emsfiles-vector-dev"
-      VECTOR_HOST: "storage.googleapis.com/elastic-ems-dev-emsfiles-vector-dev"
+      ARCHIVE_BUCKET: "elastic-ems-dev-emsfiles-vector-dev"
 

@@ -12,7 +12,6 @@ set +x
 # Script to deploy the assets for EMS File Service
 
 # Expected env variables:
-# * [GPROJECT] - Google Cloud project where the buckets live
 # * [GCS_VAULT_SECRET_PATH] -  Path to retrieve the credentials for the google service account (JSON blob)
 # * [TILE_HOST] - "tiles.maps.elastic.co" or "tiles.maps.elstc.co" (default)
 # * [VECTOR_HOST] - "vector.maps.elastic.co" or "vector-staging.maps.elastic.co" (default)
@@ -44,6 +43,7 @@ function retry {
 
 
 # Download build from "test" step
+echo "Getting the EMS Files from the previous step..."
 buildkite-agent artifact download "dist.tar" . --step test
 tar xf dist.tar
 
@@ -82,17 +82,17 @@ unset GCE_ACCOUNT_SECRET
 
 if [[ -n "${ARCHIVE_BUCKET}" ]]; then
     TIMESTAMP=`date +"%Y-%m-%d_%H-%M-%S"`
-    SNAPSHOT_DIR=$PWD/${TIMESTAMP}_snapshot
+    SNAPSHOT_DIR="./${TIMESTAMP}_snapshot"
     ZIP_FILE=${TIMESTAMP}_${EMS_PROJECT}.tar.gz
-    ZIP_FILE_PATH=$PWD/$ZIP_FILE
+    ZIP_FILE_PATH=./$ZIP_FILE
 
-    echo "Copying $PWD/dist/* to $SNAPSHOT_DIR"
+    echo "Copying ./dist/* to $SNAPSHOT_DIR"
     if [[ -d "$SNAPSHOT_DIR" ]]; then
         echo "$SNAPSHOT_DIR already exist"
         exit 1
     fi
     mkdir -p "$SNAPSHOT_DIR"
-    cp -r $PWD/dist/* "$SNAPSHOT_DIR"
+    cp -r ./dist/* "$SNAPSHOT_DIR"
 
     echo "Archiving bucket into $ZIP_FILE_PATH"
     tar -czvf "$ZIP_FILE_PATH" -C "$SNAPSHOT_DIR" .
@@ -104,7 +104,9 @@ if [[ -n "${ARCHIVE_BUCKET}" ]]; then
     fi
     set -e
 
+    echo "\n\n========================================================================="
     echo "Copying $ZIP_FILE_PATH snapshot to gs://$ARCHIVE_BUCKET"
+    echo "=========================================================================\n"
     gsutil cp "$ZIP_FILE_PATH" "gs://$ARCHIVE_BUCKET"
 
     set +e
@@ -115,11 +117,13 @@ if [[ -n "${ARCHIVE_BUCKET}" ]]; then
 fi
 
 # Copy catalogue manifest
-echo "Copying $PWD/dist/catalogue* to gs://$CATALOGUE_BUCKET"
-gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z $PWD/dist/catalogue/* "gs://$CATALOGUE_BUCKET"
+echo "\n\n========================================================================="
+echo "Copying ./dist/catalogue* to gs://$CATALOGUE_BUCKET"
+echo "=========================================================================\n"
+gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z ./dist/catalogue/* "gs://$CATALOGUE_BUCKET"
 
 # Copy vector files
-echo "Copying $PWD/dist/vector* to gs://$VECTOR_BUCKET"
-gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z $PWD/dist/vector/* "gs://$VECTOR_BUCKET"
-
-
+echo "\n\n========================================================================="
+echo "Copying ./dist/catalogue* to gs://$VECTOR_BUCKET"
+echo "=========================================================================\n"
+gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z ./dist/vector/* "gs://$VECTOR_BUCKET"
