@@ -9,7 +9,7 @@ steps:
       - "yarn test"
       - "yarn build"
       - "tar cf dist.tar dist"
-    artifact_paths: "dist.tar.gz"
+    artifact_paths: "dist.tar"
 
   - wait:
       allow_dependency_failure: false

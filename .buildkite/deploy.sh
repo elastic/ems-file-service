@@ -44,7 +44,7 @@ function retry {
 
 
 # Download build from "test" step
-buildkite-agent artifact download "dist.tar.gz" dist --step test
+buildkite-agent artifact download "dist.tar" . --step test
 tar xf dist.tar
 
 if [[ -z "${VECTOR_HOST}" ]]; then
@@ -77,7 +77,7 @@ fi
 
 # Copying files to the cloud
 # Login to the cloud with the service account
-gcloud auth activate-service-account --key-file <(echo "$GCE_ACCOUNT_SECRET")
+gcloud auth activate-service-account --quiet --key-file <(echo "$GCE_ACCOUNT_SECRET")
 unset GCE_ACCOUNT_SECRET
 
 if [[ -n "${ARCHIVE_BUCKET}" ]]; then
