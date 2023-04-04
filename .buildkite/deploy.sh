@@ -104,9 +104,9 @@ if [[ -n "${ARCHIVE_BUCKET}" ]]; then
     fi
     set -e
 
-    echo "\n\n========================================================================="
+    echo "========================================================================="
     echo "Copying $ZIP_FILE_PATH snapshot to gs://$ARCHIVE_BUCKET"
-    echo "=========================================================================\n"
+    echo "========================================================================="
     gsutil cp "$ZIP_FILE_PATH" "gs://$ARCHIVE_BUCKET"
 
     set +e
@@ -117,13 +117,13 @@ if [[ -n "${ARCHIVE_BUCKET}" ]]; then
 fi
 
 # Copy catalogue manifest
-echo "\n\n========================================================================="
+echo "========================================================================="
 echo "Copying ./dist/catalogue* to gs://$CATALOGUE_BUCKET"
-echo "=========================================================================\n"
+echo "========================================================================="
 gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z ./dist/catalogue/* "gs://$CATALOGUE_BUCKET"
 
 # Copy vector files
-echo "\n\n========================================================================="
-echo "Copying ./dist/catalogue* to gs://$VECTOR_BUCKET"
-echo "=========================================================================\n"
+echo "========================================================================="
+echo "Copying ./dist/vector* to gs://$VECTOR_BUCKET"
+echo "========================================================================="
 gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z ./dist/vector/* "gs://$VECTOR_BUCKET"
