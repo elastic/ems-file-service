@@ -16,7 +16,6 @@ steps:
     env:
       EMS_ENVIRONMENT: "development"
 
-
   - key: deploy-staging
     label: ":rocket: Deploy to the staging environment"
     branches: "master"
