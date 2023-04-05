@@ -10,7 +10,7 @@ steps:
 
   - key: deploy-development
     label: ":rocket: Deploy to the development environment"
-    #branches: "feature-layers"
+    branches: "feature-layers"
     depends_on: test
     command: ".buildkite/deploy.sh"
     env:
