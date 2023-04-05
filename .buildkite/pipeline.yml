@@ -31,6 +31,7 @@ steps:
 
   - key: deploy-production
     label: ":rocket: Deploy to the production environment"
+    if: "build.tag!=null"
     depends_on: should-deploy
     command: ".buildkite/deploy.sh"
     env:
