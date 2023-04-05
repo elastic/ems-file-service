@@ -11,16 +11,43 @@ steps:
       - "tar cf dist.tar dist"
     artifact_paths: "dist.tar"
 
-  - key: deploy-dev
+  - key: deploy-development
     label: ":rocket: Deploy to the development environment"
-    # branches: "feature-layers"
+    branches: "feature-layers"
     depends_on: test
     command: ".buildkite/deploy.sh"
     env:
-      GCS_VAULT_SECRET_PATH: "secret/ci/elastic-ems-file-service/testing/gcs_acount"
       TILE_HOST: "tiles.maps.elastic.co"
-      VECTOR_HOST: "storage.googleapis.com/elastic-ems-dev-emsfiles-vector-dev"
-      CATALOGUE_BUCKET: "elastic-ems-dev-emsfiles-catalogue-dev"
-      VECTOR_BUCKET: "elastic-ems-dev-emsfiles-vector-dev"
-      ARCHIVE_BUCKET: "elastic-ems-dev-emsfiles-vector-dev"
+      VECTOR_HOST: "storage.googleapis.com/elastic-bekitzur-emsfiles-vector-dev"
+      GCS_VAULT_SECRET_PATH: "secret/ci/elastic-ems-file-service/testing/gcs_acount" #TO UPDATE
+      CATALOGUE_BUCKET: "elastic-ems-dev-emsfiles-catalogue-dev" #TO UPDATE
+      VECTOR_BUCKET: "elastic-ems-dev-emsfiles-vector-dev" #TO UPDATE
 
+  - key: deploy-staging
+    label: ":rocket: Deploy to the staging environment"
+    branches: "master"
+    depends_on: test
+    command: ".buildkite/deploy.sh"
+    env:
+      TILE_HOST: "tiles.maps.elastic.co"
+      VECTOR_HOST: "vector-staging.maps.elastic.co"
+      GCS_VAULT_SECRET_PATH: "secret/ci/elastic-ems-file-service/testing/gcs_acount" #TO UPDATE
+      CATALOGUE_BUCKET: "elastic-ems-dev-emsfiles-catalogue-dev" #TO UPDATE
+      VECTOR_BUCKET: "elastic-ems-dev-emsfiles-vector-dev" #TO UPDATE
+
+  - key: should-deploy
+    block: ":one-does-not-simply: Deploy to production?"
+    #if: "build.tag!=null"
+    depends_on: test
+
+  - key: deploy-production
+    label: ":rocket: Deploy to the production environment"
+    depends_on: should-deploy
+    command: ".buildkite/deploy.sh"
+    env:
+      TILE_HOST: "tiles.maps.elastic.co"
+      VECTOR_HOST: "vector.maps.elastic.co"
+      GCS_VAULT_SECRET_PATH: "secret/ci/elastic-ems-file-service/testing/gcs_acount" #TO UPDATE
+      CATALOGUE_BUCKET: "elastic-ems-dev-emsfiles-catalogue-dev" #TO UPDATE
+      VECTOR_BUCKET: "elastic-ems-dev-emsfiles-vector-dev" #TO UPDATE
+      ARCHIVE_BUCKET: "elastic-ems-dev-emsfiles-vector-dev" #TO UPDATE
