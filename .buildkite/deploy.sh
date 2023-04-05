@@ -73,11 +73,13 @@ fi
 
 # Copying files to the cloud
 # Login to the cloud with the service account
+echo "--- :gcloud: Authenticate in GCP"
 gcloud auth activate-service-account --quiet --key-file <(echo "$GCE_ACCOUNT_SECRET")
 unset GCE_ACCOUNT_SECRET
 
 
 # Install dependencies and build the assets
+echo "--- :yarn: Build the assets"
 yarn install
 yarn build
 
