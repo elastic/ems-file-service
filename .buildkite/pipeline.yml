@@ -3,13 +3,10 @@ agents:
 
 steps:
   - key: test
-    label: ":hammer_and_wrench: Test and build"
+    label: ":hammer_and_wrench: Test"
     commands: 
       - "yarn install"
       - "yarn test"
-      - "yarn build"
-      - "tar cf dist.tar dist"
-    artifact_paths: "dist.tar"
 
   - key: deploy-development
     label: ":rocket: Deploy to the development environment"
@@ -17,11 +14,8 @@ steps:
     depends_on: test
     command: ".buildkite/deploy.sh"
     env:
-      TILE_HOST: "tiles.maps.elastic.co"
-      VECTOR_HOST: "storage.googleapis.com/elastic-bekitzur-emsfiles-vector-dev"
-      GCS_VAULT_SECRET_PATH: "secret/ci/elastic-ems-file-service/testing/gcs_acount" #TO UPDATE
-      CATALOGUE_BUCKET: "elastic-ems-dev-emsfiles-catalogue-dev" #TO UPDATE
-      VECTOR_BUCKET: "elastic-ems-dev-emsfiles-vector-dev" #TO UPDATE
+      EMS_ENVIRONMENT: "development"
+
 
   - key: deploy-staging
     label: ":rocket: Deploy to the staging environment"
@@ -29,11 +23,7 @@ steps:
     depends_on: test
     command: ".buildkite/deploy.sh"
     env:
-      TILE_HOST: "tiles.maps.elastic.co"
-      VECTOR_HOST: "vector-staging.maps.elastic.co"
-      GCS_VAULT_SECRET_PATH: "secret/ci/elastic-ems-file-service/testing/gcs_acount" #TO UPDATE
-      CATALOGUE_BUCKET: "elastic-ems-dev-emsfiles-catalogue-dev" #TO UPDATE
-      VECTOR_BUCKET: "elastic-ems-dev-emsfiles-vector-dev" #TO UPDATE
+      EMS_ENVIRONMENT: "staging"
 
   - key: should-deploy
     block: ":one-does-not-simply: Deploy to production?"
@@ -45,9 +35,4 @@ steps:
     depends_on: should-deploy
     command: ".buildkite/deploy.sh"
     env:
-      TILE_HOST: "tiles.maps.elastic.co"
-      VECTOR_HOST: "vector.maps.elastic.co"
-      GCS_VAULT_SECRET_PATH: "secret/ci/elastic-ems-file-service/testing/gcs_acount" #TO UPDATE
-      CATALOGUE_BUCKET: "elastic-ems-dev-emsfiles-catalogue-dev" #TO UPDATE
-      VECTOR_BUCKET: "elastic-ems-dev-emsfiles-vector-dev" #TO UPDATE
-      ARCHIVE_BUCKET: "elastic-ems-dev-emsfiles-vector-dev" #TO UPDATE
+      EMS_ENVIRONMENT: "production"

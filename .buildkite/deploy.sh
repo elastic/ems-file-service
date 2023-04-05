@@ -42,36 +42,32 @@ function retry {
 }
 
 
-# Download build from "test" step
-echo "Getting the EMS Files from the previous step..."
-buildkite-agent artifact download "dist.tar" . --step test
-tar xf dist.tar
-
 if [[ -z "${VECTOR_HOST}" ]]; then
     VECTOR_HOST="vector-staging.maps.elastic.co"
-    echo "VECTOR_HOST is not set. Defaulting to '${VECTOR_HOST}'."
+    echo "--- :warning: VECTOR_HOST is not set. Defaulting to '${VECTOR_HOST}'."
 fi
 
 if [[ -z "${TILE_HOST}" ]]; then
     TILE_HOST="tiles.maps.elstc.co"
-    echo "TILE_HOST is not set. Defaulting to '${TILE_HOST}'."
+    echo "--- :warning: TILE_HOST is not set. Defaulting to '${TILE_HOST}'."
 fi
 
 if [[ -z "${CATALOGUE_BUCKET}" || -z "${VECTOR_BUCKET}" ]]; then
-    echo "No data will be uploaded. The following bucket information is not set:"
+    echo "--- :fire: No data will be uploaded. The following bucket information is not set:" 1>&2
     if [[ -z "${VECTOR_BUCKET}" ]]; then
-        echo "VECTOR_BUCKET"
+        echo "VECTOR_BUCKET" 1>&2
     fi
     if [[ -z "${CATALOGUE_BUCKET}" ]]; then
-        echo "CATALOGUE_BUCKET"
+        echo "CATALOGUE_BUCKET" 1>&2
     fi
+    exit 1
 fi
 
 export GCE_ACCOUNT_SECRET=$(retry 5 vault read --field=value ${GCS_VAULT_SECRET_PATH})
 unset GCS_VAULT_SECRET_PATH
 
 if [[ -z "${GCE_ACCOUNT_SECRET}" ]]; then
-    echo "GCP credentials not set. Expected google service account JSON blob."
+    echo "--- :fire: GCP credentials not set. Expected google service account JSON blob."  1>&2
     exit 1
 fi
 
@@ -80,50 +76,50 @@ fi
 gcloud auth activate-service-account --quiet --key-file <(echo "$GCE_ACCOUNT_SECRET")
 unset GCE_ACCOUNT_SECRET
 
+
+# Install dependencies and build the assets
+yarn install
+yarn build
+
+
+# Archive the assets if ARCHIVE_BUCKET is set
 if [[ -n "${ARCHIVE_BUCKET}" ]]; then
     TIMESTAMP=`date +"%Y-%m-%d_%H-%M-%S"`
     SNAPSHOT_DIR="./${TIMESTAMP}_snapshot"
     ZIP_FILE=${TIMESTAMP}_${EMS_PROJECT}.tar.gz
     ZIP_FILE_PATH=./$ZIP_FILE
 
-    echo "Copying ./dist/* to $SNAPSHOT_DIR"
+    echo "--- :arrow_right: Copying ./dist/* to $SNAPSHOT_DIR"
     if [[ -d "$SNAPSHOT_DIR" ]]; then
-        echo "$SNAPSHOT_DIR already exist"
+        echo "--- :fire: $SNAPSHOT_DIR already exist"  1>&2
         exit 1
     fi
     mkdir -p "$SNAPSHOT_DIR"
     cp -r ./dist/* "$SNAPSHOT_DIR"
 
-    echo "Archiving bucket into $ZIP_FILE_PATH"
+    echo "--- :compression: Archiving bucket into $ZIP_FILE_PATH"
     tar -czvf "$ZIP_FILE_PATH" -C "$SNAPSHOT_DIR" .
 
     set +e
     if gsutil -q stat "gs://$ARCHIVE_BUCKET/$ZIP_FILE" ; then
-        echo ERROR: snapshot file "gs://$ARCHIVE_BUCKET/$ZIP_FILE" already exists 1>&2
+        echo "--- :fire: ERROR: snapshot file \"gs://$ARCHIVE_BUCKET/$ZIP_FILE\" already exists" 1>&2
         exit 1
     fi
     set -e
-
-    echo "========================================================================="
-    echo "Copying $ZIP_FILE_PATH snapshot to gs://$ARCHIVE_BUCKET"
-    echo "========================================================================="
+    echo "--- :gcloud: Copying $ZIP_FILE_PATH snapshot to gs://$ARCHIVE_BUCKET"
     gsutil cp "$ZIP_FILE_PATH" "gs://$ARCHIVE_BUCKET"
 
     set +e
     if ! gsutil -q stat "gs://$ARCHIVE_BUCKET/$ZIP_FILE" ; then
-        echo ERROR: snapshot file "gs://$ARCHIVE_BUCKET/$ZIP_FILE" did not upload successfully 1>&2
+        echo "--- :fire: ERROR: snapshot file \"gs://$ARCHIVE_BUCKET/$ZIP_FILE\" did not upload successfully" 1>&2
         exit 1
     fi
 fi
 
 # Copy catalogue manifest
-echo "========================================================================="
-echo "Copying ./dist/catalogue* to gs://$CATALOGUE_BUCKET"
-echo "========================================================================="
+echo "--- :gcloud: Copying ./dist/catalogue* to gs://$CATALOGUE_BUCKET"
 gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z ./dist/catalogue/* "gs://$CATALOGUE_BUCKET"
 
 # Copy vector files
-echo "========================================================================="
-echo "Copying ./dist/vector* to gs://$VECTOR_BUCKET"
-echo "========================================================================="
+echo "--- :gcloud: Copying ./dist/vector* to gs://$VECTOR_BUCKET"
 gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z ./dist/vector/* "gs://$VECTOR_BUCKET"
