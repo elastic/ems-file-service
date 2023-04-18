@@ -30,7 +30,7 @@ case ${EMS_ENVIRONMENT} in
         export VECTOR_HOST="vector.maps.elastic.co"
         export CATALOGUE_BUCKET="${BUCKET_PREFIX}-catalogue"
         export VECTOR_BUCKET="${BUCKET_PREFIX}-vector"
-        export ARCHIVE_BUCKET="${BUCKET_PREFIX}-vector"
+        export ARCHIVE_BUCKET="${BUCKET_PREFIX}-archive"
     ;;
     "*")
         echo "--- :fire: ${EMS_ENVIRONMENT}  is not a valid environment definition" 1>&2
