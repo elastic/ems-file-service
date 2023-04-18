@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+#
+# Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+# or more contributor license agreements. Licensed under the Elastic License;
+# you may not use this file except in compliance with the Elastic License.
+#
+
+set -e
+
+if [[ -z ${EMS_ENVIRONMENT} ]]; then
+    exit 0
+fi
+
+echo '--- :bash: Setting up the environment to deploy assets into dev/staging/prod buckets'
+
+BUCKET_PREFIX="elastic-bekitzur-emsfiles"
+
+case ${EMS_ENVIRONMENT} in
+    "development")
+        export VECTOR_HOST="storage.googleapis.com/elastic-bekitzur-emsfiles-vector-dev"
+        export CATALOGUE_BUCKET="${BUCKET_PREFIX}-catalogue-dev"
+        export VECTOR_BUCKET="${BUCKET_PREFIX}-vector-dev"
+    ;;
+    "staging")
+        export VECTOR_HOST="vector-staging.maps.elastic.co"
+        export CATALOGUE_BUCKET="${BUCKET_PREFIX}-catalogue-staging"
+        export VECTOR_BUCKET="${BUCKET_PREFIX}-vector-staging"
+    ;;
+    "production")
+        export VECTOR_HOST="vector.maps.elastic.co"
+        export CATALOGUE_BUCKET="${BUCKET_PREFIX}-catalogue"
+        export VECTOR_BUCKET="${BUCKET_PREFIX}-vector"
+        export ARCHIVE_BUCKET="${BUCKET_PREFIX}-vector"
+    ;;
+    "*")
+        echo "--- :fire: ${EMS_ENVIRONMENT}  is not a valid environment definition" 1>&2
+        exit 1
+esac
+
+export TILE_HOST="tiles.maps.elastic.co"
+export GCS_VAULT_SECRET_PATH="secret/ci/elastic-ems-file-service/gce/elastic-bekitzur/service-account/emsfiles"

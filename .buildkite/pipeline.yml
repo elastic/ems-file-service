@@ -2,8 +2,42 @@ agents:
   image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent:latest"
 
 steps:
-  - label: ":hammer_and_wrench: Test and build"
+  - key: test
+    label: ":hammer_and_wrench: Test"
     commands: 
       - "yarn install"
       - "yarn test"
-      - "yarn build"
+
+  - key: deploy-development
+    label: ":rocket: Development"
+    branches: "feature-layers"
+    depends_on: test
+    command: ".buildkite/deploy.sh"
+    env:
+      EMS_ENVIRONMENT: "development"
+
+  - key: deploy-staging
+    label: ":rocket: Staging"
+    branches: "master"
+    depends_on: test
+    command: ".buildkite/deploy.sh"
+    env:
+      EMS_ENVIRONMENT: "staging"
+
+  - key: should-deploy
+    block: ":one-does-not-simply: Deploy"
+    if: "build.tag!=null"
+    depends_on: test
+
+  - key: deploy-production
+    label: ":shipit: Deploy"
+    if: "build.tag!=null"
+    depends_on: should-deploy
+    command: ".buildkite/deploy.sh"
+    env:
+      EMS_ENVIRONMENT: "production"
+    notify:
+      - slack:
+          channels:
+            - "#maps-ops"
+          message: "@here EMS File Service production pipeline has run 👀"
