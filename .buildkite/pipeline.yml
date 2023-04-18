@@ -39,5 +39,5 @@ steps:
     notify:
       - slack:
           channels:
-            - "maps-ops"
+            - "#maps-ops"
           message: "@here EMS File Service production pipeline has run 👀"
