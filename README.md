@@ -26,10 +26,10 @@ yarn build
 
 ## Continuous Integration and Deployment
 
-- New feature layers can be developed on the `feature-layers` branch (`git checkout --track upstream/feature-layers`). Jenkins will build and deploy all commits to this branch into a testing bucket on GCP. Test feature layers on this branch in Kibana by adding `map.manifestServiceUrl: http://storage.googleapis.com/elastic-bekitzur-emsfiles-catalogue-dev/v7.2/manifest` to `config/kibana.yml`. 
+- New feature layers can be developed on the `feature-layers` branch (`git checkout --track upstream/feature-layers`). Buildkite will build and deploy all commits to this branch into a testing bucket on GCP. Test feature layers on this branch in Kibana by adding `map.manifestServiceUrl: http://storage.googleapis.com/elastic-bekitzur-emsfiles-catalogue-dev/v7.2/manifest` to `config/kibana.yml`. 
 - Pull requests for new feature layers should be made from the `feature-layers` against the `master` branch. Pull requests for any other changes should be made on a new branch in your fork, e.g. `git checkout -b my-bugfix`.
-- Once merged, Jenkins will run `deployStaging.sh` script, which will place the contents of the `dist` directory into the staging bucket.
-- Deploying to production requires manually triggering [this Jenkins job](https://kibana-ci.elastic.co/job/elastic+ems-file-service+deploy/) to run the `deployProduction.sh` script. This will rsync files from the staging bucket to the production bucket. To trigger, log in and click the "Build with Parameters" link. Leave the `branch_specifier` field as default (`refs/heads/master`).
+- Once merged, Buildkite will run `.buildkite/deploy.sh` script, which will place the contents of the `dist` directory into the staging bucket.
+- Deploying to production requires pushing a tag  (`git push --tags`) and accepting the `Deploy to production?` block step. This will execute the `deploy.sh` script against the production GCP buckets, creating also an archive in a separate bucket for future reference.
 
 ## Adding a new country subdivision vector layer
 
