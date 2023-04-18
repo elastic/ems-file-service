@@ -9,7 +9,7 @@ steps:
       - "yarn test"
 
   - key: deploy-development
-    label: ":rocket: Deploy to the development environment"
+    label: ":rocket: Development"
     branches: "feature-layers"
     depends_on: test
     command: ".buildkite/deploy.sh"
@@ -17,7 +17,7 @@ steps:
       EMS_ENVIRONMENT: "development"
 
   - key: deploy-staging
-    label: ":rocket: Deploy to the staging environment"
+    label: ":rocket: Staging"
     branches: "master"
     depends_on: test
     command: ".buildkite/deploy.sh"
@@ -25,14 +25,19 @@ steps:
       EMS_ENVIRONMENT: "staging"
 
   - key: should-deploy
-    block: ":one-does-not-simply: Deploy to production?"
+    block: ":one-does-not-simply: Deploy"
     if: "build.tag!=null"
     depends_on: test
 
   - key: deploy-production
-    label: ":rocket: Deploy to the production environment"
+    label: ":shipit: Deploy"
     if: "build.tag!=null"
     depends_on: should-deploy
     command: ".buildkite/deploy.sh"
     env:
       EMS_ENVIRONMENT: "production"
+    notify:
+      - slack:
+          channels:
+            - "maps-ops"
+          message: "@here EMS File Service production pipeline has run 👀"
