@@ -88,7 +88,7 @@ yarn build
 if [[ -n "${ARCHIVE_BUCKET}" ]]; then
     TIMESTAMP=`date +"%Y-%m-%d_%H-%M-%S"`
     SNAPSHOT_DIR="./${TIMESTAMP}_snapshot"
-    ZIP_FILE=${TIMESTAMP}_${EMS_PROJECT}.tar.gz
+    ZIP_FILE=${TIMESTAMP}_emsfiles.tar.gz
     ZIP_FILE_PATH=./$ZIP_FILE
 
     echo "--- :arrow_right: Copying ./dist/* to $SNAPSHOT_DIR"
