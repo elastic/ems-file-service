@@ -61,4 +61,5 @@ spec:
           access_level: READ_ONLY
       provider_settings:
         publish_commit_status: true
+        build_tags: true
 
