@@ -38,6 +38,10 @@ module.exports = Object.freeze({
     'v8.8',
     'v8.9',
     'v8.10',
+    'v8.11',
+    'v8.12',
+    'v8.13',
+    'v8.14',
   ],
   GEOJSON_RFC7946: undefined,
 });
