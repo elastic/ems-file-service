@@ -13,6 +13,10 @@ const {
 const sources = require('./fixtures/valid-sources/sources.json');
 const fieldInfo = require('./fixtures/fieldInfo.json');
 
+module.exports = {
+  getExpectedVector
+}
+
 function getExpectedVector(version) {
   return {
     version: version,
