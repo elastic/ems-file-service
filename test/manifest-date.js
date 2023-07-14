@@ -132,7 +132,8 @@ tap("date based tests", (t) => {
       });
     },
     {},
-    { skip: true }
+    { skip: true },
+    "Non existing entry in DATE_VERSIONS sholud throw an error"
   );
   t.end();
 });
@@ -156,7 +157,11 @@ tap("latest manifest", (t) => {
     fieldInfo: fieldInfo,
     dataDir: "test/fixtures/data",
   });
-  t.same(vector, getExpectedVector(dateVersion), `${version} vector manifest`);
+  t.same(
+    vector,
+    getExpectedVector(dateVersion),
+    `${version} vector manifest should return ${dateVersion}`
+  );
 
   t.end();
 });

@@ -34,6 +34,7 @@ function generateCatalogueManifest(opts) {
     ...opts,
   };
 
+  // Get the Semantic Version (in case it is date based)
   const version = coerceToSemVer(opts.version);
 
   //Catalogue manifest was removed in 7.6+
@@ -81,6 +82,7 @@ function generateVectorManifest(sources, opts) {
 
   const isDateVersion = checkDateVersion(opts.version);
 
+  // Get the Semantic Version (in case it is date based)
   const manifestVersion = coerceToSemVer(opts.version);
   const layers = [];
   const uniqueProperties = [];
@@ -117,7 +119,9 @@ function generateVectorManifest(sources, opts) {
 
   const manifest = {
     version: isDateVersion
+      // Get the Date Version
       ? coerceToDateSemver(opts.version)?.date
+      // Get the Semantic Version
       : `${semver.major(manifestVersion)}.${semver.minor(manifestVersion)}`,
     layers: layers,
   };
