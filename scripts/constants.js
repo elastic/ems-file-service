@@ -41,9 +41,9 @@ module.exports = Object.freeze({
   ],
   DATE_VERSIONS: [
     {
-      'date': '2023-10-31',
-      'semver': 'v8.10'
-    }
+      date: "2023-10-31",
+      semver: "v8.10",
+    },
   ],
   LATEST_TAG: "latest",
   GEOJSON_RFC7946: undefined,

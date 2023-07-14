@@ -8,11 +8,15 @@ const semver = require('semver');
 const _ = require('lodash');
 const { readFileSync } = require('fs');
 const constants = require('./constants');
-const { coerceToSemVer, coerceToDateSemver, checkDateVersion } = require('./date-versions');
+const {
+  coerceToSemVer,
+  coerceToDateSemver,
+  checkDateVersion,
+} = require("./date-versions");
 
 module.exports = {
   generateVectorManifest,
-  generateCatalogueManifest
+  generateCatalogueManifest,
 };
 
 /**
@@ -113,7 +117,7 @@ function generateVectorManifest(sources, opts) {
 
   const manifest = {
     version: isDateVersion
-      ? coerceToDateSemver(opts.version).date
+      ? coerceToDateSemver(opts.version)?.date
       : `${semver.major(manifestVersion)}.${semver.minor(manifestVersion)}`,
     layers: layers,
   };
