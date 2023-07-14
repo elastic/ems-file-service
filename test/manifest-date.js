@@ -25,16 +25,23 @@ const constants = require("../scripts/constants");
 tap("formatDateToIso", (t) => {
   let validDate = "2023-12-31";
   t.same(
-    validDate,
     formatDateToIso(new Date(validDate)),
+    validDate,
     "Render a valid ISO date"
   );
 
-  let invalidDate = "2023-07-13T14:05:53+0200";
+  let invalidDate = "2023-12-31T23:45:00";
   t.same(
-    "2023-07-13",
     formatDateToIso(new Date(invalidDate)),
-    "Reduce a full timestamp into a date only string"
+    "2023-12-31",
+    "Reduce a timestamp without time zone into a date only string"
+  );
+
+  invalidDate = "2023-12-31T23:45:00-1200";
+  t.same(
+    formatDateToIso(new Date(invalidDate)),
+    "2024-01-01",
+    "Reduce a full timestamp with time zone into a date only string"
   );
 
   t.throws(
