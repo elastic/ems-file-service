@@ -8,6 +8,11 @@ const semver = require('semver');
 const _ = require('lodash');
 const { readFileSync } = require('fs');
 const constants = require('./constants');
+const {
+  coerceToSemVer,
+  coerceToDateSemver,
+  checkDateVersion,
+} = require("./date-versions");
 
 module.exports = {
   generateVectorManifest,
@@ -28,10 +33,10 @@ function generateCatalogueManifest(opts) {
     vectorHostname: constants.VECTOR_STAGING_HOST,
     ...opts,
   };
-  const version = semver.coerce(opts.version);
-  if (!semver.valid(version)) {
-    throw new Error('A valid version parameter must be defined');
-  }
+
+  // Get the Semantic Version (in case it is date based)
+  const version = coerceToSemVer(opts.version);
+
   //Catalogue manifest was removed in 7.6+
   if (semver.gte(version, '7.6.0')) {
     return;
@@ -74,10 +79,11 @@ function generateVectorManifest(sources, opts) {
     dataDir: 'data',
     ...opts,
   };
-  if (!semver.valid(semver.coerce(opts.version))) {
-    throw new Error('A valid version parameter must be defined');
-  }
-  const manifestVersion = semver.coerce(opts.version);
+
+  const isDateVersion = checkDateVersion(opts.version);
+
+  // Get the Semantic Version (in case it is date based)
+  const manifestVersion = coerceToSemVer(opts.version);
   const layers = [];
   const uniqueProperties = [];
   for (const source of _.orderBy(sources, ['weight', 'name'], ['desc', 'asc'])) {
@@ -112,7 +118,11 @@ function generateVectorManifest(sources, opts) {
   }
 
   const manifest = {
-    version: `${semver.major(manifestVersion)}.${semver.minor(manifestVersion)}`,
+    version: isDateVersion
+      // Get the Date Version
+      ? coerceToDateSemver(opts.version)?.date
+      // Get the Semantic Version
+      : `${semver.major(manifestVersion)}.${semver.minor(manifestVersion)}`,
     layers: layers,
   };
   return manifest;

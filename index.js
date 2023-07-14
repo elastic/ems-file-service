@@ -34,7 +34,13 @@ mkdirp.sync('./dist/catalogue');
 
 const vectorFiles = new Map();
 
-for (const version of constants.VERSIONS) {
+const versions = [
+  ...constants.VERSIONS,
+  ...constants.DATE_VERSIONS.map( el =>  el.date),
+  ...[ constants.LATEST_TAG ]
+]
+
+for (const version of versions) {
   const catalogueManifest = generateCatalogueManifest({
     version: version,
     tileHostname: tileManifestHostname,
