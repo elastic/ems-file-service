@@ -7,6 +7,8 @@
 const path = require('path');
 const semver = require('semver');
 
+const { coerceToSemVer } = require('./date-versions');
+
 module.exports = generateVectors;
 
 /**
@@ -27,7 +29,7 @@ function generateVectors(sources, opts) {
     ...opts,
   };
   const files = [];
-  const manifestVersion = semver.coerce(opts.version);
+  const manifestVersion = coerceToSemVer(opts.version);
   for (const source of sources) {
     if ((!opts.production ||
       (opts.production && source.production)) &&
