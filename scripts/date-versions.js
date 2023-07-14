@@ -77,9 +77,7 @@ function coerceToDateSemver(dateVersion) {
  * @returns {String}
  */
 function coerceToSemVer(version) {
-  const isDateVersion =
-    !semver.valid(version) &&
-    (version == constants.LATEST_TAG || checkDateVersion(version));
+  const isDateVersion = !semver.valid(version) && checkDateVersion(version);
 
   // Check the version is in the constants or a valid SemVer
   if (!isDateVersion && !semver.valid(semver.coerce(version))) {
