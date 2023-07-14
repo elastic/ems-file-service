@@ -133,7 +133,7 @@ tap("date based tests", (t) => {
     },
     {},
     { skip: true },
-    "Non existing entry in DATE_VERSIONS sholud throw an error"
+    "Non existing entry in DATE_VERSIONS should throw an error"
   );
   t.end();
 });
