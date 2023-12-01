@@ -10,3 +10,4 @@ dist/
 *.iml
 .idea/
 .nyc_output/
+.tap

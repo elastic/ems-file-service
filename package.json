@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --fix",
-    "test": "tap --no-timeout test/*.js --cov",
+    "test": "tap --timeout=0 test/*.js",
     "build": "node index.js"
   },
   "keywords": [],
@@ -20,7 +20,7 @@
     "hjson": "^3.2.1",
     "lodash": "^4.17.21",
     "mkdirp": "^1.0.3",
-    "rimraf": "^3.0.2",
+    "rimraf": "^5.0.5",
     "semver": "^7.5.3",
     "yargs": "^15.3.1"
   },
@@ -38,10 +38,10 @@
     "geolib": "^3.2.1",
     "jsts": "2.6.1",
     "node-fetch": "^2.6.7",
-    "tap": "^16.3.2"
+    "tap": "^18.0.0"
   },
   "resolutions": {
     "**/debug": "^4.3.1",
-    "**/glob": "^10.3.10"
+    "**/glob": "^9.0.0"
   }
 }
