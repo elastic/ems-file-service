@@ -10,3 +10,5 @@ dist/
 *.iml
 .idea/
 .nyc_output/
+.tap
+yarn-error.log

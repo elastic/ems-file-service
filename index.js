@@ -8,7 +8,6 @@ const Hjson = require('hjson');
 const glob = require('glob');
 const fs = require('fs');
 const path = require('path');
-const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
 const rewind = require('geojson-rewind');
 const { generateVectorManifest, generateCatalogueManifest } = require('./scripts/generate-manifest');
@@ -27,7 +26,7 @@ const sources = glob.sync('sources/**/*.*json').map(source => {
 const fieldInfo = Hjson.parse(fs.readFileSync('./schema/fields.hjson', 'utf8'));
 
 // Clean and recreate `./dist` directories
-rimraf.sync('./dist');
+fs.rmSync("dist", { recursive: true, force: true });
 mkdirp.sync('./dist/vector/blob');
 mkdirp.sync('./dist/vector/files');
 mkdirp.sync('./dist/catalogue');
