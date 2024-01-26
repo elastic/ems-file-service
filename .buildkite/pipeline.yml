@@ -1,5 +1,5 @@
 agents:
-  image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node20:0.1"
+  image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node20:0.2"
 
 steps:
   - key: test
