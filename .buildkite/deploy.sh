@@ -63,7 +63,8 @@ if [[ -z "${CATALOGUE_BUCKET}" || -z "${VECTOR_BUCKET}" ]]; then
     exit 1
 fi
 
-export GCE_ACCOUNT_SECRET=$(retry 5 vault read --field=value ${GCS_VAULT_SECRET_PATH})
+export GCE_ACCOUNT_SECRET
+GCE_ACCOUNT_SECRET=$(retry 5 vault read --field=value "${GCS_VAULT_SECRET_PATH}")
 unset GCS_VAULT_SECRET_PATH
 
 if [[ -z "${GCE_ACCOUNT_SECRET}" ]]; then
@@ -82,11 +83,12 @@ unset GCE_ACCOUNT_SECRET
 echo "--- :yarn: Build the assets"
 yarn install
 yarn build
+printf "EMS File Service\n%.8s\n" "$(git rev-parse HEAD)" > ./dist/index.html
 
 
 # Archive the assets if ARCHIVE_BUCKET is set
 if [[ -n "${ARCHIVE_BUCKET}" ]]; then
-    TIMESTAMP=`date +"%Y-%m-%d_%H-%M-%S"`
+    TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
     SNAPSHOT_DIR="./${TIMESTAMP}_snapshot"
     ZIP_FILE=${TIMESTAMP}_emsfiles.tar.gz
     ZIP_FILE_PATH=./$ZIP_FILE
