@@ -83,6 +83,8 @@ unset GCE_ACCOUNT_SECRET
 echo "--- :yarn: Build the assets"
 yarn install
 yarn build
+# Print the commit detail into the vector root folder
+sed -e "s@\${EMS_COMMIT}@${BUILDKITE_COMMIT:0:8}@g" < templates/index.html.tpl > ./dist/vector/index.html
 
 # Archive the assets if ARCHIVE_BUCKET is set
 if [[ -n "${ARCHIVE_BUCKET}" ]]; then
