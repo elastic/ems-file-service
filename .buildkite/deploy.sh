@@ -83,9 +83,6 @@ unset GCE_ACCOUNT_SECRET
 echo "--- :yarn: Build the assets"
 yarn install
 yarn build
-# Print the commit detail into the vector root folder
-sed -e "s@\${EMS_COMMIT}@${BUILDKITE_COMMIT:0:8}@g" < templates/index.html.tpl > ./dist/vector/index.html
-
 
 # Archive the assets if ARCHIVE_BUCKET is set
 if [[ -n "${ARCHIVE_BUCKET}" ]]; then
@@ -128,3 +125,8 @@ gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3
 # Copy vector files
 echo "--- :gcloud: Copying ./dist/vector* to gs://$VECTOR_BUCKET"
 gsutil -m -h "Content-Type:application/json" -h "Cache-Control:public, max-age=3600" cp -r -Z ./dist/vector/* "gs://$VECTOR_BUCKET"
+
+# Set up the /index.html correct headers for HTML content
+gsutil setmeta -h "Content-Type:text/html;charset=UTF-8" \
+  -h "Cache-Control:public, max-age=3600" \
+  "gs://$VECTOR_BUCKET/index.html"
