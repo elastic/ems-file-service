@@ -31,6 +31,13 @@ yarn build
 - Once merged, Buildkite will run `.buildkite/deploy.sh` script, which will place the contents of the `dist` directory into the staging bucket.
 - Deploying to production requires pushing a tag  (`git push --tags`) and accepting the `Deploy to production?` block step. This will execute the `deploy.sh` script against the production GCP buckets, creating also an archive in a separate bucket for future reference.
 
+## Versioning
+
+- The file `scripts/constants.js` contains the versions for the manifests to be generated. It is OK to generate a few versions ahead of the Elastic Stack current status.
+- Aside of the Elastic Stack Semantic Versioning tailored for the cloud and self-managed environments, date-based version manifests are also generated, mapped to semver, at the `DATE_VERSIONS` array. Check [PR #287](https://github.com/elastic/ems-file-service/pull/287) for details.
+- A final `/latest/manifest` is generated from the last entry in the `DATE_VERSIONS` array.
+- If the manifest contract needs to be changed, a new date version entry should be generated. Otherwise is OK to upgrade an entry in `DATE_VERSIONS` in place, to upgrade to a newer semantic version of the Stack.  For example [PR #306](https://github.com/elastic/ems-file-service/pull/306) promotes the `2023-10-31` version from `8.10` to point to `8.13` given that only new data has been added to the repository.
+
 ## Adding a new country subdivision vector layer
 
 Whenever possible new vector layers should be created using a SPARQL query in [Sophox](http://sophox.org). 
