@@ -46,7 +46,7 @@ module.exports = Object.freeze({
   DATE_VERSIONS: [
     {
       date: "2023-10-31",
-      semver: "v8.10",
+      semver: "v8.13",
     },
   ],
   LATEST_TAG: "latest",
