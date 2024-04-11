@@ -42,6 +42,9 @@ module.exports = Object.freeze({
     'v8.12',
     'v8.13',
     'v8.14',
+    'v8.15',
+    'v8.16',
+    'v8.17',
   ],
   DATE_VERSIONS: [
     {
