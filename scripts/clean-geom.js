@@ -10,6 +10,7 @@ import GeoJSONReader from "jsts/org/locationtech/jts/io/GeoJSONReader.js";
 import GeoJSONWriter from "jsts/org/locationtech/jts/io/GeoJSONWriter.js";
 import IsSimpleOp from "jsts/org/locationtech/jts/operation/IsSimpleOp.js";
 import IsValidOp from "jsts/org/locationtech/jts/operation/valid/IsValidOp.js";
+import { BufferOp } from "jsts/org/locationtech/jts/operation/buffer.js";
 
 import rewind from "geojson-rewind";
 import yargs from "yargs/yargs";
@@ -61,14 +62,17 @@ function makeValid(feature) {
 
   if (!isSimple.isSimple() || !isValid.isValid()) {
 
-    if (!feature.geometry.isValid()) {
+    if (!isValid.isValid()) {
       log(`Feature [${feature.id}] is invalid`);
     }
 
-    const geom = feature.geometry.buffer(0);
+    const geom = BufferOp.bufferOp(feature.geometry,0);
+    const geomArea = geom.getArea();
 
-    if (geom.getArea() === 0) {
+    if (geomArea === 0) {
       log(`New geometry is empty!!`);
+    } else {
+      log(`New geometry area: ${geomArea}`)
     }
 
     newFeature.geometry = writer.write(geom);

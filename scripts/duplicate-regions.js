@@ -3,10 +3,12 @@
  * or more contributor license agreements. Licensed under the Elastic License;
  * you may not use this file except in compliance with the Elastic License.
  */
+import fs from 'node:fs';
 
-const fs = require('fs');
-const csvParse = require('csv-parse/lib/sync');
-const argv = require('yargs')
+import { parse as csvParse } from 'csv-parse/sync';
+import yargs from 'yargs/yargs';
+
+const argv = yargs(process.argv.slice(2))
   .usage('Script to extract regions overriding region and country data from a CSV')
   .version('0.1')
   .epilog('Elastic, 2020')
