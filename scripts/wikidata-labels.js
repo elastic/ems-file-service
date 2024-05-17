@@ -1,5 +1,5 @@
-const fetch = require('node-fetch');
-const Hjson = require('hjson');
+import fetch from 'node-fetch';
+import hjson from 'hjson';
 
 const wdItem = process.argv[2];
 
@@ -23,4 +23,4 @@ async function wikidataTranslations(id) {
 }
 
 wikidataTranslations(wdItem)
-  .then(labels => console.log(Hjson.stringify(labels)));
+  .then(labels => console.log(hjson.stringify(labels)));

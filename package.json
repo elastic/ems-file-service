@@ -38,7 +38,7 @@
     "geojson-rewind": "^0.3.1",
     "geolib": "^3.2.1",
     "jsts": "2.11.3",
-    "node-fetch": "^2.6.7",
+    "node-fetch": "^3.3.2",
     "tap": "^18.6.1"
   },
   "resolutions": {
