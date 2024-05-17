@@ -145,7 +145,7 @@ const compareFeatures = function ({ id, left, right }) {
 
   details.centroids = {
     left: `${lCentroid.getX()}, ${lCentroid.getY()}`,
-    right: `${rCentroid.getX()}, ${rCentroid.getY()}`
+    right: `${rCentroid.getX()}, ${rCentroid.getY()}`,
   };
 
   // Check parts

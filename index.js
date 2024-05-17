@@ -38,7 +38,7 @@ const vectorFiles = new Map();
 const versions = [
   ...constants.VERSIONS,
   ...constants.DATE_VERSIONS.map( el =>  el.date),
-  ...[ constants.LATEST_TAG ]
+  ...[ constants.LATEST_TAG ],
 ]
 
 for (const version of versions) {

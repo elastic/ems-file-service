@@ -48,10 +48,9 @@ const input = JSON.parse(fs.readFileSync(inPath));
 
 const inputFeatures = input.features;
 const outputFeatures = [];
-// eslint-disable-next-line camelcase
+
 for (const { in_region_iso, out_region_name, out_region_iso2, out_country_name, out_country_iso2, out_country_iso3 } of ids) {
   const regions = inputFeatures
-    // eslint-disable-next-line camelcase
     .filter(f => f.properties.iso_3166_2 === in_region_iso)
     .map(f => {
       return {
