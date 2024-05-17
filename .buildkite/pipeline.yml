@@ -1,5 +1,5 @@
 agents:
-  image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node20:0.3"
+  image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node20:0.2"
   cpu: "2"
   memory: "2G"
 
