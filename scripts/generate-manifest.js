@@ -4,20 +4,17 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const semver = require('semver');
-const _ = require('lodash');
-const { readFileSync } = require('fs');
-const constants = require('./constants');
-const {
-  coerceToSemVer,
+import { readFileSync } from "fs";
+import semver from "semver";
+import { orderBy, groupBy, get, mapValues } from "lodash-es";
+import constants from "./constants.js";
+import {
   coerceToDateSemver,
+  coerceToSemVer,
   checkDateVersion,
-} = require("./date-versions");
+} from "./date-versions.js";
 
-module.exports = {
-  generateVectorManifest,
-  generateCatalogueManifest,
-};
+export { generateVectorManifest, generateCatalogueManifest };
 
 /**
  * Generate a catalogue manifest for a specific version of Elastic Maps Service
@@ -86,7 +83,7 @@ function generateVectorManifest(sources, opts) {
   const manifestVersion = coerceToSemVer(opts.version);
   const layers = [];
   const uniqueProperties = [];
-  for (const source of _.orderBy(sources, ['weight', 'name'], ['desc', 'asc'])) {
+  for (const source of orderBy(sources, ['weight', 'name'], ['desc', 'asc'])) {
     if (!semver.validRange(source.versions)) {
       throw new Error(`Invalid versions specified for ${source.name}`);
     }
@@ -129,7 +126,7 @@ function generateVectorManifest(sources, opts) {
 }
 
 function throwIfDuplicates(array, prop) {
-  const uniqueNames = _.groupBy(array, prop);
+  const uniqueNames = groupBy(array, prop);
   for (const key of Object.getOwnPropertyNames(uniqueNames)) {
     if (uniqueNames[key].length > 1) {
       throw new Error(`${key} has duplicate ${prop}`);
@@ -165,7 +162,7 @@ function manifestLayerV2(data, hostname, opts) {
   const format = getDefaultFormat(data.emsFormats);
   if (format.type === 'topojson') {
     layer.meta = {
-      feature_collection_path: _.get(format, 'meta.feature_collection_path', 'data'),
+      feature_collection_path: get(format, 'meta.feature_collection_path', 'data'),
     };
   }
   return layer;
@@ -238,11 +235,11 @@ function getIdsFromFile(dataDir, file, fields) {
  * getFieldLabels('dantai', { dantai: { i18n: { en: 'Dantai code', fr: 'code dantai' } } });
  */
 function getFieldLabels(fieldName, fieldInfo) {
-  if (fieldName.startsWith('label_') && _.get(fieldInfo, 'name.i18n')) {
+  if (fieldName.startsWith('label_') && get(fieldInfo, 'name.i18n')) {
     const lang = fieldName.replace('label_', '');
-    const labels = _.mapValues(fieldInfo.name.i18n, label => `${label} (${lang})`);
+    const labels = mapValues(fieldInfo.name.i18n, label => `${label} (${lang})`);
     return labels;
-  } else if (_.get(fieldInfo, `${fieldName}.i18n`)) {
+  } else if (get(fieldInfo, `${fieldName}.i18n`)) {
     return fieldInfo[fieldName].i18n;
   } else {
     return;

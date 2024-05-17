@@ -4,23 +4,28 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const tap = require("tap").test;
-const {
+import fs from "node:fs";
+
+import { test as tap } from "tap";
+
+import {
   generateCatalogueManifest,
   generateVectorManifest,
-} = require("../scripts/generate-manifest");
-
-const { getExpectedVector } = require("./manifest-v7.14");
-
-const {
+} from "../scripts/generate-manifest.js";
+import { getExpectedVector } from "./manifest-v7.14.js";
+import {
   formatDateToIso,
   checkDateVersion,
   coerceToDateSemver,
-} = require("../scripts/date-versions");
+} from "../scripts/date-versions.js";
+import constants from "../scripts/constants.js";
 
-const sources = require("./fixtures/valid-sources/sources.json");
-const fieldInfo = require("./fixtures/fieldInfo.json");
-const constants = require("../scripts/constants");
+const sources = JSON.parse(
+  fs.readFileSync("./test/fixtures/valid-sources/sources.json", "utf8")
+);
+const fieldInfo = JSON.parse(
+  fs.readFileSync("./test/fixtures/fieldInfo.json", "utf8")
+);
 
 tap("formatDateToIso", (t) => {
   let validDate = "2023-12-31";

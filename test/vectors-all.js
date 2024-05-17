@@ -4,10 +4,14 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const tap = require('tap').test;
-const generateVectors = require('../scripts/generate-vectors');
+import fs from "node:fs";
+import { test as tap } from "tap";
 
-const sources = require('./fixtures/valid-sources/sources.json');
+import { generateVectors } from "../scripts/generate-vectors.js";
+
+const sources = JSON.parse(
+  fs.readFileSync("./test/fixtures/valid-sources/sources.json", "utf8")
+);
 
 const v1Expected = [{
   'src': 'data/mordor_v1.geo.json',

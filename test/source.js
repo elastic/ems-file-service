@@ -4,16 +4,24 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const tap = require('tap').test;
-const Ajv = require('ajv');
-const addFormats = require('ajv-formats');
-const Hjson = require('hjson');
-const schema = require('../schema/source_schema.json');
-const glob = require('glob');
-const fs = require('fs');
-const jsts = require('jsts');
-const _ = require('lodash');
-const constants = require('../scripts/constants');
+import fs from "node:fs";
+
+import Ajv from "ajv";
+import addFormats from "ajv-formats";
+import hjson from "hjson";
+
+import { get } from "lodash-es";
+import { glob } from "glob";
+import { test as tap } from "tap";
+
+import GeoJSONReader from "jsts/org/locationtech/jts/io/GeoJSONReader.js";
+import Orientation from "jsts/org/locationtech/jts/algorithm/Orientation.js";
+import IsValidOp from "jsts/org/locationtech/jts/operation/valid/IsValidOp.js";
+import IsSimpleOp from "jsts/org/locationtech/jts/operation/IsSimpleOp.js";
+
+import constants from "../scripts/constants.js";
+
+const schema = JSON.parse(fs.readFileSync("schema/source_schema.json", "utf8"));
 
 const ajv = new Ajv();
 addFormats(ajv);
@@ -21,13 +29,15 @@ const validate = ajv.compile(schema);
 
 // Validate EMS source metadata and files
 glob.sync('sources/**/*.*json').forEach((file) => {
-  const source = Hjson.parse(fs.readFileSync(file, 'utf8'));
+  const source = hjson.parse(fs.readFileSync(file, "utf8"));
   testSourceSchema(source);
   testSourceFiles(source);
 });
 
 // Validate EMS source template
-const template = Hjson.parse(fs.readFileSync('./templates/source_template.hjson', 'utf8'));
+const template = hjson.parse(
+  fs.readFileSync("./templates/source_template.hjson", "utf8")
+);
 testSourceSchema(template);
 
 // Validate test fixture metadata
@@ -67,7 +77,7 @@ function testSourceFiles(source) {
 
 function validateObjectsMember(topojson, format, fieldMap, t) {
   const fc = JSON.parse(topojson);
-  const fcPath = _.get(format, 'meta.feature_collection_path', 'data');
+  const fcPath = get(format, "meta.feature_collection_path", "data");
   const fieldsNames = fieldMap.map(f => f.name).sort();
   t.ok(fc.objects.hasOwnProperty(fcPath));
   t.type(fc.objects[fcPath], 'object');
@@ -99,13 +109,17 @@ function validateObjectsMember(topojson, format, fieldMap, t) {
 }
 
 function validateGeoJSON(geojson, fieldMap, t, fileName) {
-  const reader = new jsts.io.GeoJSONReader();
+  const reader = new GeoJSONReader();
   const fc = reader.read(geojson);
-  const fieldsNames = fieldMap.map(f => f.name).sort();
-  t.ok(fc.features.every(feat => feat.geometry.isSimple()
-  ), `All geometries from ${fileName} must be simple`);
-  t.ok(fc.features.every(feat => feat.geometry.isValid()
-  ), `All geometries from ${fileName} must be valid`);
+  const fieldsNames = fieldMap.map((f) => f.name).sort();
+  t.ok(
+    fc.features.every((feat) => new IsSimpleOp(feat.geometry).isSimple()),
+    `All geometries from ${fileName} must be simple`
+  );
+  t.ok(
+    fc.features.every((feat) => new IsValidOp(feat.geometry).isValid()),
+    `All geometries from ${fileName} must be valid`
+  );
 
   t.ok(
     fc.features.every(
@@ -145,7 +159,6 @@ function validateGeoJSON(geojson, fieldMap, t, fileName) {
     if (constants.GEOJSON_RFC7946 !== undefined) {
       // Check if the GeoJSON follows the enforcement or neglection of RFC7946
       const enforceRfc = constants.GEOJSON_RFC7946 === true;
-      const isCCW = jsts.algorithm.Orientation.isCCW;
       const getCoords = f => {
         const ring = f.geometry.getGeometryN(0).getExteriorRing();
         return ring._points._coordinates;
@@ -153,7 +166,7 @@ function validateGeoJSON(geojson, fieldMap, t, fileName) {
 
       t.ok(
         fc.features.every(
-          feat =>  isCCW(getCoords(feat)) === enforceRfc
+          feat =>  Orientation.isCCW(getCoords(feat)) === enforceRfc
         ), `Features from ${fileName} ${enforceRfc ? 'enforce' : 'neglect'} RFC7946`);
     }
   }

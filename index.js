@@ -4,26 +4,28 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const Hjson = require('hjson');
-const glob = require('glob');
-const fs = require('fs');
-const path = require('path');
-const mkdirp = require('mkdirp');
-const rewind = require('geojson-rewind');
-const { generateVectorManifest, generateCatalogueManifest } = require('./scripts/generate-manifest');
-const generateVectors = require('./scripts/generate-vectors');
-const constants = require('./scripts/constants');
+import fs from 'node:fs';
+import path from 'node:path';
+
+import mkdirp from 'mkdirp';
+import hjson from 'hjson';
+import { glob } from 'glob';
+import rewind from 'geojson-rewind';
+
+import { generateVectorManifest, generateCatalogueManifest } from './scripts/generate-manifest.js';
+import {generateVectors} from './scripts/generate-vectors.js';
+import constants from './scripts/constants.js';
 
 const tileManifestHostname = process.env.TILE_HOST || constants.TILE_STAGING_HOST;
 const vectorManifestHostname = process.env.VECTOR_HOST || constants.VECTOR_STAGING_HOST;
 const production = vectorManifestHostname === constants.VECTOR_PRODUCTION_HOST;
 
-const sources = glob.sync('sources/**/*.*json').map(source => {
-  const f = fs.readFileSync(source, 'utf8');
-  return Hjson.parse(f);
+const sources = glob.sync("sources/**/*.*json").map((source) => {
+  const f = fs.readFileSync(source, "utf8");
+  return hjson.parse(f);
 });
 
-const fieldInfo = Hjson.parse(fs.readFileSync('./schema/fields.hjson', 'utf8'));
+const fieldInfo = hjson.parse(fs.readFileSync("./schema/fields.hjson", "utf8"));
 
 // Clean and recreate `./dist` directories
 fs.rmSync("dist", { recursive: true, force: true });

@@ -4,11 +4,17 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const fs = require('fs');
+import fs from "node:fs";
 
-const jsts = require('jsts');
-const rewind = require('geojson-rewind');
-const argv = require('yargs')
+import GeoJSONReader from "jsts/org/locationtech/jts/io/GeoJSONReader.js";
+import GeoJSONWriter from "jsts/org/locationtech/jts/io/GeoJSONWriter.js";
+import IsSimpleOp from "jsts/org/locationtech/jts/operation/IsSimpleOp.js";
+import IsValidOp from "jsts/org/locationtech/jts/operation/valid/IsValidOp.js";
+
+import rewind from "geojson-rewind";
+import yargs from "yargs";
+
+yargs(process.argv.slice(2))
   .version()
   .option('verbose', {
     alias: 'v',
@@ -24,8 +30,9 @@ const argv = require('yargs')
   .demandCommand(1)
   .epilog('Elastic, 2019')
   .example('$0 in.geojson', 'Overwrites your file')
-  .example('$0 -o fix.geojson in.geojson', 'Leaves your input file as is')
-  .argv;
+  .example('$0 -o fix.geojson in.geojson', 'Leaves your input file as is');
+
+const argv =  yargs.argv;
 
 const filePath = argv._[0];
 
@@ -42,7 +49,7 @@ if (!filePath) {
 }
 
 function makeValid(feature) {
-  const writer = new jsts.io.GeoJSONWriter();
+  const writer = new GeoJSONWriter();
   const newFeature = {
     type: 'Feature',
     geometry: null,
@@ -50,7 +57,10 @@ function makeValid(feature) {
   };
   if (feature.id) newFeature.id = feature.id;
 
-  if (!feature.geometry.isSimple() || !feature.geometry.isValid()) {
+  const isSimple = new IsSimpleOp(feature.geometry);
+  const isValid = new IsValidOp(feature.geometry);
+
+  if (!isSimple.isSimple() || !isValid.isValid()) {
 
     if (!feature.geometry.isValid()) {
       log(`Feature [${feature.id}] is invalid`);
@@ -69,8 +79,7 @@ function makeValid(feature) {
   return newFeature;
 }
 
-
-const reader = new jsts.io.GeoJSONReader();
+const reader = new GeoJSONReader();
 
 try {
   const fc = fs.readFileSync(filePath, 'utf8');
