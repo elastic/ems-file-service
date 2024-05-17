@@ -12,9 +12,9 @@ import IsSimpleOp from "jsts/org/locationtech/jts/operation/IsSimpleOp.js";
 import IsValidOp from "jsts/org/locationtech/jts/operation/valid/IsValidOp.js";
 
 import rewind from "geojson-rewind";
-import yargs from "yargs";
+import yargs from "yargs/yargs";
 
-yargs(process.argv.slice(2))
+const argv = yargs(process.argv.slice(2))
   .version()
   .option('verbose', {
     alias: 'v',
@@ -30,9 +30,8 @@ yargs(process.argv.slice(2))
   .demandCommand(1)
   .epilog('Elastic, 2019')
   .example('$0 in.geojson', 'Overwrites your file')
-  .example('$0 -o fix.geojson in.geojson', 'Leaves your input file as is');
-
-const argv =  yargs.argv;
+  .example('$0 -o fix.geojson in.geojson', 'Leaves your input file as is')
+  .argv;
 
 const filePath = argv._[0];
 

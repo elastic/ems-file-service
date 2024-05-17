@@ -11,11 +11,11 @@ import GeoJSONReader from 'jsts/org/locationtech/jts/io/GeoJSONReader.js';
 import Centroid  from 'jsts/org/locationtech/jts/algorithm/Centroid.js';
 
 import { getDistance, getAreaOfPolygon } from 'geolib';
-import yargs from 'yargs';
+import yargs from 'yargs/yargs';
 
 
 /* Command line options definition */
-yargs(process.argv.slice(2))
+const argv = yargs(process.argv.slice(2))
   .version()
   .scriptName('layerdiff')
   .help()
@@ -61,9 +61,8 @@ yargs(process.argv.slice(2))
   .example('$0 old.geojson new.geojson', 'Compare two files')
   .example('$0 -i INSEE old new', 'Compare using a custom property')
   .example('$0 -c Q43121 old new', 'Compare given ID feature')
-  .epilog('Elastic, 2020');
-const argv = yargs.argv;
-
+  .epilog('Elastic, 2020')
+  .argv;
 
 /* Logging function */
 function print() { console.log.apply(console, arguments); }
