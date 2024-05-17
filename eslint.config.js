@@ -1,4 +1,7 @@
+import js from "@eslint/js";
+
 export default [
+  js.configs.recommended,
   {
     ignores: ["node_modules", "data/*", "dist/*"],
     rules: {
@@ -13,7 +16,13 @@ export default [
         },
       ],
     },
+    languageOptions: {
+      sourceType: "module",
+      ecmaVersion: "latest",
+      globals: {
+        process: "readonly",
+        console: "readonly",
+      },
+    },
   },
 ];
-
-

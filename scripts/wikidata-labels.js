@@ -8,7 +8,6 @@ if (!wdItem) {
 }
 
 async function wikidataTranslations(id) {
-  try {
     const res = await fetch(`https://www.wikidata.org/wiki/Special:EntityData/${id}`);
     const json = await res.json();
     const labels = json.entities[id].labels;
@@ -17,9 +16,6 @@ async function wikidataTranslations(id) {
       translations[key] = labels[key].value;
     }
     return translations;
-  } catch (err) {
-    throw err;
-  }
 }
 
 wikidataTranslations(wdItem)

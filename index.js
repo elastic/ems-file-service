@@ -80,6 +80,7 @@ for (const version of versions) {
 for (const file of vectorFiles) {
   // file is an array of [dest, src]
   const vector = JSON.parse(fs.readFileSync(file[1]));
+  //eslint-disable-next-line no-prototype-builtins
   const vectorToWrite = vector.hasOwnProperty('type')
       && vector.type === 'FeatureCollection'
       && constants.GEOJSON_RFC7946 !== undefined

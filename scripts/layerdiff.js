@@ -257,6 +257,7 @@ const splitFeatures = function (leftJson, rightJson) {
 
   // Find if there are any features from the left
   // without the right side
+  //eslint-disable-next-line no-unsafe-negation
   const notRight = features.filter(f => !'right' in f);
 
   // Work only with features that are on both sides
