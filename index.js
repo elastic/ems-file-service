@@ -7,7 +7,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import mkdirp from 'mkdirp';
+import { mkdirp } from 'mkdirp';
 import hjson from 'hjson';
 import { glob } from 'glob';
 import rewind from 'geojson-rewind';
