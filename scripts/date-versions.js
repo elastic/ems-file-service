@@ -4,10 +4,10 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const semver = require("semver");
-const constants = require("./constants");
+import semver from "semver";
+import constants from "./constants.js";
 
-module.exports = {
+export {
   formatDateToIso,
   checkDateVersion,
   coerceToDateSemver,
