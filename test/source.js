@@ -79,8 +79,7 @@ function validateObjectsMember(topojson, format, fieldMap, t) {
   const fc = JSON.parse(topojson);
   const fcPath = get(format, "meta.feature_collection_path", "data");
   const fieldsNames = fieldMap.map(f => f.name).sort();
-  //eslint-disable-next-line no-prototype-builtins
-  t.ok(fc.objects.hasOwnProperty(fcPath));
+  t.ok(Object.prototype.hasOwnProperty.call(fc.objects, fcPath));
   t.type(fc.objects[fcPath], 'object');
 
   t.ok(Object.prototype.hasOwnProperty.call(fc.objects[fcPath], 'geometries'));
