@@ -4,7 +4,7 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-module.exports = Object.freeze({
+export default Object.freeze({
   VECTOR_PRODUCTION_HOST: 'vector.maps.elastic.co',
   VECTOR_STAGING_HOST: 'vector-staging.maps.elastic.co',
   TILE_PRODUCTION_HOST: 'tiles.maps.elastic.co',

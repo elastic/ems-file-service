@@ -4,11 +4,18 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const fs = require('fs');
+import fs from "node:fs";
 
-const jsts = require('jsts');
-const rewind = require('geojson-rewind');
-const argv = require('yargs')
+import GeoJSONReader from "jsts/org/locationtech/jts/io/GeoJSONReader.js";
+import GeoJSONWriter from "jsts/org/locationtech/jts/io/GeoJSONWriter.js";
+import IsSimpleOp from "jsts/org/locationtech/jts/operation/IsSimpleOp.js";
+import IsValidOp from "jsts/org/locationtech/jts/operation/valid/IsValidOp.js";
+import { BufferOp } from "jsts/org/locationtech/jts/operation/buffer.js";
+
+import rewind from "geojson-rewind";
+import yargs from "yargs/yargs";
+
+const argv = yargs(process.argv.slice(2))
   .version()
   .option('verbose', {
     alias: 'v',
@@ -42,7 +49,7 @@ if (!filePath) {
 }
 
 function makeValid(feature) {
-  const writer = new jsts.io.GeoJSONWriter();
+  const writer = new GeoJSONWriter();
   const newFeature = {
     type: 'Feature',
     geometry: null,
@@ -50,16 +57,22 @@ function makeValid(feature) {
   };
   if (feature.id) newFeature.id = feature.id;
 
-  if (!feature.geometry.isSimple() || !feature.geometry.isValid()) {
+  const isSimple = new IsSimpleOp(feature.geometry);
+  const isValid = new IsValidOp(feature.geometry);
 
-    if (!feature.geometry.isValid()) {
+  if (!isSimple.isSimple() || !isValid.isValid()) {
+
+    if (!isValid.isValid()) {
       log(`Feature [${feature.id}] is invalid`);
     }
 
-    const geom = feature.geometry.buffer(0);
+    const geom = BufferOp.bufferOp(feature.geometry,0);
+    const geomArea = geom.getArea();
 
-    if (geom.getArea() === 0) {
+    if (geomArea === 0) {
       log(`New geometry is empty!!`);
+    } else {
+      log(`New geometry area: ${geomArea}`)
     }
 
     newFeature.geometry = writer.write(geom);
@@ -69,8 +82,7 @@ function makeValid(feature) {
   return newFeature;
 }
 
-
-const reader = new jsts.io.GeoJSONReader();
+const reader = new GeoJSONReader();
 
 try {
   const fc = fs.readFileSync(filePath, 'utf8');

@@ -4,12 +4,12 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const path = require('path');
-const semver = require('semver');
+import path from "path";
+import semver from "semver";
 
-const { coerceToSemVer } = require('./date-versions');
+import { coerceToSemVer } from "./date-versions.js";
 
-module.exports = generateVectors;
+export { generateVectors };
 
 /**
  * Create an array of source and destination directories for each layer. These can be passed to fs.copyFile.

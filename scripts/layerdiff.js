@@ -4,13 +4,18 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const fs = require('fs');
-const _ = require('lodash');
-const jsts = require('jsts');
-const { getDistance, getAreaOfPolygon } = require('geolib');
+import fs from 'node:fs';
+import { isEqual, compact, values } from 'lodash-es';
+
+import GeoJSONReader from 'jsts/org/locationtech/jts/io/GeoJSONReader.js';
+import Centroid  from 'jsts/org/locationtech/jts/algorithm/Centroid.js';
+
+import { getDistance, getAreaOfPolygon } from 'geolib';
+import yargs from 'yargs/yargs';
+
 
 /* Command line options definition */
-const yargs = require('yargs')
+const argv = yargs(process.argv.slice(2))
   .version()
   .scriptName('layerdiff')
   .help()
@@ -56,9 +61,8 @@ const yargs = require('yargs')
   .example('$0 old.geojson new.geojson', 'Compare two files')
   .example('$0 -i INSEE old new', 'Compare using a custom property')
   .example('$0 -c Q43121 old new', 'Compare given ID feature')
-  .epilog('Elastic, 2020');
-const argv = yargs.argv;
-
+  .epilog('Elastic, 2020')
+  .argv;
 
 /* Logging function */
 function print() { console.log.apply(console, arguments); }
@@ -76,10 +80,9 @@ const getId = function (f) {
 };
 
 const toFeaturePoint = function (geom) {
-  const { x, y } = geom.getCoordinates()[0];
   return {
-    latitude: y,
-    longitude: x,
+    latitude: geom.getY(),
+    longitude: geom.getX(),
   };
 };
 
@@ -111,7 +114,7 @@ const compareFeatures = function ({ id, left, right }) {
   const details = {};
 
   // Deep comparison of properties using lodash
-  diffs.properties = !_.isEqual(left.properties, right.properties);
+  diffs.properties = !isEqual(left.properties, right.properties);
 
   // Geometry check
   const lGeom = left.geometry;
@@ -125,22 +128,25 @@ const compareFeatures = function ({ id, left, right }) {
   diffs.area = Math.abs(areaDiff) > AREA_DIFF;
   details.area = areaDiff;
   details.areas = {
-    left: Math.round(lArea / 1e6) + ' km²',
-    right: Math.round(rArea / 1e6) + ' km²',
+    left: Math.round(lArea / 1e6) + " km²",
+    right: Math.round(rArea / 1e6) + " km²",
   };
 
   // Centroid check
-  const lCentroid = lGeom.getCentroid();
-  const rCentroid = rGeom.getCentroid();
+  const lCentroid = Centroid.getCentroid(lGeom);
+  const rCentroid = Centroid.getCentroid(rGeom);
 
-  const centroidDist = Math.floor(getDistance(
-    toFeaturePoint(lCentroid),
-    toFeaturePoint(rGeom.getCentroid()), 'radians'));
+  const centroidDist = Math.floor(
+    getDistance(toFeaturePoint(lCentroid), toFeaturePoint(rCentroid))
+  );
 
   diffs.centroid = centroidDist > CENTROID_DIST;
   details.centroid = centroidDist;
 
-  details.centroids = { left: lCentroid.toText(), right: rCentroid.toText() };
+  details.centroids = {
+    left: `${lCentroid.getX()}, ${lCentroid.getY()}`,
+    right: `${rCentroid.getX()}, ${rCentroid.getY()}`,
+  };
 
   // Check parts
 
@@ -162,7 +168,7 @@ const compareFeatures = function ({ id, left, right }) {
 };
 
 const reportDiffs = function ({ id, left, right, diffs, details }) {
-  const numErrors = _.compact(_.values(diffs)).length;
+  const numErrors = compact(values(diffs)).length;
 
   if (numErrors === 0 && !VERBOSE) {
     print(`Feature ${id} is OK ✔️`);
@@ -251,7 +257,7 @@ const splitFeatures = function (leftJson, rightJson) {
 
   // Find if there are any features from the left
   // without the right side
-  const notRight = features.filter(f => !'right' in f);
+  const notRight = features.filter(f => !('right' in f));
 
   // Work only with features that are on both sides
   const finalFeatures = features.filter(f => 'right' in f);
@@ -284,7 +290,7 @@ try {
   const leftPath = argv._[0];
   const rightPath = argv._[1];
 
-  const reader = new jsts.io.GeoJSONReader();
+  const reader = new GeoJSONReader();
 
   // Load GeoJSON files
   print(`================================== Loading files...`);
@@ -325,7 +331,7 @@ try {
   // Run the comparison checks
   print(`================================== Comparing ${pluralize(features.length, 'feature')}...`);
   const featuresWithDiffs = features.map(compareFeatures);
-  const warnings = featuresWithDiffs.filter(f => _.compact(_.values(f.diffs)).length > 0);
+  const warnings = featuresWithDiffs.filter(f => compact(values(f.diffs)).length > 0);
   print(`${pluralize(warnings.length, 'difference')} detected`);
 
   // Report differences

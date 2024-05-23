@@ -47,21 +47,21 @@ clean: ## Remove output files
 ../../data/admin_regions_lvl2_v2.geo.json: ../../data/admin_regions_lvl2_v2.topo.json ## Regions GeoJSON full size
 	mapshaper -i $(DATA_DIR)/admin_regions_lvl2_v2.topo.json \
   -sort this.properties.region_iso_code \
-  -o rfc7946 id-field=region_iso_code format=geojson force /tmp/admin_regions_lvl2_v2.geo.json
+  -o precision=0.000001 id-field=region_iso_code format=geojson force /tmp/admin_regions_lvl2_v2.geo.json
 	node ../../scripts/clean-geom.js -v /tmp/admin_regions_lvl2_v2.geo.json
 	mapshaper -i /tmp/admin_regions_lvl2_v2.geo.json \
   -filter-fields "region_iso_code,region_name,country_iso2_code,country_iso3_code,country_name" \
-  -o rfc7946 id-field=region_iso_code format=geojson prettify $(DATA_DIR)/admin_regions_lvl2_v2.geo.json
+  -o precision=0.000001 id-field=region_iso_code format=geojson prettify $(DATA_DIR)/admin_regions_lvl2_v2.geo.json
 
 ../../data/admin_regions_lvl2_v1.geo.json: ../../data/admin_regions_lvl2_v2.topo.json ## Regions GeoJSON simplified
 	mapshaper -i $(DATA_DIR)/admin_regions_lvl2_v2.topo.json \
   -simplify visvalingam interval=1000 keep-shapes \
   -sort this.properties.region_iso_code \
-  -o rfc7946 id-field=region_iso_code format=geojson force /tmp/admin_regions_lvl2_v1.geo.json
+  -o precision=0.000001 id-field=region_iso_code format=geojson force /tmp/admin_regions_lvl2_v1.geo.json
 	node ../../scripts/clean-geom.js -v /tmp/admin_regions_lvl2_v1.geo.json
 	mapshaper -i /tmp/admin_regions_lvl2_v1.geo.json \
   -filter-fields "region_iso_code,region_name,country_iso2_code,country_iso3_code,country_name" \
-  -o rfc7946 id-field=region_iso_code format=geojson prettify $(DATA_DIR)/admin_regions_lvl2_v1.geo.json
+  -o precision=0.000001 id-field=region_iso_code format=geojson prettify $(DATA_DIR)/admin_regions_lvl2_v1.geo.json
 
 /tmp/population.csv: ## Population data from the World Bank API
 	echo "iso,measure" > /tmp/population.csv &&\
@@ -106,11 +106,11 @@ clean: ## Remove output files
   -rename-layers data \
   -sort this.properties.iso2 \
   -clean \
-  -o rfc7946 id-field=iso2 format=geojson force /tmp/world_countries_v7.geo.json
+  -o precision=0.000001 id-field=iso2 format=geojson force /tmp/world_countries_v7.geo.json
 	node ../../scripts/clean-geom.js -v /tmp/world_countries_v7.geo.json
 	mapshaper -i /tmp/world_countries_v7.geo.json \
   -filter-fields "iso2,iso3,name,area,population" \
-  -o rfc7946 id-field=iso2 format=geojson prettify $(DATA_DIR)/world_countries_v7_metrics.geo.json
+  -o precision=0.000001 id-field=iso2 format=geojson prettify $(DATA_DIR)/world_countries_v7_metrics.geo.json
 
 ../../data/world_countries_v7_metrics.topo.json: ../../data/world_countries_v7.geo.json ## World Countries TopoJSON
 	mapshaper -i $(DATA_DIR)/world_countries_v7.geo.json \
@@ -132,11 +132,11 @@ clean: ## Remove output files
   -rename-layers data \
   -sort this.properties.iso2 \
   -clean \
-  -o rfc7946 id-field=iso2 format=geojson force /tmp/world_countries_v7.geo.json
+  -o precision=0.000001 id-field=iso2 format=geojson force /tmp/world_countries_v7.geo.json
 	node ../../scripts/clean-geom.js -v /tmp/world_countries_v7.geo.json
 	mapshaper -i /tmp/world_countries_v7.geo.json \
   -filter-fields "iso2,iso3,iso_numeric,name" \
-  -o rfc7946 id-field=iso2 format=geojson prettify $(DATA_DIR)/world_countries_v7.geo.json
+  -o precision=0.000001 id-field=iso2 format=geojson prettify $(DATA_DIR)/world_countries_v7.geo.json
 
 ../../data/world_countries_v7.topo.json: ../../data/world_countries_v7.geo.json ## World Countries TopoJSON
 	mapshaper -i $(DATA_DIR)/world_countries_v7.geo.json \
