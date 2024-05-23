@@ -4,10 +4,18 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const tap = require('tap').test;
-const { generateVectorManifest, generateCatalogueManifest } = require('../scripts/generate-manifest');
+import fs from "node:fs";
 
-const sources = require('./fixtures/valid-sources/sources.json');
+import { test as tap } from "tap";
+
+import {
+  generateCatalogueManifest,
+  generateVectorManifest,
+} from "../scripts/generate-manifest.js";
+
+const sources = JSON.parse(
+  fs.readFileSync("./test/fixtures/valid-sources/sources.json", "utf8")
+);
 
 tap('Bad manifests', t => {
 

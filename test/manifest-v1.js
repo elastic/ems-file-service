@@ -4,14 +4,34 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const tap = require('tap').test;
-const { generateCatalogueManifest, generateVectorManifest } = require('../scripts/generate-manifest');
+import fs from "node:fs";
 
-const sources = require('./fixtures/valid-sources/sources.json');
-const duplicateIds = require('./fixtures/valid-sources/duplicateIds.json');
-const duplicateHumanNames = require('./fixtures/valid-sources/duplicateHumanNames.json');
-const weightedSources = require('./fixtures/valid-sources/weighted-sources.json');
-const fieldInfo = require('./fixtures/fieldInfo.json');
+import { test as tap } from "tap";
+
+import {
+  generateCatalogueManifest,
+  generateVectorManifest,
+} from "../scripts/generate-manifest.js";
+
+const sources = JSON.parse(
+  fs.readFileSync("./test/fixtures/valid-sources/sources.json", "utf8")
+);
+const duplicateIds = JSON.parse(
+  fs.readFileSync("./test/fixtures/valid-sources/duplicateIds.json", "utf8")
+);
+const duplicateHumanNames = JSON.parse(
+  fs.readFileSync(
+    "./test/fixtures/valid-sources/duplicateHumanNames.json",
+    "utf8"
+  )
+);
+const weightedSources = JSON.parse(
+  fs.readFileSync("./test/fixtures/valid-sources/weighted-sources.json", "utf8")
+);
+const fieldInfo = JSON.parse(
+  fs.readFileSync("./test/fixtures/fieldInfo.json", "utf8")
+);
+
 
 const v1Expected = {
   'version': '1.0',

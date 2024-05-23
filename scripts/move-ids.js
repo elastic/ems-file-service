@@ -4,7 +4,7 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const fs = require('fs');
+import fs from "node:fs";
 
 try {
   const filePath = process.argv[2];

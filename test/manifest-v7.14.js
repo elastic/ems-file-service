@@ -4,18 +4,23 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const tap = require('tap').test;
-const {
+import fs from "node:fs";
+
+import { test as tap } from "tap";
+
+import {
   generateCatalogueManifest,
   generateVectorManifest,
-} = require('../scripts/generate-manifest');
+} from "../scripts/generate-manifest.js";
 
-const sources = require('./fixtures/valid-sources/sources.json');
-const fieldInfo = require('./fixtures/fieldInfo.json');
+const sources = JSON.parse(
+  fs.readFileSync("./test/fixtures/valid-sources/sources.json", "utf8")
+);
+const fieldInfo = JSON.parse(
+  fs.readFileSync("./test/fixtures/fieldInfo.json", "utf8")
+);
 
-module.exports = {
-  getExpectedVector
-}
+export { getExpectedVector };
 
 function getExpectedVector(version) {
   return {

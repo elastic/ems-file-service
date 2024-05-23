@@ -4,26 +4,28 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-const Hjson = require('hjson');
-const glob = require('glob');
-const fs = require('fs');
-const path = require('path');
-const mkdirp = require('mkdirp');
-const rewind = require('geojson-rewind');
-const { generateVectorManifest, generateCatalogueManifest } = require('./scripts/generate-manifest');
-const generateVectors = require('./scripts/generate-vectors');
-const constants = require('./scripts/constants');
+import fs from 'node:fs';
+import path from 'node:path';
+
+import { mkdirp } from 'mkdirp';
+import hjson from 'hjson';
+import { glob } from 'glob';
+import rewind from 'geojson-rewind';
+
+import { generateVectorManifest, generateCatalogueManifest } from './scripts/generate-manifest.js';
+import {generateVectors} from './scripts/generate-vectors.js';
+import constants from './scripts/constants.js';
 
 const tileManifestHostname = process.env.TILE_HOST || constants.TILE_STAGING_HOST;
 const vectorManifestHostname = process.env.VECTOR_HOST || constants.VECTOR_STAGING_HOST;
 const production = vectorManifestHostname === constants.VECTOR_PRODUCTION_HOST;
 
-const sources = glob.sync('sources/**/*.*json').map(source => {
-  const f = fs.readFileSync(source, 'utf8');
-  return Hjson.parse(f);
+const sources = glob.sync("sources/**/*.*json").map((source) => {
+  const f = fs.readFileSync(source, "utf8");
+  return hjson.parse(f);
 });
 
-const fieldInfo = Hjson.parse(fs.readFileSync('./schema/fields.hjson', 'utf8'));
+const fieldInfo = hjson.parse(fs.readFileSync("./schema/fields.hjson", "utf8"));
 
 // Clean and recreate `./dist` directories
 fs.rmSync("dist", { recursive: true, force: true });
@@ -36,7 +38,7 @@ const vectorFiles = new Map();
 const versions = [
   ...constants.VERSIONS,
   ...constants.DATE_VERSIONS.map( el =>  el.date),
-  ...[ constants.LATEST_TAG ]
+  ...[ constants.LATEST_TAG ],
 ]
 
 for (const version of versions) {
@@ -78,7 +80,7 @@ for (const version of versions) {
 for (const file of vectorFiles) {
   // file is an array of [dest, src]
   const vector = JSON.parse(fs.readFileSync(file[1]));
-  const vectorToWrite = vector.hasOwnProperty('type')
+  const vectorToWrite = Object.prototype.hasOwnProperty.call(vector, 'type')
       && vector.type === 'FeatureCollection'
       && constants.GEOJSON_RFC7946 !== undefined
     ? rewind(vector, constants.GEOJSON_RFC7946 === false)
