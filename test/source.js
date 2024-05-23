@@ -83,8 +83,7 @@ function validateObjectsMember(topojson, format, fieldMap, t) {
   t.ok(fc.objects.hasOwnProperty(fcPath));
   t.type(fc.objects[fcPath], 'object');
 
-  //eslint-disable-next-line no-prototype-builtins
-  t.ok(fc.objects[fcPath].hasOwnProperty('geometries'));
+  t.ok(Object.prototype.hasOwnProperty.call(fc.objects[fcPath], 'geometries'));
   const geoms = fc.objects[fcPath].geometries;
   t.ok(geoms.every(
     geom => Object.keys(geom.properties).every(
