@@ -1,5 +1,5 @@
 agents:
-  image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node20:0.2"
+  image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node20:0.4"
   cpu: "2"
   memory: "2G"
 
@@ -8,6 +8,7 @@ steps:
     label: ":hammer_and_wrench: Test"
     commands:
       - "yarn install"
+      - "yarn lint"
       - "yarn test"
 
   - key: deploy-development
