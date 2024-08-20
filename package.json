@@ -27,20 +27,20 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@mapbox/geojson-rewind": "^0.5.1",
-    "ajv": "^8.14.0",
-    "ajv-formats": "^3.0.1",
-    "babel-eslint": "^10.1.0",
-    "csv-parse": "^5.5.6",
-    "eslint": "^9.3.0",
-    "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-prefer-object-spread": "^1.2.1",
-    "geojson-rewind": "^0.3.1",
-    "geolib": "^3.2.1",
+    "@mapbox/geojson-rewind": "0.5.2",
+    "ajv": "8.14.0",
+    "ajv-formats": "3.0.1",
+    "babel-eslint": "10.1.0",
+    "csv-parse": "5.5.6",
+    "eslint": "9.3.0",
+    "eslint-plugin-babel": "5.3.1",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-prefer-object-spread": "1.2.1",
+    "geojson-rewind": "0.3.1",
+    "geolib": "3.3.4",
     "jsts": "2.11.3",
-    "node-fetch": "^3.3.2",
-    "tap": "^19.0.2"
+    "node-fetch": "3.3.2",
+    "tap": "19.0.2"
   },
   "resolutions": {
     "**/glob": "^9.0.0"
