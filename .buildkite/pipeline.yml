@@ -12,6 +12,7 @@ steps:
       - "yarn test"
     retry:
       automatic:
+        exit_status: 1
         signal: kill
         limit: 3
 
