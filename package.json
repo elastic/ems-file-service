@@ -18,7 +18,7 @@
   "license": "Elastic-License",
   "dependencies": {
     "@elastic/eslint-config-kibana": "^0.15.0",
-    "glob": "^10.4.1",
+    "glob": "^11.0.0",
     "hjson": "^3.2.1",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
@@ -43,6 +43,6 @@
     "tap": "19.2.5"
   },
   "resolutions": {
-    "**/glob": "^9.0.0"
+    "**/glob": "^11.0.0"
   }
 }
