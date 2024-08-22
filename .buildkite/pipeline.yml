@@ -10,6 +10,10 @@ steps:
       - "yarn install"
       - "yarn lint"
       - "yarn test"
+    retry:
+      automatic:
+        signal: kill
+        limit: 3
 
   - key: deploy-development
     label: ":rocket: Development"
