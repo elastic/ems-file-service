@@ -12,6 +12,10 @@ steps:
       - "yarn test"
     retry:
       automatic: true
+    agents:
+      image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node20:0.4@sha256:709d4bf1596ca236f0f59fc30ce62a7598b544ed32c11f2869299beded97c471"
+      cpu: "4"
+      memory: "4G"
 
   - key: deploy-development
     label: ":rocket: Development"
