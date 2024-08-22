@@ -11,10 +11,7 @@ steps:
       - "yarn lint"
       - "yarn test"
     retry:
-      automatic:
-        exit_status: 1
-        signal: kill
-        limit: 3
+      automatic: true
 
   - key: deploy-development
     label: ":rocket: Development"
