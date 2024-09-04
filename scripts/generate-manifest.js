@@ -101,7 +101,8 @@ function generateVectorManifest(sources, opts) {
           break;
         case 6:
         case 7:
-        case 8: // v6, v7, and v8 manifest schema are the same
+        case 8:
+        case 9: // v6, v7, v8, v9 manifest schema are the same
           uniqueProperties.push('layer_id');
           layers.push(manifestLayerV6(source, opts.hostname, { manifestVersion, fieldInfo: opts.fieldInfo, dataDir: opts.dataDir }));
           break;
