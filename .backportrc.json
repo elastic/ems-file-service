@@ -1,0 +1,8 @@
+{
+  "repoOwner": "elastic",
+  "repoName": "ems-file-service",
+  "targetBranches": ["feature-layers"],
+  "targetPRLabels": ["backport"],
+  "commitConflicts": true,
+  "fork": false
+}
