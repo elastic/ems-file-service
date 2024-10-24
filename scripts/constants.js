@@ -45,6 +45,8 @@ export default Object.freeze({
     'v8.15',
     'v8.16',
     'v8.17',
+    'v8.18',
+    'v8.19',
     'v9.0',
     'v9.1',
     'v9.2',
