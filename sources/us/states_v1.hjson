@@ -1,5 +1,5 @@
 {
-    versions: '1 - 8'
+    versions: '1 - 9'
     production: true
     countryCode: US
     type: http
