@@ -1,5 +1,5 @@
 agents:
-  image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node20:0.5@sha256:01d63c1c1e9895e410a8b50c0eb0ce8e986c354085a11ed1d00355a12935ac5e"
+  image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node22:1737987993@sha256:dbd0eee2a8e716034e799c08c739e03cafe769814c907a06639ca852d46bb50d"
   cpu: "2"
   memory: "2G"
 
@@ -13,7 +13,6 @@ steps:
     retry:
       automatic: true
     agents:
-      image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node20:0.5@sha256:01d63c1c1e9895e410a8b50c0eb0ce8e986c354085a11ed1d00355a12935ac5e"
       cpu: "4"
       memory: "4G"
 
