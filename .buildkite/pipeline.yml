@@ -13,7 +13,6 @@ steps:
     retry:
       automatic: true
     agents:
-      image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node20:0.5@sha256:01d63c1c1e9895e410a8b50c0eb0ce8e986c354085a11ed1d00355a12935ac5e"
       cpu: "4"
       memory: "4G"
 
