@@ -3298,10 +3298,10 @@ tap-yaml@4.0.0:
     yaml "^2.4.1"
     yaml-types "^0.4.0"
 
-tap@21.0.1:
-  version "21.0.1"
-  resolved "https://registry.yarnpkg.com/tap/-/tap-21.0.1.tgz#120308ff86b82467aa4fc917524b9fce5699da47"
-  integrity sha512-FE8H5Nt2mKU96DX4XgjqBkKzMcxvVkmbKhaNWOk2lUNRpqJNKqBOO5R6q7shr7JoUh1DHwdNWmppg8vWXQh2lQ==
+tap@21.0.2:
+  version "21.0.2"
+  resolved "https://registry.yarnpkg.com/tap/-/tap-21.0.2.tgz#2c409c63056b96d65a4084a295eced29acc6723b"
+  integrity sha512-ogAIIparOzHxZPdEWtTRdV+725XJR2ylP/gRcfCH+TPGAOXpf2RFmAvHiPMUtGgmYugt5SjYw1lC4eOxTO91uA==
   dependencies:
     "@tapjs/after" "3.0.0"
     "@tapjs/after-each" "4.0.0"
