@@ -1,5 +1,5 @@
 agents:
-  image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node22:1737987993@sha256:dbd0eee2a8e716034e799c08c739e03cafe769814c907a06639ca852d46bb50d"
+  image: "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node22:1744205490@sha256:10148c596ae1639a8b0af87800a7d306d1f06eb9d124a91ff5dce7e687fee5d8"
   cpu: "2"
   memory: "2G"
 
