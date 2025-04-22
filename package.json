@@ -32,7 +32,11 @@
     "ajv-formats": "3.0.1",
     "@babel/eslint-parser": "7.27.0",
     "csv-parse": "5.6.0",
+<<<<<<< HEAD
     "eslint": "9.25.1",
+=======
+    "eslint": "9.25.0",
+>>>>>>> 9d6b8a6 (Update dependency eslint to v9.25.0 (#425) (#426))
     "eslint-plugin-babel": "5.3.1",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-prefer-object-spread": "1.2.1",
