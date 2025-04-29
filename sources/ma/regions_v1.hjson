@@ -46,14 +46,9 @@
           desc: Province name (Arabic)
         }
         {
-                  type: property
-                  name: label_zgh
-                  desc: Province name (Moroccan Tamazight)
-                }
-        {
           type: property
           name: label_ary
-          desc: Province name (Moroccan Arabic)
+          desc: Province name (Morrocan Arabic)
         }
     ],
     query: {
@@ -65,7 +60,6 @@
             ?iso_3166_2 ?label_en
             ?label_fr
             ?label_ar
-            ?label_zgh
             ?label_ary
             WHERE {
               SERVICE <https://query.wikidata.org/sparql> {
@@ -77,7 +71,6 @@
               (SAMPLE(?label_en) as ?label_en)
               (SAMPLE(?label_fr) as ?label_fr)
               (SAMPLE(?label_ar) as ?label_ar)
-              (SAMPLE(?label_zgh) as ?label_zgh)
               (SAMPLE(?label_ary) as ?label_ary)
               WHERE {
                 # List of regions, whose sub-regions we want.
@@ -90,7 +83,6 @@
                     OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
                     OPTIONAL { ?id rdfs:label ?label_fr . FILTER(LANG(?label_fr) = "fr")}
                     OPTIONAL { ?id rdfs:label ?label_ar . FILTER(LANG(?label_ar) = "ar")}
-                    OPTIONAL { ?id rdfs:label ?label_zgh . FILTER(LANG(?label_zgh) = "zgh")}
                     OPTIONAL { ?id rdfs:label ?label_ary . FILTER(LANG(?label_ary) = "ary")}
               }
               # remove possible ID duplicates
@@ -139,7 +131,6 @@
       uk: Регіони Марокко
       ur: مراکش کی علاقائی تقسیم
       wa: Pårtixhaedje administratif do Marok
-      zgh: ⵜⵉⵎⵏⴰⴹⵉⵏ ⵏ ⵍⵎⵖⵔⵉⴱ
       zh: 摩洛哥行政区划
       zh-hans: 摩洛哥行政区划
       zh-hant: 摩洛哥行政區劃
