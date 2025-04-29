@@ -3,7 +3,7 @@
     type: http
     production: true,
     countryCode: MA,
-    note: Regions of Kindgdom of Morocco
+    note: Regions of Kingdom of Morocco
     wikidata: Q845643,
     data: https://sophox.org/regions/geojson.json
     attribution: [
@@ -36,24 +36,24 @@
             desc: Subdivision name (English)
         }
         {
-          type: property
-          name: label_fr
-          desc: Province name (French)
+            type: property
+            name: label_fr
+            desc: Province name (French)
         }
         {
-          type: property
-          name: label_ar
-          desc: Province name (Arabic)
+            type: property
+            name: label_ar
+            desc: Province name (Arabic)
         }
         {
-                  type: property
-                  name: label_zgh
-                  desc: Province name (Moroccan Tamazight)
-                }
+            type: property
+            name: label_zgh
+            desc: Province name (Moroccan Tamazight)
+        }
         {
-          type: property
-          name: label_ary
-          desc: Province name (Moroccan Arabic)
+            type: property
+            name: label_ary
+            desc: Province name (Moroccan Arabic)
         }
     ],
     query: {
