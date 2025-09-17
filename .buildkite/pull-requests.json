@@ -1,6 +1,7 @@
 {
     "jobs": [
         {
+            "enabled": false,
             "repoOwner": "elastic",
             "repoName": "ems-file-service",
             "enabled": true,
@@ -10,9 +11,7 @@
                 "admin",
                 "write"
             ],
-            "allowed_list": [
-                "dependabot"
-            ],
+            "allowed_list": [],
             "build_on_commit": true,
             "build_on_comment": true,
             "trigger_comment_regex": "^(?:(?:buildkite\\W+)?(?:build|test)\\W+(?:this|it))",
