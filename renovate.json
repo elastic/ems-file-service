@@ -1,5 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+<<<<<<< HEAD
+=======
+  "enabled": true,
+  "minimumReleaseAge": "14 days",
+>>>>>>> eb7de40 (Revert "[skip-ci] Disable renovate" (#482))
   "extends": [
     "github>elastic/renovate-config"
   ]
