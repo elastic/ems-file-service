@@ -3,6 +3,11 @@
   "repoName": "ems-file-service",
   "targetBranches": ["feature-layers"],
   "targetPRLabels": ["backport"],
+  "branchLabelMapping": {
+    "feature-layers": "feature-layers"
+  },
+  "autoMerge": false,
+  "autoMergeMethod": "squash",
   "commitConflicts": true,
   "fork": false
 }

@@ -4,5 +4,9 @@
   "minimumReleaseAge": "14 days",
   "extends": [
     "github>elastic/renovate-config"
+  ],
+  "baseBranches": ["master", "feature-layers"],
+  "labels": [
+    "dependencies"
   ]
 }
