@@ -29,7 +29,7 @@
     "@mapbox/geojson-rewind": "0.5.2",
     "ajv": "8.17.1",
     "ajv-formats": "3.0.1",
-    "@babel/eslint-parser": "7.28.5",
+    "@babel/eslint-parser": "7.28.6",
     "csv-parse": "6.1.0",
     "eslint": "9.39.2",
     "eslint-plugin-babel": "5.3.1",
