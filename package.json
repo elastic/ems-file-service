@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@mapbox/geojson-rewind": "0.5.2",
-    "ajv": "8.17.1",
+    "ajv": "8.18.0",
     "ajv-formats": "3.0.1",
     "@babel/eslint-parser": "7.28.6",
     "csv-parse": "6.1.0",
