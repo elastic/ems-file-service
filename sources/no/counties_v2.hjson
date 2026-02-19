@@ -1,9 +1,9 @@
 {
-    versions: '1 - 7'
+    versions: '>=8'
     type: http
     production: true
     countryCode: NO
-    note: Counties of Norway
+    note: Counties of Norway (v2: includes both pre-2020 and 2020 merged county codes for GeoIP compatibility)
     wikidata: Q192299
     data: https://sophox.org/regions/geojson.json
     attribution: [
@@ -46,57 +46,6 @@
             desc: County name (Bokmål)
         }
     ]
-    query: {
-        sparql:
-            '''
-            #defaultView:MapRegions
-            SELECT
-            (if(bound(?id2),?id2,?id1) as ?id)
-            ?iso_3166_2 ?label_en ?label_nn ?label_nb
-            WHERE {
-              SERVICE <https://query.wikidata.org/sparql> {
-              # Using nested query to ensure there is only one ?id2 value
-              {SELECT
-              ?id1
-              (SAMPLE(?id2) as ?id2)
-              (SAMPLE(?iso_3166_2) as ?iso_3166_2)
-              (SAMPLE(?label_en) as ?label_en)
-              (SAMPLE(?label_nn) as ?label_nn)
-              (SAMPLE(?label_nb) as ?label_nb)
-              WHERE { {
-                # List of regions, whose sub-regions we want.
-                VALUES ?entity { wd:Q20 }
-
-                # P150 = "contains administrative territorial entity"
-                ?entity wdt:P150 ?id1 .
-                ?id1 wdt:P300 ?iso_3166_2
-
-                      OPTIONAL { ?id1 rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-                OPTIONAL { ?id1 rdfs:label ?label_nn . FILTER(LANG(?label_nn) = "nn") }
-                OPTIONAL { ?id1 rdfs:label ?label_nb . FILTER(LANG(?label_nb) = "nb") }
-              } UNION {
-                # GeoIP database lists Trøndelag as NO-50, but that code doesn't exist in ISO 3166-2 yet,
-                # so we'll select and define the ISO code specifically then union it to our other data.
-
-                # List of regions, whose sub-regions we want.
-                VALUES ?entity { wd:Q20 }
-
-                # P150 = "contains administrative territorial entity"
-                ?entity wdt:P150 ?id1 .
-                FILTER( ?id1=wd:Q127676)
-                VALUES ?iso_3166_2 { "NO-50" }
-
-                OPTIONAL { ?id1 rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-                OPTIONAL { ?id1 rdfs:label ?label_nn . FILTER(LANG(?label_nn) = "nn") }
-                OPTIONAL { ?id1 rdfs:label ?label_nb . FILTER(LANG(?label_nb) = "nb") }
-              }
-                    }
-              # remove possible ID duplicates
-              GROUP BY ?id1}
-            }
-            }
-            '''
-    }
     name: norway_counties
     legacyIds: [
       Norway Counties
@@ -126,7 +75,7 @@
       ja: ノルウェーの県
       ka: ნორვეგიის საგრაფოები
       ko: 노르웨이의 주
-      li: pervincies in Nórwaeg
+      li: perviencies in Nórwaeg
       lt: Norvegijos administracinio suskirstymo vienetai
       lv: Norvēģijas filke
       mk: округ во Норвешка
@@ -157,7 +106,7 @@
     }
     emsFormats: [{
         type: geojson
-        file: norway_counties_v1.geo.json
+        file: norway_counties_v2.geo.json
         default: true
     }]
     ttl: 108000
