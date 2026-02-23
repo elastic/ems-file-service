@@ -26,6 +26,7 @@
     "yargs": "^18.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@mapbox/geojson-rewind": "0.5.2",
     "ajv": "8.18.0",
     "ajv-formats": "3.0.1",
