@@ -44,6 +44,6 @@
   },
   "resolutions": {
     "**/glob": "^13.0.0",
-    "**/minimatch": "^10.2.1"
+    "**/minimatch": "^10.2.3"
   }
 }
