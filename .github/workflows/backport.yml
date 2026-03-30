@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Backport Action
-        uses: sorenlouv/backport-github-action@d196c79a9f42bd678494bd1e42159a720f968821 # v10.4.0
+        uses: sorenlouv/backport-github-action@9460b7102fea25466026ce806c9ebf873ac48721 # v11.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
