@@ -52,6 +52,12 @@ export default Object.freeze({
     'v9.2',
     'v9.3',
     'v9.4',
+    'v9.5',
+    'v9.6',
+    'v9.7',
+    'v9.8',
+    'v9.9',
+    'v9.10',
   ],
   DATE_VERSIONS: [
     {
