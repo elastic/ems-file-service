@@ -14,7 +14,9 @@ clean: ## Remove output files
    /tmp/wikidata.csv /tmp/area.csv /tmp/population.csv \
    /tmp/missing-area.csv /tmp/missing-population.csv \
    /tmp/ne_10m_admin_1_states_provinces.topo.json \
-   /tmp/additional-regions.geo.json
+   /tmp/additional-regions.geo.json \
+   /tmp/no_world_innlandet.geo.json /tmp/no_world_agder.geo.json \
+   /tmp/no_world_vestland.geo.json /tmp/no_merged_counties.geo.json
 
 /tmp/ne_10m_admin_1_states_provinces.topo.json: ## Uncompress the NE regions dataset
 	gunzip --keep ./ne_10m_admin_1_states_provinces.topo.json.gz
@@ -24,6 +26,33 @@ clean: ## Remove output files
 	mapshaper -i /tmp/ne_10m_admin_1_states_provinces.topo.json \
   -o format=geojson /tmp/ne_10m_admin_1_states_provinces.geo.json
 
+# Norway 2020 merged counties: dissolve pre-2020 county pairs from the NE dataset
+# NO-04 (Hedmark) + NO-05 (Oppland) → NO-34 (Innlandet)
+/tmp/no_world_innlandet.geo.json: /tmp/ne_10m_admin_1_states_provinces.geo.json
+	mapshaper $< \
+  -filter '"NO-04,NO-05".split(",").indexOf(iso_3166_2) > -1' \
+  -dissolve calc="iso_3166_2='NO-34', name='Innlandet', iso_a2='NO', adm0_a3='NOR', admin='Norway'" \
+  -o format=geojson $@
+
+# NO-09 (Aust-Agder) + NO-10 (Vest-Agder) → NO-42 (Agder)
+/tmp/no_world_agder.geo.json: /tmp/ne_10m_admin_1_states_provinces.geo.json
+	mapshaper $< \
+  -filter '"NO-09,NO-10".split(",").indexOf(iso_3166_2) > -1' \
+  -dissolve calc="iso_3166_2='NO-42', name='Agder', iso_a2='NO', adm0_a3='NOR', admin='Norway'" \
+  -o format=geojson $@
+
+# NO-12 (Hordaland) + NO-14 (Sogn og Fjordane) → NO-46 (Vestland)
+/tmp/no_world_vestland.geo.json: /tmp/ne_10m_admin_1_states_provinces.geo.json
+	mapshaper $< \
+  -filter '"NO-12,NO-14".split(",").indexOf(iso_3166_2) > -1' \
+  -dissolve calc="iso_3166_2='NO-46', name='Vestland', iso_a2='NO', adm0_a3='NOR', admin='Norway'" \
+  -o format=geojson $@
+
+/tmp/no_merged_counties.geo.json: /tmp/no_world_innlandet.geo.json /tmp/no_world_agder.geo.json /tmp/no_world_vestland.geo.json
+	mapshaper -i combine-files $^ \
+  -merge-layers force \
+  -o format=geojson $@
+
 /tmp/additional-regions.geo.json: /tmp/ne_10m_admin_1_states_provinces.geo.json ./duplicated-regions.csv
 	cd ../../scripts && \
   node duplicate-regions.js -v \
@@ -31,9 +60,9 @@ clean: ## Remove output files
     /tmp/ne_10m_admin_1_states_provinces.geo.json \
     /tmp/additional-regions.geo.json
 
-../../data/admin_regions_lvl2_v2.topo.json: /tmp/ne_10m_admin_1_states_provinces.topo.json /tmp/additional-regions.geo.json ## Regions TopoJSON
+../../data/admin_regions_lvl2_v2.topo.json: /tmp/ne_10m_admin_1_states_provinces.topo.json /tmp/additional-regions.geo.json /tmp/no_merged_counties.geo.json ## Regions TopoJSON
 	mapshaper -i   combine-files \
-  /tmp/ne_10m_admin_1_states_provinces.topo.json /tmp/additional-regions.geo.json \
+  /tmp/ne_10m_admin_1_states_provinces.topo.json /tmp/additional-regions.geo.json /tmp/no_merged_counties.geo.json \
   -merge-layers force \
   -dissolve "iso_3166_2" copy-fields="iso_3166_2,name,iso_a2,adm0_a3,admin" \
   -filter "this.properties.iso_3166_2 !== ''" \
