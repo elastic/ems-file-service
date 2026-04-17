@@ -1770,10 +1770,10 @@ geojson-rewind@0.3.1:
     minimist "1.2.0"
     sharkdown "^0.1.0"
 
-geolib@3.3.4:
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/geolib/-/geolib-3.3.4.tgz#09883ba2fdab84d2764cf3615dbafb9bce3c54d0"
-  integrity sha512-EicrlLLL3S42gE9/wde+11uiaYAaeSVDwCUIv2uMIoRBfNJCn8EsSI+6nS3r4TCKDO6+RQNM9ayLq2at+oZQWQ==
+geolib@3.3.14:
+  version "3.3.14"
+  resolved "https://registry.yarnpkg.com/geolib/-/geolib-3.3.14.tgz#1ecba6b9cdbe7da65150d8b06fc9633b157971c5"
+  integrity sha512-uQ1772h3OjhWvL/HhSRZTMjBKIKoc4wFksLDqzqOkuG/2TgBbTwFamU0Disx3sNFk/BOweHyhKoVaYDuLIpsxQ==
 
 get-caller-file@^2.0.5:
   version "2.0.5"
