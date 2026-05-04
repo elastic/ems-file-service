@@ -1,10 +1,10 @@
 {
-    versions: '>=1',
+    versions: '>=1'
     type: http
-    production: true,
-    countryCode: MA,
+    production: true
+    countryCode: MA
     note: Regions of Kingdom of Morocco
-    wikidata: Q845643,
+    wikidata: Q845643
     data: https://sophox.org/regions/geojson.json
     attribution: [
       {
@@ -38,31 +38,32 @@
         {
             type: property
             name: label_fr
-            desc: Province name (French)
+            desc: Subdivision name (French)
         }
         {
             type: property
             name: label_ar
-            desc: Province name (Arabic)
+            desc: Subdivision name (Arabic)
         }
         {
             type: property
             name: label_zgh
-            desc: Province name (Moroccan Tamazight)
+            desc: Subdivision name (Moroccan Tamazight)
         }
         {
             type: property
             name: label_ary
-            desc: Province name (Moroccan Arabic)
+            desc: Subdivision name (Moroccan Arabic)
         }
-    ],
+    ]
     query: {
         sparql:
             '''
-            #defaultView:MapRegions,
+            #defaultView:MapRegions
             SELECT
             (if(bound(?id2),?id2,?id) as ?id)
-            ?iso_3166_2 ?label_en
+            ?iso_3166_2
+            ?label_en
             ?label_fr
             ?label_ar
             ?label_zgh
@@ -80,18 +81,18 @@
               (SAMPLE(?label_zgh) as ?label_zgh)
               (SAMPLE(?label_ary) as ?label_ary)
               WHERE {
-                # List of regions, whose sub-regions we want.
-                VALUES ?entity { wd:Q1028 }
+                  # List of regions, whose sub-regions we want.
+                  VALUES ?entity { wd:Q1028 }
 
-                # P150 = "contains administrative territorial entity"
-                ?entity wdt:P150 ?id .
-                ?id wdt:P300 ?iso_3166_2
+                  # P150 = "contains administrative territorial entity"
+                  ?entity wdt:P150 ?id .
+                  ?id wdt:P300 ?iso_3166_2
 
-                    OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-                    OPTIONAL { ?id rdfs:label ?label_fr . FILTER(LANG(?label_fr) = "fr")}
-                    OPTIONAL { ?id rdfs:label ?label_ar . FILTER(LANG(?label_ar) = "ar")}
-                    OPTIONAL { ?id rdfs:label ?label_zgh . FILTER(LANG(?label_zgh) = "zgh")}
-                    OPTIONAL { ?id rdfs:label ?label_ary . FILTER(LANG(?label_ary) = "ary")}
+                  OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                  OPTIONAL { ?id rdfs:label ?label_fr . FILTER(LANG(?label_fr) = "fr")}
+                  OPTIONAL { ?id rdfs:label ?label_ar . FILTER(LANG(?label_ar) = "ar")}
+                  OPTIONAL { ?id rdfs:label ?label_zgh . FILTER(LANG(?label_zgh) = "zgh")}
+                  OPTIONAL { ?id rdfs:label ?label_ary . FILTER(LANG(?label_ary) = "ary")}
               }
               # remove possible ID duplicates
               GROUP BY ?id}
