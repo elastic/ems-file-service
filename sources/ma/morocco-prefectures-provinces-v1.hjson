@@ -1,0 +1,157 @@
+{
+    versions: '>=1'
+    type: http
+    production: true
+    countryCode: MA
+    note: Prefectures and provinces of Morocco
+    wikidata: Q6360877
+    data: https://sophox.org/regions/geojson.json
+    attribution: [
+      {
+        label: {
+          en: OpenStreetMap contributors
+        }
+        url: {
+          en: https://www.openstreetmap.org/copyright
+        }
+      }
+      {
+        label: {
+          en: Elastic Maps Service
+        }
+        url: {
+          en: https://www.elastic.co/elastic-maps-service
+        }
+      }
+    ]
+    fieldMapping: [
+        {
+            type: id
+            name: iso_3166_2
+            desc: ISO-3166-2 identifier
+        }
+        {
+            type: property
+            name: label_en
+            desc: Subdivision name (English)
+        }
+        {
+            type: property
+            name: label_fr
+            desc: Subdivision name (French)
+        }
+        {
+            type: property
+            name: label_ar
+            desc: Subdivision name (Arabic)
+        }
+        {
+            type: property
+            name: label_ary
+            desc: Subdivision name (Moroccan Arabic)
+        }
+        {
+            type: property
+            name: label_zgh
+            desc: Subdivision name (Moroccan Tamazight)
+        }
+    ]
+    query: {
+        sparql:
+            '''
+            #defaultView:MapRegions
+            SELECT
+            (if(bound(?id2),?id2,?id) as ?id)
+            ?iso_3166_2
+            ?label_en
+            ?label_fr
+            ?label_ar
+            ?label_zgh
+            ?label_ary
+            WHERE {
+              SERVICE <https://query.wikidata.org/sparql> {
+              {SELECT
+              ?id
+              (SAMPLE(?id2) as ?id2)
+              (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+              (SAMPLE(?label_en) as ?label_en)
+              (SAMPLE(?label_fr) as ?label_fr)
+              (SAMPLE(?label_ar) as ?label_ar)
+              (SAMPLE(?label_zgh) as ?label_zgh)
+              (SAMPLE(?label_ary) as ?label_ary)
+              WHERE {
+                  VALUES ?entity { wd:Q1028 }
+
+                  ?entity wdt:P150/wdt:P150 ?id .
+                  ?id wdt:P300 ?iso_3166_2
+
+                  # Remove deprecated/dissolved entities
+                  MINUS {?id (wdt:P576|wdt:P582|wdt:P1366) ?end.}
+
+                  OPTIONAL { ?id2 rdfs:label ?label_fr . FILTER(LANG(?label_fr) = "fr") }
+                  OPTIONAL { ?id2 rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
+                  OPTIONAL { ?id2 rdfs:label ?label_ar . FILTER(LANG(?label_ar) = "ar") }
+                  OPTIONAL { ?id2 rdfs:label ?label_zgh . FILTER(LANG(?label_zgh) = "zgh") }
+                  OPTIONAL { ?id2 rdfs:label ?label_ary . FILTER(LANG(?label_ary) = "ary") }
+              }
+              GROUP BY ?id}
+            }
+            }
+            '''
+    }
+    name: morocco_prefectures_provinces
+    legacyIds: [
+      Morocco Prefectures and provinces
+    ]
+    humanReadableName: {
+      ar: ولايات المغرب
+      ary: ولايات لمغريب
+      ast: Provincies y prefectures de Marruecos
+      bn: মরক্কোর প্রদেশ ও প্রিফেকচার
+      ca: Províncies i prefectures del Marroc
+      cy: Taleithiau a rhaglysoedd Moroco
+      da: provinser og præfekturer i Marokko
+      de: Provinzen und Präfekturen in Marokko
+      en: Morocco Provinces and Prefectures
+      es: Provincias y prefecturas de Marruecos
+      eu: Marokoko probintziak eta prefeturak
+      fa: استان‌ها و فرمانداری‌های مراکش
+      fi: Marokon provinssit ja prefektuurit
+      fr: Provinces et préfectures du Maroc
+      ga: Cúigí agus réamhchontae Mharacó
+      he: מחוזות ונפות מרוקו
+      hi: मोरक्को के प्रांत और प्रीफेक्चर
+      hr: Provincije i prefekture Maroka
+      id: Provinsi dan prefektur di Maroko
+      it: Province e prefetture del Marocco
+      ja: モロッコの州および県
+      kab: Iqbayliyen d imeẓnaten n Umeṛṛuk
+      ko: 모로코의 주 및 현
+      mk: Провинции и префектури во Мароко
+      nan: Morocco ê seng-khu kap kok-chú
+      nl: Provincies en prefecturen van Marokko
+      pl: Prowincje i prefektury Maroka
+      ro: Provincii și prefecturi din Maroc
+      ru: Провинции и префектуры Марокко
+      sh: Provincije i prefekture Maroka
+      sv: Provinser och prefekturer i Marocko
+      tr: Fas'ın illeri ve vilayetleri
+      uk: Провінції та префектури Марокко
+      ur: مراکش کے صوبے اور پریفیکچر
+      wa: Provinces eyet préfectures do Marok
+      zgh: ⵜⵉⵎⵏⴰⴹⵉⵏ ⴷ ⵜⵉⵏⵎⵓⵔⵜⵉⵏ ⵏ ⵍⵎⵖⵔⵉⴱ
+      zh: 摩洛哥的省和省辖市
+      zh-hans: 摩洛哥的省和省辖市
+      zh-hant: 摩洛哥的省和省轄市
+      zh-hk: 摩洛哥的省和省轄市
+    }
+    emsFormats: [{
+      type: geojson
+      file: 'morocco_prefectures_provinces_v1.geo.json'
+      default: true
+    }]
+    ttl: 108000
+    weight: 0
+    createdAt: 2026-04-24T14:20:40.862476
+    id: 1777040466025598
+}
