@@ -1,22 +1,10 @@
 {
     versions: '>=1'
     type: http
-<<<<<<< HEAD:sources/ma/regions_v1.hjson
-    production: true,
-    countryCode: MA,
-    note: Regions of Kingdom of Morocco
-    wikidata: Q845643,
-||||||| f6dab8e:sources/ma/regions_v1.hjson
-    production: true,
-    countryCode: MA,
-    note: Regions of Kindgdom of Morocco
-    wikidata: Q845643,
-=======
     production: true
     countryCode: MA
     note: Regions of Kingdom of Morocco
     wikidata: Q845643
->>>>>>> feature-layers:sources/ma/morocco-regions-v1.hjson
     data: https://sophox.org/regions/geojson.json
     attribution: [
       {
@@ -48,54 +36,19 @@
             desc: Subdivision name (English)
         }
         {
-<<<<<<< HEAD:sources/ma/regions_v1.hjson
-            type: property
-            name: label_fr
-            desc: Province name (French)
-||||||| f6dab8e:sources/ma/regions_v1.hjson
-          type: property
-          name: label_fr
-          desc: Province name (French)
-=======
             type: property
             name: label_fr
             desc: Subdivision name (French)
->>>>>>> feature-layers:sources/ma/morocco-regions-v1.hjson
         }
         {
-<<<<<<< HEAD:sources/ma/regions_v1.hjson
-            type: property
-            name: label_ar
-            desc: Province name (Arabic)
-||||||| f6dab8e:sources/ma/regions_v1.hjson
-          type: property
-          name: label_ar
-          desc: Province name (Arabic)
-=======
             type: property
             name: label_ar
             desc: Subdivision name (Arabic)
->>>>>>> feature-layers:sources/ma/morocco-regions-v1.hjson
         }
         {
-<<<<<<< HEAD:sources/ma/regions_v1.hjson
-            type: property
-            name: label_zgh
-            desc: Province name (Moroccan Tamazight)
-        }
-        {
-            type: property
-            name: label_ary
-            desc: Province name (Moroccan Arabic)
-||||||| f6dab8e:sources/ma/regions_v1.hjson
-          type: property
-          name: label_ary
-          desc: Province name (Morrocan Arabic)
-=======
             type: property
             name: label_zgh
             desc: Subdivision name (Moroccan Tamazight)
->>>>>>> feature-layers:sources/ma/morocco-regions-v1.hjson
         }
         {
             type: property
@@ -135,24 +88,11 @@
                   ?entity wdt:P150 ?id .
                   ?id wdt:P300 ?iso_3166_2
 
-<<<<<<< HEAD:sources/ma/regions_v1.hjson
-                    OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-                    OPTIONAL { ?id rdfs:label ?label_fr . FILTER(LANG(?label_fr) = "fr")}
-                    OPTIONAL { ?id rdfs:label ?label_ar . FILTER(LANG(?label_ar) = "ar")}
-                    OPTIONAL { ?id rdfs:label ?label_zgh . FILTER(LANG(?label_zgh) = "zgh")}
-                    OPTIONAL { ?id rdfs:label ?label_ary . FILTER(LANG(?label_ary) = "ary")}
-||||||| f6dab8e:sources/ma/regions_v1.hjson
-                    OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
-                    OPTIONAL { ?id rdfs:label ?label_fr . FILTER(LANG(?label_fr) = "fr")}
-                    OPTIONAL { ?id rdfs:label ?label_ar . FILTER(LANG(?label_ar) = "ar")}
-                    OPTIONAL { ?id rdfs:label ?label_ary . FILTER(LANG(?label_ary) = "ary")}
-=======
                   OPTIONAL { ?id rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
                   OPTIONAL { ?id rdfs:label ?label_fr . FILTER(LANG(?label_fr) = "fr")}
                   OPTIONAL { ?id rdfs:label ?label_ar . FILTER(LANG(?label_ar) = "ar")}
                   OPTIONAL { ?id rdfs:label ?label_zgh . FILTER(LANG(?label_zgh) = "zgh")}
                   OPTIONAL { ?id rdfs:label ?label_ary . FILTER(LANG(?label_ary) = "ary")}
->>>>>>> feature-layers:sources/ma/morocco-regions-v1.hjson
               }
               # remove possible ID duplicates
               GROUP BY ?id}
