@@ -8,6 +8,7 @@
             "allow_org_users": true,
             "allowed_repo_permissions": [
                 "admin",
+                "maintain",
                 "write"
             ],
             "allowed_list": [
