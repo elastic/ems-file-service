@@ -95,3 +95,14 @@ own-country-code duplicates (`GF-GF` etc.) remain and GeoIP does not use FR-* fo
 This requires a new version (v3) of the `administrative_regions_lvl2` dataset. The v2 dataset
 remains available for older EMS versions. The geometry for the 13 regions can be derived by
 dissolving the existing department polygons in v2 using the mapping table above.
+
+## Implemented changes
+
+- `administrative_regions_lvl2` v3: France updated from 101 department features to 13 metropolitan
+  region features. Overseas (`FR-971`..`FR-976`) dropped (own-country-code duplicates remain).
+  Geometry dissolved from v2 department polygons via `scripts/fr-regions-remap.js` + mapshaper.
+
+- `france_regions` v1 (`sources/fr/regions_v1.hjson`): new standalone layer with all 18 French
+  administrative regions (13 metropolitan + 5 overseas). Fields: `iso_3166_2` (id), `label_en`,
+  `label_fr`, `insee` (INSEE region code, P2585, skipCopy). Geometry from OpenStreetMap via Sophox.
+  SPARQL query in hjson fetches from Wikidata via `SERVICE` federation.
