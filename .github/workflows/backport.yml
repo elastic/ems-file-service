@@ -17,7 +17,7 @@ jobs:
       - name: Backport Action
         uses: sorenlouv/backport-github-action@8a6c0381851f43f9f1fddc7303f0e9015eb57b62 # v12.0.4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.BACKPORT_TOKEN }}
 
       - name: Info log
         if: ${{ success() }}
