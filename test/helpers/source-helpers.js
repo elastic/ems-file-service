@@ -17,7 +17,7 @@ import Orientation from "jsts/org/locationtech/jts/algorithm/Orientation.js";
 import IsValidOp from "jsts/org/locationtech/jts/operation/valid/IsValidOp.js";
 import IsSimpleOp from "jsts/org/locationtech/jts/operation/IsSimpleOp.js";
 
-import constants from "../scripts/constants.js";
+import constants from "../../scripts/constants.js";
 
 const schema = JSON.parse(fs.readFileSync("schema/source_schema.json", "utf8"));
 
