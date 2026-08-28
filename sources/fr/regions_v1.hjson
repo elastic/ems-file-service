@@ -3,7 +3,7 @@
     production: true
     countryCode: FR
     type: http
-    note: Administrative regions of France (post-2016 territorial reform). 13 metropolitan regions + 5 overseas collectivities (FR-971..976), 18 features total. Geometry from OpenStreetMap via Sophox.
+    note: Administrative regions of France (post-2016 territorial reform). 13 metropolitan regions (Q36784) + 5 overseas DROMs (Q202216). 18 features total. See sources/fr/README.md for data processing details.
     wikidata: Q36784
     data: https://sophox.org/regions/geojson.json
     attribution: [
@@ -59,7 +59,7 @@
               {SELECT
               ?id1
               (SAMPLE(?id2) as ?id2)
-              (SAMPLE(?iso_3166_2) as ?iso_3166_2)
+              (SAMPLE(?iso_raw) as ?iso_raw)
               (SAMPLE(?label_en) as ?label_en)
               (SAMPLE(?label_fr) as ?label_fr)
               (SAMPLE(?insee) as ?insee)
@@ -68,8 +68,11 @@
 
                 # P150 = "contains administrative territorial entity"
                 ?entity wdt:P150 ?id1 .
-                ?id1 wdt:P300 ?iso_3166_2 ;
-                     wdt:P31 wd:Q36784 .
+                ?id1 wdt:P300 ?iso_raw ;
+                     wdt:P31 ?regionType .
+                # Q36784 = metropolitan region of France
+                # Q202216 = overseas region of France (DROM)
+                FILTER(?regionType IN (wd:Q36784, wd:Q202216))
 
                 OPTIONAL { ?id1 rdfs:label ?label_en . FILTER(LANG(?label_en) = "en") }
                 OPTIONAL { ?id1 rdfs:label ?label_fr . FILTER(LANG(?label_fr) = "fr") }
@@ -78,6 +81,13 @@
               GROUP BY ?id1
               }
               }
+              # Wikidata P300 stores FR-971..FR-976 for overseas regions; remap to ISO 3166-2
+              BIND(IF(?iso_raw = "FR-971", "FR-GP",
+                   IF(?iso_raw = "FR-972", "FR-MQ",
+                   IF(?iso_raw = "FR-973", "FR-GF",
+                   IF(?iso_raw = "FR-974", "FR-RE",
+                   IF(?iso_raw = "FR-976", "FR-YT",
+                   ?iso_raw))))) AS ?iso_3166_2)
             }
             ORDER BY ?iso_3166_2
             '''
