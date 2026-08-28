@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --fix *.js scripts/*.js",
-    "test": "tap --timeout=0 test/*.js",
+    "test": "tap --timeout=0 --jobs 4 test/*.js",
     "build": "node index.js"
   },
   "keywords": [],
