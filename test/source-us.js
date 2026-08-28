@@ -8,7 +8,7 @@ import fs from "node:fs";
 import hjson from "hjson";
 import { glob } from "glob";
 
-import { testSourceSchema, testSourceFiles } from "./source-helpers.js";
+import { testSourceSchema, testSourceFiles } from "./helpers/source-helpers.js";
 
 glob.sync('sources/us/*.hjson').forEach((file) => {
   const source = hjson.parse(fs.readFileSync(file, "utf8"));

@@ -8,7 +8,7 @@ import fs from "node:fs";
 import hjson from "hjson";
 import { glob } from "glob";
 
-import { testSourceSchema, testSourceFiles } from "./source-helpers.js";
+import { testSourceSchema, testSourceFiles } from "./helpers/source-helpers.js";
 
 // Validate EMS source metadata and files (excluding world/ and us/ — see source-world.js, source-us.js)
 glob.sync('sources/**/*.hjson', { ignore: ['sources/world/**', 'sources/us/**'] }).forEach((file) => {
