@@ -23,7 +23,7 @@ curl -s -o "$ZIP" "$CSV_URL"
 echo "Saved: $ZIP ($(du -h "$ZIP" | cut -f1))"
 
 # Print database date from the updated timestamp in the listing
-UPDATED=$(curl -s "https://geoip.elastic.co/v1/database?elastic_geoip_service_tos=agree" \
+UPDATED=$(curl --silent --show-error --fail "https://geoip.elastic.co/v1/database?elastic_geoip_service_tos=agree" \
   | python3 -c "
 import json, sys, datetime
 dbs = json.load(sys.stdin)
