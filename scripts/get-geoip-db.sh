@@ -11,7 +11,7 @@ mkdir -p "$OUTPUT_DIR"
 ZIP="$OUTPUT_DIR/GeoLite2-City-CSV.zip"
 
 echo "Fetching database list..."
-CSV_URL=$(curl -s "https://geoip.elastic.co/v1/database?elastic_geoip_service_tos=agree" \
+CSV_URL=$(curl --silent --show-error --fail "https://geoip.elastic.co/v1/database?elastic_geoip_service_tos=agree" \
   | python3 -c "
 import json, sys
 dbs = json.load(sys.stdin)
