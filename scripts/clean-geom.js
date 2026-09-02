@@ -57,6 +57,10 @@ function makeValid(feature) {
   };
   if (feature.id) newFeature.id = feature.id;
 
+  if (!feature.geometry) {
+    return newFeature;
+  }
+
   const isSimple = new IsSimpleOp(feature.geometry);
   const isValid = new IsValidOp(feature.geometry);
 
