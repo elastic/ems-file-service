@@ -1,19 +1,24 @@
+DATA_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../../data)
+SCRIPTS_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../../scripts)
+.DEFAULT_GOAL := all
+
+.PHONY: all
+
+all: $(DATA_DIR)/france_regions_v1.geo.json
+
 # Generate france_regions_v1.geo.json from Sophox export + admin_regions_lvl2_v2
 #
 # To regenerate:
-#   1. Run the SPARQL query in sources/fr/regions_v1.hjson on https://sophox.org
-#   2. Export as GeoJSON (precision=0.000001) → sources/fr/france_regions_v1_sophox.geo
+#   1. Run the SPARQL query in regions_v1.hjson on https://sophox.org
+#   2. Export as GeoJSON (precision=0.000001) → france_regions_v1_sophox.geo
 #      (.geo extension avoids being picked up by the sources/**/*.*json build glob)
-#   3. make data/france_regions_v1.geo.json
+#   3. make
 
-OVERSEAS := FR-GF,FR-GP,FR-MQ,FR-RE,FR-YT
-OVERSEAS_FILTER := ['$(OVERSEAS)'.split(',')]
-
-data/france_regions_v1.geo.json: sources/fr/france_regions_v1_sophox.geo data/admin_regions_lvl2_v2.geo.json
-	node scripts/clean-geom.js -o /tmp/fr_regions_cleaned.geo.json $<
-	npx mapshaper \
+$(DATA_DIR)/france_regions_v1.geo.json: ./france_regions_v1_sophox.geo $(DATA_DIR)/admin_regions_lvl2_v2.geo.json
+	node $(SCRIPTS_DIR)/clean-geom.js -o /tmp/fr_regions_cleaned.geo.json $<
+	mapshaper \
 	  -i /tmp/fr_regions_cleaned.geo.json name=sophox \
-	  -i data/admin_regions_lvl2_v2.geo.json name=lvl2 \
+	  -i $(DATA_DIR)/admin_regions_lvl2_v2.geo.json name=lvl2 \
 	  -target lvl2 \
 	  -filter "['FR-GF','FR-GP','FR-MQ','FR-RE','FR-YT'].includes(region_iso_code)" \
 	  -join sophox keys=region_iso_code,iso_3166_2 fields=label_en,label_fr,insee \
