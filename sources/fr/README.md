@@ -42,13 +42,13 @@ Fields: `iso_3166_2` (id), `label_en`, `label_fr`, `insee`.
 1. Run the SPARQL query in `sources/fr/regions_v1.hjson` on [Sophox](https://sophox.org).
 2. Export as GeoJSON with `precision=0.000001` and save to `sources/fr/france_regions_v1_sophox.geo`.
    Use the `.geo` extension — files ending in `*json` in `sources/` are picked up by the build as source definitions.
-3. From the repo root, run:
+3. From the `sources/fr` folder, run:
 
 ```
-$ make data/france_regions_v1.geo.json
+$ make
 ```
 
-The `Makefile` recipe:
+The `sources/fr/Makefile` recipe:
 - Runs `scripts/clean-geom.js` to fix invalid geometries from the Sophox export
 - Uses `mapshaper` to replace overseas DROM geometries with land-clipped versions from `admin_regions_lvl2_v2`
 - Outputs the final file to `data/france_regions_v1.geo.json`
