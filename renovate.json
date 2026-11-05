@@ -11,5 +11,18 @@
   ],
   "labels": [
     "dependencies"
+  ],
+  "packageRules": [
+    {
+      "description": "EMS CI agent images: tag is a build number, not semver; internal image with no release timestamp",
+      "matchPackageNames": [
+        "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node24",
+        "docker.elastic.co/ci-agent-images/ems/playwright"
+      ],
+      "versioning": "numeric",
+      "minimumReleaseAge": "0 days",
+      "minimumReleaseAgeBehaviour": "timestamp-optional",
+      "automerge": true
+    }
   ]
 }
