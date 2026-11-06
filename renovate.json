@@ -15,6 +15,20 @@
   "labels": [
     "dependencies"
   ],
+  "customManagers": [
+    {
+      "description": "Extract EMS CI agent images from Buildkite pipelines (build-number tags)",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.buildkite/.+\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "image:\\s*\"(?<depName>docker\\.elastic\\.co/ci-agent-images/ems/[^:\\s\"]+):(?<currentValue>[^@\\s\"]+)@(?<currentDigest>sha256:[a-f0-9]+)\""
+      ],
+      "datasourceTemplate": "docker",
+      "autoReplaceStringTemplate": "image: \"{{{depName}}}:{{{newValue}}}@{{{newDigest}}}\""
+    }
+  ],
   "packageRules": [
     {
       "description": "EMS CI agent images: tag is a build number, not semver; internal image with no release timestamp",
