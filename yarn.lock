@@ -409,70 +409,70 @@
     "@sigstore/core" "^3.2.1"
     "@sigstore/protobuf-specs" "^0.5.0"
 
-"@tapjs/after-each@4.3.12":
-  version "4.3.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/after-each/-/after-each-4.3.12.tgz#b38177377e4fb123ecedef20cd5507c25d9a8e82"
-  integrity sha512-I1cjyxV1VwNxS86jtggmVAXryc/dxQKkZPvU/E7cZXwtLUfoFggP+SgQ7LGkHom6KmlaMC/ucSilGk10yhAGFA==
+"@tapjs/after-each@4.3.13":
+  version "4.3.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/after-each/-/after-each-4.3.13.tgz#9338549d24d57b49f9fce635209e75a46b5221b8"
+  integrity sha512-5X+QavkGT7yZ+w5nAgFH0kH6PgmjF7cVj30ebFSkezFpTpDlRjn5ORllq8bYAadcmW/lGgh7tiMWK94nDlF8EA==
   dependencies:
     function-loop "^4.0.0"
 
-"@tapjs/after@3.3.12":
-  version "3.3.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/after/-/after-3.3.12.tgz#a9354dda6145d860b3e2029a5b703d6120edf1d5"
-  integrity sha512-09zxTnM88tv14EjLpJgx0nVRHvCyfIqJ5WrXmGWkODLT6KJ6zmF/cO2ElldNdcLqY4GY69D7BjMtf/Te777YHw==
+"@tapjs/after@3.3.13":
+  version "3.3.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/after/-/after-3.3.13.tgz#028c7b975de3b8fda3c6665b5871ba347feb1877"
+  integrity sha512-hpuekuhtdcyHOu+O8fLlU7P+N6IhifnAXtZJn44x8L/M1C5AP3fUJx2ycSKqAkj+coTCWaU9GuWJSj+eGlVskQ==
   dependencies:
     is-actual-promise "^1.0.1"
 
-"@tapjs/asserts@4.3.12":
-  version "4.3.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/asserts/-/asserts-4.3.12.tgz#3025168bd7c114747996bef7a7c4034a46f4d820"
-  integrity sha512-dJVQxRcP4MqxpOYolQirZasyNgjqCQSFnyDNHDW03xPW7dNOlZ8RdJ2kTsW3Zt4eEHGWq3693mgkof8Z+KE6PQ==
+"@tapjs/asserts@4.3.13":
+  version "4.3.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/asserts/-/asserts-4.3.13.tgz#1b696fe163ff1c257392247aa0bd45b216e6f8ed"
+  integrity sha512-31Rs3NV/Y12YoHgk5GsOpoSHcv2CXuO4x4sCkDbxPaobrzhMSAUccYBg43Yce7853Qn6MUXfqBvRKQHfh8GQhA==
   dependencies:
     "@tapjs/stack" "4.3.3"
     is-actual-promise "^1.0.1"
     tcompare "9.3.2"
     trivial-deferred "^2.0.0"
 
-"@tapjs/before-each@4.3.12":
-  version "4.3.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/before-each/-/before-each-4.3.12.tgz#6128a750e11eab46e03622b1fcbcefff26361f4e"
-  integrity sha512-dPQHNKjflFBCO9pAsRBiJKe+xDu+/owfbWRn3ZHQV/hjoKnFLOt5cFtozq47+Woz02UIz57iACYSPjoMJ9TtqA==
+"@tapjs/before-each@4.3.13":
+  version "4.3.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/before-each/-/before-each-4.3.13.tgz#ef234cbe211542670b898b4438acbc028eb4db8b"
+  integrity sha512-C3ONPuOP8ba29Kg2pWUGsruU/SlqW3kPS9bdd8f8arr44yUmTIQxhOUweIZO8MPSMvn+1gEUTAiB/UN9JNOTrA==
   dependencies:
     function-loop "^4.0.0"
 
-"@tapjs/before@4.3.12":
-  version "4.3.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/before/-/before-4.3.12.tgz#8656eff3dca5e28cc2eae3a4dae609676f581208"
-  integrity sha512-rQlklkB2Za1jyzghV3rF+cW08qZ0l3sH6kI1OZzoZt9qa+nS/tD3KUJPvHeNrtM0O9N/0/vqj56nBzkiPYv24g==
+"@tapjs/before@4.3.13":
+  version "4.3.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/before/-/before-4.3.13.tgz#dbfadb5d35aaf522a406c6530a0c1826b83119e2"
+  integrity sha512-5EkSAEGzmmmSLaAAw4AEoqTHIsz7ma3dHqWEi8dPofIgsX1IjXbDjb3PG15RNOzAwciZ/3JdmMN0nPs9CrHjCA==
   dependencies:
     is-actual-promise "^1.0.1"
 
-"@tapjs/chdir@3.3.12":
-  version "3.3.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/chdir/-/chdir-3.3.12.tgz#b26b976edf336b884a12d6f560a76102709e3ec7"
-  integrity sha512-R0iIrlBiYl6i8cLwXXeSBhmPql0WiOjatEmceFubJOLM/KllyKrhQjnpTR2HUIaYkFbRG3GJ2TSWP929fBWWng==
+"@tapjs/chdir@3.3.13":
+  version "3.3.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/chdir/-/chdir-3.3.13.tgz#7ad6e6f193dbaa890c044a20a52f59b5dd3708cd"
+  integrity sha512-sDBvYXxDIkUo4OMq8zRjcDGnvfhY3XfuX6/9JZzNTX/SbW74LQcbx0Rf9a6Ha91lDf7hEH7hwBjs95aWJJ5hFw==
 
-"@tapjs/config@5.6.6":
-  version "5.6.6"
-  resolved "https://registry.yarnpkg.com/@tapjs/config/-/config-5.6.6.tgz#963b910df6ef19c834bbff94c848dcfd4df25514"
-  integrity sha512-rP1BeE3vM3PBcD9wvTDnIfrWTG5N+DbsktRwPjQT1mOHswv4DaYZI2Xt+vpLN4wNtsWydQmmQY3Zj+7QK4P0JA==
+"@tapjs/config@5.6.7":
+  version "5.6.7"
+  resolved "https://registry.yarnpkg.com/@tapjs/config/-/config-5.6.7.tgz#910fe56cc2a0a8ac75888763f99c473ea4c82b5b"
+  integrity sha512-2kYUNifC9bW2qD2Lcj/MHUxceNFDqNs3AcrEKTHnhu0HY6aPRwt3722MuYNmqCJgdVbWBI8uv3YES6pp/ImFbA==
   dependencies:
-    "@tapjs/core" "4.6.0"
-    "@tapjs/test" "4.4.10"
+    "@tapjs/core" "4.6.1"
+    "@tapjs/test" "4.4.11"
     chalk "^5.6.2"
     jackspeak "^4.2.3"
     polite-json "^5.0.0"
     tap-yaml "4.4.2"
     walk-up-path "^4.0.0"
 
-"@tapjs/core@4.6.0":
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/@tapjs/core/-/core-4.6.0.tgz#056b7d3b1759e3d5f14d6e555892514791954ab7"
-  integrity sha512-kMALSbP0PkDL0vQLtcKL78331kpfbR26v9Vq4um5mO1j0+gOlCiZha0vYLhLAC1mAPa0PvwKCFmyvx+xY0de4g==
+"@tapjs/core@4.6.1":
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/@tapjs/core/-/core-4.6.1.tgz#f04a3e026c86aa8b538d29533018fdcfd8ed48e0"
+  integrity sha512-EbrveUWunVGUUfuHCHTDm74J4gzyLLRatmH6xC4P3bzIzh+VSKWBNJT0x8pCdmbtl0WqLVAl9j7Ivuag/xVKsA==
   dependencies:
     "@tapjs/processinfo" "^3.1.12"
     "@tapjs/stack" "4.3.3"
-    "@tapjs/test" "4.4.10"
+    "@tapjs/test" "4.4.11"
     async-hook-domain "^4.0.1"
     diff "^8.0.2"
     is-actual-promise "^1.0.1"
@@ -490,41 +490,41 @@
   dependencies:
     minipass "^7.0.4"
 
-"@tapjs/filter@4.3.12":
-  version "4.3.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/filter/-/filter-4.3.12.tgz#67f5910e607ca134eb3fc5c0ce3091f5f0015647"
-  integrity sha512-KNm+ryFPT4aqnN5vsRMUqtIEcy6hJ4jL6fb444YZwiM7NIDAzG+V7/wky1KdRyhXniNeglJKHuDny4nesVsX/g==
+"@tapjs/filter@4.3.13":
+  version "4.3.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/filter/-/filter-4.3.13.tgz#f7f6b48bdc06f7da8beaaf7b057783be8a0d96fc"
+  integrity sha512-C5liQ1i64tnjSA48powHTi/kZvyP8JUmqWhcxnT/+lo3p1y7ZHemeCOSnqkl3nhP6eiNvrTj/tV61vQAy/4ttQ==
 
-"@tapjs/fixture@4.3.12":
-  version "4.3.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/fixture/-/fixture-4.3.12.tgz#86b4b160775562963ecd7ad1e063ca6fb15cdd68"
-  integrity sha512-pjAzMKaem79fHzXsczAneX28epgQvRxgWhNPU3ixaojogj4zXU9aVYn4Qx9MhtggXmNfeJw8DrESsRqDxrAKaA==
+"@tapjs/fixture@4.3.13":
+  version "4.3.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/fixture/-/fixture-4.3.13.tgz#f19369be11c54687d627d22c20a7e2768fcdfb30"
+  integrity sha512-AdW3LQvf6Cr3mYtbhB5w+Z/9j1qA9EfCD3t07YdfiSnNQkgBzKtvM7bGiomW1cSzBZK/vQpvhCoc9cUvpROYQA==
   dependencies:
-    mkdirp "^3.0.0"
-    rimraf "^6.0.0"
+    mkdirp "^3.0.1"
+    rimraf "^6.1.4"
 
-"@tapjs/intercept@4.3.12":
-  version "4.3.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/intercept/-/intercept-4.3.12.tgz#db899940a8c302219f2a6a8565f3370dacd10c93"
-  integrity sha512-r8sMdyY5DScTOmxTWFHQz10myQvPrUG49WcNLGEaHmQ1+08q4h0/xwrLvjOOeHTb6Jh5qI2WISz80v3Yj/eWAQ==
+"@tapjs/intercept@4.3.13":
+  version "4.3.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/intercept/-/intercept-4.3.13.tgz#6a69ca2e178999cd0201bcf8796960ef67222a59"
+  integrity sha512-qWjm6F+YwDINiNM2ms6TpFvN3ajXXY8v65eTRa8e6YH7l6OyVCt/gDI034Y/+R++vng/MmkTeA5kLMlKPf7uFA==
   dependencies:
-    "@tapjs/after" "3.3.12"
+    "@tapjs/after" "3.3.13"
     "@tapjs/stack" "4.3.3"
 
-"@tapjs/mock@4.4.10":
-  version "4.4.10"
-  resolved "https://registry.yarnpkg.com/@tapjs/mock/-/mock-4.4.10.tgz#04b6e1a10bd688b46a0671ba1ca752418b9fb402"
-  integrity sha512-12TUT9rzZakkeHhXaqHB2MG6FWt1LHwbnZU8VunYni5odisTScXlMLvCp1tr+dmf8KI/OGQWV8FzBgiSjPVSqg==
+"@tapjs/mock@4.4.11":
+  version "4.4.11"
+  resolved "https://registry.yarnpkg.com/@tapjs/mock/-/mock-4.4.11.tgz#fcb892f4687b2d673689e7fdc5cec675055687a6"
+  integrity sha512-4eyOJDj0VtrJfoUr+UdDiqbLzrmPmDUyqbDF30t1upM/d6zXXppyHRYtHjEGeHBYHW3YJkFnFO7HnUsMkfgKdA==
   dependencies:
-    "@tapjs/after" "3.3.12"
+    "@tapjs/after" "3.3.13"
     "@tapjs/stack" "4.3.3"
     resolve-import "^2.4.0"
     walk-up-path "^4.0.0"
 
-"@tapjs/node-serialize@4.3.12":
-  version "4.3.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/node-serialize/-/node-serialize-4.3.12.tgz#2e463bd4ef1dd118feccfd174c445a0a1156ae93"
-  integrity sha512-6iyxBx77iPMPMdGLfb38kp4HFI6saweURSUV0X1OtfdmlyZ7DJypReCuBxv1WtoHKAtGmoCNFRSPkMusMqCfHQ==
+"@tapjs/node-serialize@4.3.13":
+  version "4.3.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/node-serialize/-/node-serialize-4.3.13.tgz#17a5e4587ef770ce77a1bb25c3bf1d53e11f2693"
+  integrity sha512-o0xjo3UzPZTl968zKWYjpc80hn1yOX7NqMCIJsjtxp5Oy57oMRw5G2mRcO1znOGV5HOturUUW3Vt8PRgKhajZQ==
   dependencies:
     "@tapjs/error-serdes" "4.3.2"
     "@tapjs/stack" "4.3.3"
@@ -541,12 +541,12 @@
     signal-exit "^4.0.2"
     uuid "^14.0.0"
 
-"@tapjs/reporter@4.5.0":
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/@tapjs/reporter/-/reporter-4.5.0.tgz#4254045e01abd4af127b212c69ac65c5f7fc6070"
-  integrity sha512-aowTYTTHOC/J9lLwpHbTvSBnHC5alAY/G+VVS11e4toRWs/aa99c9fVqu5ldQDiruGpE9fs2Ihs8mxyq+gImNQ==
+"@tapjs/reporter@4.5.1":
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/@tapjs/reporter/-/reporter-4.5.1.tgz#d2ddfd1611d3578526b69bfc6ef082ce8d9a44b0"
+  integrity sha512-jeKY2FWbrXTjtZ3vbLVMEkjva+Feys0asv2aHxbwphXPzM1QXxbk7p0+goQh99FLgyERu7CtEy94EkFKVngivg==
   dependencies:
-    "@tapjs/config" "5.6.6"
+    "@tapjs/config" "5.6.7"
     "@tapjs/stack" "4.3.3"
     chalk "^5.6.2"
     ink "^5.2.1"
@@ -560,33 +560,33 @@
     tap-yaml "4.4.2"
     tcompare "9.3.2"
 
-"@tapjs/run@4.5.10":
-  version "4.5.10"
-  resolved "https://registry.yarnpkg.com/@tapjs/run/-/run-4.5.10.tgz#c1df9aaaee57e5af700a6fc2ce8057996d7eeb62"
-  integrity sha512-1j1+mjykxuszxpqsa8qyVYlyKctXx03uVvdzqHPKNXYJU/lm+H+iJj8YKKoLaqP8lgNvlwTzVhzHQ1+Ezo4MMA==
+"@tapjs/run@4.5.11":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@tapjs/run/-/run-4.5.11.tgz#4923dfa7fa8c1e6ff604418da5e34b42363eb63a"
+  integrity sha512-tOXJtNX9FGw7XFJJU1+yVeZU/wFTsUmMkrXB0qcBm7qQlWKZy4tfXgaT13wETqufFTIZaq6zkEBU0GlufM+aOA==
   dependencies:
     "@isaacs/which" "^7.0.4"
-    "@tapjs/after" "3.3.12"
-    "@tapjs/before" "4.3.12"
-    "@tapjs/config" "5.6.6"
+    "@tapjs/after" "3.3.13"
+    "@tapjs/before" "4.3.13"
+    "@tapjs/config" "5.6.7"
     "@tapjs/processinfo" "^3.1.12"
-    "@tapjs/reporter" "4.5.0"
-    "@tapjs/spawn" "4.3.12"
-    "@tapjs/stdin" "4.3.12"
-    "@tapjs/test" "4.4.10"
+    "@tapjs/reporter" "4.5.1"
+    "@tapjs/spawn" "4.3.13"
+    "@tapjs/stdin" "4.3.13"
+    "@tapjs/test" "4.4.11"
     c8 "^12.0.0"
     chalk "^5.6.2"
     chokidar "^4.0.2"
     foreground-child "^4.0.0"
-    glob "^13.0.2"
+    glob "^14.0.3"
     minipass "^7.0.4"
     mkdirp "^3.0.1"
     node-options-to-argv "^1.0.0"
     opener "^1.5.2"
     pacote "^21.0.4"
-    path-scurry "^2.0.0"
+    path-scurry "^3.0.0"
     resolve-import "^2.4.0"
-    rimraf "^6.0.0"
+    rimraf "^6.1.4"
     semver "^7.7.2"
     signal-exit "^4.1.0"
     tap-parser "18.3.4"
@@ -594,75 +594,75 @@
     tcompare "9.3.2"
     trivial-deferred "^2.0.0"
 
-"@tapjs/snapshot@4.3.12":
-  version "4.3.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/snapshot/-/snapshot-4.3.12.tgz#d396738952e85141763bcc20f2cb002f5d2a95ff"
-  integrity sha512-Yqpl8gycFl5MC2dErpW5nKFcpNf7JvK67Ua3pjxe4u6cn4VyKn62oEl9Tv3lfvqdjBLjzgneQPGK0U07PuCdOw==
+"@tapjs/snapshot@4.3.13":
+  version "4.3.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/snapshot/-/snapshot-4.3.13.tgz#d6428343914ac45d54886bb6bc69478e807df983"
+  integrity sha512-7LaYkjJ7Oe363ZRQ+xs9KwnVmhns8guNLOFzNEjPoSHENW/NJGj32dpPqNc8JFMb5LiQb6UKSAcR/14mFjr2Uw==
   dependencies:
     is-actual-promise "^1.0.1"
     tcompare "9.3.2"
     trivial-deferred "^2.0.0"
 
-"@tapjs/spawn@4.3.12":
-  version "4.3.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/spawn/-/spawn-4.3.12.tgz#09dbe7b074635a5b030df71eab9d77218b01dd63"
-  integrity sha512-aAH+piOVePqAhVhlDfJo44YJ7QjtB3FaBIJmNip5QtFTYw+xt5D4tI2IxyKC3X94oE5f3PyicmisDz/pB3pydg==
+"@tapjs/spawn@4.3.13":
+  version "4.3.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/spawn/-/spawn-4.3.13.tgz#9caabafa22130d67210ccb8567b4897c85495628"
+  integrity sha512-CgRUFWbg7a9q5jdkx4MswFwy9Eo6NTXBVIJUccwH8BCSd0ETSv7ig9RwxC/HhKuMvfMw17IO9G1v5e4vTAkBCQ==
 
 "@tapjs/stack@4.3.3":
   version "4.3.3"
   resolved "https://registry.yarnpkg.com/@tapjs/stack/-/stack-4.3.3.tgz#c2389e6c05efb29386eaaba42f6909c0fa5d1b97"
   integrity sha512-7T64b+OIyU0WitBzu8ksfwt+EvtSrh6aHYhQD0lImrDqxw2Jdwvd43F6sEFXiAA+sO/d0ERUn+OJW3zYNpygTg==
 
-"@tapjs/stdin@4.3.12":
-  version "4.3.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/stdin/-/stdin-4.3.12.tgz#60fa34c1b91de64c4f0d64862d5395e75884e926"
-  integrity sha512-BFvyJxOwj5HKvJD7ax7fO/sXWtXLeQyXXZq+zY4XTnamf4rKYqU49tUEZzRbw/DjB/dDM3LpE+4j00ybQ47TKQ==
+"@tapjs/stdin@4.3.13":
+  version "4.3.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/stdin/-/stdin-4.3.13.tgz#9a64b884ffef81a0d67cb21fc2e8796e3993afd4"
+  integrity sha512-1I0iXEUGh8qwq0CdQuJWZWlyPteWAyYlIb71SamybWjMxJjBD/5pPgpVSbNGI738DTNFnSXSus7cYTvazXh+VA==
 
-"@tapjs/test@4.4.10":
-  version "4.4.10"
-  resolved "https://registry.yarnpkg.com/@tapjs/test/-/test-4.4.10.tgz#418e03ea8abadbe81dee6f60557f1e934d0bcbc7"
-  integrity sha512-vZgJkDDJuUB/Hyos4+A5FYGTv41v/7nQuW+RGl4vq4ru8ZWq2XUun6Gg6/fApJVro6Eoz0UIuAaGV8Yzlktl3Q==
+"@tapjs/test@4.4.11":
+  version "4.4.11"
+  resolved "https://registry.yarnpkg.com/@tapjs/test/-/test-4.4.11.tgz#851aad35befdced23398c0abd51133326950c913"
+  integrity sha512-UqNpKdWQ2GjnE0iU0c6ZLqB8FtQWu8G0GfwpyRvizmdjoFfAMSJcy9VNkEY0vMcxq3plJrHSYmONMLdj1dwwaw==
   dependencies:
     "@isaacs/ts-node-temp-fork-for-pr-2009" "^10.9.7"
-    "@tapjs/after" "3.3.12"
-    "@tapjs/after-each" "4.3.12"
-    "@tapjs/asserts" "4.3.12"
-    "@tapjs/before" "4.3.12"
-    "@tapjs/before-each" "4.3.12"
-    "@tapjs/chdir" "3.3.12"
-    "@tapjs/filter" "4.3.12"
-    "@tapjs/fixture" "4.3.12"
-    "@tapjs/intercept" "4.3.12"
-    "@tapjs/mock" "4.4.10"
-    "@tapjs/node-serialize" "4.3.12"
-    "@tapjs/snapshot" "4.3.12"
-    "@tapjs/spawn" "4.3.12"
-    "@tapjs/stdin" "4.3.12"
-    "@tapjs/typescript" "3.5.12"
-    "@tapjs/worker" "4.3.12"
-    glob "^13.0.2"
+    "@tapjs/after" "3.3.13"
+    "@tapjs/after-each" "4.3.13"
+    "@tapjs/asserts" "4.3.13"
+    "@tapjs/before" "4.3.13"
+    "@tapjs/before-each" "4.3.13"
+    "@tapjs/chdir" "3.3.13"
+    "@tapjs/filter" "4.3.13"
+    "@tapjs/fixture" "4.3.13"
+    "@tapjs/intercept" "4.3.13"
+    "@tapjs/mock" "4.4.11"
+    "@tapjs/node-serialize" "4.3.13"
+    "@tapjs/snapshot" "4.3.13"
+    "@tapjs/spawn" "4.3.13"
+    "@tapjs/stdin" "4.3.13"
+    "@tapjs/typescript" "3.5.13"
+    "@tapjs/worker" "4.3.13"
+    glob "^14.0.3"
     jackspeak "^4.2.3"
-    mkdirp "^3.0.0"
+    mkdirp "^3.0.1"
     package-json-from-dist "^1.0.0"
     resolve-import "^2.4.0"
-    rimraf "^6.0.0"
-    sync-content "^2.0.4"
+    rimraf "^6.1.4"
+    sync-content "^2.0.5"
     tap-parser "18.3.4"
-    tshy "^3.3.2"
+    tshy "^4.1.4"
     typescript "5.9"
     walk-up-path "^4.0.0"
 
-"@tapjs/typescript@3.5.12":
-  version "3.5.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/typescript/-/typescript-3.5.12.tgz#abbd7d1406992c243e58ee00a7cc32f720fecb19"
-  integrity sha512-24ExsApHVBRLIfZG9EcNKU2VJcTjPdUgJKK8+MyuRDSsnHWb2q3OOviXUxFh4hHJB/qRWZwjrvcTNJn2zl1VaA==
+"@tapjs/typescript@3.5.13":
+  version "3.5.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/typescript/-/typescript-3.5.13.tgz#e4416d985ab59944412e02eb09f58ee8fe31fcd2"
+  integrity sha512-yhfJnc3HTupP/Bj75bIEr47qLYcQ8jkCT11loMnS9JM2gnhC3s1Ks6F7M6bWhuTCXjZNVHwglkfIPAJiNzZCAA==
   dependencies:
     "@isaacs/ts-node-temp-fork-for-pr-2009" "^10.9.7"
 
-"@tapjs/worker@4.3.12":
-  version "4.3.12"
-  resolved "https://registry.yarnpkg.com/@tapjs/worker/-/worker-4.3.12.tgz#cf1ad04a514699ba7e12cbe8399d32f82030bf73"
-  integrity sha512-qEUIhLoEpsTrRm1mV/GP253vg+0/vO7LbHVqhacNSTsOYeWDOnrvSoRakKnzkJxGGI8++oLpgfzCAp0oOazW2g==
+"@tapjs/worker@4.3.13":
+  version "4.3.13"
+  resolved "https://registry.yarnpkg.com/@tapjs/worker/-/worker-4.3.13.tgz#d7caa93e8f35acabb48b22ba431794a569b7672d"
+  integrity sha512-i7+rL1e2h/OER1sct9dfJZ6c4bRdUjfFGK5e/FjTEMMWxvsoX0r1a+1VZGkvbpOP46E8WU/d5IpnzNc7iIoXiA==
 
 "@tsconfig/node14@*":
   version "14.1.3"
@@ -1848,7 +1848,7 @@ glob-parent@^6.0.2:
   dependencies:
     is-glob "^4.0.3"
 
-glob@^10.2.2, glob@^11.0.0, glob@^11.0.3, glob@^13.0.0, glob@^13.0.1, glob@^13.0.2, glob@^13.0.3, glob@^13.0.6, glob@^14.0.0:
+glob@^10.2.2, glob@^11.0.0, glob@^11.0.3, glob@^13.0.0, glob@^13.0.6, glob@^14.0.0, glob@^14.0.3:
   version "14.0.3"
   resolved "https://registry.yarnpkg.com/glob/-/glob-14.0.3.tgz#71e124649b3e28fdb09bdb07ef478b10c68fd6e1"
   integrity sha512-A1vjIwC3qpdCso45Iw127gnp7sPhqgY8lUQhDrArIs+GbmfaaVPFuoyy7WyLT9EPZCRZ7j7aLdwUhQmHWesEow==
@@ -2500,7 +2500,7 @@ mimic-fn@^2.1.0:
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-2.1.0.tgz#7ed2c2ccccaf84d3ffcb7a69b57711fc2083401b"
   integrity sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==
 
-minimatch@^10.0.3, minimatch@^10.1.1, minimatch@^10.2.2, minimatch@^10.2.4, minimatch@^10.2.6, minimatch@^11.0.0, minimatch@^11.0.2, minimatch@^3.1.2:
+minimatch@^10.0.3, minimatch@^10.1.1, minimatch@^10.2.2, minimatch@^10.2.4, minimatch@^10.2.6, minimatch@^11.0.0, minimatch@^11.0.2, minimatch@^11.0.4, minimatch@^3.1.2:
   version "11.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-11.0.4.tgz#3ed156790c2754647ee94dab305a3f93cd16481e"
   integrity sha512-/UJ1dEoVQTjPNDh6SGlUo+ueLMmoHTas4q+8yaAR/5t6nLAIiBDJtoYUh20IYleix7ehiQkgczb84PE3uzHkxg==
@@ -2604,7 +2604,7 @@ minizlib@^3.0.1, minizlib@^3.1.0:
   dependencies:
     minipass "^7.1.2"
 
-mkdirp@^3.0.0, mkdirp@^3.0.1:
+mkdirp@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-3.0.1.tgz#e44e4c5607fb279c168241713cc6e0fea9adcb50"
   integrity sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg==
@@ -2883,14 +2883,6 @@ path-parse@^1.0.7:
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
   integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
-path-scurry@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/path-scurry/-/path-scurry-2.0.0.tgz#9f052289f23ad8bf9397a2a0425e7b8615c58580"
-  integrity sha512-ypGJsmGtdXUOeM5u93TyeIEfEhM6s+ljAhrk5vAvSx8uyY/02OvrZnA0YNGUrPXfpJMgI1ODd3nwz8Npx4O4cg==
-  dependencies:
-    lru-cache "^11.0.0"
-    minipass "^7.1.2"
-
 path-scurry@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/path-scurry/-/path-scurry-3.0.0.tgz#384894267bb8d1889242d176433f91ae1eec5cbb"
@@ -3078,6 +3070,14 @@ resolve-import@^2.4.0:
     glob "^13.0.0"
     walk-up-path "^4.0.0"
 
+resolve-import@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/resolve-import/-/resolve-import-2.4.2.tgz#7ebd2585bf455ae958efa41a6d0813bb11b05337"
+  integrity sha512-oPqmfjsmRlPxOTrEuJT4vl/gA9FXn+OmW6r/Qd3a6H6/gQULvOUUvd1cXT+DFJej3zQ4HzUxGWrfh5dkt2V8pA==
+  dependencies:
+    glob "^14.0.3"
+    walk-up-path "^4.0.0"
+
 resolve@^1.22.4:
   version "1.22.10"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.10.tgz#b663e83ffb09bbf2386944736baae803029b8b39"
@@ -3108,12 +3108,12 @@ rimraf@^6.0.0:
     glob "^11.0.0"
     package-json-from-dist "^1.0.0"
 
-rimraf@^6.1.2:
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-6.1.3.tgz#afbee236b3bd2be331d4e7ce4493bac1718981af"
-  integrity sha512-LKg+Cr2ZF61fkcaK1UdkH2yEBBKnYjTyWzTJT6KNPcSPaiT7HSdhtMXQuN5wkTX0Xu72KQ1l8S42rlmexS2hSA==
+rimraf@^6.1.4:
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-6.1.4.tgz#16b4ed760f3015c2d888c58f805f1f7c138c8c32"
+  integrity sha512-Fk3reQDVPZUMbEm7Zwxz03BWQMW3V5buSk9aU8OckTrO8A1nQtbqvYsAantGNermwsIsXcuOBqcoJ3HuMELctw==
   dependencies:
-    glob "^13.0.3"
+    glob "^14.0.3"
     package-json-from-dist "^1.0.1"
 
 safe-array-concat@^1.1.3:
@@ -3477,14 +3477,14 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-sync-content@^2.0.3, sync-content@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/sync-content/-/sync-content-2.0.4.tgz#7c600028f80b2b3ee39ee55e268662d4a052aa56"
-  integrity sha512-w3ioiBmbaogob33WdLnuwFk+8tpePI58CTWKqtdAgEqc2hfGuSwP02gPETqNX/3PLS5skv5a1wQR0gbaa2W0XQ==
+sync-content@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/sync-content/-/sync-content-2.0.5.tgz#a3ef1c9ec1326223e2e61676141af83d5a722a99"
+  integrity sha512-G4FgCnGtZTKEx3jCbUQlu4npTZezLX+BrLyPzu5ksCy6a5NCz1C44niznFoorAEAam0TplRnLgPrIq8Myi1jFw==
   dependencies:
-    glob "^13.0.1"
+    glob "^14.0.3"
     mkdirp "^3.0.1"
-    path-scurry "^2.0.0"
+    path-scurry "^3.0.0"
     rimraf "^6.0.0"
 
 tap-parser@18.3.4:
@@ -3503,30 +3503,30 @@ tap-yaml@4.4.2:
     yaml "^2.8.3"
     yaml-types "^0.4.0"
 
-tap@21.8.0:
-  version "21.8.0"
-  resolved "https://registry.yarnpkg.com/tap/-/tap-21.8.0.tgz#481f76dee3618061df47e540256916f4b3928bfb"
-  integrity sha512-vUVm7RG/gk+oAYWphqjEm5uTSQDJZy6CG+g2x+QWqP/L8+DCQGbKRfGkm+sPZhDffLfeyqJKWPOJEfFsCZrE6A==
+tap@21.8.1:
+  version "21.8.1"
+  resolved "https://registry.yarnpkg.com/tap/-/tap-21.8.1.tgz#86a2a0ec24dd2a72491b18168025155e26273e4f"
+  integrity sha512-m/oyskpz07H5hbHPrHGiZvbCDNOCD7ig8Urgs3EqvUzpBUc4fLnlCLTzWq4S0qtTGYxl9YsRQy8wanM0ykr6cA==
   dependencies:
-    "@tapjs/after" "3.3.12"
-    "@tapjs/after-each" "4.3.12"
-    "@tapjs/asserts" "4.3.12"
-    "@tapjs/before" "4.3.12"
-    "@tapjs/before-each" "4.3.12"
-    "@tapjs/chdir" "3.3.12"
-    "@tapjs/core" "4.6.0"
-    "@tapjs/filter" "4.3.12"
-    "@tapjs/fixture" "4.3.12"
-    "@tapjs/intercept" "4.3.12"
-    "@tapjs/mock" "4.4.10"
-    "@tapjs/node-serialize" "4.3.12"
-    "@tapjs/run" "4.5.10"
-    "@tapjs/snapshot" "4.3.12"
-    "@tapjs/spawn" "4.3.12"
-    "@tapjs/stdin" "4.3.12"
-    "@tapjs/test" "4.4.10"
-    "@tapjs/typescript" "3.5.12"
-    "@tapjs/worker" "4.3.12"
+    "@tapjs/after" "3.3.13"
+    "@tapjs/after-each" "4.3.13"
+    "@tapjs/asserts" "4.3.13"
+    "@tapjs/before" "4.3.13"
+    "@tapjs/before-each" "4.3.13"
+    "@tapjs/chdir" "3.3.13"
+    "@tapjs/core" "4.6.1"
+    "@tapjs/filter" "4.3.13"
+    "@tapjs/fixture" "4.3.13"
+    "@tapjs/intercept" "4.3.13"
+    "@tapjs/mock" "4.4.11"
+    "@tapjs/node-serialize" "4.3.13"
+    "@tapjs/run" "4.5.11"
+    "@tapjs/snapshot" "4.3.13"
+    "@tapjs/spawn" "4.3.13"
+    "@tapjs/stdin" "4.3.13"
+    "@tapjs/test" "4.4.11"
+    "@tapjs/typescript" "3.5.13"
+    "@tapjs/worker" "4.3.13"
     resolve-import "^2.4.0"
 
 tar@^7.4.3:
@@ -3585,23 +3585,24 @@ tsconfig-paths@^3.15.0:
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
-tshy@^3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/tshy/-/tshy-3.3.2.tgz#902411c0bfdd054fa87318e7210c9ca6fecd254f"
-  integrity sha512-vOIXkqMtBWNjKUR/c99+6N50LhWdnKG1xE3+5wf8IPdzxx2lcIFPvbGgFdBBgoTMbdNb8mz06MUm7hY+TFnJcw==
+tshy@^4.1.4:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/tshy/-/tshy-4.1.4.tgz#2a13a54cb086fe8eeeae874ff958e431067ab94e"
+  integrity sha512-yfCXXPt6MQm/NbO08SoU9j/3M0nxCj4DPo+59UBLVkRfCTiAnzy6cEC+JuncpjHgSyz56o/QuoSX/RjThD7eBw==
   dependencies:
     "@typescript/native-preview" "^7.0.0-dev.20260218.1"
     chalk "^5.6.2"
     chokidar "^4.0.3"
     foreground-child "^4.0.0"
+    glob "^14.0.3"
     jsonc-simple-parser "^3.0.0"
-    minimatch "^10.0.3"
+    minimatch "^11.0.4"
     mkdirp "^3.0.1"
     polite-json "^5.0.0"
-    resolve-import "^2.4.0"
-    rimraf "^6.1.2"
-    sync-content "^2.0.3"
-    typescript "^5.9.3"
+    resolve-import "^2.4.2"
+    rimraf "^6.1.4"
+    sync-content "^2.0.5"
+    typescript "^6.0.2"
     walk-up-path "^4.0.0"
 
 tuf-js@^4.1.0:
@@ -3675,10 +3676,15 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-typescript@5.9, typescript@^5.9.3:
+typescript@5.9:
   version "5.9.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.3.tgz#5b4f59e15310ab17a216f5d6cf53ee476ede670f"
   integrity sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==
+
+typescript@^6.0.2:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-6.0.3.tgz#90251dc007916e972786cb94d74d15b185577d21"
+  integrity sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==
 
 unbox-primitive@^1.1.0:
   version "1.1.0"
