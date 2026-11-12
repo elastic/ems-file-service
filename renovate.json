@@ -33,7 +33,7 @@
     {
       "description": "EMS CI agent images: tag is a build number, not semver; internal image with no release timestamp",
       "matchPackageNames": [
-        "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node24",
+        "docker.elastic.co/ci-agent-images/ems/buildkite-agent-node26",
         "docker.elastic.co/ci-agent-images/ems/playwright"
       ],
       "versioning": "numeric",
