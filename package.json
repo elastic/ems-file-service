@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
-    "@mapbox/geojson-rewind": "0.5.2",
+    "@mapbox/geojson-rewind": "0.6.0",
     "ajv": "8.20.0",
     "ajv-formats": "3.0.1",
     "@babel/eslint-parser": "8.0.7",
