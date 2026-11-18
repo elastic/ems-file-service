@@ -10,10 +10,10 @@
     ansi-styles "^6.2.1"
     is-fullwidth-code-point "^4.0.0"
 
-"@babel/eslint-parser@8.0.7":
-  version "8.0.7"
-  resolved "https://registry.yarnpkg.com/@babel/eslint-parser/-/eslint-parser-8.0.7.tgz#ae5b9f9bf09dae608fd6e696a6a7018c4a74650d"
-  integrity sha512-ik5I+U64QuQQPohw0A1wVWPR+vTRYVfWBDLOLc1KwZQ2SKayQLD52DgoB3W/kmwc4MP1E37qh7nZuDD9xsKYcA==
+"@babel/eslint-parser@8.1.2":
+  version "8.1.2"
+  resolved "https://registry.yarnpkg.com/@babel/eslint-parser/-/eslint-parser-8.1.2.tgz#d4ceb3b89c8d3d3636682777719820155794cd9c"
+  integrity sha512-oyB1a5JmJz/Hrw7Qy6c47uAemiD3irqyVyPwGsdzdw7XpdCtKCkmEJqtHnqRSrxiptVJoccrAxU+iDMs9zgeIg==
   dependencies:
     eslint-scope "^9.1.0"
     eslint-visitor-keys "^5.0.0"
@@ -973,6 +973,8 @@ balanced-match@^4.0.2:
 
 brace-expansion@^5.0.12, brace-expansion@^5.0.8:
   version "5.0.13"
+  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-5.0.13.tgz#e2d4497370f7e385e6f96b57bd7ff11d77d85851"
+  integrity sha512-Vh3dmFbc4wZeox7M9I/0L9GfFd83Su4+yCck/OF9Gi/P/dAHn0RT7X4K9R7gMNMhDck3DvhR6QXsnQdjjgwNvQ==
   dependencies:
     balanced-match "^4.0.2"
 
